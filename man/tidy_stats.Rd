@@ -89,13 +89,13 @@ tidy_stats(x, args = NULL)
 }
 \description{
 \code{tidy_stats} is used to convert the output of a statistical object to a
-list of organized statistics. The \code{tidy_stats} function is automatically 
-run when \code{add_stats} is used, so there is generally no need to use this 
-function explicitly. It can be used, however, to peek at how the output of a 
+list of organized statistics. The \code{tidy_stats} function is automatically
+run when \code{add_stats} is used, so there is generally no need to use this
+function explicitly. It can be used, however, to peek at how the output of a
 specific analysis will be organized.
 }
 \details{
-Please note that not all statistical tests are supported. See 'Details' 
+Please note that not all statistical tests are supported. See 'Details'
 below for a list of supported statistical tests.
 
 

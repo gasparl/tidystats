@@ -73,12 +73,20 @@ results, with the identifier as the name for each list element.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>file</dt>
-<dd><p>Path to the tidy stats data file</p></dd>
+<dd><p>A string; specifying the path to the tidystats data file.</p></dd>
 </dl></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu">read_stats</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"results.json"</span>, package <span class="op">=</span> <span class="st">"tidystats"</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># A simple example, assuming there is a file called 'results.json'</span></span>
+<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
+<span class="r-in">  <span class="va">results</span> <span class="op">&lt;-</span> <span class="fu">read_stats</span><span class="op">(</span><span class="st">"results.json"</span><span class="op">)</span></span>
+<span class="r-in"><span class="op">}</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="co"># A working example</span></span>
+<span class="r-in"><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu">read_stats</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"results.json"</span>, package <span class="op">=</span> <span class="st">"tidystats"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>The file does not have a .json file extension; make sure to check whether you have specified the correct file.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in readBin(structure(4L, class = c("file", "connection"), conn_id = &lt;pointer: 0x1dc8&gt;),     raw(0), 32768L):</span> can only read from a binary connection</span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>
@@ -91,8 +99,7 @@ results, with the identifier as the name for each list element.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
     </footer></div>

@@ -9,7 +9,6 @@
 # ?stats::bartlett.test()
 # ?stats::fligner.test()
 # ?stats::kruskal.test()
-# ?stats::mauchly.test()
 # ?stats::mcnemar.test()
 # ?stats::poisson.test()
 # ?stats::shapiro.test()
@@ -161,7 +160,7 @@ wilcoxon_rank_sum_conf
 
 # Get data
 x <- c(2.9, 3.0, 2.5, 2.6, 3.2)
-y <- c(3.8, 2.7, 4.0, 2.4)     
+y <- c(3.8, 2.7, 4.0, 2.4)
 z <- c(2.8, 3.4, 3.7, 2.2, 2.0)
 
 # Run analyses
@@ -175,7 +174,7 @@ results <- results %>%
 
 # Inspect output
 kruskal
-kruskal_formula 
+kruskal_formula
 
 # fisher.test() -----------------------------------------------------------
 
@@ -184,23 +183,23 @@ set.seed(2015)
 
 # Get data
 TeaTasting <- matrix(
-  data = c(3, 1, 1, 3), 
+  data = c(3, 1, 1, 3),
   nrow = 2,
   dimnames = list(Guess = c("Milk", "Tea"), Truth = c("Milk", "Tea"))
 )
 
 Convictions <- matrix(
-  data = c(2, 10, 15, 3), 
-  nrow = 2, 
+  data = c(2, 10, 15, 3),
+  nrow = 2,
   dimnames = list(
-    c("Dizygotic", "Monozygotic"), 
+    c("Dizygotic", "Monozygotic"),
     c("Convicted", "Not convicted")
   )
 )
 
 Job <- matrix(
-  data = c(1, 2, 1, 0, 3, 3, 6, 1, 10, 10, 14, 9, 6, 7, 12, 11), 
-  nrow = 4, 
+  data = c(1, 2, 1, 0, 3, 3, 6, 1, 10, 10, 14, 9, 6, 7, 12, 11),
+  nrow = 4,
   ncol = 4,
   dimnames = list(
     income = c("< 15k", "15-25k", "25-40k", "> 40k"),
@@ -258,7 +257,7 @@ results <- results %>%
   add_stats(ks_test_two) %>%
   add_stats(ks_test_one) %>%
   add_stats(ks_test_inexact) %>%
-  add_stats(ks_test_greater) 
+  add_stats(ks_test_greater)
 
 # Inspect output
 ks_test_two
@@ -270,7 +269,7 @@ ks_test_greater
 
 # Run analyses
 oneway_test <- oneway.test(extra ~ group, data = sleep)
-oneway_test_equal_var <- oneway.test(extra ~ group, data = sleep, 
+oneway_test_equal_var <- oneway.test(extra ~ group, data = sleep,
   var.equal = TRUE)
 
 # Add stats
@@ -300,6 +299,30 @@ results <- add_stats(results, var_test)
 # Inspect output
 var_test
 
+
+# mauchly.test() --------------------------------------------------------------
+
+utils::example(SSD) # Brings in the mlmfit and reacttime objects
+
+# Run analyses
+
+# traditional test of intrasubj. contrasts
+mauchly_test = mauchly.test(mlmfit, X = ~ 1)
+# tests using intra-subject 3x2 design
+idata <- data.frame(deg = gl(3, 1, 6, labels = c(0, 4, 8)),
+                    noise = gl(2, 3, 6, labels = c("A", "P")))
+mauchly_test_orthogonal = mauchly.test(mlmfit, X = ~ deg + noise, idata = idata)
+mauchly_test_spanned = mauchly.test(mlmfit,
+                                    M = ~ deg + noise,
+                                    X = ~ noise,
+                                    idata = idata)
+
+# Add stats
+results <- results %>%
+    add_stats(mauchly_test) %>%
+    add_stats(mauchly_test_orthogonal) %>%
+    add_stats(mauchly_test_spanned)
+
 # tidy_stats_to_data_frame() ----------------------------------------------
 
 df <- tidy_stats_to_data_frame(results)
@@ -307,3 +330,6 @@ df <- tidy_stats_to_data_frame(results)
 # write_stats() -----------------------------------------------------------
 
 write_stats(results, "tests/testthat/data/htest.json")
+
+# results = list()
+# write_stats(results, "tests/testthat/data/0temporary.json")

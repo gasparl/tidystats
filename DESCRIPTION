@@ -23,6 +23,7 @@ Imports:
     tibble
 Suggests: 
     BayesFactor,
+    lavaan,
     lme4,
     lmerTest
 VignetteBuilder: knitr
