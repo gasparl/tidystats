@@ -156,14 +156,15 @@ tidy_stats.htest <- function(x, args = NULL) {
 
   # Special case: One-way analysis of means has more than 1 df
   if (length(x$parameter) > 1) {
-    statistics <- add_statistic(statistics, "df numerator", x$parameter[[1]],
-      "df", "num.")
+    statistics <-
+      add_statistic(statistics, "df numerator", x$parameter[[1]],
+                    "df", "num.")
     statistics <- add_statistic(statistics, "df denominator",
-      x$parameter[[2]], "df", "den.")
-  } else {
+                                x$parameter[[2]], "df", "den.")
+  } else if (!x$method == "Exact binomial test") {
     statistics <- add_statistic(statistics, "df", x$parameter[[1]])
   }
-
+  
   statistics <- add_statistic(statistics, "p", x$p.value)
 
   # Add statistics to the analysis
