@@ -62,6 +62,8 @@ Supported functions:
   \item \code{aov()}
   \item \code{anova()}
   \item \code{mauchly.test()}
+  \item \code{mcnemar.test()}
+  \item \code{binom.test()}
 }
 
 \code{lme4}/\code{lmerTest}:

@@ -985,7 +985,7 @@
     "statistics": [
       {
         "name": "estimate",
-        "symbol": "probability",
+        "symbol": "proportion",
         "value": 0.737297,
         "interval": "CI",
         "level": 0.95,
@@ -1016,7 +1016,7 @@
     "statistics": [
       {
         "name": "estimate",
-        "symbol": "probability",
+        "symbol": "proportion",
         "value": 0.737297,
         "interval": "CI",
         "level": 0.95,
