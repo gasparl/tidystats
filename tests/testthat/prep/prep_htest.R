@@ -3,13 +3,11 @@
 # ?stats::PP.test()
 # ?stats::Box.test()
 # ?stats::mood.test()
-# ?stats::binom.test()
 # ?stats::quade.test()
 # ?stats::ansari.test()
 # ?stats::bartlett.test()
 # ?stats::fligner.test()
 # ?stats::kruskal.test()
-# ?stats::mcnemar.test()
 # ?stats::poisson.test()
 # ?stats::shapiro.test()
 # ?stats::friedman.test()
@@ -302,7 +300,8 @@ var_test
 
 # mauchly.test() --------------------------------------------------------------
 
-utils::example(SSD) # Brings in the mlmfit and reacttime objects
+# Get data: brings in the mlmfit and reacttime objects
+utils::example(SSD)
 
 # Run analyses
 
@@ -322,6 +321,70 @@ results <- results %>%
     add_stats(mauchly_test) %>%
     add_stats(mauchly_test_orthogonal) %>%
     add_stats(mauchly_test_spanned)
+
+# Inspect output
+mauchly_test
+mauchly_test_orthogonal
+mauchly_test_spanned
+
+
+# mcnemar.test()  --------------------------------------------------------------
+
+# Get data
+Performance <-
+  matrix(
+    c(794, 86, 150, 570),
+    nrow = 2,
+    dimnames = list(
+      "1st Survey" = c("Approve", "Disapprove"),
+      "2nd Survey" = c("Approve", "Disapprove")
+    )
+  )
+
+# Run analysis
+mcnemar_test <- mcnemar.test(Performance)
+mcnemar_test_nocorrect <- mcnemar.test(Performance, correct = FALSE)
+
+# Add stats
+results <- results %>%
+  add_stats(mcnemar_test) %>%
+  add_stats(mcnemar_test_nocorrect)
+
+# Inspect output
+mcnemar_test
+mcnemar_test_nocorrect
+
+
+# binom.test()  --------------------------------------------------------------
+
+# Run analysis
+binom_test <- binom.test(c(682, 243))
+binom_test_params <-
+  binom.test(c(682, 243), p = 3 / 4, alternative = "less")
+
+# Add stats
+results <- results %>%
+  add_stats(binom_test) %>%
+  add_stats(binom_test_params)
+
+# Inspect output
+binom_test
+binom_test_params
+
+# TEMPLATE  --------------------------------------------------------------
+
+# Get data
+
+
+# Run analysis
+# SOME_test <- ...
+
+# Add stats
+# results <- add_stats(results, SOME_test)
+
+# Inspect output
+
+
 
 # tidy_stats_to_data_frame() ----------------------------------------------
 

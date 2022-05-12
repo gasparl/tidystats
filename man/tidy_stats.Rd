@@ -99,45 +99,8 @@ Please note that not all statistical tests are supported. See 'Details'
 below for a list of supported statistical tests.
 
 
-Currently supported functions:
-
-\code{stats}:
-\itemize{
-  \item \code{t.test()}
-  \item \code{cor.test()}
-  \item \code{chisq.test()}
-  \item \code{wilcox.test()}
-  \item \code{fisher.test()}
-  \item \code{oneway.test()}
-  \item \code{lm()}
-  \item \code{glm()}
-  \item \code{aov()}
-  \item \code{anova()}
-}
-
-\code{lme4}/\code{lmerTest}:
-\itemize{
-  \item \code{lmer()}
-}
-
-\code{BayesFactor}:
-\itemize{
-  \item \code{generalTestBF()}
-  \item \code{lmBF()}
-  \item \code{regressionBF()}
-  \item \code{ttestBF()}
-  \item \code{anovaBF()}
-  \item \code{correlationBF()}
-  \item \code{contingencyTableBF()}
-  \item \code{proportionBF()}
-  \item \code{meta.ttestBF()}
-}
-
-\code{tidystats}:
-\itemize{
-  \item \code{describe_data()}
-  \item \code{count_data()}
-}
+Currently supported functions are listed in the description of
+\code{\link[=add_stats]{add_stats()}}
 }
 \section{Methods (by class)}{
 \itemize{

@@ -23,26 +23,26 @@ add_stats(
 \item{identifier}{A character string identifying the model. Automatically
 created if not provided.}
 
-\item{type}{A character string specifying the type of analysis: primary, 
+\item{type}{A character string specifying the type of analysis: primary,
 secondary, or exploratory.}
 
-\item{preregistered}{A boolean specifying whether the analysis was 
+\item{preregistered}{A boolean specifying whether the analysis was
 preregistered or not.}
 
 \item{notes}{A character string specifying additional information.}
 
-\item{args}{A list of additional arguments to customize which statistics 
+\item{args}{A list of additional arguments to customize which statistics
 should be extracted. See details for a list of supported analyses.}
 
 \item{class}{A character string to manually specify the class of the object
-so that tidystats knows how to extract the statistics. See details for a list 
+so that tidystats knows how to extract the statistics. See details for a list
 classes that are supported.}
 }
 \description{
-\code{add_stats} is used to add the output of a statistical test to a 
-tidystats list. While adding the output, additional information about the 
-test can be added, including the type of test (primary, secondary, or 
-exploratory), whether the test was preregistered, and additional notes. 
+\code{add_stats} is used to add the output of a statistical test to a
+tidystats list. While adding the output, additional information about the
+test can be added, including the type of test (primary, secondary, or
+exploratory), whether the test was preregistered, and additional notes.
 Please note that not all statistical tests are supported. See 'Details' below
 for a list of supported statistical tests.
 }
@@ -61,6 +61,7 @@ Supported functions:
   \item \code{glm()}
   \item \code{aov()}
   \item \code{anova()}
+  \item \code{mauchly.test()}
 }
 
 \code{lme4}/\code{lmerTest}:

@@ -12,45 +12,8 @@
 #' @param x The output of a statistical test.
 #'
 #' @details
-#' Currently supported functions:
-#'
-#' \code{stats}:
-#' \itemize{
-#'   \item \code{t.test()}
-#'   \item \code{cor.test()}
-#'   \item \code{chisq.test()}
-#'   \item \code{wilcox.test()}
-#'   \item \code{fisher.test()}
-#'   \item \code{oneway.test()}
-#'   \item \code{lm()}
-#'   \item \code{glm()}
-#'   \item \code{aov()}
-#'   \item \code{anova()}
-#' }
-#'
-#' \code{lme4}/\code{lmerTest}:
-#' \itemize{
-#'   \item \code{lmer()}
-#' }
-#'
-#' \code{BayesFactor}:
-#' \itemize{
-#'   \item \code{generalTestBF()}
-#'   \item \code{lmBF()}
-#'   \item \code{regressionBF()}
-#'   \item \code{ttestBF()}
-#'   \item \code{anovaBF()}
-#'   \item \code{correlationBF()}
-#'   \item \code{contingencyTableBF()}
-#'   \item \code{proportionBF()}
-#'   \item \code{meta.ttestBF()}
-#' }
-#'
-#' \code{tidystats}:
-#' \itemize{
-#'   \item \code{describe_data()}
-#'   \item \code{count_data()}
-#' }
+#' Currently supported functions are listed in the description of
+#' \code{\link[=add_stats]{add_stats()}}
 #'
 #' @examples
 #' # Conduct statistical tests
@@ -138,6 +101,7 @@ tidy_stats.htest <- function(x, args = NULL) {
       stringr::str_detect(method, "Two Sample t-test") |
         method == "Paired t-test"~ "mean difference",
       names(x$estimate)[1] == "ratio of variances" ~ "variance ratio",
+      names(x$estimate)[1] == "probability of success" ~ "probability ratio",
       TRUE ~ names(x$estimate)
     )
 
@@ -152,6 +116,7 @@ tidy_stats.htest <- function(x, args = NULL) {
       names(x$estimate)[1] == "p" ~ "p̂",
       names(x$estimate)[1] == "difference in location" ~ "Mdn",
       names(x$estimate)[1] == "ratio of variances" ~ "VR",
+      names(x$estimate)[1] == "probability of success" ~ "proportion",
       stringr::str_detect(method, "t-test") ~ "M"
     )
 
@@ -179,11 +144,15 @@ tidy_stats.htest <- function(x, args = NULL) {
       names(x$statistic) == "Kruskal-Wallis chi-squared" ~ "χ²",
       names(x$statistic) == "D^+" ~ "D",
       names(x$statistic) == "D^-" ~ "D",
+      stringr::str_detect(names(x$statistic), "McNemar") ~ "χ²",
       TRUE ~ names(x$statistic)
     )
   }
-
-  statistics <- add_statistic(statistics, "statistic", x$statistic[[1]], symbol)
+  
+  if (!x$method == "Exact binomial test") {
+    statistics <-
+      add_statistic(statistics, "statistic", x$statistic[[1]], symbol)
+  }
 
   # Special case: One-way analysis of means has more than 1 df
   if (length(x$parameter) > 1) {

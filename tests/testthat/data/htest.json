@@ -932,5 +932,113 @@
       "name": "stats",
       "version": "4.2.0"
     }
+  },
+  "mcnemar_test": {
+    "name": "Performance",
+    "method": "McNemar's Chi-squared test (with continuity correction)",
+    "statistics": [
+      {
+        "name": "statistic",
+        "symbol": "χ²",
+        "value": 16.817797
+      },
+      {
+        "name": "df",
+        "value": 1
+      },
+      {
+        "name": "p",
+        "value": 0.000041
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "mcnemar_test_nocorrect": {
+    "name": "Performance",
+    "method": "McNemar's Chi-squared test",
+    "statistics": [
+      {
+        "name": "statistic",
+        "symbol": "χ²",
+        "value": 17.355932
+      },
+      {
+        "name": "df",
+        "value": 1
+      },
+      {
+        "name": "p",
+        "value": 0.000031
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "binom_test": {
+    "name": "c(682, 243)",
+    "method": "Exact binomial test",
+    "statistics": [
+      {
+        "name": "estimate",
+        "symbol": "probability",
+        "value": 0.737297,
+        "interval": "CI",
+        "level": 0.95,
+        "lower": 0.707668,
+        "upper": 0.765407
+      },
+      {
+        "name": "df",
+        "value": 925
+      },
+      {
+        "name": "p",
+        "value": 7.087291e-49
+      }
+    ],
+    "alternative": {
+      "direction": "two.sided",
+      "null_value": 0.5
+    },
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "binom_test_params": {
+    "name": "c(682, 243)",
+    "method": "Exact binomial test",
+    "statistics": [
+      {
+        "name": "estimate",
+        "symbol": "probability",
+        "value": 0.737297,
+        "interval": "CI",
+        "level": 0.95,
+        "lower": 0,
+        "upper": 0.761055
+      },
+      {
+        "name": "df",
+        "value": 925
+      },
+      {
+        "name": "p",
+        "value": 0.196009
+      }
+    ],
+    "alternative": {
+      "direction": "less",
+      "null_value": 0.75
+    },
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
   }
 }

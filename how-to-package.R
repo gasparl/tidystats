@@ -9,8 +9,29 @@
 
 # Update ------------------------------------------------------------------
 
+
+# Load packages
+library(tidystats)
+library(testthat)
+
 # Set path (in RStudio)
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+
+results = list()
+# Load test data
+test_results <- read_stats(system.file("tests/testthat/data/htest.json", package = "tidystats"))
+
+# Set options
+tolerance <- 0.001
+
+# Function to compare models
+models_equal = function(model, tidy_model_test) {
+  tidy_model <- tidy_stats(model)
+  tidy_model$package <- NULL
+  tidy_model_test$package <- NULL
+  expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
+}
+
 
 # Update documentation
 devtools::document()

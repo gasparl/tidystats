@@ -11,6 +11,14 @@ test_results <- read_stats(path)
 # Set options
 tolerance <- 0.001
 
+# Function to compare models
+models_equal = function(model, tidy_model_test) {
+  tidy_model <- tidy_stats(model)
+  tidy_model$package <- NULL
+  tidy_model_test$package <- NULL
+  expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
+}
+
 # Test: t.test() ----------------------------------------------------------
 
 test_that("one sample t-test works", {
@@ -460,59 +468,86 @@ test_that("F test to compare two variances works", {
 
 invisible(capture.output(utils::example(SSD)))
 
-test_that("Mauchly's test of sphericity (traditional) works", {
-    model = mauchly.test(mlmfit, X = ~ 1)
-    tidy_model <- tidy_stats(model)
-    tidy_model_test <- test_results$mauchly_test
-
-    tidy_model$package <- NULL
-    tidy_model_test$package <- NULL
-
-    expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
-})
+test_that("Mauchly's test of sphericity (traditional) works",
+          {
+            models_equal(# The model to be passed to tidy_stats
+              mauchly.test(mlmfit, X = ~ 1),
+              # Test results to compare to
+              test_results$mauchly_test)
+          })
 
 idata <- data.frame(deg = gl(3, 1, 6, labels = c(0, 4, 8)),
                     noise = gl(2, 3, 6, labels = c("A", "P")))
 
-test_that("Mauchly's test of sphericity (inner projection) works", {
-    model = mauchly.test(mlmfit, X = ~ deg + noise, idata = idata)
-    tidy_model <- tidy_stats(model)
-    tidy_model_test <- test_results$mauchly_test_orthogonal
+test_that("Mauchly's test of sphericity (inner projection) works",
+          {
+            models_equal(
+              # The model to be passed to tidy_stats
+              mauchly.test(mlmfit, X = ~ deg + noise, idata = idata),
+              # Test results to compare to
+              test_results$mauchly_test_orthogonal
+            )
+          })
 
-    tidy_model$package <- NULL
-    tidy_model_test$package <- NULL
+test_that("Mauchly's test of sphericity (outer projection) works",
+          {
+            models_equal(
+              # The model to be passed to tidy_stats
+              mauchly.test(
+                mlmfit,
+                M = ~ deg + noise,
+                X = ~ noise,
+                idata = idata
+              ),
+              # Test results to compare to
+              test_results$mauchly_test_spanned
+            )
+          })
 
-    expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
-})
 
-test_that("Mauchly's test of sphericity (outer projection) works", {
-    model = mauchly.test(mlmfit,
-                         M = ~ deg + noise,
-                         X = ~ noise,
-                         idata = idata)
-    tidy_model <- tidy_stats(model)
-    tidy_model_test <- test_results$mauchly_test_spanned
+# Test: mcnemar.test() --------------------------------------------------------
 
-    tidy_model$package <- NULL
-    tidy_model_test$package <- NULL
-
-    expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
-
-})
-
-# alternative testing, via function
-test_model = function(model, tidy_model_test) {
-    tidy_model <- tidy_stats(model)
-    tidy_model$package <- NULL
-    tidy_model_test$package <- NULL
-    expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
-}
-
-test_that("Alternative testing for: one-way analysis of means (not assuming equal variances) works", {
-    test_model(
-        # The model to be passed to tidy_stats
-        oneway.test(extra ~ group, data = sleep),
-        # Test results to compare to
-        test_results$oneway_test
+Performance <-
+  matrix(
+    c(794, 86, 150, 570),
+    nrow = 2,
+    dimnames = list(
+      "1st Survey" = c("Approve", "Disapprove"),
+      "2nd Survey" = c("Approve", "Disapprove")
     )
-})
+  )
+
+test_that("McNemar's Chi-squared test (with continuity correction) works",
+          {
+            models_equal(# The model to be passed to tidy_stats
+              mcnemar.test(Performance),
+              # Test results to compare to
+              test_results$mcnemar_test)
+          })
+
+test_that("McNemar's Chi-squared test (without continuity correction) works",
+          {
+            models_equal(# The model to be passed to tidy_stats
+              mcnemar.test(Performance, correct = FALSE),
+              # Test results to compare to
+              test_results$mcnemar_test_nocorrect)
+          })
+
+
+# Test: binom.test() --------------------------------------------------------
+
+test_that("Exact binomial test works",
+          {
+            models_equal(# The model to be passed to tidy_stats
+              binom.test(c(682, 243)),
+              # Test results to compare to
+              test_results$binom_test)
+          })
+
+test_that("Exact binomial test (one-sided) works",
+          {
+            models_equal(# The model to be passed to tidy_stats
+              binom.test(c(682, 243), p = 3 / 4, alternative = "less"),
+              # Test results to compare to
+              test_results$binom_test_params)
+          })
