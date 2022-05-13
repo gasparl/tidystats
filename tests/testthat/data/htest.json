@@ -22,6 +22,10 @@
         "value": 3.412965
       },
       {
+        "name": "df",
+        "value": 19
+      },
+      {
         "name": "p",
         "value": 0.002918
       }
@@ -57,6 +61,10 @@
         "name": "statistic",
         "symbol": "t",
         "value": -1.860813
+      },
+      {
+        "name": "df",
+        "value": 18
       },
       {
         "name": "p",
@@ -97,6 +105,10 @@
         "value": -1.860813
       },
       {
+        "name": "df",
+        "value": 17.776474
+      },
+      {
         "name": "p",
         "value": 0.079394
       }
@@ -135,6 +147,10 @@
         "value": -4.062128
       },
       {
+        "name": "df",
+        "value": 9
+      },
+      {
         "name": "p",
         "value": 0.002833
       }
@@ -165,6 +181,10 @@
         "name": "statistic",
         "symbol": "t",
         "value": 1.841083
+      },
+      {
+        "name": "df",
+        "value": 7
       },
       {
         "name": "p",
@@ -248,6 +268,10 @@
         "value": 30.070149
       },
       {
+        "name": "df",
+        "value": 2
+      },
+      {
         "name": "p",
         "value": 2.953589e-07
       }
@@ -267,6 +291,10 @@
         "value": 0.64112
       },
       {
+        "name": "df",
+        "value": 1
+      },
+      {
         "name": "p",
         "value": 0.423305
       }
@@ -284,6 +312,10 @@
         "name": "statistic",
         "symbol": "χ²",
         "value": 2.5
+      },
+      {
+        "name": "df",
+        "value": 2
       },
       {
         "name": "p",
@@ -312,6 +344,10 @@
         "name": "statistic",
         "symbol": "χ²",
         "value": 0.09
+      },
+      {
+        "name": "df",
+        "value": 1
       },
       {
         "name": "p",
@@ -346,6 +382,10 @@
         "value": 0.16
       },
       {
+        "name": "df",
+        "value": 1
+      },
+      {
         "name": "p",
         "value": 0.689157
       }
@@ -367,6 +407,10 @@
         "name": "statistic",
         "symbol": "χ²",
         "value": 12.600411
+      },
+      {
+        "name": "df",
+        "value": 3
       },
       {
         "name": "p",
@@ -493,6 +537,10 @@
         "value": 0.771429
       },
       {
+        "name": "df",
+        "value": 2
+      },
+      {
         "name": "p",
         "value": 0.679965
       }
@@ -510,6 +558,10 @@
         "name": "statistic",
         "symbol": "χ²",
         "value": 29.266576
+      },
+      {
+        "name": "df",
+        "value": 4
       },
       {
         "name": "p",
@@ -891,6 +943,10 @@
         "value": 16.817797
       },
       {
+        "name": "df",
+        "value": 1
+      },
+      {
         "name": "p",
         "value": 0.000041
       }
@@ -908,6 +964,10 @@
         "name": "statistic",
         "symbol": "χ²",
         "value": 17.355932
+      },
+      {
+        "name": "df",
+        "value": 1
       },
       {
         "name": "p",

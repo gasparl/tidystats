@@ -169,6 +169,8 @@ tidy_stats.htest <- function(x, args = NULL) {
   } else if (x$method == "Phillips-Perron Unit Root Test") {
     statistics <-
       add_statistic(statistics, names(x$parameter), as.numeric(x$parameter))
+  } else if (!x$method == "Exact binomial test") {
+    statistics <- add_statistic(statistics, "df", x$parameter[[1]])
   }
   
   statistics <- add_statistic(statistics, "p", x$p.value)
