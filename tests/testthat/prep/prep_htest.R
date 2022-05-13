@@ -1,6 +1,5 @@
 
 # Todo
-# ?stats::PP.test()
 # ?stats::Box.test()
 # ?stats::mood.test()
 # ?stats::quade.test()
@@ -370,6 +369,26 @@ results <- results %>%
 # Inspect output
 binom_test
 binom_test_params
+
+# PP.test()  --------------------------------------------------------------
+
+# Get data
+set.seed(1)
+x <- rnorm(1000)
+y <- cumsum(x) # has unit root
+
+# Run analysis
+pp_test = PP.test(x)
+pp_test_long = PP.test(y, lshort = FALSE)
+
+# Add stats
+results <- results %>%
+  add_stats(pp_test) %>%
+  add_stats(pp_test_long)
+
+# Inspect output
+pp_test
+pp_test_long
 
 # TEMPLATE  --------------------------------------------------------------
 

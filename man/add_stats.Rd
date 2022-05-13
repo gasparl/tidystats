@@ -64,6 +64,7 @@ Supported functions:
   \item \code{mauchly.test()}
   \item \code{mcnemar.test()}
   \item \code{binom.test()}
+  \item \code{PP.test()}
 }
 
 \code{lme4}/\code{lmerTest}:

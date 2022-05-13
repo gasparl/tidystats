@@ -116,7 +116,7 @@ tidy_stats.htest <- function(x, args = NULL) {
       names(x$estimate)[1] == "p" ~ "p̂",
       names(x$estimate)[1] == "difference in location" ~ "Mdn",
       names(x$estimate)[1] == "ratio of variances" ~ "VR",
-      names(x$estimate)[1] == "probability of success" ~ "proportion",
+      names(x$estimate)[1] == "probability of success" ~ "P",
       stringr::str_detect(method, "t-test") ~ "M"
     )
 
@@ -152,8 +152,13 @@ tidy_stats.htest <- function(x, args = NULL) {
   if (!x$method == "Exact binomial test") {
     statistics <-
       add_statistic(statistics, "statistic", x$statistic[[1]], symbol)
+  } else {
+    statistics <-
+      add_statistic(statistics, "count", x$statistic[[1]], 'k', 'successes')
+    statistics <-
+      add_statistic(statistics, "count", x$parameter[[1]], 'n', 'total')
   }
-
+  
   # Special case: One-way analysis of means has more than 1 df
   if (length(x$parameter) > 1) {
     statistics <-
@@ -161,8 +166,9 @@ tidy_stats.htest <- function(x, args = NULL) {
                     "df", "num.")
     statistics <- add_statistic(statistics, "df denominator",
                                 x$parameter[[2]], "df", "den.")
-  } else if (!x$method == "Exact binomial test") {
-    statistics <- add_statistic(statistics, "df", x$parameter[[1]])
+  } else if (x$method == "Phillips-Perron Unit Root Test") {
+    statistics <-
+      add_statistic(statistics, names(x$parameter), as.numeric(x$parameter))
   }
   
   statistics <- add_statistic(statistics, "p", x$p.value)

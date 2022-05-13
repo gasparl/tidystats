@@ -469,40 +469,38 @@ test_that("F test to compare two variances works", {
 invisible(capture.output(utils::example(SSD)))
 
 test_that("Mauchly's test of sphericity (traditional) works",
-          {
-            models_equal(# The model to be passed to tidy_stats
-              mauchly.test(mlmfit, X = ~ 1),
-              # Test results to compare to
-              test_results$mauchly_test)
-          })
+  {
+    models_equal(# The model to be passed to tidy_stats
+      mauchly.test(mlmfit, X = ~ 1),
+      # Test results to compare to
+      test_results$mauchly_test)
+  })
 
 idata <- data.frame(deg = gl(3, 1, 6, labels = c(0, 4, 8)),
-                    noise = gl(2, 3, 6, labels = c("A", "P")))
+  noise = gl(2, 3, 6, labels = c("A", "P")))
 
 test_that("Mauchly's test of sphericity (inner projection) works",
-          {
-            models_equal(
-              # The model to be passed to tidy_stats
-              mauchly.test(mlmfit, X = ~ deg + noise, idata = idata),
-              # Test results to compare to
-              test_results$mauchly_test_orthogonal
-            )
-          })
+  {
+    models_equal(
+      mauchly.test(mlmfit, X = ~ deg + noise, idata = idata),
+      test_results$mauchly_test_orthogonal
+    )
+  })
 
 test_that("Mauchly's test of sphericity (outer projection) works",
-          {
-            models_equal(
-              # The model to be passed to tidy_stats
-              mauchly.test(
-                mlmfit,
-                M = ~ deg + noise,
-                X = ~ noise,
-                idata = idata
-              ),
-              # Test results to compare to
-              test_results$mauchly_test_spanned
-            )
-          })
+  {
+    models_equal(
+      # The model to be passed to tidy_stats
+      mauchly.test(
+        mlmfit,
+        M = ~ deg + noise,
+        X = ~ noise,
+        idata = idata
+      ),
+      # Test results to compare to
+      test_results$mauchly_test_spanned
+    )
+  })
 
 
 # Test: mcnemar.test() --------------------------------------------------------
@@ -518,36 +516,59 @@ Performance <-
   )
 
 test_that("McNemar's Chi-squared test (with continuity correction) works",
-          {
-            models_equal(# The model to be passed to tidy_stats
-              mcnemar.test(Performance),
-              # Test results to compare to
-              test_results$mcnemar_test)
-          })
+  {
+    models_equal(# The model to be passed to tidy_stats
+      mcnemar.test(Performance),
+      # Test results to compare to
+      test_results$mcnemar_test)
+  })
 
 test_that("McNemar's Chi-squared test (without continuity correction) works",
-          {
-            models_equal(# The model to be passed to tidy_stats
-              mcnemar.test(Performance, correct = FALSE),
-              # Test results to compare to
-              test_results$mcnemar_test_nocorrect)
-          })
+  {
+    models_equal(# The model to be passed to tidy_stats
+      mcnemar.test(Performance, correct = FALSE),
+      # Test results to compare to
+      test_results$mcnemar_test_nocorrect)
+  })
 
 
 # Test: binom.test() --------------------------------------------------------
 
 test_that("Exact binomial test works",
-          {
-            models_equal(# The model to be passed to tidy_stats
-              binom.test(c(682, 243)),
-              # Test results to compare to
-              test_results$binom_test)
-          })
+  {
+    models_equal(# The model to be passed to tidy_stats
+      binom.test(c(682, 243)),
+      # Test results to compare to
+      test_results$binom_test)
+  })
 
 test_that("Exact binomial test (one-sided) works",
-          {
-            models_equal(# The model to be passed to tidy_stats
-              binom.test(c(682, 243), p = 3 / 4, alternative = "less"),
-              # Test results to compare to
-              test_results$binom_test_params)
-          })
+  {
+    models_equal(# The model to be passed to tidy_stats
+      binom.test(c(682, 243), p = 3 / 4, alternative = "less"),
+      # Test results to compare to
+      test_results$binom_test_params)
+  })
+
+
+# Test: PP.test() --------------------------------------------------------
+
+set.seed(1)
+x <- rnorm(1000)
+y <- cumsum(x)
+
+test_that("Phillips-Perron Unit Root Test works",
+  {
+    models_equal(# The model to be passed to tidy_stats
+      PP.test(x),
+      # Test results to compare to
+      test_results$pp_test)
+  })
+
+test_that("Phillips-Perron Unit Root Test (long truncation parameter) works",
+  {
+    models_equal(# The model to be passed to tidy_stats
+      PP.test(y, lshort = FALSE),
+      # Test results to compare to
+      test_results$pp_test_long)
+  })
