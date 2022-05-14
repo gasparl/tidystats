@@ -1,6 +1,5 @@
 
 # Todo
-# ?stats::Box.test()
 # ?stats::mood.test()
 # ?stats::quade.test()
 # ?stats::ansari.test()
@@ -390,7 +389,28 @@ results <- results %>%
 pp_test
 pp_test_long
 
-# TEMPLATE  --------------------------------------------------------------
+
+# Box.test()  --------------------------------------------------------------
+
+# Get data
+set.seed(1)
+x <- rnorm (100)
+
+# Run analysis
+box_test <- Box.test(x, lag = 1)
+box_test_ljung <- Box.test (x, lag = 2, type = "Ljung")
+
+# Add stats
+results <- results %>%
+  add_stats(box_test) %>%
+  add_stats(box_test_ljung)
+
+# Inspect output
+box_test
+box_test_ljung
+
+
+# TEMPLATE.test()  --------------------------------------------------------------
 
 # Get data
 

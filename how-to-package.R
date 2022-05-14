@@ -20,6 +20,7 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 results = list()
 # Load test data
 test_results <- read_stats(system.file("tests/testthat/data/htest.json", package = "tidystats"))
+rr <- read_stats(system.file("tests/testthat/data/0temporary.json", package = "tidystats"))
 
 # Set options
 tolerance <- 0.001
