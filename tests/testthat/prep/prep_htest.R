@@ -1,8 +1,6 @@
 
 # Todo
-# ?stats::mood.test()
 # ?stats::quade.test()
-# ?stats::ansari.test()
 # ?stats::bartlett.test()
 # ?stats::fligner.test()
 # ?stats::kruskal.test()
@@ -410,6 +408,42 @@ box_test
 box_test_ljung
 
 
+# ansari.test()  --------------------------------------------------------------
+
+# Get data
+ramsay <- c(111, 107, 100, 99, 102, 106, 109, 108, 104, 99,
+  101, 96, 97, 102, 107, 113, 116, 113, 110, 98)
+jung.parekh <- c(107, 108, 106, 98, 105, 103, 110, 105, 104,
+  100, 96, 108, 103, 104, 114, 114, 113, 108, 106, 99)
+
+# Run analysis
+ansari_test = ansari.test(ramsay, jung.parekh)
+set.seed(1)
+ansari_test_ci = ansari.test(rnorm(100), rnorm(100, 0, 2), conf.int = TRUE)
+
+# Add stats
+results <- results %>%
+  add_stats(ansari_test) %>%
+  add_stats(ansari_test_ci)
+
+# Inspect output
+ansari_test
+ansari_test_ci
+
+# mood.test()  --------------------------------------------------------------
+
+# (Data same as for ansari.test)
+
+# Run analysis
+mood_test <- mood.test(ramsay, jung.parekh)
+
+# Add stats
+results <- add_stats(results, mood_test)
+
+# Inspect output
+mood_test
+
+
 # TEMPLATE.test()  --------------------------------------------------------------
 
 # Get data
@@ -422,7 +456,6 @@ box_test_ljung
 # results <- add_stats(results, SOME_test)
 
 # Inspect output
-
 
 
 # tidy_stats_to_data_frame() ----------------------------------------------

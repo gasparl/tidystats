@@ -19,8 +19,9 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 results = list()
 # Load test data
-test_results <- read_stats(system.file("tests/testthat/data/htest.json", package = "tidystats"))
-rr <- read_stats(system.file("tests/testthat/data/0temporary.json", package = "tidystats"))
+test_results <- read_stats("tests/testthat/data/htest.json")
+# Test all tests
+devtools::test()
 
 # Set options
 tolerance <- 0.001
@@ -41,12 +42,12 @@ devtools::document()
 devtools::load_all()
 
 # Install the dev version
-devtools::install()
+#devtools::install()
 #.rs.restartR()
 
 # Add dependency ----------------------------------------------------------
 
-usethis::use_package("lavaan", "Suggests")
+#usethis::use_package("lavaan", "Suggests")
 
 # Testing -----------------------------------------------------------------
 

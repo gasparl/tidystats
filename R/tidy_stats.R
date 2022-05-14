@@ -102,6 +102,7 @@ tidy_stats.htest <- function(x, args = NULL) {
         method == "Paired t-test"~ "mean difference",
       names(x$estimate)[1] == "ratio of variances" ~ "variance ratio",
       names(x$estimate)[1] == "probability of success" ~ "probability ratio",
+      method == "One Sample t-test" ~ "mean",
       TRUE ~ names(x$estimate)
     )
 
@@ -117,6 +118,7 @@ tidy_stats.htest <- function(x, args = NULL) {
       names(x$estimate)[1] == "difference in location" ~ "Mdn",
       names(x$estimate)[1] == "ratio of variances" ~ "VR",
       names(x$estimate)[1] == "probability of success" ~ "P",
+      names(x$estimate)[1] == "ratio of scales" ~ "ratio",
       stringr::str_detect(method, "t-test") ~ "M"
     )
 
@@ -168,7 +170,7 @@ tidy_stats.htest <- function(x, args = NULL) {
                                 x$parameter[[2]], "df", "den.")
   } else if (x$method == "Phillips-Perron Unit Root Test") {
     statistics <-
-      add_statistic(statistics, names(x$parameter), as.numeric(x$parameter))
+      add_statistic(statistics, 'lag', as.numeric(x$parameter))
   } else if (!x$method == "Exact binomial test") {
     statistics <- add_statistic(statistics, "df", x$parameter[[1]])
   }

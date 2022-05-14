@@ -586,3 +586,35 @@ test_that("Ljung-Pierce works",
       Box.test (x, lag = 2, type = "Ljung"),
       test_results$box_test_ljung)
   })
+
+
+# Test: ansari.test() --------------------------------------------------------
+
+ramsay <- c(111, 107, 100, 99, 102, 106, 109, 108, 104, 99,
+  101, 96, 97, 102, 107, 113, 116, 113, 110, 98)
+jung.parekh <- c(107, 108, 106, 98, 105, 103, 110, 105, 104,
+  100, 96, 108, 103, 104, 114, 114, 113, 108, 106, 99)
+
+test_that("Ansari-Bradley Test works",
+  {
+    models_equal(suppressWarnings(ansari.test(ramsay, jung.parekh)),
+     test_results$ansari_test)
+  })
+
+test_that("Ansari-Bradley Test (with CI) works",
+  {
+    set.seed(1)
+    models_equal(
+      ansari.test(rnorm(100), rnorm(100, 0, 2), conf.int = TRUE),
+      test_results$ansari_test_ci)
+  })
+
+# Test: mood.test() --------------------------------------------------------
+
+test_that("Mood two-sample test of scale works",
+  {
+    models_equal(
+      mood.test(ramsay, jung.parekh),
+      test_results$mood_test)
+  })
+
