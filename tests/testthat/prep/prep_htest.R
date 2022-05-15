@@ -467,42 +467,33 @@ bartlett_test
 
 # fligner.test()  --------------------------------------------------------------
 
-# Get data
-
-
 # Run analysis
-# SOME_test <- ...
+fligner_test = fligner.test(InsectSprays$count, InsectSprays$spray)
 
 # Add stats
-# results <- add_stats(results, SOME_test)
+results <- add_stats(results, fligner_test)
 
 # Inspect output
-
-# kruskal.test()  --------------------------------------------------------------
-
-# Get data
-
-
-# Run analysis
-# SOME_test <- ...
-
-# Add stats
-# results <- add_stats(results, SOME_test)
-
-# Inspect output
+fligner_test
 
 # poisson.test()  --------------------------------------------------------------
 
-# Get data
-
-
 # Run analysis
-# SOME_test <- ...
+poisson_test = poisson.test(137, 24.19893)
+poisson_test_comparison = poisson.test(c(11, 6+8+7), c(800, 1083+1050+878))
+
+add_stats(results, poisson_test) 
+add_stats(results, poisson_test_comparison)
 
 # Add stats
-# results <- add_stats(results, SOME_test)
+results <- results %>%
+  add_stats(poisson_test) %>%
+  add_stats(poisson_test_comparison)
 
 # Inspect output
+poisson_test
+poisson_test_comparison
+
 
 # shapiro.test()  --------------------------------------------------------------
 

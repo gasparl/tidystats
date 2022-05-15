@@ -119,6 +119,7 @@ tidy_stats.htest <- function(x, args = NULL) {
       names(x$estimate)[1] == "ratio of variances" ~ "VR",
       names(x$estimate)[1] == "probability of success" ~ "P",
       names(x$estimate)[1] == "ratio of scales" ~ "ratio",
+      names(x$estimate)[1] == "event rate" ~ "rate",
       stringr::str_detect(method, "t-test") ~ "M"
     )
 
@@ -130,6 +131,7 @@ tidy_stats.htest <- function(x, args = NULL) {
       names(x$estimate)[1] == "tau" ~ "τ",
       names(x$estimate)[1] == "rho" ~ "S",
       names(x$estimate)[1] == "difference in location" ~ "diff.",
+      names(x$estimate)[1] == "event rate" ~ "event"
     )
 
     statistics <- add_statistic(statistics, "estimate", value, symbol,
@@ -149,20 +151,22 @@ tidy_stats.htest <- function(x, args = NULL) {
       stringr::str_detect(names(x$statistic), "McNemar") ~ "χ²",
       names(x$statistic) == "Quade F" ~ "F",
       names(x$statistic) == "Bartlett's K-squared" ~ "K²",
+      names(x$statistic) == "Fligner-Killeen:med chi-squared" ~ "χ²",
+      names(x$statistic) == "number of successes" ~ "k",
+      names(x$statistic) == "number of events" ~ "n",
       TRUE ~ names(x$statistic)
     )
+    subscript <- dplyr::case_when(
+      x$method == "Exact binomial test" ~ "successes",
+    )
+    name <-
+      ifelse(symbol %in% c("k", "n"),
+        "count",
+        "statistic")
   }
-  
-  if (!x$method == "Exact binomial test") {
-    statistics <-
-      add_statistic(statistics, "statistic", x$statistic[[1]], symbol)
-  } else {
-    statistics <-
-      add_statistic(statistics, "count", x$statistic[[1]], 'k', 'successes')
-    statistics <-
-      add_statistic(statistics, "count", x$parameter[[1]], 'n', 'total')
-  }
-  
+
+  statistics = add_statistic(statistics, name, x$statistic[[1]], symbol, subscript)
+
   # Special case: One-way analysis of means has more than 1 df
   if (length(x$parameter) > 1) {
     statistics <-
@@ -173,10 +177,16 @@ tidy_stats.htest <- function(x, args = NULL) {
   } else if (x$method == "Phillips-Perron Unit Root Test") {
     statistics <-
       add_statistic(statistics, 'lag', as.numeric(x$parameter))
-  } else if (!x$method == "Exact binomial test") {
+  } else if (x$method == "Exact binomial test") {
+    statistics <-
+      add_statistic(statistics, "count", x$parameter[[1]], 'n', 'total')
+  } else if (x$method == "Exact Poisson test") {
+    statistics <-
+      add_statistic(statistics, "statistic", x$parameter[[1]], 'T', 'time base')
+  } else{
     statistics <- add_statistic(statistics, "df", x$parameter[[1]])
   }
-  
+
   statistics <- add_statistic(statistics, "p", x$p.value)
 
   # Add statistics to the analysis

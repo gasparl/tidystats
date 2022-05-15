@@ -65,6 +65,12 @@ Supported functions:
   \item \code{mcnemar.test()}
   \item \code{binom.test()}
   \item \code{PP.test()}
+  \item \code{Box.test()}
+  \item \code{ansari.test()}
+  \item \code{mood.test()}
+  \item \code{quade.test()}
+  \item \code{bartlett.test()}
+  \item \code{fligner.test()}
 }
 
 \code{lme4}/\code{lmerTest}:

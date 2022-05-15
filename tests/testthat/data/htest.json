@@ -1279,5 +1279,106 @@
       "name": "stats",
       "version": "4.2.0"
     }
+  },
+  "fligner_test": {
+    "name": "InsectSprays$count and InsectSprays$spray",
+    "method": "Fligner-Killeen test of homogeneity of variances",
+    "statistics": [
+      {
+        "name": "statistic",
+        "symbol": "χ²",
+        "value": 14.482781
+      },
+      {
+        "name": "df",
+        "value": 5
+      },
+      {
+        "name": "p",
+        "value": 0.012817
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "poisson_test": {
+    "name": "137 time base: 24.19893",
+    "method": "Exact Poisson test",
+    "statistics": [
+      {
+        "name": "estimate",
+        "symbol": "rate",
+        "subscript": "event",
+        "value": 5.661407,
+        "interval": "CI",
+        "level": 0.95,
+        "lower": 4.753125,
+        "upper": 6.692709
+      },
+      {
+        "name": "statistic",
+        "symbol": "T",
+        "subscript": "time base",
+        "value": 137
+      },
+      {
+        "name": "df",
+        "value": 24.19893
+      },
+      {
+        "name": "p",
+        "value": 2.845227e-56
+      }
+    ],
+    "alternative": {
+      "direction": "two.sided",
+      "null_value": 1
+    },
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "poisson_test_comparison": {
+    "name": "c(11, 6 + 8 + 7) time base: c(800, 1083 + 1050 + 878)",
+    "method": "Comparison of Poisson rates",
+    "statistics": [
+      {
+        "name": "estimate",
+        "symbol": "ratio",
+        "subscript": "rate",
+        "value": 1.971488,
+        "interval": "CI",
+        "level": 0.95,
+        "lower": 0.858426,
+        "upper": 4.277266
+      },
+      {
+        "name": "statistic",
+        "symbol": "n",
+        "subscript": "events(1)",
+        "value": 11
+      },
+      {
+        "name": "statistic",
+        "symbol": "n",
+        "subscript": "expected",
+        "value": 6.717397
+      },
+      {
+        "name": "p",
+        "value": 0.079669
+      }
+    ],
+    "alternative": {
+      "direction": "two.sided",
+      "null_value": 1
+    },
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
   }
 }

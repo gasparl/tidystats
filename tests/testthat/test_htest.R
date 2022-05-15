@@ -649,6 +649,29 @@ test_that("Bartlett test of homogeneity of variances works",
       test_results$bartlett_test)
   })
 
+# Test: fligner.test() --------------------------------------------------------
+
+test_that("Fligner-Killeen test of homogeneity of variances works",
+  {
+    models_equal(
+      fligner.test(InsectSprays$count, InsectSprays$spray),
+      test_results$fligner_test)
+  })
 
 
+# Test: poisson.test() --------------------------------------------------------
+
+# test_that("Exact Poisson test works",
+#   {
+#     models_equal(
+#       poisson.test(137, 24.19893),
+#       test_results$poisson_test)
+#   })
+# 
+# test_that("Comparison of Poisson rates",
+#   {
+#     models_equal(
+#       poisson.test(c(11, 6+8+7), c(800, 1083+1050+878)),
+#       test_results$poisson_test_comparison)
+#   })
 
