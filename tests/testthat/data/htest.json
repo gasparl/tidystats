@@ -1005,6 +1005,12 @@
         "value": 925
       },
       {
+        "name": "statistic",
+        "symbol": "P",
+        "subscript": "expected",
+        "value": 0.5
+      },
+      {
         "name": "p",
         "value": 7.087291e-49
       }
@@ -1042,6 +1048,12 @@
         "symbol": "n",
         "subscript": "total",
         "value": 925
+      },
+      {
+        "name": "statistic",
+        "symbol": "P",
+        "subscript": "expected",
+        "value": 0.75
       },
       {
         "name": "p",

@@ -183,8 +183,9 @@ tidy_stats.htest <- function(x, args = NULL) {
     statistics <-
       add_statistic(statistics, 'lag', as.numeric(x$parameter))
   } else if (x$method == "Exact binomial test") {
-    statistics <-
-      add_statistic(statistics, "count", x$parameter[[1]], 'n', 'total')
+    statistics <- statistics %>%
+      add_statistic("count", x$parameter[[1]], 'n', 'total') %>%
+      add_statistic("statistic", x$null.value[[1]], 'P', 'expected')
   } else if (x$method == "Exact Poisson test") {
     statistics <-
       add_statistic(statistics, "statistic", x$parameter[[1]], 'T', 'time base')
