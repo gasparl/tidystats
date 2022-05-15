@@ -1318,13 +1318,15 @@
         "upper": 6.692709
       },
       {
-        "name": "statistic",
-        "symbol": "T",
-        "subscript": "time base",
+        "name": "count",
+        "symbol": "n",
+        "subscript": "total",
         "value": 137
       },
       {
-        "name": "df",
+        "name": "statistic",
+        "symbol": "T",
+        "subscript": "time base",
         "value": 24.19893
       },
       {
@@ -1356,9 +1358,9 @@
         "upper": 4.277266
       },
       {
-        "name": "statistic",
+        "name": "count",
         "symbol": "n",
-        "subscript": "events(1)",
+        "subscript": "event(1)",
         "value": 11
       },
       {

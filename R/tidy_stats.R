@@ -120,6 +120,7 @@ tidy_stats.htest <- function(x, args = NULL) {
       names(x$estimate)[1] == "probability of success" ~ "P",
       names(x$estimate)[1] == "ratio of scales" ~ "ratio",
       names(x$estimate)[1] == "event rate" ~ "rate",
+      names(x$estimate)[1] == "rate ratio" ~ "ratio",
       stringr::str_detect(method, "t-test") ~ "M"
     )
 
@@ -131,7 +132,8 @@ tidy_stats.htest <- function(x, args = NULL) {
       names(x$estimate)[1] == "tau" ~ "τ",
       names(x$estimate)[1] == "rho" ~ "S",
       names(x$estimate)[1] == "difference in location" ~ "diff.",
-      names(x$estimate)[1] == "event rate" ~ "event"
+      names(x$estimate)[1] == "event rate" ~ "event",
+      names(x$estimate)[1] == "rate ratio" ~ "rate"
     )
 
     statistics <- add_statistic(statistics, "estimate", value, symbol,
@@ -154,10 +156,13 @@ tidy_stats.htest <- function(x, args = NULL) {
       names(x$statistic) == "Fligner-Killeen:med chi-squared" ~ "χ²",
       names(x$statistic) == "number of successes" ~ "k",
       names(x$statistic) == "number of events" ~ "n",
+      names(x$statistic) == "count1" ~ "n",
       TRUE ~ names(x$statistic)
     )
     subscript <- dplyr::case_when(
       x$method == "Exact binomial test" ~ "successes",
+      names(x$statistic) == "number of events" ~ "total",
+      names(x$statistic) == "count1" ~ "event(1)"
     )
     name <-
       ifelse(symbol %in% c("k", "n"),
@@ -183,6 +188,9 @@ tidy_stats.htest <- function(x, args = NULL) {
   } else if (x$method == "Exact Poisson test") {
     statistics <-
       add_statistic(statistics, "statistic", x$parameter[[1]], 'T', 'time base')
+  } else if (x$method == "Comparison of Poisson rates") {
+    statistics <-
+      add_statistic(statistics, "statistic", x$parameter[[1]], 'n', 'expected')
   } else{
     statistics <- add_statistic(statistics, "df", x$parameter[[1]])
   }

@@ -661,17 +661,17 @@ test_that("Fligner-Killeen test of homogeneity of variances works",
 
 # Test: poisson.test() --------------------------------------------------------
 
-# test_that("Exact Poisson test works",
-#   {
-#     models_equal(
-#       poisson.test(137, 24.19893),
-#       test_results$poisson_test)
-#   })
-# 
-# test_that("Comparison of Poisson rates",
-#   {
-#     models_equal(
-#       poisson.test(c(11, 6+8+7), c(800, 1083+1050+878)),
-#       test_results$poisson_test_comparison)
-#   })
+test_that("Exact Poisson test works",
+  {
+    models_equal(
+      poisson.test(137, 24.19893),
+      test_results$poisson_test)
+  })
+
+test_that("Comparison of Poisson rates",
+  {
+    models_equal(
+      poisson.test(c(11, 6+8+7), c(800, 1083+1050+878)),
+      test_results$poisson_test_comparison)
+  })
 
