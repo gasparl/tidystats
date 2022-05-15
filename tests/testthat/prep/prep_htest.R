@@ -497,42 +497,107 @@ poisson_test_comparison
 
 # shapiro.test()  --------------------------------------------------------------
 
-# Get data
-
+set.seed(1)
 
 # Run analysis
-# SOME_test <- ...
+shapiro_test = shapiro.test(runif(100, min = 2, max = 4))
 
 # Add stats
-# results <- add_stats(results, SOME_test)
+results <- add_stats(results, shapiro_test)
 
 # Inspect output
+shapiro_test
 
 # friedman.test()  --------------------------------------------------------------
 
 # Get data
-
+RoundingTimes <-
+  matrix(c(5.40, 5.50, 5.55,
+    5.85, 5.70, 5.75,
+    5.20, 5.60, 5.50,
+    5.55, 5.50, 5.40,
+    5.90, 5.85, 5.70,
+    5.45, 5.55, 5.60,
+    5.40, 5.40, 5.35,
+    5.45, 5.50, 5.35,
+    5.25, 5.15, 5.00,
+    5.85, 5.80, 5.70,
+    5.25, 5.20, 5.10,
+    5.65, 5.55, 5.45,
+    5.60, 5.35, 5.45,
+    5.05, 5.00, 4.95,
+    5.50, 5.50, 5.40,
+    5.45, 5.55, 5.50,
+    5.55, 5.55, 5.35,
+    5.45, 5.50, 5.55,
+    5.50, 5.45, 5.25,
+    5.65, 5.60, 5.40,
+    5.70, 5.65, 5.55,
+    6.30, 6.30, 6.25),
+    nrow = 22,
+  byrow = TRUE,
+  dimnames = list(1:22,
+  c("Round Out", "Narrow Angle", "Wide Angle")))
 
 # Run analysis
-# SOME_test <- ...
+friedman_test = friedman.test(RoundingTimes)
 
 # Add stats
-# results <- add_stats(results, SOME_test)
+results <- add_stats(results, friedman_test)
 
 # Inspect output
+friedman_test
+
 
 # mantelhaen.test()  --------------------------------------------------------------
 
 # Get data
+Satisfaction <-
+  as.table(array(c(1, 2, 0, 0, 3, 3, 1, 2,
+    11, 17, 8, 4, 2, 3, 5, 2,
+    1, 0, 0, 0, 1, 3, 0, 1,
+    2, 5, 7, 9, 1, 1, 3, 6),
+  dim = c(4, 4, 2),
+  dimnames =
+  list(Income =
+  c("<5000", "5000-15000",
+  "15000-25000", ">25000"),
+  "Job Satisfaction" =
+  c("V_D", "L_S", "M_S", "V_S"),
+  Gender = c("Female", "Male"))))
 
+Rabbits <-
+  array(c(0, 0, 6, 5,
+    3, 0, 3, 6,
+    6, 2, 0, 4,
+    5, 6, 1, 0,
+    2, 5, 0, 0),
+  dim = c(2, 2, 5),
+  dimnames = list(
+  Delay = c("None", "1.5h"),
+  Response = c("Cured", "Died"),
+  Penicillin.Level = c("1/8", "1/4", "1/2", "1", "4")))
 
 # Run analysis
-# SOME_test <- ...
+
+## Cochran-Mantel-Haenszel (without 2 by 2)
+mantelhaen_test = mantelhaen.test(Satisfaction)
+## Classical Mantel-Haenszel test
+mantelhaen_test_2by2 = mantelhaen.test(Rabbits)
+## Exact conditional test
+mantelhaen_test_2by2_exact = mantelhaen.test(Rabbits, exact = TRUE)
 
 # Add stats
 # results <- add_stats(results, SOME_test)
+results <- results %>%
+  add_stats(mantelhaen_test) %>%
+  add_stats(mantelhaen_test_2by2)%>%
+  add_stats(mantelhaen_test_2by2_exact)
 
 # Inspect output
+mantelhaen_test
+mantelhaen_test_2by2
+mantelhaen_test_2by2_exact
 
 
 # pairwise.t.test()  --------------------------------------------------------------

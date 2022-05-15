@@ -675,3 +675,101 @@ test_that("Comparison of Poisson rates",
       test_results$poisson_test_comparison)
   })
 
+
+# Test: shapiro.test() --------------------------------------------------------
+
+set.seed(1)
+
+# Run analysis
+test_that("Shapiro-Wilk normality test works",
+  {
+    models_equal(
+      shapiro.test(runif(100, min = 2, max = 4)),
+      test_results$shapiro_test)
+  })
+
+
+# Test: friedman.test() --------------------------------------------------------
+
+RoundingTimes <-
+  matrix(c(5.40, 5.50, 5.55,
+    5.85, 5.70, 5.75,
+    5.20, 5.60, 5.50,
+    5.55, 5.50, 5.40,
+    5.90, 5.85, 5.70,
+    5.45, 5.55, 5.60,
+    5.40, 5.40, 5.35,
+    5.45, 5.50, 5.35,
+    5.25, 5.15, 5.00,
+    5.85, 5.80, 5.70,
+    5.25, 5.20, 5.10,
+    5.65, 5.55, 5.45,
+    5.60, 5.35, 5.45,
+    5.05, 5.00, 4.95,
+    5.50, 5.50, 5.40,
+    5.45, 5.55, 5.50,
+    5.55, 5.55, 5.35,
+    5.45, 5.50, 5.55,
+    5.50, 5.45, 5.25,
+    5.65, 5.60, 5.40,
+    5.70, 5.65, 5.55,
+    6.30, 6.30, 6.25),
+    nrow = 22,
+  byrow = TRUE,
+  dimnames = list(1:22,
+  c("Round Out", "Narrow Angle", "Wide Angle")))
+
+test_that("Friedman rank sum test works",
+  {
+    models_equal(
+      friedman.test(RoundingTimes),
+      test_results$friedman_test)
+  })
+
+
+# Test: mantelhaen.test() --------------------------------------------------------
+
+Satisfaction <-
+  as.table(array(c(1, 2, 0, 0, 3, 3, 1, 2,
+    11, 17, 8, 4, 2, 3, 5, 2,
+    1, 0, 0, 0, 1, 3, 0, 1,
+    2, 5, 7, 9, 1, 1, 3, 6),
+  dim = c(4, 4, 2),
+  dimnames =
+  list(Income =
+  c("<5000", "5000-15000",
+  "15000-25000", ">25000"),
+  "Job Satisfaction" =
+  c("V_D", "L_S", "M_S", "V_S"),
+  Gender = c("Female", "Male"))))
+
+Rabbits <-
+  array(c(0, 0, 6, 5,
+    3, 0, 3, 6,
+    6, 2, 0, 4,
+    5, 6, 1, 0,
+    2, 5, 0, 0),
+  dim = c(2, 2, 5),
+  dimnames = list(
+  Delay = c("None", "1.5h"),
+  Response = c("Cured", "Died"),
+  Penicillin.Level = c("1/8", "1/4", "1/2", "1", "4")))
+
+test_that("Cochran-Mantel-Haenszel test works",
+  {
+    models_equal(
+      mantelhaen.test(Satisfaction),
+      test_results$mantelhaen_test)
+  })
+test_that("Mantel-Haenszel chi-squared test (with continuity correction) works",
+  {
+    models_equal(
+      mantelhaen.test(Rabbits),
+      test_results$mantelhaen_test_2by2)
+  })
+test_that("Exact conditional test of independence in 2 x 2 x k tables works",
+  {
+    models_equal(
+      mantelhaen.test(Rabbits, exact = TRUE),
+      test_results$mantelhaen_test_2by2_exact)
+  })

@@ -121,6 +121,7 @@ tidy_stats.htest <- function(x, args = NULL) {
       names(x$estimate)[1] == "ratio of scales" ~ "ratio",
       names(x$estimate)[1] == "event rate" ~ "rate",
       names(x$estimate)[1] == "rate ratio" ~ "ratio",
+      names(x$estimate)[1] == "common odds ratio" ~ "OR",
       stringr::str_detect(method, "t-test") ~ "M"
     )
 
@@ -157,6 +158,9 @@ tidy_stats.htest <- function(x, args = NULL) {
       names(x$statistic) == "number of successes" ~ "k",
       names(x$statistic) == "number of events" ~ "n",
       names(x$statistic) == "count1" ~ "n",
+      names(x$statistic) == "Friedman chi-squared" ~ "χ²",
+      names(x$statistic) == "Cochran-Mantel-Haenszel M^2" ~ "CMH",
+      names(x$statistic) == "Mantel-Haenszel X-squared" ~ "χ²",
       TRUE ~ names(x$statistic)
     )
     subscript <- dplyr::case_when(

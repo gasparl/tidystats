@@ -71,6 +71,10 @@ Supported functions:
   \item \code{quade.test()}
   \item \code{bartlett.test()}
   \item \code{fligner.test()}
+  \item \code{poisson.test()}
+  \item \code{shapiro.test()}
+  \item \code{friedman.test()}
+  \item \code{mantelhaen.test()}
 }
 
 \code{lme4}/\code{lmerTest}:
