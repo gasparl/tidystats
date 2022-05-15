@@ -1,18 +1,4 @@
 
-# Todo
-# ?stats::quade.test()
-# ?stats::bartlett.test()
-# ?stats::fligner.test()
-# ?stats::kruskal.test()
-# ?stats::poisson.test()
-# ?stats::shapiro.test()
-# ?stats::friedman.test()
-# ?stats::mantelhaen.test()
-# ?stats::prop.trend.test()
-# ?stats::pairwise.t.test()
-# ?stats::pairwise.prop.test()
-# ?stats::pairwise.wilcox.test()
-
 # Setup -------------------------------------------------------------------
 
 # Load packages
@@ -305,18 +291,18 @@ utils::example(SSD)
 mauchly_test = mauchly.test(mlmfit, X = ~ 1)
 # tests using intra-subject 3x2 design
 idata <- data.frame(deg = gl(3, 1, 6, labels = c(0, 4, 8)),
-                    noise = gl(2, 3, 6, labels = c("A", "P")))
+noise = gl(2, 3, 6, labels = c("A", "P")))
 mauchly_test_orthogonal = mauchly.test(mlmfit, X = ~ deg + noise, idata = idata)
 mauchly_test_spanned = mauchly.test(mlmfit,
-                                    M = ~ deg + noise,
-                                    X = ~ noise,
-                                    idata = idata)
+  M = ~ deg + noise,
+  X = ~ noise,
+  idata = idata)
 
 # Add stats
 results <- results %>%
-    add_stats(mauchly_test) %>%
-    add_stats(mauchly_test_orthogonal) %>%
-    add_stats(mauchly_test_spanned)
+  add_stats(mauchly_test) %>%
+  add_stats(mauchly_test_orthogonal) %>%
+  add_stats(mauchly_test_spanned)
 
 # Inspect output
 mauchly_test
@@ -444,7 +430,42 @@ results <- add_stats(results, mood_test)
 mood_test
 
 
-# TEMPLATE.test()  --------------------------------------------------------------
+# quade.test()  --------------------------------------------------------------
+
+# Get data
+dataFreq <- matrix(c( 5,  4,  7, 10, 12,
+     1,  3,  1,  0,  2,
+    16, 12, 22, 22, 35,
+     5,  4,  3,  5,  4,
+    10,  9,  7, 13, 10,
+    19, 18, 28, 37, 58,
+    10,  7,  6,  8,  7),
+  nrow = 7, byrow = TRUE,
+  dimnames =
+  list(Store = as.character(1:7),
+       Brand = LETTERS[1:5]))
+
+# Run analysis
+quade_test <- quade.test(dataFreq)
+
+# Add stats
+results <- add_stats(results, quade_test)
+
+# Inspect output
+quade_test
+
+# bartlett.test()  --------------------------------------------------------------
+
+# Run analysis
+bartlett_test = bartlett.test(InsectSprays$count, InsectSprays$spray)
+
+# Add stats
+results <- add_stats(results, bartlett_test)
+
+# Inspect output
+bartlett_test
+
+# fligner.test()  --------------------------------------------------------------
 
 # Get data
 
@@ -457,6 +478,110 @@ mood_test
 
 # Inspect output
 
+# kruskal.test()  --------------------------------------------------------------
+
+# Get data
+
+
+# Run analysis
+# SOME_test <- ...
+
+# Add stats
+# results <- add_stats(results, SOME_test)
+
+# Inspect output
+
+# poisson.test()  --------------------------------------------------------------
+
+# Get data
+
+
+# Run analysis
+# SOME_test <- ...
+
+# Add stats
+# results <- add_stats(results, SOME_test)
+
+# Inspect output
+
+# shapiro.test()  --------------------------------------------------------------
+
+# Get data
+
+
+# Run analysis
+# SOME_test <- ...
+
+# Add stats
+# results <- add_stats(results, SOME_test)
+
+# Inspect output
+
+# friedman.test()  --------------------------------------------------------------
+
+# Get data
+
+
+# Run analysis
+# SOME_test <- ...
+
+# Add stats
+# results <- add_stats(results, SOME_test)
+
+# Inspect output
+
+# mantelhaen.test()  --------------------------------------------------------------
+
+# Get data
+
+
+# Run analysis
+# SOME_test <- ...
+
+# Add stats
+# results <- add_stats(results, SOME_test)
+
+# Inspect output
+
+
+# pairwise.t.test()  --------------------------------------------------------------
+
+# Get data
+
+
+# Run analysis
+# SOME_test <- ...
+
+# Add stats
+# results <- add_stats(results, SOME_test)
+
+# Inspect output
+
+# pairwise.prop.test()  --------------------------------------------------------------
+
+# Get data
+
+
+# Run analysis
+# SOME_test <- ...
+
+# Add stats
+# results <- add_stats(results, SOME_test)
+
+# Inspect output
+
+# pairwise.wilcox.test()  --------------------------------------------------------------
+
+# Get data
+
+
+# Run analysis
+# SOME_test <- ...
+
+# Add stats
+# results <- add_stats(results, SOME_test)
+
+# Inspect output
 
 # tidy_stats_to_data_frame() ----------------------------------------------
 

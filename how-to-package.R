@@ -10,23 +10,10 @@
 # Update ------------------------------------------------------------------
 
 
-# Load packages
+# Load packages etc
 library(tidystats)
 library(testthat)
-
-# Set path (in RStudio)
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
-
-results = list()
-# Load test data
-test_results <- read_stats("tests/testthat/data/htest.json")
-# Test all tests
-devtools::test()
-
-# Set options
 tolerance <- 0.001
-
-# Function to compare models
 models_equal = function(model, tidy_model_test) {
   tidy_model <- tidy_stats(model)
   tidy_model$package <- NULL
@@ -34,12 +21,19 @@ models_equal = function(model, tidy_model_test) {
   expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
 }
 
+# Set path (in RStudio)
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+
+results = list()
+
+test_results <- read_stats("tests/testthat/data/htest.json")
+devtools::load_all()
+devtools::test()
 
 # Update documentation
 devtools::document()
 
 # Load the package
-devtools::load_all()
 
 # Install the dev version
 #devtools::install()

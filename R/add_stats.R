@@ -41,6 +41,9 @@
 #'   \item \code{mcnemar.test()}
 #'   \item \code{binom.test()}
 #'   \item \code{PP.test()}
+#'   \item \code{Box.test()}
+#'   \item \code{ansari.test()}
+#'   \item \code{mood.test()}
 #' }
 #'
 #' \code{lme4}/\code{lmerTest}:

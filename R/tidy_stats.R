@@ -147,6 +147,8 @@ tidy_stats.htest <- function(x, args = NULL) {
       names(x$statistic) == "D^+" ~ "D",
       names(x$statistic) == "D^-" ~ "D",
       stringr::str_detect(names(x$statistic), "McNemar") ~ "χ²",
+      names(x$statistic) == "Quade F" ~ "F",
+      names(x$statistic) == "Bartlett's K-squared" ~ "K²",
       TRUE ~ names(x$statistic)
     )
   }

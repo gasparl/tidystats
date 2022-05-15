@@ -1225,5 +1225,59 @@
       "name": "stats",
       "version": "4.2.0"
     }
+  },
+  "quade_test": {
+    "name": "dataFreq",
+    "method": "Quade test",
+    "statistics": [
+      {
+        "name": "statistic",
+        "symbol": "F",
+        "value": 3.829252
+      },
+      {
+        "name": "df numerator",
+        "symbol": "df",
+        "subscript": "num.",
+        "value": 4
+      },
+      {
+        "name": "df denominator",
+        "symbol": "df",
+        "subscript": "den.",
+        "value": 24
+      },
+      {
+        "name": "p",
+        "value": 0.015189
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "bartlett_test": {
+    "name": "InsectSprays$count and InsectSprays$spray",
+    "method": "Bartlett test of homogeneity of variances",
+    "statistics": [
+      {
+        "name": "statistic",
+        "symbol": "K²",
+        "value": 25.959825
+      },
+      {
+        "name": "df",
+        "value": 5
+      },
+      {
+        "name": "p",
+        "value": 0.000091
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
   }
 }
