@@ -27,6 +27,7 @@ models_equal = function(model, tidy_model_test) {
 results = list()
 
 test_results <- read_stats("tests/testthat/data/htest.json")
+#test_results <- read_stats("tests/testthat/data/pairwise_htest.json")
 devtools::load_all()
 devtools::test()
 

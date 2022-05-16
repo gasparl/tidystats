@@ -46,6 +46,9 @@ tidy_stats <- function(x, args = NULL) UseMethod("tidy_stats")
 #' @export
 tidy_stats.htest <- function(x, args = NULL) {
   # Create the analysis list and set the name
+  if (str_detect(x$data.name, ",\n using scores:")) {
+    x$data.name = paste0(gsub(" ,\n using scores:", " (scores:", x$data.name), ')')
+  }
   analysis <- list(name = x$data.name)
 
   # Reduce Mauchly's test's method to one element

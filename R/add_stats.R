@@ -27,30 +27,35 @@
 #'
 #' \code{stats}:
 #' \itemize{
-#'   \item \code{t.test()}
-#'   \item \code{cor.test()}
-#'   \item \code{chisq.test()}
-#'   \item \code{wilcox.test()}
-#'   \item \code{fisher.test()}
-#'   \item \code{oneway.test()}
-#'   \item \code{lm()}
-#'   \item \code{glm()}
-#'   \item \code{aov()}
 #'   \item \code{anova()}
+#'   \item \code{ansari.test()}
+#'   \item \code{aov()}
+#'   \item \code{bartlett.test()}
+#'   \item \code{binom.test()}
+#'   \item \code{Box.test()}
+#'   \item \code{chisq.test()}
+#'   \item \code{cor.test()}
+#'   \item \code{fisher.test()}
+#'   \item \code{fligner.test()}
+#'   \item \code{friedman.test()}
+#'   \item \code{glm()}
+#'   \item \code{kruskal.test()}
+#'   \item \code{ks.test()}
+#'   \item \code{lm()}
+#'   \item \code{mantelhaen.test()}
 #'   \item \code{mauchly.test()}
 #'   \item \code{mcnemar.test()}
-#'   \item \code{binom.test()}
-#'   \item \code{PP.test()}
-#'   \item \code{Box.test()}
-#'   \item \code{ansari.test()}
 #'   \item \code{mood.test()}
-#'   \item \code{quade.test()}
-#'   \item \code{bartlett.test()}
-#'   \item \code{fligner.test()}
+#'   \item \code{oneway.test()}
 #'   \item \code{poisson.test()}
+#'   \item \code{PP.test()}
+#'   \item \code{prop.test()}
+#'   \item \code{prop.trend.test()}
+#'   \item \code{quade.test()}
 #'   \item \code{shapiro.test()}
-#'   \item \code{friedman.test()}
-#'   \item \code{mantelhaen.test()}
+#'   \item \code{t.test()}
+#'   \item \code{var.test()}
+#'   \item \code{wilcox.test()}
 #' }
 #'
 #' \code{lme4}/\code{lmerTest}:

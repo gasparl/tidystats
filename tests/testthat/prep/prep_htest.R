@@ -102,6 +102,28 @@ prop_test
 prop_test_correct
 prop_test_smokers
 
+
+# prop.trend.test()  --------------------------------------------------------------
+
+# Get data
+smokers  <- c(83, 90, 129, 70)
+patients <- c(86, 93, 136, 82)
+prop.test(smokers, patients)
+
+# Run analysis
+prop_trend_test = prop.trend.test(smokers, patients)
+prop_trend_test_scores = prop.trend.test(smokers, patients, c(0,0,0,1))
+
+# Add stats
+results <- results %>%
+  add_stats(prop_trend_test) %>%
+  add_stats(prop_trend_test_scores)
+
+# Inspect output
+prop_trend_test
+prop_trend_test_scores
+
+
 # wilcox.test() -----------------------------------------------------------
 
 # Get data
@@ -591,7 +613,7 @@ mantelhaen_test_2by2_exact = mantelhaen.test(Rabbits, exact = TRUE)
 # results <- add_stats(results, SOME_test)
 results <- results %>%
   add_stats(mantelhaen_test) %>%
-  add_stats(mantelhaen_test_2by2)%>%
+  add_stats(mantelhaen_test_2by2) %>%
   add_stats(mantelhaen_test_2by2_exact)
 
 # Inspect output
@@ -600,45 +622,6 @@ mantelhaen_test_2by2
 mantelhaen_test_2by2_exact
 
 
-# pairwise.t.test()  --------------------------------------------------------------
-
-# Get data
-
-
-# Run analysis
-# SOME_test <- ...
-
-# Add stats
-# results <- add_stats(results, SOME_test)
-
-# Inspect output
-
-# pairwise.prop.test()  --------------------------------------------------------------
-
-# Get data
-
-
-# Run analysis
-# SOME_test <- ...
-
-# Add stats
-# results <- add_stats(results, SOME_test)
-
-# Inspect output
-
-# pairwise.wilcox.test()  --------------------------------------------------------------
-
-# Get data
-
-
-# Run analysis
-# SOME_test <- ...
-
-# Add stats
-# results <- add_stats(results, SOME_test)
-
-# Inspect output
-
 # tidy_stats_to_data_frame() ----------------------------------------------
 
 df <- tidy_stats_to_data_frame(results)
@@ -646,6 +629,3 @@ df <- tidy_stats_to_data_frame(results)
 # write_stats() -----------------------------------------------------------
 
 write_stats(results, "tests/testthat/data/htest.json")
-
-# results = list()
-# write_stats(results, "tests/testthat/data/0temporary.json")

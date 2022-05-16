@@ -203,6 +203,24 @@ test_that("4-sample proportion test works", {
   expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
 })
 
+
+# Test: prop.test() -------------------------------------------------------
+
+test_that("Chi-squared Test for Trend in Proportions works",
+  {
+    models_equal(
+      prop.trend.test(smokers, patients),
+      test_results$prop_trend_test)
+  })
+
+test_that("Chi-squared Test for Trend in Proportions (with alternative scores) works",
+  {
+    models_equal(
+      prop.trend.test(smokers, patients, c(0,0,0,1)),
+      test_results$prop_trend_test_scores)
+  })
+
+
 # Test: wilcox.test() -----------------------------------------------------
 
 test_that("wilcoxon signed rank exact test works", {

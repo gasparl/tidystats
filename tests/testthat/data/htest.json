@@ -425,6 +425,52 @@
       "version": "4.2.0"
     }
   },
+  "prop_trend_test": {
+    "name": "smokers out of patients (scores: 1 2 3 4)",
+    "method": "Chi-squared Test for Trend in Proportions",
+    "statistics": [
+      {
+        "name": "statistic",
+        "symbol": "χ²",
+        "value": 8.224922
+      },
+      {
+        "name": "df",
+        "value": 1
+      },
+      {
+        "name": "p",
+        "value": 0.004132
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "prop_trend_test_scores": {
+    "name": "smokers out of patients (scores: 0 0 0 1)",
+    "method": "Chi-squared Test for Trend in Proportions",
+    "statistics": [
+      {
+        "name": "statistic",
+        "symbol": "χ²",
+        "value": 12.173146
+      },
+      {
+        "name": "df",
+        "value": 1
+      },
+      {
+        "name": "p",
+        "value": 0.000485
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
   "wilcoxon_signed_rank": {
     "name": "x and y",
     "method": "Wilcoxon signed rank exact test",
