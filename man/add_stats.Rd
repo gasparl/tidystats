@@ -71,6 +71,9 @@ Supported functions:
   \item \code{mcnemar.test()}
   \item \code{mood.test()}
   \item \code{oneway.test()}
+  \item \code{pairwise.prop.test()}
+  \item \code{pairwise.t.test()}
+  \item \code{pairwise.wilcox.test()}
   \item \code{poisson.test()}
   \item \code{PP.test()}
   \item \code{prop.test()}

@@ -11,7 +11,7 @@ read_stats(file)
 }
 \description{
 \code{read_stats} can read in a .json file containing the statistical output
-that was produced with \code{write_stats}. It returns a list containing the 
+that was produced with \code{write_stats}. It returns a list containing the
 results, with the identifier as the name for each list element.
 }
 \examples{

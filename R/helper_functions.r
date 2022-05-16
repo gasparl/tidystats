@@ -43,7 +43,7 @@ add_statistic <- function(list, name, value, symbol = NULL, subscript = NULL,
   interval = NULL, level = NULL, lower = NULL, upper = NULL) {
 
   if (!is.null(value)) {
-    if (!is.na(value)) {
+    if (!is.na(value) || name == "p") {
       new_list <- list()
       new_list$name <- name
 
