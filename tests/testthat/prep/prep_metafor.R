@@ -40,7 +40,7 @@ rma_results_ls_pred <- rma(yi, vi, mods = ~ ni100, scale = ~ ni100, data=dat)
 
 ### variables in the location and scale parts can differ
 rma_results_ls_diff <- rma(yi, vi, mods = ~ ni100 + meta, scale = ~ ni100 + imag, data=dat)
- 
+
 # Add stats
 results = results %>%
   add_stats(rma_results) %>%

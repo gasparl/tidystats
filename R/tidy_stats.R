@@ -2898,7 +2898,7 @@ tidy_stats.psych <- function(x, args = NULL) {
 }
 
 
-#' @describeIn tidy_stats tidy_stats method for class 'rma'
+#' @describeIn tidy_stats tidy_stats method for class 'rma.uni'
 #' @export
 tidy_stats.rma.uni <- function(x, args = NULL) {
   # Create the analysis list and set the name and method
