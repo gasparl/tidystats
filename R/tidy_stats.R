@@ -2896,3 +2896,280 @@ tidy_stats.psych <- function(x, args = NULL) {
 
   return(analysis)
 }
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'rma'
+#' @export
+tidy_stats.rma.uni <- function(x, args = NULL) {
+  # Create the analysis list and set the name and method
+  method = "Meta-Analysis via Linear Models"
+  if (x$model == "rma.ls") {
+    method = "Location-Scale Model"
+  } else {
+    if (is.element(x$method, c("FE", "EE", "CE"))) {
+      if (x$int.only) {
+        method = sapply(
+          x$method,
+          switch,
+          "FE" = "Fixed-Effects Model",
+          "EE" = "Equal-Effects Model",
+          "CE" = "Common-Effects Model",
+          USE.NAMES = FALSE
+        )
+      } else {
+        method = "Fixed-Effects with Moderators Model"
+      }
+    } else {
+      if (x$int.only) {
+        method = "Random-Effects Model"
+      } else {
+        method = "Mixed-Effects Model"
+      }
+    }
+  }
+  
+  analysis <- list(name = deparse(x$call[[2]]),
+                   method = method)
+  
+  # Model fit
+  if (x$model == "rma.uni" || x$model == "rma.uni.selmodel") {
+    # Create a group and statistics list for the model fit statistics
+    group <- list(name = "Model")
+    statistics <- list()
+    
+    # Extract and add statistics to the statistics list
+    statistics <- add_statistic(statistics, "I squared", x$I2, "I²")
+    statistics <- add_statistic(statistics, "H squared", x$H2, "H²")
+    statistics <- add_statistic(statistics, "R squared", x$R2, "R²")
+    if (!is.element(x$method, c("FE", "EE", "CE"))) {
+      statistics <-
+        add_statistic(statistics, "Tau squared", x$tau2, "Τ²")
+      statistics <-
+        add_statistic(statistics, "Τau", x$tau2 ** 0.5, "Τ")
+    }
+    # Add statistics to the group
+    group$statistics <- statistics
+    
+    # Add the model group to a groups element on the analysis
+    analysis$groups <- append(analysis$groups, list(group))
+  }
+  
+  # Heterogeneity
+  # Create a group and statistics list for the Test for (Residual) Heterogeneity
+  if (!is.na(x$QE)) {
+    statistics <- list()
+    if (x$int.only) {
+      group <- list(name = "Heterogeneity")
+      statistics <-
+        add_statistic(statistics, "statistic", x$QE, "Q")
+    } else {
+      group <- list(name = "Residual Heterogeneity")
+      statistics <-
+        add_statistic(statistics, "statistic", x$QE, "QE")
+    }
+    statistics <- add_statistic(statistics, "df", x$k - x$p)
+    statistics <- add_statistic(statistics, "p", x$QEp)
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the model group to a groups element on the analysis
+    analysis$groups <- append(analysis$groups, list(group))
+  }
+  
+  # Moderators
+  # Create a group and statistics list for the Test of Moderators (if any)
+  if (x$p > 1L && !is.na(x$QM)) {
+    statistics <- list()
+    if (x$model == "rma.ls") {
+      group <- list(name = "Test of Location Coefficients")
+    } else {
+      group <- list(name = "Test of Moderators")
+    }
+    if (is.element(x$test, c("knha", "adhoc", "t"))) {
+      statistics <- add_statistic(statistics, "statistic", x$QM, "F")
+      statistics <- add_statistic(statistics, "df numerator",
+                                  x$QMdf[1], "df", "num.")
+      statistics <- add_statistic(statistics, "df denominator",
+                                  x$QMdf[2], "df", "den.")
+    } else {
+      statistics <- add_statistic(statistics, "statistic", x$QM, "QM")
+      statistics <- add_statistic(statistics, "df", x$QMdf[1])
+    }
+    statistics <- add_statistic(statistics, "p", x$QMp)
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the model group to a groups element on the analysis
+    analysis$groups <- append(analysis$groups, list(group))
+  }
+
+  # Create a groups list for the coefficients
+  if (x$model == "rma.uni" || x$model == "rma.uni.selmodel") {
+    groups <- list(name = "Coefficients")
+  } else {
+    groups <- list(name = "Coefficients (Location)")
+  }
+  # Extract statistics of the coefficients
+  coefs_v <- stats::coef(x)
+  if (is.list(coefs_v) && "beta" %in% names(coefs_v)) {
+    coefs_v = coefs_v$beta
+  }
+  if (is.element(x$test, c("knha", "adhoc", "t"))) {
+    stat_type = "t"
+  } else{
+    stat_type = "z"
+  }
+  # Loop over the coefficients and add statistics to a group list
+  for (i in 1:length(coefs_v)) {
+    # Create a new group list
+    group <- list()
+    
+    # Add the name and type of the coefficient
+    group$name <- names(coefs_v)[i]
+    
+    # Create a new statistics list
+    statistics <- list()
+    statistics <-
+      add_statistic(
+        statistics,
+        "estimate",
+        x$beta[i],
+        "b",
+        interval = "CI",
+        level = .95,
+        lower = x$ci.lb[i],
+        upper = x$ci.ub[i]
+      )
+    statistics <-
+      add_statistic(statistics, "SE", x$se[i])
+    statistics <-
+      add_statistic(statistics, "statistic", x$zval[i], stat_type)
+    statistics <- add_statistic(statistics, "p", x$pval[i])
+    
+    # Add statistics to the group
+    group$statistics <- statistics
+    
+    # Add the group to the groups of the coefficients groups list
+    groups$groups <- append(groups$groups, list(group))
+  }
+  # Add the coefficient groups to the statistics list
+  analysis$groups <- append(analysis$groups, list(groups))
+  
+  # Create a groups list for the second group of coefficients (if any)
+  if (x$model == "rma.ls") {
+    if (x$q > 1L && !is.na(x$QS)) {
+      statistics <- list()
+      group <- list(name = "Test of Scale Coefficients")
+      if (is.element(x$test, c("knha", "adhoc", "t"))) {
+        statistics <- add_statistic(statistics, "statistic", x$QS, "F")
+        statistics <- add_statistic(statistics, "df numerator",
+                                    x$QSdf[[1]], "df", "num.")
+        statistics <- add_statistic(statistics, "df denominator",
+                                    x$QSdf[[2]], "df", "den.")
+      } else {
+        statistics <- add_statistic(statistics, "statistic", x$QS, "QS")
+        statistics <- add_statistic(statistics, "df", x$QSdf[1])
+      }
+      
+      statistics <- add_statistic(statistics, "p", x$QSp)
+      # Add statistics to the group
+      group$statistics <- statistics
+      # Add the model group to a groups element on the analysis
+      analysis$groups <- append(analysis$groups, list(group))
+    }
+
+    if (is.list(coefs_v) && "alpha" %in% names(coefs_v)) {
+      coefs_a = coefs_v$alpha
+    } else if (class(x$alpha)[1] == "matrix") {
+      coefs_a = setNames(c(x$alpha), rownames(x$alpha))
+    } else {
+      coefs_a = coefs_v
+    }
+    groups <- list(name = "Coefficients (Scale)")
+    # Loop over the coefficients and add statistics to a group list
+    for (i in 1:length(coefs_a)) {
+      # Create a new group list
+      group <- list()
+      # Add the name and type of the coefficient
+      group$name <- names(coefs_a)[i]
+      # Create a new statistics list
+      statistics <- list()
+      statistics <-
+        add_statistic(
+          statistics,
+          "estimate",
+          x$alpha[i],
+          "b",
+          interval = "CI",
+          level = .95,
+          lower = x$ci.lb.alpha[i],
+          upper = x$ci.ub.alpha[i]
+        )
+      statistics <-
+        add_statistic(statistics, "SE", x$se.alpha[i])
+      statistics <-
+        add_statistic(statistics, "statistic", x$zval.alpha[i], stat_type)
+      statistics <-
+        add_statistic(statistics, "df", x$ddf.alpha[i])
+      statistics <-
+        add_statistic(statistics, "p", x$pval.alpha[i])
+      # Add statistics to the group
+      group$statistics <- statistics
+      # Add the group to the groups of the coefficients groups list
+      groups$groups <- append(groups$groups, list(group))
+    }
+    # Add the coefficient groups to the statistics list
+    analysis$groups <- append(analysis$groups, list(groups))
+  }
+  
+  if (x$model == "rma.uni.selmodel") {
+    if (!is.na(x$LRT)) {
+      statistics <- list()
+      group <- list(name = "Test for Selection Model Parameters")
+      statistics <-
+        add_statistic(statistics, "statistic", x$LRT, "LRT")
+      statistics <- add_statistic(statistics, "df", x$LRTdf[1])
+      statistics <- add_statistic(statistics, "p", x$LRTp)
+      # Add statistics to the group
+      group$statistics <- statistics
+      # Add the model group to a groups element on the analysis
+      analysis$groups <- append(analysis$groups, list(group))
+    }
+    
+    groups <- list(name = "Coefficients (Selection)")
+    # Loop over the coefficients and add statistics to a group list
+    for (i in 1:length(coefs_v)) {
+      # Create a new group list
+      group <- list()
+      # Add the name and type of the coefficient
+      group$name <- names(coefs_v)[i]
+      # Create a new statistics list
+      statistics <- list()
+      statistics <-
+        add_statistic(
+          statistics,
+          "estimate",
+          x$delta[i],
+          "b",
+          interval = "CI",
+          level = .95,
+          lower = x$ci.lb.delta[i],
+          upper = x$ci.ub.delta[i]
+        )
+      statistics <-
+        add_statistic(statistics, "SE", x$se.delta[i])
+      statistics <-
+        add_statistic(statistics, "statistic", x$zval.delta[i], "z")
+      statistics <- add_statistic(statistics, "p", x$pval.delta[i])
+      # Add statistics to the group
+      group$statistics <- statistics
+      # Add the group to the groups of the coefficients groups list
+      groups$groups <- append(groups$groups, list(group))
+    }
+    # Add the coefficient groups to the statistics list
+    analysis$groups <- append(analysis$groups, list(groups))
+  }
+  
+  # Add package information
+  analysis <- add_package_info(analysis, "stats")
+  
+  return(analysis)
+}

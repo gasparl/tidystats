@@ -105,11 +105,6 @@ prop_test_smokers
 
 # prop.trend.test()  --------------------------------------------------------------
 
-# Get data
-smokers  <- c(83, 90, 129, 70)
-patients <- c(86, 93, 136, 82)
-prop.test(smokers, patients)
-
 # Run analysis
 prop_trend_test = prop.trend.test(smokers, patients)
 prop_trend_test_scores = prop.trend.test(smokers, patients, c(0,0,0,1))
@@ -504,7 +499,7 @@ fligner_test
 poisson_test = poisson.test(137, 24.19893)
 poisson_test_comparison = poisson.test(c(11, 6+8+7), c(800, 1083+1050+878))
 
-add_stats(results, poisson_test) 
+add_stats(results, poisson_test)
 add_stats(results, poisson_test_comparison)
 
 # Add stats
