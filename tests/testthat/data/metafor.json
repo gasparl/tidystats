@@ -1,0 +1,1143 @@
+{
+  "rma_results": {
+    "name": "yi",
+    "method": "Random-Effects Model",
+    "groups": [
+      {
+        "name": "Model",
+        "statistics": [
+          {
+            "name": "I squared",
+            "symbol": "I²",
+            "value": 92.221386
+          },
+          {
+            "name": "H squared",
+            "symbol": "H²",
+            "value": 12.855761
+          },
+          {
+            "name": "Tau squared",
+            "symbol": "Τ²",
+            "value": 0.313243
+          },
+          {
+            "name": "Τau",
+            "symbol": "Τ",
+            "value": 0.559681
+          }
+        ]
+      },
+      {
+        "name": "Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "Q",
+            "value": 152.233008
+          },
+          {
+            "name": "df",
+            "value": 12
+          },
+          {
+            "name": "p",
+            "value": 1.996765e-26
+          }
+        ]
+      },
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.714532,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -1.066898,
+                "upper": -0.362167
+              },
+              {
+                "name": "SE",
+                "value": 0.179782
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -3.974448
+              },
+              {
+                "name": "p",
+                "value": 0.000071
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "rma_results_mods": {
+    "name": "yi ~ ablat + year",
+    "method": "Mixed-Effects Model",
+    "groups": [
+      {
+        "name": "Model",
+        "statistics": [
+          {
+            "name": "I squared",
+            "symbol": "I²",
+            "value": 71.977801
+          },
+          {
+            "name": "H squared",
+            "symbol": "H²",
+            "value": 3.568599
+          },
+          {
+            "name": "R squared",
+            "symbol": "R²",
+            "value": 64.632175
+          },
+          {
+            "name": "Tau squared",
+            "symbol": "Τ²",
+            "value": 0.110787
+          },
+          {
+            "name": "Τau",
+            "symbol": "Τ",
+            "value": 0.332847
+          }
+        ]
+      },
+      {
+        "name": "Residual Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QE",
+            "value": 28.325144
+          },
+          {
+            "name": "df",
+            "value": 10
+          },
+          {
+            "name": "p",
+            "value": 0.001601
+          }
+        ]
+      },
+      {
+        "name": "Test of Moderators",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QM",
+            "value": 12.204251
+          },
+          {
+            "name": "df",
+            "value": 2
+          },
+          {
+            "name": "p",
+            "value": 0.002238
+          }
+        ]
+      },
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -3.545505,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -60.572382,
+                "upper": 53.481371
+              },
+              {
+                "name": "SE",
+                "value": 29.09588
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -0.121856
+              },
+              {
+                "name": "p",
+                "value": 0.903013
+              }
+            ]
+          },
+          {
+            "name": "ablat",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.028011,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.04807,
+                "upper": -0.007953
+              },
+              {
+                "name": "SE",
+                "value": 0.010234
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -2.737069
+              },
+              {
+                "name": "p",
+                "value": 0.006199
+              }
+            ]
+          },
+          {
+            "name": "year",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.001908,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.026872,
+                "upper": 0.030687
+              },
+              {
+                "name": "SE",
+                "value": 0.014684
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": 0.129909
+              },
+              {
+                "name": "p",
+                "value": 0.896639
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "rma_results_pairwise": {
+    "name": "yi",
+    "method": "Mixed-Effects Model",
+    "groups": [
+      {
+        "name": "Model",
+        "statistics": [
+          {
+            "name": "I squared",
+            "symbol": "I²",
+            "value": 88.770881
+          },
+          {
+            "name": "H squared",
+            "symbol": "H²",
+            "value": 8.905418
+          },
+          {
+            "name": "Tau squared",
+            "symbol": "Τ²",
+            "value": 0.361503
+          },
+          {
+            "name": "Τau",
+            "symbol": "Τ",
+            "value": 0.601251
+          }
+        ]
+      },
+      {
+        "name": "Residual Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QE",
+            "value": 132.367638
+          },
+          {
+            "name": "df",
+            "value": 10
+          },
+          {
+            "name": "p",
+            "value": 1.535213e-23
+          }
+        ]
+      },
+      {
+        "name": "Test of Moderators",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QM",
+            "value": 15.984153
+          },
+          {
+            "name": "df",
+            "value": 3
+          },
+          {
+            "name": "p",
+            "value": 0.001142
+          }
+        ]
+      },
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "factor(alloc)alternate",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.517956,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -1.38268,
+                "upper": 0.346769
+              },
+              {
+                "name": "SE",
+                "value": 0.441194
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -1.173987
+              },
+              {
+                "name": "p",
+                "value": 0.2404
+              }
+            ]
+          },
+          {
+            "name": "factor(alloc)random",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.965774,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -1.489562,
+                "upper": -0.441986
+              },
+              {
+                "name": "SE",
+                "value": 0.267244
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -3.613831
+              },
+              {
+                "name": "p",
+                "value": 0.000302
+              }
+            ]
+          },
+          {
+            "name": "factor(alloc)systematic",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.428918,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -1.104998,
+                "upper": 0.247162
+              },
+              {
+                "name": "SE",
+                "value": 0.344945
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -1.243438
+              },
+              {
+                "name": "p",
+                "value": 0.213707
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "rma_results_qtotal": {
+    "name": "yi",
+    "method": "Fixed-Effects Model",
+    "groups": [
+      {
+        "name": "Model",
+        "statistics": [
+          {
+            "name": "I squared",
+            "symbol": "I²",
+            "value": 92.117347
+          },
+          {
+            "name": "H squared",
+            "symbol": "H²",
+            "value": 12.686084
+          }
+        ]
+      },
+      {
+        "name": "Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "Q",
+            "value": 152.233008
+          },
+          {
+            "name": "df",
+            "value": 12
+          },
+          {
+            "name": "p",
+            "value": 1.996765e-26
+          }
+        ]
+      },
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.430285,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.509661,
+                "upper": -0.350909
+              },
+              {
+                "name": "SE",
+                "value": 0.040499
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -10.624653
+              },
+              {
+                "name": "p",
+                "value": 2.288629e-26
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "rma_results_qs": {
+    "name": "yi",
+    "method": "Fixed-Effects with Moderators Model",
+    "groups": [
+      {
+        "name": "Model",
+        "statistics": [
+          {
+            "name": "I squared",
+            "symbol": "I²",
+            "value": 64.695678
+          },
+          {
+            "name": "H squared",
+            "symbol": "H²",
+            "value": 2.832514
+          },
+          {
+            "name": "R squared",
+            "symbol": "R²",
+            "value": 77.672272
+          }
+        ]
+      },
+      {
+        "name": "Residual Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QE",
+            "value": 28.325144
+          },
+          {
+            "name": "df",
+            "value": 10
+          },
+          {
+            "name": "p",
+            "value": 0.001601
+          }
+        ]
+      },
+      {
+        "name": "Test of Moderators",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QM",
+            "value": 123.907864
+          },
+          {
+            "name": "df",
+            "value": 2
+          },
+          {
+            "name": "p",
+            "value": 1.240935e-27
+          }
+        ]
+      },
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 17.151801,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -4.078639,
+                "upper": 38.382241
+              },
+              {
+                "name": "SE",
+                "value": 10.832056
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": 1.58343
+              },
+              {
+                "name": "p",
+                "value": 0.113324
+              }
+            ]
+          },
+          {
+            "name": "ablat",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.033875,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.041708,
+                "upper": -0.026043
+              },
+              {
+                "name": "SE",
+                "value": 0.003996
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -8.476621
+              },
+              {
+                "name": "p",
+                "value": 2.318284e-17
+              }
+            ]
+          },
+          {
+            "name": "year",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.008466,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.019159,
+                "upper": 0.002227
+              },
+              {
+                "name": "SE",
+                "value": 0.005456
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -1.551756
+              },
+              {
+                "name": "p",
+                "value": 0.120721
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "rma_results_ls": {
+    "name": "yi",
+    "method": "Location-Scale Model",
+    "groups": [
+      {
+        "name": "Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "Q",
+            "value": 107.106071
+          },
+          {
+            "name": "df",
+            "value": 47
+          },
+          {
+            "name": "p",
+            "value": 1.374567e-06
+          }
+        ]
+      },
+      {
+        "name": "Coefficients (Location)",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.221929,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0.131704,
+                "upper": 0.312153
+              },
+              {
+                "name": "SE",
+                "value": 0.046034
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": 4.820983
+              },
+              {
+                "name": "p",
+                "value": 1.428529e-06
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Coefficients (Scale)",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -2.99696,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -3.899159,
+                "upper": -2.094762
+              },
+              {
+                "name": "SE",
+                "value": 0.460314
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -6.510689
+              },
+              {
+                "name": "p",
+                "value": 7.480682e-11
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "rma_results_ls_pred": {
+    "name": "yi",
+    "method": "Location-Scale Model",
+    "groups": [
+      {
+        "name": "Residual Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QE",
+            "value": 95.135231
+          },
+          {
+            "name": "df",
+            "value": 46
+          },
+          {
+            "name": "p",
+            "value": 0.000028
+          }
+        ]
+      },
+      {
+        "name": "Test of Location Coefficients",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QM",
+            "value": 7.826792
+          },
+          {
+            "name": "df",
+            "value": 1
+          },
+          {
+            "name": "p",
+            "value": 0.005148
+          }
+        ]
+      },
+      {
+        "name": "Coefficients (Location)",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.301681,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0.172096,
+                "upper": 0.431267
+              },
+              {
+                "name": "SE",
+                "value": 0.066116
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": 4.562899
+              },
+              {
+                "name": "p",
+                "value": 5.045202e-06
+              }
+            ]
+          },
+          {
+            "name": "ni100",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.055266,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.093985,
+                "upper": -0.016548
+              },
+              {
+                "name": "SE",
+                "value": 0.019755
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -2.79764
+              },
+              {
+                "name": "p",
+                "value": 0.005148
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Test of Scale Coefficients",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QS",
+            "value": 3.184997
+          },
+          {
+            "name": "df",
+            "value": 1
+          },
+          {
+            "name": "p",
+            "value": 0.074317
+          }
+        ]
+      },
+      {
+        "name": "Coefficients (Scale)",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -1.920879,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -3.23206,
+                "upper": -0.609697
+              },
+              {
+                "name": "SE",
+                "value": 0.668982
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -2.871344
+              },
+              {
+                "name": "p",
+                "value": 0.004087
+              }
+            ]
+          },
+          {
+            "name": "ni100",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.917429,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -1.924977,
+                "upper": 0.09012
+              },
+              {
+                "name": "SE",
+                "value": 0.514065
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -1.784656
+              },
+              {
+                "name": "p",
+                "value": 0.074317
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "rma_results_ls_diff": {
+    "name": "yi",
+    "method": "Location-Scale Model",
+    "groups": [
+      {
+        "name": "Residual Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QE",
+            "value": 82.271148
+          },
+          {
+            "name": "df",
+            "value": 43
+          },
+          {
+            "name": "p",
+            "value": 0.000291
+          }
+        ]
+      },
+      {
+        "name": "Test of Location Coefficients",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QM",
+            "value": 12.48257
+          },
+          {
+            "name": "df",
+            "value": 2
+          },
+          {
+            "name": "p",
+            "value": 0.001947
+          }
+        ]
+      },
+      {
+        "name": "Coefficients (Location)",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.230279,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0.101933,
+                "upper": 0.358626
+              },
+              {
+                "name": "SE",
+                "value": 0.065484
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": 3.516564
+              },
+              {
+                "name": "p",
+                "value": 0.000437
+              }
+            ]
+          },
+          {
+            "name": "ni100",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.056511,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.093292,
+                "upper": -0.019729
+              },
+              {
+                "name": "SE",
+                "value": 0.018766
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -3.011288
+              },
+              {
+                "name": "p",
+                "value": 0.002601
+              }
+            ]
+          },
+          {
+            "name": "meta",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.146898,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0.011758,
+                "upper": 0.282037
+              },
+              {
+                "name": "SE",
+                "value": 0.06895
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": 2.130496
+              },
+              {
+                "name": "p",
+                "value": 0.033131
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Test of Scale Coefficients",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QS",
+            "value": 5.02892
+          },
+          {
+            "name": "df",
+            "value": 2
+          },
+          {
+            "name": "p",
+            "value": 0.080907
+          }
+        ]
+      },
+      {
+        "name": "Coefficients (Scale)",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -2.345619,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -3.982883,
+                "upper": -0.708356
+              },
+              {
+                "name": "SE",
+                "value": 0.835354
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -2.807935
+              },
+              {
+                "name": "p",
+                "value": 0.004986
+              }
+            ]
+          },
+          {
+            "name": "ni100",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.999504,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -2.192478,
+                "upper": 0.19347
+              },
+              {
+                "name": "SE",
+                "value": 0.608671
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -1.642108
+              },
+              {
+                "name": "p",
+                "value": 0.100568
+              }
+            ]
+          },
+          {
+            "name": "imag",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 2.125817,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.198066,
+                "upper": 4.449701
+              },
+              {
+                "name": "SE",
+                "value": 1.185677
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": 1.792915
+              },
+              {
+                "name": "p",
+                "value": 0.072987
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  }
+}
