@@ -11,6 +11,7 @@
 
 
 # Load packages etc
+library(tidyverse)
 library(tidystats)
 library(testthat)
 tolerance <- 0.001
@@ -29,6 +30,8 @@ results = list()
 test_results <- read_stats("tests/testthat/data/metafor.json")
 devtools::load_all()
 devtools::test()
+
+write_stats(results, "tests/testthat/data/0temp.json")
 
 # Update documentation
 devtools::document()

@@ -30,14 +30,14 @@ test_that("Regular random-effects model works",
   {
     models_equal(
       rma(yi, vi, data=dat, method="REML"),
-      test_results$rma_results)
+      test_results$rma_uni_results)
   })
 
 test_that("Mixed-effects model with moderators works",
   {
     models_equal(
       rma(yi ~ ablat + year, vi, data=dat),
-      test_results$rma_results_mods)
+      test_results$rma_uni_results_mods)
   })
 
 
@@ -45,21 +45,21 @@ test_that("RMA for pairwise differences (with Holm's method) works",
   {
     models_equal(
       rma(yi, vi, mods = ~ factor(alloc) - 1, data=dat),
-      test_results$rma_results_pairwise)
+      test_results$rma_uni_results_pairwise)
   })
 
 test_that("RMA with Q_Total for fixed-effects works",
   {
     models_equal(
       rma(yi, vi, data=dat, method="FE"),
-      test_results$rma_results_qtotal)
+      test_results$rma_uni_results_qtotal)
   })
 
 test_that("RMA with Q_E + Q_M for fixed-effects works",
   {
     models_equal(
       rma(yi, vi, mods = ~ ablat + year, data=dat, method="FE"),
-      test_results$rma_results_qs)
+      test_results$rma_uni_results_qs)
   })
 
 dat <- dat.bangertdrowns2004
@@ -68,7 +68,7 @@ test_that("RMA for location-scale model works",
   {
     models_equal(
       rma(yi, vi, scale = ~ 1, data=dat),
-      test_results$rma_results_ls)
+      test_results$rma_uni_results_ls)
   })
 
 test_that("RMA for location-scale model with scale predictor works",
@@ -76,7 +76,7 @@ test_that("RMA for location-scale model with scale predictor works",
     dat$ni100 <- dat$ni/100
     models_equal(
       rma(yi, vi, mods = ~ ni100, scale = ~ ni100, data=dat),
-      test_results$rma_results_ls_pred)
+      test_results$rma_uni_results_ls_pred)
   })
 
 test_that("RMA for location-scale model with differing location and scale parts works",
@@ -84,5 +84,5 @@ test_that("RMA for location-scale model with differing location and scale parts 
     dat$ni100 <- dat$ni/100
     models_equal(
       suppressWarnings(rma(yi, vi, mods = ~ ni100 + meta, scale = ~ ni100 + imag, data=dat)),
-      test_results$rma_results_ls_diff)
+      test_results$rma_uni_results_ls_diff)
   })

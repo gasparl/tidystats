@@ -1,5 +1,5 @@
 {
-  "rma_results": {
+  "rma_uni_results": {
     "name": "yi",
     "method": "Random-Effects Model",
     "groups": [
@@ -84,7 +84,7 @@
       "version": "4.2.0"
     }
   },
-  "rma_results_mods": {
+  "rma_uni_results_mods": {
     "name": "yi ~ ablat + year",
     "method": "Mixed-Effects Model",
     "groups": [
@@ -246,7 +246,7 @@
       "version": "4.2.0"
     }
   },
-  "rma_results_pairwise": {
+  "rma_uni_results_pairwise": {
     "name": "yi",
     "method": "Mixed-Effects Model",
     "groups": [
@@ -403,7 +403,7 @@
       "version": "4.2.0"
     }
   },
-  "rma_results_qtotal": {
+  "rma_uni_results_qtotal": {
     "name": "yi",
     "method": "Fixed-Effects Model",
     "groups": [
@@ -478,7 +478,7 @@
       "version": "4.2.0"
     }
   },
-  "rma_results_qs": {
+  "rma_uni_results_qs": {
     "name": "yi",
     "method": "Fixed-Effects with Moderators Model",
     "groups": [
@@ -630,7 +630,7 @@
       "version": "4.2.0"
     }
   },
-  "rma_results_ls": {
+  "rma_uni_results_ls": {
     "name": "yi",
     "method": "Location-Scale Model",
     "groups": [
@@ -722,7 +722,7 @@
       "version": "4.2.0"
     }
   },
-  "rma_results_ls_pred": {
+  "rma_uni_results_ls_pred": {
     "name": "yi",
     "method": "Location-Scale Model",
     "groups": [
@@ -904,7 +904,7 @@
       "version": "4.2.0"
     }
   },
-  "rma_results_ls_diff": {
+  "rma_uni_results_ls_diff": {
     "name": "yi",
     "method": "Location-Scale Model",
     "groups": [
