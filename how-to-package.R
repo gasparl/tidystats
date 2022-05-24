@@ -23,7 +23,7 @@ models_equal = function(model, tidy_model_test) {
 }
 
 # Set path (in RStudio)
-# setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 results = list()
 

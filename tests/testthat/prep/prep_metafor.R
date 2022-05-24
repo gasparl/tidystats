@@ -15,52 +15,52 @@ results <- list()
 dat <- escalc(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
 
 ### fit a random-effects model using the log risk ratios and sampling variances as input
-rma_uni_results <- rma(yi, vi, data=dat, method="REML")
+rma_uni <- rma(yi, vi, data=dat, method="REML")
 
 ### fit a mixed-effects model with two moderators (absolute latitude and publication year)
-rma_uni_results_mods <- rma(yi ~ ablat + year, vi, data=dat)
+rma_uni_mods <- rma(yi ~ ablat + year, vi, data=dat)
 
 ### test all pairwise differences with Holm's method (using the 'multcomp' package if installed)
-rma_uni_results_pairwise <- rma(yi, vi, mods = ~ factor(alloc) - 1, data=dat)
+rma_uni_pairwise <- rma(yi, vi, mods = ~ factor(alloc) - 1, data=dat)
 
 ### demonstrating that Q_E + Q_M = Q_Total for fixed-effects models
-rma_uni_results_qtotal <- rma(yi, vi, data=dat, method="FE")
+rma_uni_qtotal <- rma(yi, vi, data=dat, method="FE")
 ### Q_E + Q_M
-rma_uni_results_qs <- rma(yi, vi, mods = ~ ablat + year, data=dat, method="FE")
+rma_uni_qs <- rma(yi, vi, mods = ~ ablat + year, data=dat, method="FE")
 
 ### an example of a location-scale model
 dat <- dat.bangertdrowns2004
 
 ### fit as location-scale model
-rma_uni_results_ls <- rma(yi, vi, scale = ~ 1, data=dat)
+rma_uni_ls <- rma(yi, vi, scale = ~ 1, data=dat)
 
 ### add the total sample size (per 100) as a location and scale predictor
 dat$ni100 <- dat$ni/100
-rma_uni_results_ls_pred <- rma(yi, vi, mods = ~ ni100, scale = ~ ni100, data=dat)
+rma_uni_ls_pred <- rma(yi, vi, mods = ~ ni100, scale = ~ ni100, data=dat)
 
 ### variables in the location and scale parts can differ
-rma_uni_results_ls_diff <- rma(yi, vi, mods = ~ ni100 + meta, scale = ~ ni100 + imag, data=dat)
+rma_uni_ls_diff <- rma(yi, vi, mods = ~ ni100 + meta, scale = ~ ni100 + imag, data=dat)
 
 # Add stats
 results = results %>%
-  add_stats(rma_uni_results) %>%
-  add_stats(rma_uni_results_mods) %>%
-  add_stats(rma_uni_results_pairwise) %>%
-  add_stats(rma_uni_results_qtotal) %>%
-  add_stats(rma_uni_results_qs) %>%
-  add_stats(rma_uni_results_ls) %>%
-  add_stats(rma_uni_results_ls_pred) %>%
-  add_stats(rma_uni_results_ls_diff)
+  add_stats(rma_uni) %>%
+  add_stats(rma_uni_mods) %>%
+  add_stats(rma_uni_pairwise) %>%
+  add_stats(rma_uni_qtotal) %>%
+  add_stats(rma_uni_qs) %>%
+  add_stats(rma_uni_ls) %>%
+  add_stats(rma_uni_ls_pred) %>%
+  add_stats(rma_uni_ls_diff)
 
 # Inspect output
-rma_uni_results
-rma_uni_results_mods
-rma_uni_results_pairwise
-rma_uni_results_qtotal
-rma_uni_results_qs
-rma_uni_results_ls
-rma_uni_results_ls_pred
-rma_uni_results_ls_diff
+rma_uni
+rma_uni_mods
+rma_uni_pairwise
+rma_uni_qtotal
+rma_uni_qs
+rma_uni_ls
+rma_uni_ls_pred
+rma_uni_ls_diff
 
 
 # rma.mh() --------------------------------------------------------------------
@@ -85,9 +85,9 @@ results <- results %>%
 # rma.peto() --------------------------------------------------------------------
 
 # Get data
-
+new_test = 
 # Run analyses
-new_test <- 99
+new_test <- NULL
 
 # Add stats
 results <- results %>%

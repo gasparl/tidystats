@@ -3215,7 +3215,7 @@ tidy_stats.rma.mh <- function(x, args = NULL) {
     # Loop over the coefficients and add statistics to a group list
 
 
-    groups <- list(name = "Model (log scale)")
+    groups <- list(name = "Coefficients (log scale)")
     for (i in 1:length(x$beta)) {
       # Create a new group list
       group <- list()
@@ -3227,7 +3227,7 @@ tidy_stats.rma.mh <- function(x, args = NULL) {
         add_statistic(
           statistics,
           "estimate",
-          x$beta[i],
+          x$beta[i][[1]],
           "b",
           interval = "CI",
           level = .95,
@@ -3247,7 +3247,7 @@ tidy_stats.rma.mh <- function(x, args = NULL) {
     # Add the coefficient groups to the statistics list
     analysis$groups <- append(analysis$groups, list(groups))
 
-    groups <- list(name =paste0("Model (", x$measure, " scale)"))
+    groups <- list(name =paste0("Coefficients (", x$measure, " scale)"))
     for (i in 1:length(x$beta)) {
       # Create a new group list
       group <- list()
@@ -3259,7 +3259,7 @@ tidy_stats.rma.mh <- function(x, args = NULL) {
         add_statistic(
           statistics,
           "estimate",
-          exp(x$beta[i]),
+          exp(x$beta[i][[1]]),
           "b",
           interval = "CI",
           level = .95,
@@ -3317,7 +3317,7 @@ tidy_stats.rma.mh <- function(x, args = NULL) {
     }
     
   } else {
-    groups <- list(name = "Model Results")
+    groups <- list(name = "Coefficients")
     for (i in 1:length(x$beta)) {
       # Create a new group list
       group <- list()
@@ -3329,7 +3329,7 @@ tidy_stats.rma.mh <- function(x, args = NULL) {
         add_statistic(
           statistics,
           "estimate",
-          x$beta[i],
+          x$beta[i][[1]],
           "b",
           interval = "CI",
           level = .95,

@@ -28,6 +28,7 @@
 \alias{tidy_stats.confint}
 \alias{tidy_stats.psych}
 \alias{tidy_stats.rma.uni}
+\alias{tidy_stats.rma.mh}
 \alias{tidy_stats.lavaan}
 \alias{tidy_stats.psychwip}
 \title{Tidy the output of a statistics object}
@@ -85,6 +86,8 @@ tidy_stats(x, args = NULL)
 \method{tidy_stats}{psych}(x, args = NULL)
 
 \method{tidy_stats}{rma.uni}(x, args = NULL)
+
+\method{tidy_stats}{rma.mh}(x, args = NULL)
 
 \method{tidy_stats}{lavaan}(x, args = list(fit.measures = TRUE))
 
@@ -161,6 +164,8 @@ Currently supported functions are listed in the description of
 \item \code{psych}: tidy_stats method for class 'psych'
 
 \item \code{rma.uni}: tidy_stats method for class 'rma.uni'
+
+\item \code{rma.mh}: tidy_stats method for class 'rma.mh'
 
 \item \code{lavaan}: tidy_stats method for class 'lavaan'
 
