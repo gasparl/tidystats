@@ -1363,5 +1363,99 @@
       "name": "metafor",
       "version": "3.4-0"
     }
+  },
+  "rma_peto_test": {
+    "name": "tpos",
+    "method": "Equal-Effects Model",
+    "groups": [
+      {
+        "name": "Model",
+        "statistics": [
+          {
+            "name": "I squared",
+            "symbol": "I²",
+            "value": 92.845652
+          },
+          {
+            "name": "H squared",
+            "symbol": "H²",
+            "value": 13.977514
+          }
+        ]
+      },
+      {
+        "name": "Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "Q",
+            "value": 167.730168
+          },
+          {
+            "name": "df",
+            "value": 12
+          },
+          {
+            "name": "p",
+            "value": 1.389754e-29
+          }
+        ]
+      },
+      {
+        "name": "Coefficients (log scale)",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.474446,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.554137,
+                "upper": -0.394756
+              },
+              {
+                "name": "SE",
+                "value": 0.040659
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -11.668889
+              },
+              {
+                "name": "p",
+                "value": 1.838073e-31
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Coefficients (OR scale)",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.622229,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0.574568,
+                "upper": 0.673844
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
   }
 }

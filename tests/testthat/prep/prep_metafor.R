@@ -79,22 +79,22 @@ results <- results %>%
   add_stats(rma_mh_test_rr)
 
 # Inspect output
-
-
+rma_mh_test_or
+rma_mh_test_rr
 
 # rma.peto() --------------------------------------------------------------------
 
-# Get data
-new_test = 
 # Run analyses
-new_test <- NULL
+
+### meta-analysis of the (log) odds ratios using Peto's method
+rma_peto_test <- rma.peto(ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
 
 # Add stats
 results <- results %>%
-  add_stats(new_test)
+  add_stats(rma_peto_test)
 
 # Inspect output
-
+rma_peto_test
 
 
 # rma.glmm() --------------------------------------------------------------------

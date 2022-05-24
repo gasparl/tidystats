@@ -101,3 +101,13 @@ test_that("Equal-Effects Model (RR) model works",
       rma.mh(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg),
       test_results$rma_mh_test_rr)
   })
+
+# Test: rma.peto ----------------------------------------------------------------
+
+test_that("Equal-Effects Model (Peto's method) model works",
+  {
+    models_equal(
+      rma.peto(ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg),
+      test_results$rma_peto_test)
+  })
+

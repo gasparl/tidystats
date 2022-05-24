@@ -3174,8 +3174,6 @@ tidy_stats.rma.uni <- function(x, args = NULL) {
   return(analysis)
 }
 
-
-
 #' @describeIn tidy_stats tidy_stats method for class 'rma.mh'
 #' @export
 tidy_stats.rma.mh <- function(x, args = NULL) {
@@ -3194,7 +3192,6 @@ tidy_stats.rma.mh <- function(x, args = NULL) {
   group$statistics <- statistics
   # Add the model group to a groups element on the analysis
   analysis$groups <- append(analysis$groups, list(group))
-
   
   # Heterogeneity
   # Create a group and statistics list for the Test for (Residual) Heterogeneity
@@ -3213,8 +3210,6 @@ tidy_stats.rma.mh <- function(x, args = NULL) {
 
   if (is.element(x$measure, c("OR", "RR", "IRR"))) {
     # Loop over the coefficients and add statistics to a group list
-
-
     groups <- list(name = "Coefficients (log scale)")
     for (i in 1:length(x$beta)) {
       # Create a new group list
@@ -3349,6 +3344,107 @@ tidy_stats.rma.mh <- function(x, args = NULL) {
     # Add the coefficient groups to the statistics list
     analysis$groups <- append(analysis$groups, list(groups))
   }
+  
+  # Add package information
+  analysis <- add_package_info(analysis, "metafor")
+  
+  return(analysis)
+}
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'rma.peto'
+#' @export
+tidy_stats.rma.peto <- function(x, args = NULL) {
+  # Create the analysis list and set the name and method
+  analysis <- list(name = deparse(x$call[[2]]),
+                   method = "Equal-Effects Model")
+
+  # Model fit
+  # Create a group and statistics list for the model fit statistics
+  group <- list(name = "Model")
+  statistics <- list()
+  # Extract and add statistics to the statistics list
+  statistics <- add_statistic(statistics, "I squared", x$I2, "I²")
+  statistics <- add_statistic(statistics, "H squared", x$H2, "H²")
+  # Add statistics to the group
+  group$statistics <- statistics
+  # Add the model group to a groups element on the analysis
+  analysis$groups <- append(analysis$groups, list(group))
+
+  # Heterogeneity
+  # Create a group and statistics list for the Test for (Residual) Heterogeneity
+  if (!is.na(x$QE)) {
+    statistics <- list()
+    group <- list(name = "Heterogeneity")
+    statistics <-
+      add_statistic(statistics, "statistic", x$QE, "Q")
+    statistics <- add_statistic(statistics, "df", x$k - x$p)
+    statistics <- add_statistic(statistics, "p", x$QEp)
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the model group to a groups element on the analysis
+    analysis$groups <- append(analysis$groups, list(group))
+  }
+  
+  # Loop over the coefficients and add statistics to a group list
+  groups <- list(name = "Coefficients (log scale)")
+  for (i in 1:length(x$beta)) {
+    # Create a new group list
+    group <- list()
+    # Add the name and type of the coefficient
+    group$name <- names(x$beta)[i]
+    # Create a new statistics list
+    statistics <- list()
+    statistics <-
+      add_statistic(
+        statistics,
+        "estimate",
+        x$beta[i][[1]],
+        "b",
+        interval = "CI",
+        level = .95,
+        lower = x$ci.lb[i],
+        upper = x$ci.ub[i]
+      )
+    statistics <-
+      add_statistic(statistics, "SE", x$se[i])
+    statistics <-
+      add_statistic(statistics, "statistic", x$zval[i], "z")
+    statistics <- add_statistic(statistics, "p", x$pval[i])
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the group to the groups of the coefficients groups list
+    groups$groups <- append(groups$groups, list(group))
+  }
+  # Add the coefficient groups to the statistics list
+  analysis$groups <- append(analysis$groups, list(groups))
+  
+  groups <- list(name = "Coefficients (OR scale)")
+  for (i in 1:length(x$beta)) {
+    # Create a new group list
+    group <- list()
+    # Add the name and type of the coefficient
+    group$name <- names(x$beta)[i]
+    # Create a new statistics list
+    statistics <- list()
+    statistics <-
+      add_statistic(
+        statistics,
+        "estimate",
+        exp(x$beta[i][[1]]),
+        "b",
+        interval = "CI",
+        level = .95,
+        lower = exp(x$ci.lb[i]),
+        upper = exp(x$ci.ub[i])
+      )
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the group to the groups of the coefficients groups list
+    groups$groups <- append(groups$groups, list(group))
+  }
+  # Add the coefficient groups to the statistics list
+  analysis$groups <- append(analysis$groups, list(groups))
   
   # Add package information
   analysis <- add_package_info(analysis, "metafor")
