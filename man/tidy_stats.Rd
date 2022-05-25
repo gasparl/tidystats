@@ -30,6 +30,7 @@
 \alias{tidy_stats.rma.uni}
 \alias{tidy_stats.rma.mh}
 \alias{tidy_stats.rma.peto}
+\alias{tidy_stats.rma.glmm}
 \alias{tidy_stats.lavaan}
 \alias{tidy_stats.psychwip}
 \title{Tidy the output of a statistics object}
@@ -91,6 +92,8 @@ tidy_stats(x, args = NULL)
 \method{tidy_stats}{rma.mh}(x, args = NULL)
 
 \method{tidy_stats}{rma.peto}(x, args = NULL)
+
+\method{tidy_stats}{rma.glmm}(x, args = NULL)
 
 \method{tidy_stats}{lavaan}(x, args = list(fit.measures = TRUE))
 
@@ -171,6 +174,8 @@ Currently supported functions are listed in the description of
 \item \code{rma.mh}: tidy_stats method for class 'rma.mh'
 
 \item \code{rma.peto}: tidy_stats method for class 'rma.peto'
+
+\item \code{rma.glmm}: tidy_stats method for class 'rma.glmm'
 
 \item \code{lavaan}: tidy_stats method for class 'lavaan'
 

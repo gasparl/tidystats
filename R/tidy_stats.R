@@ -3451,3 +3451,171 @@ tidy_stats.rma.peto <- function(x, args = NULL) {
   
   return(analysis)
 }
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'rma.glmm'
+#' @export
+tidy_stats.rma.glmm <- function(x, args = NULL) {
+  # Create the analysis list and set the name and method
+  if (is.element(x$method, c("FE", "EE", "CE"))) {
+    if (x$int.only) {
+      method = sapply(
+        x$method,
+        switch,
+        "FE" = "Fixed-Effects Model",
+        "EE" = "Equal-Effects Model",
+        "CE" = "Common-Effects Model",
+        USE.NAMES = FALSE
+      )
+    } else {
+      method = "Fixed-Effects with Moderators Model"
+    }
+  } else {
+    if (x$int.only) {
+      method = "Random-Effects Model"
+    } else {
+      method = "Mixed-Effects Model"
+    }
+  }
+  if (is.element(x$measure, c("OR", "IRR"))) {
+    cat("\n")
+    if (x$model == "UM.FS")
+      model_type = "Unconditional Model with Fixed Study Effects"
+    if (x$model == "UM.RS")
+      model_type = "Unconditional Model with Random Study Effects"
+    if (x$model == "CM.AL")
+      model_type = "Conditional Model with Approximate Likelihood"
+    if (x$model == "CM.EL")
+      model_type = "Conditional Model with Exact Likelihood"
+  }
+  analysis <- list(name = deparse(x$call[[2]]),
+                   method = paste0(method, " (", model_type, ")"))
+  
+  statistics <- list()
+  if (!is.element(x$method, c("FE", "EE", "CE"))) {
+    # Model fit
+    # Create a group and statistics list for the model fit statistics
+    # Extract and add statistics to the statistics list
+    statistics <-
+      add_statistic(statistics, "I squared", x$I2, "I²")
+    statistics <-
+      add_statistic(statistics, "H squared", x$H2, "H²")
+    statistics <-
+      add_statistic(statistics, "Tau squared", x$tau2, "Τ²")
+    statistics <-
+      add_statistic(statistics, "Τau", x$tau2 ** 0.5, "Τ")
+  }
+  
+  if (!is.na(x$sigma2)) {
+    statistics <-
+      add_statistic(statistics, "sigma squared", x$sigma2, "σ²")
+    statistics <-
+      add_statistic(statistics, "sigma", sqrt(x$sigma2), "σ")
+  }
+  
+  if (length(statistics) > 0) {
+    group <- list(name = "Model")
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the model group to a groups element on the analysis
+    analysis$groups <- append(analysis$groups, list(group))
+  }
+  if (x$int.only) {
+    h_type = "Heterogeneity"
+  } else {
+    h_type = "Residual Heterogeneity"
+  }
+  
+  # Heterogeneity
+  # Create a group and statistics list for the Test for (Residual) Heterogeneity
+  if (!is.na(x$QE.Wld)) {
+    group <- list(name = paste(h_type, "(Wald-type test)"))
+    statistics <- list()
+    statistics <-
+      add_statistic(statistics, "statistic", x$QE.Wld, "W")
+    statistics <- add_statistic(statistics, "df", x$QE.df)
+    statistics <- add_statistic(statistics, "p", x$QEp.Wld)
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the model group to a groups element on the analysis
+    analysis$groups <- append(analysis$groups, list(group))
+  }
+  if (!is.na(x$QE.LRT)) {
+    group <- list(name = paste(h_type, "(likelihood ratio test)"))
+    statistics <- list()
+    statistics <-
+      add_statistic(statistics, "statistic", x$QE.LRT, "LRT")
+    statistics <- add_statistic(statistics, "df", x$QE.df)
+    statistics <- add_statistic(statistics, "p", x$QEp.LRT)
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the model group to a groups element on the analysis
+    analysis$groups <- append(analysis$groups, list(group))
+  }
+  
+  if (x$p > 1L && !is.na(x$QM)) {
+    statistics <- list()
+    group <- list(name = "Test of Moderators")
+    if (is.element(x$test, c("knha", "adhoc", "t"))) {
+      statistics <-
+        add_statistic(statistics, "statistic", x$QE, "F")
+      statistics <- add_statistic(statistics, "df numerator",
+                                  x$QSdf[[1]], "df", "num.")
+      statistics <- add_statistic(statistics, "df denominator",
+                                  x$QSdf[[2]], "df", "den.")
+    } else {
+      statistics <-
+        add_statistic(statistics, "statistic", x$QE, "QM")
+      statistics <- add_statistic(statistics, "df", x$QMdf[1])
+    }
+    statistics <- add_statistic(statistics, "p", x$QEp)
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the model group to a groups element on the analysis
+    analysis$groups <- append(analysis$groups, list(group))
+  }
+  
+  # Create a groups list for the coefficients
+  groups <- list(name = "Coefficients")
+  if (is.element(x$test, c("knha", "adhoc", "t"))) {
+    stat_type = "t"
+  } else{
+    stat_type = "z"
+  }
+  # Loop over the coefficients and add statistics to a group list
+  for (i in 1:length(x$beta)) {
+    # Create a new group list
+    group <- list()
+    # Add the name and type of the coefficient
+    group$name <- rownames(x$beta)[i]
+    # Create a new statistics list
+    statistics <- list()
+    statistics <-
+      add_statistic(
+        statistics,
+        "estimate",
+        x$beta[i],
+        "b",
+        interval = "CI",
+        level = .95,
+        lower = x$ci.lb[i],
+        upper = x$ci.ub[i]
+      )
+    statistics <-
+      add_statistic(statistics, "SE", x$se[i])
+    statistics <-
+      add_statistic(statistics, "statistic", x$zval[i], stat_type)
+    statistics <- add_statistic(statistics, "p", x$pval[i])
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the group to the groups of the coefficients groups list
+    groups$groups <- append(groups$groups, list(group))
+  }
+  # Add the coefficient groups to the statistics list
+  analysis$groups <- append(analysis$groups, list(groups))
+  
+  # Add package information
+  analysis <- add_package_info(analysis, "metafor")
+  
+  return(analysis)
+}

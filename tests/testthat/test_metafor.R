@@ -111,3 +111,24 @@ test_that("Equal-Effects Model (Peto's method) model works",
       test_results$rma_peto_test)
   })
 
+# Test: rma.glmm ----------------------------------------------------------------
+test_that("Random-Effects Model (Unconditional Model with Fixed Study Effects) works",
+  {
+    models_equal(
+      rma.glmm(measure="OR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg, model="UM.FS"),
+      test_results$rma_glmm_umfs)
+  })
+test_that("Random-Effects Model (Unconditional Model with Random Study Effects) works",
+  {
+    models_equal(
+      suppressWarnings(rma.glmm(measure="OR", ai=tpos, bi=tneg, ci=cpos, 
+        di=cneg, data=dat.bcg, model="UM.RS")),
+      test_results$rma_glmm_umrs)
+  })
+test_that("Random-Effects Model (Conditional Model with Approximate Likelihood) works",
+  {
+    models_equal(
+      rma.glmm(measure="OR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg, model="CM.AL"),
+      test_results$rma_glmm_cmal)
+  })
+

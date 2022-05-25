@@ -99,17 +99,31 @@ rma_peto_test
 
 # rma.glmm() --------------------------------------------------------------------
 
-# Get data
+# Run analyses: random-effects models using rma.glmm() (require 'lme4' package)
 
-# Run analyses
-new_test <- 99
+### unconditional model with fixed study effects
+rma_glmm_umfs = rma.glmm(measure="OR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg, model="UM.FS")
+
+### unconditional model with random study effects
+rma_glmm_umrs = rma.glmm(measure="OR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg, model="UM.RS")
+
+### conditional model with approximate likelihood
+rma_glmm_cmal = rma.glmm(measure="OR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg, model="CM.AL")
+
+### conditional model with exact likelihood (takes too long)
+#rma_glmm_cmel = rma.glmm(measure="OR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg, model="CM.EL")
 
 # Add stats
 results <- results %>%
-  add_stats(new_test)
+  add_stats(rma_glmm_umfs) %>%
+  add_stats(rma_glmm_umrs) %>%
+  add_stats(rma_glmm_cmal) # %>% add_stats(rma_glmm_cmel)
 
 # Inspect output
-
+rma_glmm_umfs
+rma_glmm_umrs
+rma_glmm_cmal
+#rma_glmm_cmel
 
 
 # rma.mv() --------------------------------------------------------------------
