@@ -1776,5 +1776,361 @@
       "name": "metafor",
       "version": "3.4-0"
     }
+  },
+  "rma_mv": {
+    "name": "yi",
+    "method": "Multivariate Meta-Analysis Model (REML)",
+    "groups": [
+      {
+        "name": "Table: Sigma",
+        "groups": [
+          {
+            "name": "σ²",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.337772
+              },
+              {
+                "name": "square root",
+                "value": 0.581182
+              },
+              {
+                "name": "nlvls",
+                "value": 13
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "Q",
+            "value": 163.164915
+          },
+          {
+            "name": "df",
+            "value": 12
+          },
+          {
+            "name": "p",
+            "value": 1.188773e-28
+          }
+        ]
+      },
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.745178,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -1.109786,
+                "upper": -0.38057
+              },
+              {
+                "name": "SE",
+                "value": 0.186028
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -4.00573
+              },
+              {
+                "name": "p",
+                "value": 0.000062
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "rma_mv_mm": {
+    "name": "yi",
+    "method": "Multivariate Meta-Analysis Model (REML)",
+    "groups": [
+      {
+        "name": "Table: Sigma",
+        "groups": [
+          {
+            "name": "σ²1",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.065062
+              },
+              {
+                "name": "square root",
+                "value": 0.255072
+              },
+              {
+                "name": "nlvls",
+                "value": 11
+              }
+            ]
+          },
+          {
+            "name": "σ²2",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.032737
+              },
+              {
+                "name": "square root",
+                "value": 0.180932
+              },
+              {
+                "name": "nlvls",
+                "value": 56
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "Q",
+            "value": 578.864018
+          },
+          {
+            "name": "df",
+            "value": 55
+          },
+          {
+            "name": "p",
+            "value": 1.79683e-88
+          }
+        ]
+      },
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.184713,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0.018987,
+                "upper": 0.35044
+              },
+              {
+                "name": "SE",
+                "value": 0.084556
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": 2.184509
+              },
+              {
+                "name": "p",
+                "value": 0.028925
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "rma_mv_biv": {
+    "name": "yi",
+    "method": "Multivariate Meta-Analysis Model (REML)",
+    "groups": [
+      {
+        "name": "Table: Tau",
+        "groups": [
+          {
+            "name": "T²1 ",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 1.548603
+              },
+              {
+                "name": "square root",
+                "value": 1.244429
+              },
+              {
+                "name": "k.lvl",
+                "value": 13
+              }
+            ]
+          },
+          {
+            "name": "T²2 ",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 2.6173
+              },
+              {
+                "name": "square root",
+                "value": 1.617807
+              },
+              {
+                "name": "k.lvl",
+                "value": 13
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: Rho",
+        "groups": [
+          {
+            "name": "con",
+            "statistics": [
+              {
+                "name": "ρcon",
+                "value": 1
+              },
+              {
+                "name": "exp",
+                "value": 13
+              }
+            ]
+          },
+          {
+            "name": "exp",
+            "statistics": [
+              {
+                "name": "ρcon",
+                "value": 0.945046
+              },
+              {
+                "name": "ρexp",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Residual Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QE",
+            "value": 5270.386347
+          },
+          {
+            "name": "df",
+            "value": 24
+          },
+          {
+            "name": "p",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "name": "Test of Moderators",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QM",
+            "value": 15.547018
+          },
+          {
+            "name": "df",
+            "value": 1
+          },
+          {
+            "name": "p",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -4.837373,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -5.528853,
+                "upper": -4.145893
+              },
+              {
+                "name": "SE",
+                "value": 0.352802
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -13.71128
+              },
+              {
+                "name": "p",
+                "value": 8.691105e-43
+              }
+            ]
+          },
+          {
+            "name": "groupexp",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.741388,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0.37286,
+                "upper": 1.109915
+              },
+              {
+                "name": "SE",
+                "value": 0.188028
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": 3.942971
+              },
+              {
+                "name": "p",
+                "value": 0.00008
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
   }
 }

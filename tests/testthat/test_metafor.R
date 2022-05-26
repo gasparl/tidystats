@@ -132,3 +132,29 @@ test_that("Random-Effects Model (Conditional Model with Approximate Likelihood) 
       test_results$rma_glmm_cmal)
   })
 
+
+# Test: rma.mv ----------------------------------------------------------------
+
+test_that("Multivariate Meta-Analysis Model (REML) works",
+  {
+    dat <- escalc(measure="OR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
+    models_equal(
+      rma.mv(yi, vi, random = ~ 1 | trial, data=dat),
+      test_results$rma_mv)
+  })
+test_that("Multivariate Meta-Analysis Model (multilevel REML) works",
+  {
+    models_equal(
+      rma.mv(yi, vi, random = ~ 1 | district/school, data=dat.konstantopoulos2011),
+      test_results$rma_mv_mm)
+  })
+test_that("Multivariate Meta-Analysis Model (bivariate REML) works",
+  {
+    dat.long <- to.long(measure="OR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
+    levels(dat.long$group) <- c("exp", "con")
+    dat.long$group <- relevel(dat.long$group, ref="con")
+    dat.long <- escalc(measure="PLO", xi=out1, mi=out2, data=dat.long)
+    models_equal(
+      rma.mv(yi, vi, mods = ~ group, random = ~ group | study, struct="UN", data=dat.long),
+      test_results$rma_mv_biv)
+  })

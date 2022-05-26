@@ -3478,7 +3478,7 @@ tidy_stats.rma.glmm <- function(x, args = NULL) {
     }
   }
   if (is.element(x$measure, c("OR", "IRR"))) {
-    cat("\n")
+    
     if (x$model == "UM.FS")
       model_type = "Unconditional Model with Fixed Study Effects"
     if (x$model == "UM.RS")
@@ -3558,14 +3558,14 @@ tidy_stats.rma.glmm <- function(x, args = NULL) {
     group <- list(name = "Test of Moderators")
     if (is.element(x$test, c("knha", "adhoc", "t"))) {
       statistics <-
-        add_statistic(statistics, "statistic", x$QE, "F")
+        add_statistic(statistics, "statistic", x$QM, "F")
       statistics <- add_statistic(statistics, "df numerator",
                                   x$QSdf[[1]], "df", "num.")
       statistics <- add_statistic(statistics, "df denominator",
                                   x$QSdf[[2]], "df", "den.")
     } else {
       statistics <-
-        add_statistic(statistics, "statistic", x$QE, "QM")
+        add_statistic(statistics, "statistic", x$QM, "QM")
       statistics <- add_statistic(statistics, "df", x$QMdf[1])
     }
     statistics <- add_statistic(statistics, "p", x$QEp)
@@ -3613,6 +3613,437 @@ tidy_stats.rma.glmm <- function(x, args = NULL) {
   }
   # Add the coefficient groups to the statistics list
   analysis$groups <- append(analysis$groups, list(groups))
+  
+  # Add package information
+  analysis <- add_package_info(analysis, "metafor")
+  
+  return(analysis)
+}
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'rma.mv'
+#' @export
+tidy_stats.rma.mv <- function(x, args = NULL) {
+  # Create the analysis list and set the name and method
+  analysis <- list(name = deparse(x$call[[2]]),
+    method = paste0("Multivariate Meta-Analysis Model (", x$method, ")"))
+
+  # Model fit
+  # Create a group and statistics list for the model fit statistics
+  group <- list(name = "Model")
+  
+  if (x$withS || x$withG || x$withH) {
+    tau2 <- x$tau2
+    tau <- sqrt(x$tau2)
+    if (x$withS) {
+      vc <- cbind(
+        estim = x$sigma2,
+        sqrt = sqrt(x$sigma2),
+        nlvls = x$s.nlevels,
+        fixed = ifelse(x$vc.fix$sigma2, "yes", "no"),
+        factor = x$s.names,
+        R = ifelse(x$Rfix, "yes", "no")
+      )
+      colnames(vc) <-
+        c("estimate", "square root", "nlvls", "fixed", "factor", "R")
+      if (!x$withR)
+        vc <- vc[, -6, drop = FALSE]
+      if (length(x$sigma2) == 1L) {
+        rownames(vc) <- "σ²"
+      } else {
+        rownames(vc) <- paste("σ²", seq_along(x$sigma2), sep = "")
+      }
+      analysis$groups <-
+        append(analysis$groups, df_to_group("Sigma", vc))
+    }
+    
+    if (x$withG) {
+      if (is.element(
+        x$struct[1],
+        c(
+          "CS",
+          "AR",
+          "CAR",
+          "ID",
+          "SPEXP",
+          "SPGAU",
+          "SPLIN",
+          "SPRAT",
+          "SPSPH",
+          "PHYBM",
+          "PHYPL",
+          "PHYPD"
+        )
+      )) {
+        vc <- cbind(tau2, tau, ifelse(x$vc.fix$tau2, "yes", "no"))
+        vc <-
+          rbind(vc, c(rho, "", ifelse(x$vc.fix$rho, "yes", "no")))
+        colnames(vc) <- c("estimate", "square root", "fixed")
+        rownames(vc) <- c("T²", "ρ")
+        if (x$struct[1] == "ID")
+          vc <- vc[1, , drop = FALSE]
+        analysis$groups <-
+          append(analysis$groups, df_to_group("Tau", vc))
+      }
+      
+      if (is.element(x$struct[1], c("HCS", "HAR", "DIAG"))) {
+        vc <-
+          cbind(tau2,
+                tau,
+                x$g.levels.k,
+                ifelse(x$vc.fix$tau2, "yes", "no"),
+                x$g.levels.f[[1]])
+        vc <-
+          rbind(vc, c(rho, "", "", ifelse(x$vc.fix$rho, "yes", "no"), ""))
+        colnames(vc) <-
+          c("estimate", "square root", "k.lvl", "fixed", "level")
+        if (length(x$tau2) == 1L) {
+          rownames(vc) <- c("T²", "ρ")
+        } else {
+          rownames(vc) <- c(paste("T²", seq_along(x$tau2), " ", sep = ""), "ρ")
+        }
+        if (x$struct[1] == "DIAG")
+          vc <- vc[seq_along(tau2), , drop = FALSE]
+        analysis$groups <-
+          append(analysis$groups, df_to_group("Tau", vc))
+      }
+      
+      if (is.element(x$struct[1], c("UN", "UNR"))) {
+        if (x$struct[1] == "UN") {
+          vc <-
+            cbind(tau2,
+                  tau,
+                  x$g.levels.k,
+                  ifelse(x$vc.fix$tau2, "yes", "no"),
+                  x$g.levels.f[[1]])
+        } else {
+          vc <-
+            cbind(
+              rep(tau2, length(x$g.levels.k)),
+              rep(tau, length(x$g.levels.k)),
+              x$g.levels.k,
+              ifelse(rep(
+                x$vc.fix$tau2, length(x$g.levels.k)
+              ), "yes", "no"),
+              x$g.levels.f[[1]]
+            )
+        }
+        colnames(vc) <-
+          c("estimate", "square root", "k.lvl", "fixed", "level")
+        if (length(x$g.levels.k) == 1L) {
+          rownames(vc) <- c("T²")
+        } else {
+          rownames(vc) <- paste("T²", seq_along(x$g.levels.k), " ", sep = "")
+        }
+        
+        analysis$groups <-
+          append(analysis$groups, df_to_group("Tau", vc))
+        
+        
+        if (length(x$rho) == 1L) {
+          G <- matrix(NA_real_, nrow = 2, ncol = 2)
+        } else {
+          G <- matrix(NA_real_,
+            nrow = x$g.nlevels.f[1],
+            ncol = x$g.nlevels.f[1])
+        }
+        G[lower.tri(G)] <- x$rho
+        G[upper.tri(G)] <- t(G)[upper.tri(G)]
+        diag(G) <- 1
+        G[upper.tri(G)] <- ""
+        if (length(x$rho) == 1L) {
+          G.info <- matrix(NA_real_, nrow = 2, ncol = 2)
+        } else {
+          G.info <-
+            matrix(NA_real_,
+               nrow = x$g.nlevels.f[1],
+               ncol = x$g.nlevels.f[1])
+        }
+        G.info[lower.tri(G.info)] <- x$g.levels.comb.k
+        G.info[upper.tri(G.info)] <-
+          t(G.info)[upper.tri(G.info)]
+        G.info[lower.tri(G.info)] <-
+          ifelse(x$vc.fix$rho, "yes", "no")
+        diag(G.info) <- "-"
+        
+        vc <- cbind(G, "", G.info)
+        colnames(vc) <-
+          c(paste("ρ", abbreviate(x$g.levels.f[[1]]), sep = ""),
+            "",
+            abbreviate(x$g.levels.f[[1]]))
+        rownames(vc) <- x$g.levels.f[[1]]
+        analysis$groups <-
+          append(analysis$groups, df_to_group("Rho", vc))
+      }
+      
+      if (is.element(x$struct[1], c("GEN"))) {
+        vc <- cbind(tau2, tau, ifelse(x$vc.fix$tau2, "yes", "no"), "")
+        colnames(vc) <-
+          c("estimate", "square root", "fixed", "rho")
+        rownames(vc) <- x$g.names[-length(x$g.names)]
+        
+        G.info <- cov2cor(x$G)
+        diag(G.info) <- "-"
+        G.info[lower.tri(G.info)] <-
+          ifelse(x$vc.fix$rho, "yes", "no")
+        colnames(G.info) <-
+          abbreviate(x$g.names[-length(x$g.names)])
+        vc <- cbind(vc, G.info)
+        analysis$groups <-
+          append(analysis$groups, df_to_group("Tau", vc))
+        
+      }
+      
+      if (is.element(x$struct[1], c("GDIAG"))) {
+        vc <- cbind(tau2, tau, ifelse(x$vc.fix$tau2, "yes", "no"))
+        colnames(vc) <- c("estimate", "square root", "fixed")
+        rownames(vc) <- x$g.names[-length(x$g.names)]
+        analysis$groups <-
+          append(analysis$groups, df_to_group("Tau", vc))
+        
+      }
+    }
+    
+    if (x$withH) {
+      gamma2 <- x$gamma2
+      gamma  <- sqrt(x$gamma2)
+      
+      if (is.element(
+        x$struct[2],
+        c(
+          "CS",
+          "AR",
+          "CAR",
+          "ID",
+          "SPEXP",
+          "SPGAU",
+          "SPLIN",
+          "SPRAT",
+          "SPSPH",
+          "PHYBM",
+          "PHYPL",
+          "PHYPD"
+        )
+      )) {
+        vc <- cbind(gamma2, gamma, ifelse(x$vc.fix$gamma2, "yes", "no"))
+        vc <-
+          rbind(vc, c(x$phi, "", ifelse(x$vc.fix$phi, "yes", "no")))
+        colnames(vc) <- c("estimate", "square root", "fixed")
+        rownames(vc) <- c("γ²", "φ")
+        if (x$struct[2] == "ID")
+          vc <- vc[1, , drop = FALSE]
+        analysis$groups <-
+          append(analysis$groups, df_to_group("Gamma", vc))
+        
+      }
+      
+      if (is.element(x$struct[2], c("HCS", "HAR", "DIAG"))) {
+        vc <-
+          cbind(
+            gamma2,
+            gamma,
+            x$h.levels.k,
+            ifelse(x$vc.fix$gamma2, "yes", "no"),
+            x$h.levels.f[[1]]
+          )
+        vc <-
+          rbind(vc, c(x$phi, "", "", ifelse(x$vc.fix$phi, "yes", "no"), ""))
+        colnames(vc) <-
+          c("estimate", "square root", "k.lvl", "fixed", "level")
+        if (length(x$gamma2) == 1L) {
+          rownames(vc) <- c("γ²", "φ")
+        } else {
+          rownames(vc) <-
+            c(paste("γ²", seq_along(x$gamma2), "  ", sep = ""), "φ")
+        }
+        if (x$struct[2] == "DIAG")
+          vc <- vc[seq_along(gamma2), , drop = FALSE]
+        analysis$groups <-
+          append(analysis$groups, df_to_group("Gamma", vc))
+        
+      }
+      
+      if (is.element(x$struct[2], c("UN", "UNR"))) {
+        if (x$struct[2] == "UN") {
+          vc <-
+            cbind(
+              gamma2,
+              gamma,
+              x$h.levels.k,
+              ifelse(x$vc.fix$gamma2, "yes", "no"),
+              x$h.levels.f[[1]]
+            )
+        } else {
+          vc <-
+            cbind(
+              rep(gamma2, length(x$h.levels.k)),
+              rep(gamma, length(x$h.levels.k)),
+              x$h.levels.k,
+              ifelse(rep(
+                x$vc.fix$gamma2, length(x$h.levels.k)
+              ), "yes", "no"),
+              x$h.levels.f[[1]]
+            )
+        }
+        colnames(vc) <-
+          c("estimate", "square root", "k.lvl", "fixed", "level")
+        if (length(x$h.levels.k) == 1L) {
+          rownames(vc) <- c("γ²")
+        } else {
+          rownames(vc) <- paste("γ²", seq_along(x$h.levels.k), "  ", sep = "")
+        }
+        analysis$groups <-
+          append(analysis$groups, df_to_group("Gamma", vc))
+        
+        
+        if (length(x$phi) == 1L) {
+          H <- matrix(NA_real_, nrow = 2, ncol = 2)
+        } else {
+          H <- matrix(NA_real_,
+                      nrow = x$h.nlevels.f[1],
+                      ncol = x$h.nlevels.f[1])
+        }
+        H[lower.tri(H)] <- x$phi
+        H[upper.tri(H)] <- t(H)[upper.tri(H)]
+        diag(H) <- 1
+        #H[upper.tri(H)] <- ""
+        
+        if (length(x$phi) == 1L) {
+          H.info <- matrix(NA_real_, nrow = 2, ncol = 2)
+        } else {
+          H.info <-
+            matrix(NA_real_,
+                   nrow = x$h.nlevels.f[1],
+                   ncol = x$h.nlevels.f[1])
+        }
+        H.info[lower.tri(H.info)] <- x$h.levels.comb.k
+        H.info[upper.tri(H.info)] <-
+          t(H.info)[upper.tri(H.info)]
+        H.info[lower.tri(H.info)] <-
+          ifelse(x$vc.fix$phi, "yes", "no")
+        diag(H.info) <- "-"
+        
+        vc <- cbind(H, "", H.info)
+        colnames(vc) <-
+          c(paste("φ", abbreviate(x$h.levels.f[[1]]), sep = ""),
+            "",
+            abbreviate(x$h.levels.f[[1]])) ### FIXME: x$h.levels.f[[1]] may be numeric, in which case a wrapping 'header' is not recognized
+        rownames(vc) <- x$h.levels.f[[1]]
+        analysis$groups <-
+          append(analysis$groups, df_to_group("Phi", vc))
+      }
+      
+      if (is.element(x$struct[2], c("GEN"))) {
+        vc <- cbind(gamma2, gamma, ifelse(x$vc.fix$gamma2, "yes", "no"), "")
+        colnames(vc) <-
+          c("estimate", "square root", "fixed", "φ")
+        rownames(vc) <- x$h.names[-length(x$h.names)]
+        
+        H.info <- cov2cor(x$H)
+        diag(H.info) <- "-"
+        H.info[lower.tri(H.info)] <-
+          ifelse(x$vc.fix$phi, "yes", "no")
+        colnames(H.info) <-
+          abbreviate(x$h.names[-length(x$h.names)])
+        vc <- cbind(vc, H.info)
+        analysis$groups <-
+          append(analysis$groups, df_to_group("Gamma", vc))
+        
+      }
+      
+      if (is.element(x$struct[2], c("GDIAG"))) {
+        vc <- cbind(gamma2, gamma, ifelse(x$vc.fix$gamma2, "yes", "no"))
+        colnames(vc) <- c("estimate", "square root", "fixed")
+        rownames(vc) <- x$h.names[-length(x$h.names)]
+        analysis$groups <-
+          append(analysis$groups, df_to_group("Gamma", vc))
+        
+      }
+    }
+  }
+
+  # Heterogeneity
+  # Create a group and statistics list for the Test for (Residual) Heterogeneity
+  if (!is.na(x$QE)) {
+    statistics <- list()
+    if (x$int.only) {
+      group <- list(name = "Heterogeneity")
+      statistics <-
+        add_statistic(statistics, "statistic", x$QE, "Q")
+    } else{
+      group <- list(name = "Residual Heterogeneity")
+      statistics <-
+        add_statistic(statistics, "statistic", x$QE, "QE")
+    }
+    statistics <- add_statistic(statistics, "df", x$k - x$p)
+    statistics <- add_statistic(statistics, "p", x$QEp)
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the model group to a groups element on the analysis
+    analysis$groups <- append(analysis$groups, list(group))
+  }
+
+  if (x$p > 1L && !is.na(x$QM)) {
+    statistics <- list()
+    group <- list(name = "Test of Moderators")
+    if (is.element(x$test, c("knha", "adhoc", "t"))) {
+      statistics <-
+        add_statistic(statistics, "statistic", x$QM, "F")
+      statistics <- add_statistic(statistics, "df numerator",
+                                  x$QSdf[[1]], "df", "num.")
+      statistics <- add_statistic(statistics, "df denominator",
+                                  x$QSdf[[2]], "df", "den.")
+    } else {
+      statistics <-
+        add_statistic(statistics, "statistic", x$QM, "QM")
+      statistics <- add_statistic(statistics, "df", x$QMdf[1])
+    }
+    statistics <- add_statistic(statistics, "p", x$QEp)
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the model group to a groups element on the analysis
+    analysis$groups <- append(analysis$groups, list(group))
+  }
+
+
+  if (is.element(x$test, c("knha", "adhoc", "t"))) {
+    stat_type = "t"
+  } else{
+    stat_type = "z"
+  }
+  # Loop over the coefficients and add statistics to a group list
+  groups <- list(name = "Coefficients")
+  for (i in 1:length(x$beta)) {
+    # Create a new group list
+    group <- list()
+    # Add the name and type of the coefficient
+    group$name <- rownames(x$beta)[i]
+    # Create a new statistics list
+    statistics <- list()
+    statistics <-
+      add_statistic(
+        statistics,
+        "estimate",
+        x$beta[i][[1]],
+        "b",
+        interval = "CI",
+        level = .95,
+        lower = x$ci.lb[i],
+        upper = x$ci.ub[i]
+      )
+    statistics <-
+      add_statistic(statistics, "SE", x$se[i])
+    statistics <-
+      add_statistic(statistics, "statistic", x$zval[i], stat_type)
+    statistics <- add_statistic(statistics, "p", x$pval[i])
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the group to the groups of the coefficients groups list
+    groups$groups <- append(groups$groups, list(group))
+  }
+  # Add the coefficient groups to the statistics list
+  analysis$groups <- append(analysis$groups, list(groups))
+
   
   # Add package information
   analysis <- add_package_info(analysis, "metafor")

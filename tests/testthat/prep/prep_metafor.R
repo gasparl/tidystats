@@ -129,16 +129,44 @@ rma_glmm_cmal
 # rma.mv() --------------------------------------------------------------------
 
 # Get data
+### calculate log odds ratios and corresponding sampling variances
+dat <- escalc(measure="OR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
 
 # Run analyses
-new_test <- 99
+
+### fit random-effects model using rma.mv()
+rma_mv = rma.mv(yi, vi, random = ~ 1 | trial, data=dat)
+
+### multilevel model with random effects
+rma_mv_mm = rma.mv(yi, vi, random = ~ 1 | district/school, data=dat.konstantopoulos2011)
+
+### change data into long format
+dat.long <- to.long(measure="OR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
+### set levels of group variable ("exp" = experimental/vaccinated; "con" = control/non-vaccinated)
+levels(dat.long$group) <- c("exp", "con")
+### set "con" to reference level
+dat.long$group <- relevel(dat.long$group, ref="con")
+### calculate log odds and corresponding sampling variances
+dat.long <- escalc(measure="PLO", xi=out1, mi=out2, data=dat.long)
+
+### fit bivariate random-effects model using rma.mv()
+rma_mv_biv <- rma.mv(yi, vi, mods = ~ group, random = ~ group | study, struct="UN", data=dat.long)
+
+
+results <- results %>%
+  add_stats(rma_mv)
 
 # Add stats
 results <- results %>%
-  add_stats(new_test)
+  add_stats(rma_mv) %>%
+  add_stats(rma_mv_mm) %>%
+  add_stats(rma_mv_biv)
+
 
 # Inspect output
-
+rma_mv
+rma_mv_mm
+rma_mv_biv
 
 
 # confint.rma() --------------------------------------------------------------------
