@@ -158,3 +158,50 @@ test_that("Multivariate Meta-Analysis Model (bivariate REML) works",
       rma.mv(yi, vi, mods = ~ group, random = ~ group | study, struct="UN", data=dat.long),
       test_results$rma_mv_biv)
   })
+
+# Test: rma.mv ----------------------------------------------------------------
+
+dat <- escalc(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
+
+test_that("RMA confidence intervals (uni) works",
+  {
+    models_equal(
+      confint(res <- rma(yi, vi, data=dat, method="REML")),
+      test_results$confint_rma_uni)
+  })
+test_that("RMA confidence intervals (mv) works",
+  {
+    models_equal(
+      confint(rma.mv(yi, vi, random = ~ 1 | district/school, data=dat.konstantopoulos2011)),
+      test_results$confint_rma_mv)
+  })
+res = rma.mv(yi, vi, random = ~ school | district, data=dat.konstantopoulos2011)
+test_that("RMA confidence intervals (mv, parameterization) works",
+  {
+    models_equal(
+      confint(res),
+      test_results$confint_rma_mv_para)
+  })
+test_that("RMA confidence intervals (mv, single output) works",
+  {
+    models_equal(
+      confint(res, tau2=1),
+      test_results$confint_rma_mv_single)
+  })
+test_that("RMA confidence intervals (mv, custom CI level) works", {
+  model <- confint(res, level = .8)
+  
+  tidy_model <- tidy_stats(model, args = .8)
+  tidy_model_test <- test_results$confint_rma_mv_ci80
+  
+  tidy_model$package$version <- NULL
+  tidy_model_test$package$version <- NULL
+  
+  expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
+})
+test_that("RMA confidence intervals (mh",
+  {
+    models_equal(
+      confint(rma.mh(measure="OR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)),
+      test_results$confint_rma_mh)
+  })

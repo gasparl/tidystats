@@ -172,17 +172,42 @@ rma_mv_biv
 # confint.rma() --------------------------------------------------------------------
 
 # Get data
+### calculate log risk ratios and corresponding sampling variances
+dat <- escalc(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
 
 # Run analyses
-new_test <- 99
+
+### meta-analysis of the log risk ratios using a random-effects model
+confint_rma_uni <- confint(res <- rma(yi, vi, data=dat, method="REML"))
+
+### multilevel random-effects model
+confint_rma_mv <- confint(rma.mv(yi, vi, random = ~ 1 | district/school, data=dat.konstantopoulos2011))
+
+### multivariate parameterization of the model
+res = rma.mv(yi, vi, random = ~ school | district, data=dat.konstantopoulos2011)
+confint_rma_mv_para <- confint(res)
+confint_rma_mv_single <- confint(res, tau2=1)
+confint_rma_mv_ci80 <- confint(res, level = .8)
+
+### rma.mh (same as peta)
+confint_rma_mh <- confint(rma.mh(measure="OR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg))
 
 # Add stats
 results <- results %>%
-  add_stats(new_test)
+  add_stats(confint_rma_uni) %>%
+  add_stats(confint_rma_mv) %>%
+  add_stats(confint_rma_mv_para) %>%
+  add_stats(confint_rma_mv_single) %>%
+  add_stats(confint_rma_mv_ci80, args = .8) %>%
+  add_stats(confint_rma_mh)
 
 # Inspect output
-
-
+confint_rma_uni
+confint_rma_mv
+confint_rma_mv_para
+confint_rma_mv_single
+confint_rma_mv_ci80
+confint_rma_mh
 
 # anova.rma() --------------------------------------------------------------------
 

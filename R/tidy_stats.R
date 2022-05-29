@@ -4050,3 +4050,70 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
   
   return(analysis)
 }
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'confint.rma'
+#' @export
+tidy_stats.confint.rma <- function(x, args = NULL) {
+  # Create the analysis list
+  analysis <- list()
+
+  if (!(is.vector(args) && length(args) == 1)) {
+    args <- NULL
+  }
+
+  if (is.matrix(x$random)) {
+    analysis$groups <-
+      append(analysis$groups,
+        ci_df_to_group("RMA estimates with CIs (random)", x$random, args))
+  }
+
+  if (is.matrix(x$fixed)) {
+    analysis$groups <-
+      append(analysis$groups,
+        ci_df_to_group("RMA estimates with CIs (fixed)", x$fixed, args))
+  }
+
+  # Add additional information
+  analysis$level <- args
+
+  # Add package information
+  analysis <- add_package_info(analysis, "stats")
+
+  return(analysis)
+}
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'list.confint.rma'
+#' @export
+tidy_stats.list.confint.rma <- function(x, args = NULL) {
+
+  # Create the analysis list
+  analysis <- list()
+
+  if (!(is.vector(args) && length(args) == 1)) {
+    args <- NULL
+  }
+
+  for (x.elem in x[sapply(x, class) == "confint.rma"]) {
+    if (is.matrix(x.elem$random)) {
+      analysis$groups <-
+        append(analysis$groups,
+          ci_df_to_group("RMA estimates with CIs (random)", x.elem$random, args))
+    }
+    if (is.matrix(x.elem$fixed)) {
+      analysis$groups <-
+        append(analysis$groups,
+          ci_df_to_group("RMA estimates with CIs (fixed)", x.elem$fixed, args))
+    }
+  }
+
+  # Add additional information
+  analysis$level <- args
+
+  # Add package information
+  analysis <- add_package_info(analysis, "stats")
+
+  return(analysis)
+}
+

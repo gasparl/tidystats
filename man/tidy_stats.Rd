@@ -32,6 +32,8 @@
 \alias{tidy_stats.rma.peto}
 \alias{tidy_stats.rma.glmm}
 \alias{tidy_stats.rma.mv}
+\alias{tidy_stats.confint.rma}
+\alias{tidy_stats.list.confint.rma}
 \alias{tidy_stats.lavaan}
 \alias{tidy_stats.psychwip}
 \title{Tidy the output of a statistics object}
@@ -97,6 +99,10 @@ tidy_stats(x, args = NULL)
 \method{tidy_stats}{rma.glmm}(x, args = NULL)
 
 \method{tidy_stats}{rma.mv}(x, args = NULL)
+
+\method{tidy_stats}{confint.rma}(x, args = NULL)
+
+\method{tidy_stats}{list.confint.rma}(x, args = NULL)
 
 \method{tidy_stats}{lavaan}(x, args = list(fit.measures = TRUE))
 
@@ -181,6 +187,10 @@ Currently supported functions are listed in the description of
 \item \code{rma.glmm}: tidy_stats method for class 'rma.glmm'
 
 \item \code{rma.mv}: tidy_stats method for class 'rma.mv'
+
+\item \code{confint.rma}: tidy_stats method for class 'confint.rma'
+
+\item \code{list.confint.rma}: tidy_stats method for class 'list.confint.rma'
 
 \item \code{lavaan}: tidy_stats method for class 'lavaan'
 

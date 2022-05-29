@@ -2132,5 +2132,432 @@
       "name": "metafor",
       "version": "3.4-0"
     }
+  },
+  "confint_rma_uni": {
+    "groups": [
+      {
+        "name": "Table: RMA estimates with CIs (random)",
+        "groups": [
+          {
+            "name": "T²",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.313243
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "lower",
+                "value": 0.119695
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "upper",
+                "value": 1.111486
+              }
+            ]
+          },
+          {
+            "name": "T",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.559681
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "lower",
+                "value": 0.34597
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "upper",
+                "value": 1.05427
+              }
+            ]
+          },
+          {
+            "name": "I²(%)",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 92.221386
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "lower",
+                "value": 81.917723
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "upper",
+                "value": 97.67809
+              }
+            ]
+          },
+          {
+            "name": "H²",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 12.855761
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "lower",
+                "value": 5.530277
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "upper",
+                "value": 43.067984
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "confint_rma_mv": {
+    "groups": [
+      {
+        "name": "Table: RMA estimates with CIs (random)",
+        "groups": [
+          {
+            "name": "σ².1",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.065062
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "lower",
+                "value": 0.022233
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "upper",
+                "value": 0.207242
+              }
+            ]
+          },
+          {
+            "name": "σ.1",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.255072
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "lower",
+                "value": 0.149107
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "upper",
+                "value": 0.455238
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: RMA estimates with CIs (random)",
+        "groups": [
+          {
+            "name": "σ².2",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.032737
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "lower",
+                "value": 0.016274
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "upper",
+                "value": 0.062825
+              }
+            ]
+          },
+          {
+            "name": "σ.2",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.180932
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "lower",
+                "value": 0.127568
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "upper",
+                "value": 0.25065
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "confint_rma_mv_para": {
+    "groups": [
+      {
+        "name": "Table: RMA estimates with CIs (random)",
+        "groups": [
+          {
+            "name": "T²",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.097799
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "lower",
+                "value": 0.052797
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "upper",
+                "value": 0.239845
+              }
+            ]
+          },
+          {
+            "name": "T",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.312728
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "lower",
+                "value": 0.229776
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "upper",
+                "value": 0.48974
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: RMA estimates with CIs (random)",
+        "groups": [
+          {
+            "name": "ρ",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.665266
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "lower",
+                "value": 0.328202
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "upper",
+                "value": 0.885453
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "confint_rma_mv_single": {
+    "groups": [
+      {
+        "name": "Table: RMA estimates with CIs (random)",
+        "groups": [
+          {
+            "name": "T²",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.097799
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "lower",
+                "value": 0.052797
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "upper",
+                "value": 0.239845
+              }
+            ]
+          },
+          {
+            "name": "T",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.312728
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "lower",
+                "value": 0.229776
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "upper",
+                "value": 0.48974
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "confint_rma_mv_ci80": {
+    "groups": [
+      {
+        "name": "Table: RMA estimates with CIs (random)",
+        "groups": [
+          {
+            "name": "T²",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.097799,
+                "interval": "CI",
+                "level": 0.8,
+                "lower": 0.064176,
+                "upper": 0.168093
+              }
+            ]
+          },
+          {
+            "name": "T",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.312728,
+                "interval": "CI",
+                "level": 0.8,
+                "lower": 0.253329,
+                "upper": 0.409992
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: RMA estimates with CIs (random)",
+        "groups": [
+          {
+            "name": "ρ",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.665266,
+                "interval": "CI",
+                "level": 0.8,
+                "lower": 0.450188,
+                "upper": 0.826507
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "level": 0.8,
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
+  },
+  "confint_rma_mh": {
+    "groups": [
+      {
+        "name": "Table: RMA estimates with CIs (fixed)",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": -0.473411
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "lower",
+                "value": -0.553785
+              },
+              {
+                "name": "interval",
+                "symbol": "CI",
+                "subscript": "upper",
+                "value": -0.393037
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "stats",
+      "version": "4.2.0"
+    }
   }
 }
