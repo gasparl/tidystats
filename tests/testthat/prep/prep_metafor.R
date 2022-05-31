@@ -211,17 +211,52 @@ confint_rma_mh
 
 # anova.rma() --------------------------------------------------------------------
 
-# Get data
+### calculate log risk ratios and corresponding sampling variances
+dat <- escalc(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
 
-# Run analyses
-new_test <- 99
+### fit random-effects model
+res1 <- rma(yi, vi, data=dat, method="ML")
+
+### fit mixed-effects model with two moderators (absolute latitude and publication year)
+res2 <- rma(yi, vi, mods = ~ ablat + year, data=dat, method="ML")
+
+### Wald-type test of the two moderators
+anova_rma_wald <- anova(res2)
+
+### alternative way of specifying the same test
+anova_rma_wald_est <- anova(res2, X=rbind(c(0,1,0), c(0,0,1)))
+
+### corresponding likelihood ratio test
+anova_rma_lrt <- anova(res1, res2)
+
+### Wald-type test of a linear combination
+anova_rma_wald_comb <- anova(res2, X=c(1,35,1970))
+
+### an example of doing LRTs of variance components in more complex models
+dat <- dat.konstantopoulos2011
+res <- rma.mv(yi, vi, random = ~ 1 | district/school, data=dat)
+### likelihood ratio test of the district-level variance component
+res0 <- rma.mv(yi, vi, random = ~ 1 | district/school, data=dat, sigma2=c(0,NA))
+anova_rma_lrt_complex = anova(res, res0)
+
+
+results <- results %>%
+  add_stats(anova_rma_lrt)
 
 # Add stats
 results <- results %>%
-  add_stats(new_test)
+  add_stats(anova_rma_wald) %>%
+  add_stats(anova_rma_wald_est) %>%
+  add_stats(anova_rma_lrt) %>%
+  add_stats(anova_rma_wald_comb) %>%
+  add_stats(anova_rma_lrt_complex)
 
 # Inspect output
-
+anova_rma_wald
+anova_rma_wald_est
+anova_rma_lrt
+anova_rma_wald_comb
+anova_rma_lrt_complex
 
 
 # permutest() --------------------------------------------------------------------

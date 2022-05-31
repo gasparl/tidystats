@@ -104,7 +104,7 @@ df_to_group <- function(name, df) {
     statistics <- list()
     for (j in 1:ncol(df)) {
       statistics <-
-        add_statistic(statistics, colnames(df)[j], df[i, j])
+        add_statistic(statistics, colnames(df)[j], ifelse(is.na(df[i, j]), "-", df[i, j]))
     }
     # Add statistics to the group
     group$statistics <- statistics

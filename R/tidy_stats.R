@@ -4117,3 +4117,223 @@ tidy_stats.list.confint.rma <- function(x, args = NULL) {
   return(analysis)
 }
 
+
+#' @describeIn tidy_stats tidy_stats method for class 'anova.rma'
+#' @export
+tidy_stats.anova.rma <- function(x, args = NULL) {
+  if (x$type == "LRT") {
+    method = "Likelihood Ratio Tests for 'rma' Objects"
+  } else {
+    method = "Wald-Type Tests for 'rma' Objects"
+  }
+  
+  analysis <- list(method = method)
+
+  # Moderators
+  # Create a group and statistics list for the Test of Moderators (if any)
+  if (x$type == "Wald.btt") {
+    statistics <- list()
+    if (is.element("rma.ls", x$class)) {
+      group <- list(name = "Test of Location Coefficients")
+    } else {
+      group <- list(name = "Test of Moderators")
+    }
+    if (is.element(x$test, c("knha", "adhoc", "t"))) {
+      statistics <- add_statistic(statistics, "statistic", x$QM, "F")
+      statistics <- add_statistic(statistics, "df numerator",
+                                  x$QMdf[1], "df", "num.")
+      statistics <- add_statistic(statistics, "df denominator",
+                                  x$QMdf[2], "df", "den.")
+    } else {
+      statistics <- add_statistic(statistics, "statistic", x$QM, "QM")
+      statistics <- add_statistic(statistics, "df", x$QMdf[1])
+    }
+    statistics <- add_statistic(statistics, "p", x$QMp)
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the model group to a groups element on the analysis
+    analysis$groups <- append(analysis$groups, list(group))
+  }
+  
+  if (x$type == "Wald.att") {
+    statistics <- list()
+    group <- list(name = "Test of Scale Coefficients")
+    if (is.element(x$test, c("knha", "adhoc", "t"))) {
+      statistics <- add_statistic(statistics, "statistic", x$QS, "F")
+      statistics <- add_statistic(statistics, "df numerator",
+                                  x$QSdf[[1]], "df", "num.")
+      statistics <- add_statistic(statistics, "df denominator",
+                                  x$QSdf[[2]], "df", "den.")
+    } else {
+      statistics <- add_statistic(statistics, "statistic", x$QS, "QS")
+      statistics <- add_statistic(statistics, "df", x$QSdf[1])
+    }
+    statistics <- add_statistic(statistics, "p", x$QSp)
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the model group to a groups element on the analysis
+    analysis$groups <- append(analysis$groups, list(group))
+  }
+
+  if (x$type == "Wald.Xb") {
+    # Create a groups list for the coefficients
+    groups <- list(name = "Table: Wald-type test of moderators")
+    if (is.element(x$test, c("knha", "adhoc", "t"))) {
+      stat_type = "t"
+    } else{
+      stat_type = "z"
+    }
+    # Loop over the coefficients and add statistics to a group list
+    for (i in 1:length(x$Xb)) {
+      # Create a new group list
+      group <- list()
+      # Add the name and type of the coefficient
+      group$name <- toString(i)
+      # Create a new statistics list
+      statistics <- list()
+      statistics <-
+        add_statistic(statistics,
+                      "estimate",
+                      x$Xb[i],
+                      "b")
+      if (is.element(x$test, c("knha", "adhoc", "t"))) {
+        statistics <-
+          add_statistic(statistics, "df", x$ddf[i])
+      }
+      statistics <-
+        add_statistic(statistics, "SE", x$se[i])
+      statistics <-
+        add_statistic(statistics, "statistic", x$zval[i], stat_type)
+      statistics <- add_statistic(statistics, "p", x$pval[i])
+      # Add statistics to the group
+      group$statistics <- statistics
+      # Add the group to the groups of the coefficients groups list
+      groups$groups <- append(groups$groups, list(group))
+    }
+    # Add the coefficient groups to the statistics list
+    analysis$groups <- append(analysis$groups, list(groups))
+    
+    if (!is.na(x$QM)) {
+      statistics <- list()
+      if (x$m == 1) {
+        group <- list(name = "Test of Hypothesis")
+      } else {
+        group <- list(name = "Omnibus Test of Hypotheses")
+      }
+      if (is.element(x$test, c("knha", "adhoc", "t"))) {
+        statistics <- add_statistic(statistics, "statistic", x$QM, "F")
+        statistics <- add_statistic(statistics, "df numerator",
+                                    x$QMdf[1], "df", "num.")
+        statistics <- add_statistic(statistics, "df denominator",
+                                    x$QMdf[2], "df", "den.")
+      } else {
+        statistics <- add_statistic(statistics, "statistic", x$QM, "QM")
+        statistics <- add_statistic(statistics, "df", x$QMdf[1])
+      }
+      statistics <- add_statistic(statistics, "p", x$QMp)
+      # Add statistics to the group
+      group$statistics <- statistics
+      # Add the model group to a groups element on the analysis
+      analysis$groups <- append(analysis$groups, list(group))
+    }
+  }
+
+  if (x$type == "Wald.Za") {
+    # Create a groups list for the coefficients
+    groups <- list(name = "Table: Wald-type test of moderators")
+    if (is.element(x$test, c("knha", "adhoc", "t"))) {
+      stat_type = "t"
+    } else{
+      stat_type = "z"
+    }
+    # Loop over the coefficients and add statistics to a group list
+    for (i in 1:length(x$Za)) {
+      # Create a new group list
+      group <- list()
+      # Add the name and type of the coefficient
+      group$name <- rownames(x$Za)[i]
+      # Create a new statistics list
+      statistics <- list()
+      statistics <-
+        add_statistic(statistics,
+                      "estimate",
+                      x$Za[i],
+                      "b")
+      if (is.element(x$test, c("knha", "adhoc", "t"))) {
+        statistics <-
+          add_statistic(statistics, "df", x$ddf[i])
+      }
+      statistics <-
+        add_statistic(statistics, "SE", x$se[i])
+      statistics <-
+        add_statistic(statistics, "statistic", x$zval[i], stat_type)
+      statistics <- add_statistic(statistics, "p", x$pval[i])
+      # Add statistics to the group
+      group$statistics <- statistics
+      # Add the group to the groups of the coefficients groups list
+      groups$groups <- append(groups$groups, list(group))
+    }
+    # Add the coefficient groups to the statistics list
+    analysis$groups <- append(analysis$groups, list(groups))
+    
+    if (!is.na(x$QS)) {
+      statistics <- list()
+      if (x$m == 1) {
+        group <- list(name = "Test of Hypothesis")
+      } else {
+        group <- list(name = "Omnibus Test of Hypotheses")
+      }
+      if (is.element(x$test, c("knha", "adhoc", "t"))) {
+        statistics <- add_statistic(statistics, "statistic", x$QS, "F")
+        statistics <- add_statistic(statistics, "df numerator",
+                                    x$QSdf[1], "df", "num.")
+        statistics <- add_statistic(statistics, "df denominator",
+                                    x$QSdf[2], "df", "den.")
+      } else {
+        statistics <- add_statistic(statistics, "statistic", x$QS, "QS")
+        statistics <- add_statistic(statistics, "df", x$QSdf[1])
+      }
+      
+      statistics <- add_statistic(statistics, "p", x$QSp)
+      # Add statistics to the group
+      group$statistics <- statistics
+      # Add the model group to a groups element on the analysis
+      analysis$groups <- append(analysis$groups, list(group))
+    }
+  }
+  
+  if (x$type == "LRT") {
+    res.table <- data.frame(c(x$parms.f, x$parms.r),
+      c(x$fit.stats.f["AIC"], x$fit.stats.r["AIC"]),
+      c(x$fit.stats.f["BIC"], x$fit.stats.r["BIC"]),
+      c(x$fit.stats.f["AICc"], x$fit.stats.r["AICc"]),
+      c(x$fit.stats.f["ll"], x$fit.stats.r["ll"]),
+      c(NA, x$LRT),
+      c(NA, x$pval),
+      c(x$QE.f,  x$QE.r),
+      c(x$tau2.f, x$tau2.r),
+      c(NA, NA), stringsAsFactors=FALSE)
+  
+    colnames(res.table) <- c("df", "AIC", "BIC", "AICc", "Log-Likelihood", "LRT", "p", "QE", "T²", "R²")
+    rownames(res.table) <- c("Full", "Reduced")
+    res.table["Full", c("LRT", "p")] <- NA
+    res.table["Full", "R²"] <- NA
+    res.table["Reduced","R²"] <- x$R2
+
+    ### remove tau^2 column if full model is a FE/EE/CE model
+    if (is.element(x$method, c("FE","EE","CE")))
+       res.table <- res.table[-which(names(res.table) == "T²")]
+
+    ### remove R^2 column if full model is a rma.mv or rma.ls model
+    if (is.element("rma.mv", x$class.f) || is.element("rma.ls", x$class.f))
+       res.table <- res.table[-which(names(res.table) == "R²")]
+
+    analysis$groups <-
+      append(analysis$groups, df_to_group("Likelihood ratio test of moderators", res.table))
+  }
+
+  # Add package information
+  analysis <- add_package_info(analysis, "metafor")
+
+  return(analysis)
+}
