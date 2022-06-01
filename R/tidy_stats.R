@@ -4194,14 +4194,14 @@ tidy_stats.anova.rma <- function(x, args = NULL) {
       statistics <-
         add_statistic(statistics,
                       "estimate",
-                      x$Xb[i],
+                      x$Xb[i][[1]],
                       "b")
       if (is.element(x$test, c("knha", "adhoc", "t"))) {
         statistics <-
           add_statistic(statistics, "df", x$ddf[i])
       }
       statistics <-
-        add_statistic(statistics, "SE", x$se[i])
+        add_statistic(statistics, "SE", x$se[i][[1]])
       statistics <-
         add_statistic(statistics, "statistic", x$zval[i], stat_type)
       statistics <- add_statistic(statistics, "p", x$pval[i])
@@ -4257,14 +4257,14 @@ tidy_stats.anova.rma <- function(x, args = NULL) {
       statistics <-
         add_statistic(statistics,
                       "estimate",
-                      x$Za[i],
+                      x$Za[i][[1]],
                       "b")
       if (is.element(x$test, c("knha", "adhoc", "t"))) {
         statistics <-
           add_statistic(statistics, "df", x$ddf[i])
       }
       statistics <-
-        add_statistic(statistics, "SE", x$se[i])
+        add_statistic(statistics, "SE", x$se[i][[1]])
       statistics <-
         add_statistic(statistics, "statistic", x$zval[i], stat_type)
       statistics <- add_statistic(statistics, "p", x$pval[i])
@@ -4318,7 +4318,7 @@ tidy_stats.anova.rma <- function(x, args = NULL) {
     rownames(res.table) <- c("Full", "Reduced")
     res.table["Full", c("LRT", "p")] <- NA
     res.table["Full", "R²"] <- NA
-    res.table["Reduced","R²"] <- x$R2
+    res.table["Reduced","R²"] <- x$R2 / 100
 
     ### remove tau^2 column if full model is a FE/EE/CE model
     if (is.element(x$method, c("FE","EE","CE")))

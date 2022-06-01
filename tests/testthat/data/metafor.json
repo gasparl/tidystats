@@ -2012,6 +2012,10 @@
                 "value": 1
               },
               {
+                "name": "ρexp",
+                "value": "-"
+              },
+              {
                 "name": "exp",
                 "value": 13
               }
@@ -2027,6 +2031,10 @@
               {
                 "name": "ρexp",
                 "value": 1
+              },
+              {
+                "name": "exp",
+                "value": "-"
               }
             ]
           }
@@ -2558,6 +2566,358 @@
     "package": {
       "name": "stats",
       "version": "4.2.0"
+    }
+  },
+  "anova_rma_wald": {
+    "method": "Wald-Type Tests for 'rma' Objects",
+    "groups": [
+      {
+        "name": "Test of Moderators",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QM",
+            "value": 33.919242
+          },
+          {
+            "name": "df",
+            "value": 2
+          },
+          {
+            "name": "p",
+            "value": 4.310526e-08
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "anova_rma_wald_est": {
+    "method": "Wald-Type Tests for 'rma' Objects",
+    "groups": [
+      {
+        "name": "Table: Wald-type test of moderators",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.03085
+              },
+              {
+                "name": "SE",
+                "value": 0.006289
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -4.905676
+              },
+              {
+                "name": "p",
+                "value": 9.310614e-07
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.003187
+              },
+              {
+                "name": "SE",
+                "value": 0.009182
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -0.347082
+              },
+              {
+                "name": "p",
+                "value": 0.72853
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Omnibus Test of Hypotheses",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QM",
+            "value": 33.919242
+          },
+          {
+            "name": "df",
+            "value": 2
+          },
+          {
+            "name": "p",
+            "value": 4.310526e-08
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "anova_rma_lrt": {
+    "method": "Likelihood Ratio Tests for 'rma' Objects",
+    "groups": [
+      {
+        "name": "Table: Likelihood ratio test of moderators",
+        "groups": [
+          {
+            "name": "Full",
+            "statistics": [
+              {
+                "name": "df",
+                "value": 4
+              },
+              {
+                "name": "AIC",
+                "value": 23.292231
+              },
+              {
+                "name": "BIC",
+                "value": 25.552028
+              },
+              {
+                "name": "AICc",
+                "value": 28.292231
+              },
+              {
+                "name": "Log-Likelihood",
+                "value": -7.646115
+              },
+              {
+                "name": "LRT",
+                "value": "-"
+              },
+              {
+                "name": "p",
+                "value": "-"
+              },
+              {
+                "name": "QE",
+                "value": 28.325144
+              },
+              {
+                "name": "T²",
+                "value": 0.026897
+              },
+              {
+                "name": "R²",
+                "value": "-"
+              }
+            ]
+          },
+          {
+            "name": "Reduced",
+            "statistics": [
+              {
+                "name": "df",
+                "value": 2
+              },
+              {
+                "name": "AIC",
+                "value": 29.330153
+              },
+              {
+                "name": "BIC",
+                "value": 30.460051
+              },
+              {
+                "name": "AICc",
+                "value": 30.530153
+              },
+              {
+                "name": "Log-Likelihood",
+                "value": -12.665076
+              },
+              {
+                "name": "LRT",
+                "value": 10.037922
+              },
+              {
+                "name": "p",
+                "value": 0.006611
+              },
+              {
+                "name": "QE",
+                "value": 152.233008
+              },
+              {
+                "name": "T²",
+                "value": 0.280028
+              },
+              {
+                "name": "R²",
+                "value": 0.903948
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "anova_rma_wald_comb": {
+    "method": "Wald-Type Tests for 'rma' Objects",
+    "groups": [
+      {
+        "name": "Table: Wald-type test of moderators",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.75331
+              },
+              {
+                "name": "SE",
+                "value": 0.083665
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -9.003886
+              },
+              {
+                "name": "p",
+                "value": 2.178661e-19
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Test of Hypothesis",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QM",
+            "value": 81.069966
+          },
+          {
+            "name": "df",
+            "value": 1
+          },
+          {
+            "name": "p",
+            "value": 2.178661e-19
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "anova_rma_lrt_complex": {
+    "method": "Likelihood Ratio Tests for 'rma' Objects",
+    "groups": [
+      {
+        "name": "Table: Likelihood ratio test of moderators",
+        "groups": [
+          {
+            "name": "Full",
+            "statistics": [
+              {
+                "name": "df",
+                "value": 3
+              },
+              {
+                "name": "AIC",
+                "value": 21.917448
+              },
+              {
+                "name": "BIC",
+                "value": 27.939448
+              },
+              {
+                "name": "AICc",
+                "value": 22.388036
+              },
+              {
+                "name": "Log-Likelihood",
+                "value": -7.958724
+              },
+              {
+                "name": "LRT",
+                "value": "-"
+              },
+              {
+                "name": "p",
+                "value": "-"
+              },
+              {
+                "name": "QE",
+                "value": 578.864018
+              }
+            ]
+          },
+          {
+            "name": "Reduced",
+            "statistics": [
+              {
+                "name": "df",
+                "value": 2
+              },
+              {
+                "name": "AIC",
+                "value": 37.690999
+              },
+              {
+                "name": "BIC",
+                "value": 41.705665
+              },
+              {
+                "name": "AICc",
+                "value": 37.921768
+              },
+              {
+                "name": "Log-Likelihood",
+                "value": -16.845499
+              },
+              {
+                "name": "LRT",
+                "value": 17.773551
+              },
+              {
+                "name": "p",
+                "value": 0.000025
+              },
+              {
+                "name": "QE",
+                "value": 578.864018
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
     }
   }
 }

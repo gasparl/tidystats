@@ -698,7 +698,7 @@
     "alternative": {
       "direction": "two.sided"
     },
-    "sim": 100000,
+    "sim": 100,
     "package": {
       "name": "stats",
       "version": "4.2.0"

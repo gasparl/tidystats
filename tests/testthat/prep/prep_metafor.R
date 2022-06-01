@@ -239,9 +239,8 @@ res <- rma.mv(yi, vi, random = ~ 1 | district/school, data=dat)
 res0 <- rma.mv(yi, vi, random = ~ 1 | district/school, data=dat, sigma2=c(0,NA))
 anova_rma_lrt_complex = anova(res, res0)
 
-
 results <- results %>%
-  add_stats(anova_rma_lrt)
+  add_stats(anova_rma_wald_comb)
 
 # Add stats
 results <- results %>%

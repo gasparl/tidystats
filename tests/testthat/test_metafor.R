@@ -159,7 +159,7 @@ test_that("Multivariate Meta-Analysis Model (bivariate REML) works",
       test_results$rma_mv_biv)
   })
 
-# Test: rma.mv ----------------------------------------------------------------
+# Test: confint.rma ----------------------------------------------------------------
 
 dat <- escalc(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
 
@@ -205,3 +205,43 @@ test_that("RMA confidence intervals (mh",
       confint(rma.mh(measure="OR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)),
       test_results$confint_rma_mh)
   })
+
+# Test: anova.mv ----------------------------------------------------------------
+
+dat <- escalc(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
+res1 <- rma(yi, vi, data=dat, method="ML")
+res2 <- rma(yi, vi, mods = ~ ablat + year, data=dat, method="ML")
+test_that("Wald-Type Tests for 'rma' Objects works",
+  {
+    models_equal(
+      anova(res2),
+      test_results$anova_rma_wald)
+  })
+test_that("Wald-Type Tests for 'rma' Objects (with moderators) works",
+  {
+    models_equal(
+      anova(res2, X=rbind(c(0,1,0), c(0,0,1))),
+      test_results$anova_rma_wald_est)
+  })
+test_that("Likelihood Ratio Tests for 'rma' Objects works",
+  {
+    models_equal(
+      anova(res1, res2),
+      test_results$anova_rma_lrt)
+  })
+test_that("Likelihood Ratio Tests (of linear combination) works",
+  {
+    models_equal(
+      anova(res2, X=c(1,35,1970)),
+      test_results$anova_rma_wald_comb)
+  })
+test_that("Likelihood Ratio Tests (for component) works",
+  {
+    dat <- dat.konstantopoulos2011
+    res <- rma.mv(yi, vi, random = ~ 1 | district/school, data=dat)
+    res0 <- rma.mv(yi, vi, random = ~ 1 | district/school, data=dat, sigma2=c(0,NA))
+    models_equal(
+      anova(res, res0),
+      test_results$anova_rma_lrt_complex)
+  })
+

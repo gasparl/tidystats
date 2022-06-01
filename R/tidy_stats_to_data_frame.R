@@ -70,7 +70,8 @@ analysis_to_data_frame <- function(x, y) {
   if ("statistics" %in% names(x)) {
     df <- dplyr::bind_cols(
       df, 
-      purrr::map_df(x$statistics, function(x) return(x))
+      purrr::map_df(x$statistics, function(x)
+        return(ifelse(x == "-", as.numeric(x), x)))
     )
   }
   
@@ -94,7 +95,9 @@ groups_to_data_frame <- function(x, level) {
   
   # Check if there are statistics, if so, convert them to a data frame
   if ("statistics" %in% names(x)) {
-    df <- purrr::map_df(x$statistics, function(x) return(x))
+    df <-
+      purrr::map_df(x$statistics, function(x)
+        return(ifelse(x == "-", as.numeric(x), x)))
   }
   # Check if there are groups, if so, convert them to a data frame (recursively)
   if ("groups" %in% names(x)) {
