@@ -21,13 +21,13 @@ models_equal = function(model, tidy_model_test) {
   tidy_model_test$package <- NULL
   expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
 }
+test_results <- read_stats("tests/testthat/data/metafor.json")
 
 # Set path (in RStudio)
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 results = list()
 
-test_results <- read_stats("tests/testthat/data/metafor.json")
 devtools::load_all()
 devtools::test()
 

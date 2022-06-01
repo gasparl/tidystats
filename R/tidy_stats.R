@@ -4078,7 +4078,7 @@ tidy_stats.confint.rma <- function(x, args = NULL) {
   analysis$level <- args
 
   # Add package information
-  analysis <- add_package_info(analysis, "stats")
+  analysis <- add_package_info(analysis, "metafor")
 
   return(analysis)
 }
@@ -4112,7 +4112,7 @@ tidy_stats.list.confint.rma <- function(x, args = NULL) {
   analysis$level <- args
 
   # Add package information
-  analysis <- add_package_info(analysis, "stats")
+  analysis <- add_package_info(analysis, "metafor")
 
   return(analysis)
 }
@@ -4330,6 +4330,148 @@ tidy_stats.anova.rma <- function(x, args = NULL) {
 
     analysis$groups <-
       append(analysis$groups, df_to_group("Likelihood ratio test of moderators", res.table))
+  }
+
+  # Add package information
+  analysis <- add_package_info(analysis, "metafor")
+
+  return(analysis)
+}
+
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'permutest.rma.uni'
+#' @export
+tidy_stats.permutest.rma.uni <- function(x, args = NULL) {
+  # Create the analysis list
+  analysis <- list()
+
+  if (!x$int.only) {
+    statistics <- list()
+    if (inherits(x, "permutest.rma.ls")) {
+      group <- list(name = "Test of Location Coefficients")
+    } else {
+      group <- list(name = "Test of Moderators")
+    }
+    
+    if (is.element(x$test, c("knha", "adhoc", "t"))) {
+      statistics <- add_statistic(statistics, "statistic", x$QM, "F")
+      statistics <- add_statistic(statistics, "df numerator",
+                                  x$QMdf[1], "df", "num.")
+      statistics <- add_statistic(statistics, "df denominator",
+                                  x$QMdf[2], "df", "den.")
+    } else {
+      statistics <- add_statistic(statistics, "statistic", x$QM, "QM")
+      statistics <- add_statistic(statistics, "df", x$QMdf[1])
+    }
+    statistics <- add_statistic(statistics, "p", x$QMp)
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the model group to a groups element on the analysis
+    analysis$groups <- append(analysis$groups, list(group))
+  }
+
+  if (is.element(x$test, c("knha", "adhoc", "t"))) {
+    stat_type = "t"
+  } else{
+    stat_type = "z"
+  }
+  # Loop over the coefficients and add statistics to a group list
+  if (inherits(x, "permutest.rma.ls")) {
+    groups <- list(name = "Coefficients (Location)")
+  } else {
+    groups <- list(name = "Coefficients")
+  }
+  for (i in 1:length(x$beta)) {
+    # Create a new group list
+    group <- list()
+    # Add the name and type of the coefficient
+    group$name <- rownames(x$beta)[i]
+    # Create a new statistics list
+    statistics <- list()
+    statistics <-
+      add_statistic(
+        statistics,
+        "estimate",
+        x$beta[i][[1]],
+        "b",
+        interval = "CI",
+        level = .95,
+        lower = x$ci.lb[i],
+        upper = x$ci.ub[i]
+      )
+    statistics <-
+      add_statistic(statistics, "SE", x$se[i])
+    statistics <-
+      add_statistic(statistics, "statistic", x$zval[i], stat_type)
+    statistics <- add_statistic(statistics, "p", x$pval[i])
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the group to the groups of the coefficients groups list
+    groups$groups <- append(groups$groups, list(group))
+  }
+  # Add the coefficient groups to the statistics list
+  analysis$groups <- append(analysis$groups, list(groups))
+
+  if (inherits(x, "permutest.rma.ls")) {
+    if (!x$Z.int.only) {
+      statistics <- list()
+      group <- list(name = "Test of Scale Coefficients")
+      if (is.element(x$test, c("knha", "adhoc", "t"))) {
+        statistics <- add_statistic(statistics, "statistic", x$QS, "F")
+        statistics <- add_statistic(statistics, "df numerator",
+                                    x$QSdf[[1]], "df", "num.")
+        statistics <-
+          add_statistic(statistics, "df denominator",
+                        x$QSdf[[2]], "df", "den.")
+      } else {
+        statistics <- add_statistic(statistics, "statistic", x$QS, "QS")
+        statistics <- add_statistic(statistics, "df", x$QSdf[1])
+      }
+      statistics <- add_statistic(statistics, "p", x$QSp)
+      # Add statistics to the group
+      group$statistics <- statistics
+      # Add the model group to a groups element on the analysis
+      analysis$groups <- append(analysis$groups, list(group))
+    }
+    
+    groups <- list(name = "Coefficients (Scale)")
+    # Loop over the coefficients and add statistics to a group list
+    for (i in 1:length(x$alpha)) {
+      # Create a new group list
+      group <- list()
+      # Add the name and type of the coefficient
+      group$name <- rownames(x$alpha)[i]
+      # Create a new statistics list
+      statistics <- list()
+      statistics <-
+        add_statistic(
+          statistics,
+          "estimate",
+          x$alpha[i][[1]],
+          "b",
+          interval = "CI",
+          level = .95,
+          lower = x$ci.lb.alpha[i],
+          upper = x$ci.ub.alpha[i]
+        )
+      statistics <-
+        add_statistic(statistics, "SE", x$se.alpha[i][[1]])
+      statistics <-
+        add_statistic(statistics, "statistic", x$zval.alpha[i][[1]], stat_type)
+      if (is.element(x$test, c("knha", "adhoc", "t"))) {
+        statistics <-
+          add_statistic(statistics, "df", x$ddf.alpha[i])
+      }
+      statistics <-
+        add_statistic(statistics, "p", x$pval.alpha[i])
+      # Add statistics to the group
+      group$statistics <- statistics
+      # Add the group to the groups of the coefficients groups list
+      groups$groups <- append(groups$groups, list(group))
+    }
+    # Add the coefficient groups to the statistics list
+    analysis$groups <- append(analysis$groups, list(groups))
   }
 
   # Add package information

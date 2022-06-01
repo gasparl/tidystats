@@ -261,16 +261,42 @@ anova_rma_lrt_complex
 # permutest() --------------------------------------------------------------------
 
 # Get data
+dat <- escalc(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
 
 # Run analyses
-new_test <- 99
+### random-effects model
+res <- rma(yi, vi, data=dat)
+
+### permutation test (approximate and exact)
+set.seed(1234) # for reproducibility
+permutest_single = permutest(res, iter = 5)
+
+### mixed-effects model with two moderators (absolute latitude and publication year)
+res <- rma(yi, vi, mods = ~ ablat + year, data=dat)
+
+### permutation test (approximate only; exact not feasible)
+set.seed(1234) # for reproducibility
+permutest_mods <- permutest(res, iter=15)
+
+### permutation test for rma.ls
+dat <- dat.bangertdrowns2004
+### add the total sample size (per 100) as a location and scale predictor
+dat$ni100 <- dat$ni/100
+### add the total sample size (per 100) as a location and scale predictor
+rma_uni_ls_sample <- rma(yi, vi, mods = ~ ni100, scale = ~ ni100, data=dat)
+set.seed(1234) # for reproducibility
+permutest_ls <- permutest(rma_uni_ls_sample, iter=5)
 
 # Add stats
 results <- results %>%
-  add_stats(new_test)
+  add_stats(permutest_single) %>%
+  add_stats(permutest_mods) %>%
+  add_stats(permutest_ls)
 
 # Inspect output
-
+permutest_single
+permutest_mods
+permutest_ls
 
 
 # tes() --------------------------------------------------------------------

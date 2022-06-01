@@ -206,7 +206,7 @@ test_that("RMA confidence intervals (mh",
       test_results$confint_rma_mh)
   })
 
-# Test: anova.mv ----------------------------------------------------------------
+# Test: anova.rma ----------------------------------------------------------------
 
 dat <- escalc(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
 res1 <- rma(yi, vi, data=dat, method="ML")
@@ -245,3 +245,32 @@ test_that("Likelihood Ratio Tests (for component) works",
       test_results$anova_rma_lrt_complex)
   })
 
+# Test: permutest ----------------------------------------------------------------
+
+dat <- escalc(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
+test_that("Permutation Test for 'rma.uni' Objects works",
+  {
+    res <- rma(yi, vi, data=dat)
+    set.seed(1234)
+    models_equal(
+      permutest(res, iter = 5),
+      test_results$permutest_single)
+  })
+test_that("Permutation Test for 'rma.uni' Objects (with moderators) works",
+  {
+    res <- rma(yi, vi, mods = ~ ablat + year, data=dat)
+    set.seed(1234)
+    models_equal(
+      permutest(res, iter = 15),
+      test_results$permutest_mods)
+  })
+test_that("Permutation Test for 'rma.uni' Objects (for rma.ls list) works",
+  {
+    dat <- dat.bangertdrowns2004
+    dat$ni100 <- dat$ni/100
+    rma_uni_ls_sample <- rma(yi, vi, mods = ~ ni100, scale = ~ ni100, data=dat)
+    set.seed(1234)
+    models_equal(
+      permutest(rma_uni_ls_sample, iter = 5),
+      test_results$permutest_ls)
+  })

@@ -2234,8 +2234,8 @@
       }
     ],
     "package": {
-      "name": "stats",
-      "version": "4.2.0"
+      "name": "metafor",
+      "version": "3.4-0"
     }
   },
   "confint_rma_mv": {
@@ -2336,8 +2336,8 @@
       }
     ],
     "package": {
-      "name": "stats",
-      "version": "4.2.0"
+      "name": "metafor",
+      "version": "3.4-0"
     }
   },
   "confint_rma_mv_para": {
@@ -2417,8 +2417,8 @@
       }
     ],
     "package": {
-      "name": "stats",
-      "version": "4.2.0"
+      "name": "metafor",
+      "version": "3.4-0"
     }
   },
   "confint_rma_mv_single": {
@@ -2472,8 +2472,8 @@
       }
     ],
     "package": {
-      "name": "stats",
-      "version": "4.2.0"
+      "name": "metafor",
+      "version": "3.4-0"
     }
   },
   "confint_rma_mv_ci80": {
@@ -2530,8 +2530,8 @@
     ],
     "level": 0.8,
     "package": {
-      "name": "stats",
-      "version": "4.2.0"
+      "name": "metafor",
+      "version": "3.4-0"
     }
   },
   "confint_rma_mh": {
@@ -2564,8 +2564,63 @@
       }
     ],
     "package": {
-      "name": "stats",
-      "version": "4.2.0"
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "anova_rma_wald_comb": {
+    "method": "Wald-Type Tests for 'rma' Objects",
+    "groups": [
+      {
+        "name": "Table: Wald-type test of moderators",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.75331
+              },
+              {
+                "name": "SE",
+                "value": 0.083665
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -9.003886
+              },
+              {
+                "name": "p",
+                "value": 2.178661e-19
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Test of Hypothesis",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QM",
+            "value": 81.069966
+          },
+          {
+            "name": "df",
+            "value": 1
+          },
+          {
+            "name": "p",
+            "value": 2.178661e-19
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
     }
   },
   "anova_rma_wald": {
@@ -2777,61 +2832,6 @@
       "version": "3.4-0"
     }
   },
-  "anova_rma_wald_comb": {
-    "method": "Wald-Type Tests for 'rma' Objects",
-    "groups": [
-      {
-        "name": "Table: Wald-type test of moderators",
-        "groups": [
-          {
-            "name": "1",
-            "statistics": [
-              {
-                "name": "estimate",
-                "symbol": "b",
-                "value": -0.75331
-              },
-              {
-                "name": "SE",
-                "value": 0.083665
-              },
-              {
-                "name": "statistic",
-                "symbol": "z",
-                "value": -9.003886
-              },
-              {
-                "name": "p",
-                "value": 2.178661e-19
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Test of Hypothesis",
-        "statistics": [
-          {
-            "name": "statistic",
-            "symbol": "QM",
-            "value": 81.069966
-          },
-          {
-            "name": "df",
-            "value": 1
-          },
-          {
-            "name": "p",
-            "value": 2.178661e-19
-          }
-        ]
-      }
-    ],
-    "package": {
-      "name": "metafor",
-      "version": "3.4-0"
-    }
-  },
   "anova_rma_lrt_complex": {
     "method": "Likelihood Ratio Tests for 'rma' Objects",
     "groups": [
@@ -2909,6 +2909,320 @@
               {
                 "name": "QE",
                 "value": 578.864018
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "permutest_single": {
+    "groups": [
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.714532,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -1.066898,
+                "upper": -0.362167
+              },
+              {
+                "name": "SE",
+                "value": 0.179782
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -3.974448
+              },
+              {
+                "name": "p",
+                "value": 0.2
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "permutest_mods": {
+    "groups": [
+      {
+        "name": "Test of Moderators",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QM",
+            "value": 12.204251
+          },
+          {
+            "name": "df",
+            "value": 2
+          },
+          {
+            "name": "p",
+            "value": 0.133333
+          }
+        ]
+      },
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -3.545505,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -60.572382,
+                "upper": 53.481371
+              },
+              {
+                "name": "SE",
+                "value": 29.09588
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -0.121856
+              },
+              {
+                "name": "p",
+                "value": 0.866667
+              }
+            ]
+          },
+          {
+            "name": "ablat",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.028011,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.04807,
+                "upper": -0.007953
+              },
+              {
+                "name": "SE",
+                "value": 0.010234
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -2.737069
+              },
+              {
+                "name": "p",
+                "value": 0.066667
+              }
+            ]
+          },
+          {
+            "name": "year",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.001908,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.026872,
+                "upper": 0.030687
+              },
+              {
+                "name": "SE",
+                "value": 0.014684
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": 0.129909
+              },
+              {
+                "name": "p",
+                "value": 0.866667
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "permutest_ls": {
+    "groups": [
+      {
+        "name": "Test of Location Coefficients",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QM",
+            "value": 7.826792
+          },
+          {
+            "name": "df",
+            "value": 1
+          },
+          {
+            "name": "p",
+            "value": 0.2
+          }
+        ]
+      },
+      {
+        "name": "Coefficients (Location)",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.301681,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0.172096,
+                "upper": 0.431267
+              },
+              {
+                "name": "SE",
+                "value": 0.066116
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": 4.562899
+              },
+              {
+                "name": "p",
+                "value": 0.2
+              }
+            ]
+          },
+          {
+            "name": "ni100",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.055266,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.093985,
+                "upper": -0.016548
+              },
+              {
+                "name": "SE",
+                "value": 0.019755
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -2.79764
+              },
+              {
+                "name": "p",
+                "value": 0.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Test of Scale Coefficients",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QS",
+            "value": 3.184997
+          },
+          {
+            "name": "df",
+            "value": 1
+          },
+          {
+            "name": "p",
+            "value": 0.4
+          }
+        ]
+      },
+      {
+        "name": "Coefficients (Scale)",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -1.920879,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -3.23206,
+                "upper": -0.609697
+              },
+              {
+                "name": "SE",
+                "value": 0.668982
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -2.871344
+              },
+              {
+                "name": "p",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "ni100",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.917429,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -1.924977,
+                "upper": 0.09012
+              },
+              {
+                "name": "SE",
+                "value": 0.514065
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -1.784656
+              },
+              {
+                "name": "p",
+                "value": 0.4
               }
             ]
           }

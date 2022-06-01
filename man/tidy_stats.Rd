@@ -35,6 +35,7 @@
 \alias{tidy_stats.confint.rma}
 \alias{tidy_stats.list.confint.rma}
 \alias{tidy_stats.anova.rma}
+\alias{tidy_stats.permutest.rma.uni}
 \alias{tidy_stats.lavaan}
 \alias{tidy_stats.psychwip}
 \title{Tidy the output of a statistics object}
@@ -106,6 +107,8 @@ tidy_stats(x, args = NULL)
 \method{tidy_stats}{list.confint.rma}(x, args = NULL)
 
 \method{tidy_stats}{anova.rma}(x, args = NULL)
+
+\method{tidy_stats}{permutest.rma.uni}(x, args = NULL)
 
 \method{tidy_stats}{lavaan}(x, args = list(fit.measures = TRUE))
 
@@ -196,6 +199,8 @@ Currently supported functions are listed in the description of
 \item \code{list.confint.rma}: tidy_stats method for class 'list.confint.rma'
 
 \item \code{anova.rma}: tidy_stats method for class 'anova.rma'
+
+\item \code{permutest.rma.uni}: tidy_stats method for class 'permutest.rma.uni'
 
 \item \code{lavaan}: tidy_stats method for class 'lavaan'
 
