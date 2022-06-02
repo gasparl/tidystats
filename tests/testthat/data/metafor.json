@@ -3470,5 +3470,27 @@
       "name": "metafor",
       "version": "3.4-0"
     }
+  },
+  "rank_test": {
+    "groups": [
+      {
+        "name": "Rank Correlation Test for Funnel Plot Asymmetry",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "τ",
+            "value": 0.025641
+          },
+          {
+            "name": "p",
+            "value": 0.952362
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
   }
 }

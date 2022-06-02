@@ -253,7 +253,7 @@ test_that("Permutation Test for 'rma.uni' Objects works",
     res <- rma(yi, vi, data=dat)
     set.seed(1234)
     models_equal(
-      permutest(res, iter = 5),
+      permutest(res, iter = 5, progbar = FALSE),
       test_results$permutest_single)
   })
 test_that("Permutation Test for 'rma.uni' Objects (with moderators) works",
@@ -261,7 +261,7 @@ test_that("Permutation Test for 'rma.uni' Objects (with moderators) works",
     res <- rma(yi, vi, mods = ~ ablat + year, data=dat)
     set.seed(1234)
     models_equal(
-      permutest(res, iter = 15),
+      permutest(res, iter = 15, progbar = FALSE),
       test_results$permutest_mods)
   })
 test_that("Permutation Test for 'rma.uni' Objects (for rma.ls list) works",
@@ -271,7 +271,7 @@ test_that("Permutation Test for 'rma.uni' Objects (for rma.ls list) works",
     rma_uni_ls_sample <- rma(yi, vi, mods = ~ ni100, scale = ~ ni100, data=dat)
     set.seed(1234)
     models_equal(
-      permutest(rma_uni_ls_sample, iter = 5),
+      permutest(rma_uni_ls_sample, iter = 5, progbar = FALSE),
       test_results$permutest_ls)
   })
 
@@ -315,5 +315,15 @@ test_that("Fit Regression Models (z statistic) works",
     models_equal(
       matreg(y=2, x=1, R=res$G, cov=TRUE, means=coef(res), n=res$g.levels.comb.k),
       test_results$matreg_biv)
+  })
+
+# Test: ranktest ----------------------------------------------------------------
+
+test_that("Rank Correlation Test for Funnel Plot Asymmetry works",
+  {
+    dat <- escalc(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
+    models_equal(
+      ranktest(yi, vi, data=dat),
+      test_results$rank_test)
   })
 

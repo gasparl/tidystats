@@ -334,7 +334,7 @@ res <- rma.mv(yi, V, mods = ~ var1.var2 - 1, random = ~ var1.var2 | study, struc
 R <- vec2mat(coef(res))
 rownames(R) <- colnames(R) <- c("perf", "acog", "asom", "conf")
 ### fit regression model with 'perf' as outcome and 'acog', 'asom', and 'conf' as predictors
-matreg_base = matreg(1, 2:4, R=R, V=vcov(res))
+matreg_base <- matreg(1, 2:4, R=R, V=vcov(res))
 
 ### a different example based on van Houwelingen et al. (2002)
 ### create dataset in long format
@@ -346,7 +346,7 @@ levels(dat.long$group) <- c("CON", "EXP")
 res <- rma.mv(yi, vi, mods = ~ group - 1, random = ~ group | trial, struct="UN",
               data=dat.long, method="ML")
 ### regression of log(odds)_EXP on log(odds)_CON
-matreg_biv = matreg(y=2, x=1, R=res$G, cov=TRUE, means=coef(res), n=res$g.levels.comb.k)
+matreg_biv <- matreg(y=2, x=1, R=res$G, cov=TRUE, means=coef(res), n=res$g.levels.comb.k)
 
 # Add stats
 results <- results %>%
@@ -360,17 +360,17 @@ matreg_biv
 
 # ranktest() --------------------------------------------------------------------
 
-# Get data
-
-# Run analyses
-new_test <- 99
+### calculate log risk ratios and corresponding sampling variances
+dat <- escalc(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
+### carry out the rank correlation test
+rank_test <- ranktest(yi, vi, data=dat)
 
 # Add stats
 results <- results %>%
-  add_stats(new_test)
+  add_stats(rank_test)
 
 # Inspect output
-
+rank_test
 
 
 # regtest() --------------------------------------------------------------------

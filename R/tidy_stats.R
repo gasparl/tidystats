@@ -4497,11 +4497,11 @@ tidy_stats.tes <- function(x, args = NULL) {
     add_statistic(statistics, "statistic", x$E, 'n', 'expected sig.')
   statistics <-
     add_statistic(statistics, "statistic", x$OEratio, 'ratio', 'sig./exp.')
-  
   # Add statistics to the group
   group$statistics <- statistics
   # Add the model group to a groups element on the analysis
   analysis$groups <- append(analysis$groups, list(group))
+
   group_name = "Test of Excess Significance"
   if (x$test == "binom") {
     group <- list(name = "Test of Excess Significance ( test)")
@@ -4605,6 +4605,31 @@ tidy_stats.matreg <- function(x, args = NULL) {
   # Add the coefficient groups to the statistics list
   analysis$groups <- append(analysis$groups, list(groups))
   
+  # Add package information
+  analysis <- add_package_info(analysis, "metafor")
+
+  return(analysis)
+}
+
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'ranktest'
+#' @export
+tidy_stats.ranktest <- function(x, args = NULL) {
+  # Create the analysis list
+  analysis <- list()
+
+  group <- list(name = "Rank Correlation Test for Funnel Plot Asymmetry")
+  statistics <- list()
+  statistics <-
+    add_statistic(statistics, "statistic", x$tau[[1]], 'τ')
+  statistics <-
+    add_statistic(statistics, "p", x$pval)
+  # Add statistics to the group
+  group$statistics <- statistics
+  # Add the model group to a groups element on the analysis
+  analysis$groups <- append(analysis$groups, list(group))
+
   # Add package information
   analysis <- add_package_info(analysis, "metafor")
 
