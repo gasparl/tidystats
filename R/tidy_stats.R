@@ -4556,3 +4556,57 @@ tidy_stats.tes <- function(x, args = NULL) {
 
   return(analysis)
 }
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'matreg'
+#' @export
+tidy_stats.matreg <- function(x, args = NULL) {
+  # Create the analysis list
+  analysis <- list()
+
+  groups <- list(name = "Table: Fit Regression Models")
+  # Loop over the coefficients and add statistics to a group list
+  for (i in 1:nrow(x$tab)) {
+    # Create a new group list
+    group <- list()
+    # Add the name and type of the coefficient
+    group$name <- rownames(x$tab)[i]
+    # Create a new statistics list
+    statistics <- list()
+    statistics <-
+      add_statistic(
+        statistics,
+        "estimate",
+        x$tab$beta[i][[1]],
+        "b",
+        interval = "CI",
+        level = .95,
+        lower = x$tab$ci.lb[i],
+        upper = x$tab$ci.ub[i]
+      )
+    statistics <-
+      add_statistic(statistics, "SE", x$tab$se[i][[1]])
+    if (x$test == "t") {
+      statistics <-
+        add_statistic(statistics, "statistic", x$tab$tval[i][[1]], "t")
+      statistics <-
+        add_statistic(statistics, "df", x$tab$df[i])
+    } else {
+      statistics <-
+        add_statistic(statistics, "statistic", x$tab$zval[i][[1]], "z")
+    }
+    statistics <-
+      add_statistic(statistics, "p", x$tab$pval[i])
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the group to the groups of the coefficients groups list
+    groups$groups <- append(groups$groups, list(group))
+  }
+  # Add the coefficient groups to the statistics list
+  analysis$groups <- append(analysis$groups, list(groups))
+  
+  # Add package information
+  analysis <- add_package_info(analysis, "metafor")
+
+  return(analysis)
+}

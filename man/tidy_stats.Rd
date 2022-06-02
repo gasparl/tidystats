@@ -37,6 +37,7 @@
 \alias{tidy_stats.anova.rma}
 \alias{tidy_stats.permutest.rma.uni}
 \alias{tidy_stats.tes}
+\alias{tidy_stats.matreg}
 \alias{tidy_stats.lavaan}
 \alias{tidy_stats.psychwip}
 \title{Tidy the output of a statistics object}
@@ -112,6 +113,8 @@ tidy_stats(x, args = NULL)
 \method{tidy_stats}{permutest.rma.uni}(x, args = NULL)
 
 \method{tidy_stats}{tes}(x, args = NULL)
+
+\method{tidy_stats}{matreg}(x, args = NULL)
 
 \method{tidy_stats}{lavaan}(x, args = list(fit.measures = TRUE))
 
@@ -206,6 +209,8 @@ Currently supported functions are listed in the description of
 \item \code{permutest.rma.uni}: tidy_stats method for class 'permutest.rma.uni'
 
 \item \code{tes}: tidy_stats method for class 'tes'
+
+\item \code{matreg}: tidy_stats method for class 'matreg'
 
 \item \code{lavaan}: tidy_stats method for class 'lavaan'
 

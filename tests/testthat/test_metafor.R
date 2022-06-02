@@ -284,3 +284,36 @@ test_that("Test of Excess Significance works",
       tes(yi, vi, data=dat, test="chi2"),
       test_results$tes_result)
   })
+
+# Test: matreg ----------------------------------------------------------------
+
+test_that("Fit Regression Models (t statistic) works",
+  {
+    dat <- dat.craft2003
+    tmp <- rcalc(ri ~ var1 + var2 | study, ni=ni, data=dat)
+    V <- tmp$V
+    dat <- tmp$dat
+    dat$var1.var2 <- factor(dat$var1.var2,
+      levels=c("acog.perf", "asom.perf", "conf.perf", "acog.asom", "acog.conf", "asom.conf"))
+    res <- suppressWarnings(rma.mv(
+      yi, V, mods = ~ var1.var2 - 1, random = ~ var1.var2 | study, struct="UN", data=dat))
+    R <- vec2mat(coef(res))
+    rownames(R) <- colnames(R) <- c("perf", "acog", "asom", "conf")
+    models_equal(
+      matreg(1, 2:4, R=R, V=vcov(res)),
+      test_results$matreg_base)
+  })
+
+test_that("Fit Regression Models (z statistic) works",
+  {
+    dat.long <- to.long(measure="OR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.colditz1994)
+    dat.long <- escalc(measure="PLO", xi=out1, mi=out2, data=dat.long)
+    dat.long$tpos <- dat.long$tneg <- dat.long$cpos <- dat.long$cneg <- NULL
+    levels(dat.long$group) <- c("CON", "EXP")
+    res <- rma.mv(yi, vi, mods = ~ group - 1, random = ~ group | trial, struct="UN",
+                  data=dat.long, method="ML")
+    models_equal(
+      matreg(y=2, x=1, R=res$G, cov=TRUE, means=coef(res), n=res$g.levels.comb.k),
+      test_results$matreg_biv)
+  })
+

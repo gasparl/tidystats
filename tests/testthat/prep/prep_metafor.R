@@ -319,17 +319,43 @@ tes_result
 
 # matreg() --------------------------------------------------------------------
 
-# Get data
+### copy data into 'dat'
+dat <- dat.craft2003
+### construct dataset and var-cov matrix of the correlations
+tmp <- rcalc(ri ~ var1 + var2 | study, ni=ni, data=dat)
+V <- tmp$V
+dat <- tmp$dat
+### turn var1.var2 into a factor with the desired order of levels
+dat$var1.var2 <- factor(dat$var1.var2,
+   levels=c("acog.perf", "asom.perf", "conf.perf", "acog.asom", "acog.conf", "asom.conf"))
+### multivariate random-effects model
+res <- rma.mv(yi, V, mods = ~ var1.var2 - 1, random = ~ var1.var2 | study, struct="UN", data=dat)
+### restructure estimated mean correlations into a 4x4 matrix
+R <- vec2mat(coef(res))
+rownames(R) <- colnames(R) <- c("perf", "acog", "asom", "conf")
+### fit regression model with 'perf' as outcome and 'acog', 'asom', and 'conf' as predictors
+matreg_base = matreg(1, 2:4, R=R, V=vcov(res))
 
-# Run analyses
-new_test <- 99
+### a different example based on van Houwelingen et al. (2002)
+### create dataset in long format
+dat.long <- to.long(measure="OR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.colditz1994)
+dat.long <- escalc(measure="PLO", xi=out1, mi=out2, data=dat.long)
+dat.long$tpos <- dat.long$tneg <- dat.long$cpos <- dat.long$cneg <- NULL
+levels(dat.long$group) <- c("CON", "EXP")
+### fit bivariate model
+res <- rma.mv(yi, vi, mods = ~ group - 1, random = ~ group | trial, struct="UN",
+              data=dat.long, method="ML")
+### regression of log(odds)_EXP on log(odds)_CON
+matreg_biv = matreg(y=2, x=1, R=res$G, cov=TRUE, means=coef(res), n=res$g.levels.comb.k)
 
 # Add stats
 results <- results %>%
-  add_stats(new_test)
+  add_stats(matreg_base) %>%
+  add_stats(matreg_biv)
 
 # Inspect output
-
+matreg_base
+matreg_biv
 
 
 # ranktest() --------------------------------------------------------------------
