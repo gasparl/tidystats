@@ -303,15 +303,18 @@ permutest_ls
 
 # Get data
 
-# Run analyses
-new_test <- 99
+### calculate log risk ratios and corresponding sampling variances
+dat <- escalc(measure="RR", ai=x.a, n1i=n.a, ci=x.p, n2i=n.p, data=dat.dorn2007)
+
+### conduct test of excess significance (using test="chi2" to speed things up)
+tes_result = tes(yi, vi, data=dat, test="chi2")
 
 # Add stats
 results <- results %>%
-  add_stats(new_test)
+  add_stats(tes_result)
 
 # Inspect output
-
+tes_result
 
 
 # matreg() --------------------------------------------------------------------

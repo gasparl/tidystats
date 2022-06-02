@@ -1,165 +1,43 @@
 {
-  "permutest_single": {
+  "tes_result": {
+    "method": "Test of Excess Significance",
     "groups": [
       {
-        "name": "Coefficients",
-        "groups": [
-          {
-            "name": "intrcpt",
-            "statistics": [
-              {
-                "name": "estimate",
-                "symbol": "b",
-                "value": -0.714532,
-                "interval": "CI",
-                "level": 0.95,
-                "lower": -1.066898,
-                "upper": -0.362167
-              },
-              {
-                "name": "SE",
-                "value": 0.179782
-              },
-              {
-                "name": "statistic",
-                "symbol": "z",
-                "value": -3.974448
-              },
-              {
-                "name": "p",
-                "value": 0.2
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "package": {
-      "name": "metafor",
-      "version": "3.4-0"
-    }
-  },
-  "permutest_mods": {
-    "groups": [
-      {
-        "name": "Test of Moderators",
+        "name": "Descriptives",
         "statistics": [
           {
+            "name": "count",
+            "symbol": "n",
+            "subscript": "total",
+            "value": 19
+          },
+          {
+            "name": "count",
+            "symbol": "n",
+            "subscript": "significant",
+            "value": 10
+          },
+          {
             "name": "statistic",
-            "symbol": "QM",
-            "value": 12.204251
+            "symbol": "n",
+            "subscript": "expected sign.",
+            "value": 4.923333
           },
           {
-            "name": "df",
-            "value": 2
-          },
-          {
-            "name": "p",
-            "value": 0.133333
+            "name": "statistic",
+            "symbol": "ratio",
+            "subscript": "sig./exp.",
+            "value": 2.031145
           }
         ]
       },
       {
-        "name": "Coefficients",
-        "groups": [
-          {
-            "name": "intrcpt",
-            "statistics": [
-              {
-                "name": "estimate",
-                "symbol": "b",
-                "value": -3.545505,
-                "interval": "CI",
-                "level": 0.95,
-                "lower": -60.572382,
-                "upper": 53.481371
-              },
-              {
-                "name": "SE",
-                "value": 29.09588
-              },
-              {
-                "name": "statistic",
-                "symbol": "z",
-                "value": -0.121856
-              },
-              {
-                "name": "p",
-                "value": 0.866667
-              }
-            ]
-          },
-          {
-            "name": "ablat",
-            "statistics": [
-              {
-                "name": "estimate",
-                "symbol": "b",
-                "value": -0.028011,
-                "interval": "CI",
-                "level": 0.95,
-                "lower": -0.04807,
-                "upper": -0.007953
-              },
-              {
-                "name": "SE",
-                "value": 0.010234
-              },
-              {
-                "name": "statistic",
-                "symbol": "z",
-                "value": -2.737069
-              },
-              {
-                "name": "p",
-                "value": 0.066667
-              }
-            ]
-          },
-          {
-            "name": "year",
-            "statistics": [
-              {
-                "name": "estimate",
-                "symbol": "b",
-                "value": 0.001908,
-                "interval": "CI",
-                "level": 0.95,
-                "lower": -0.026872,
-                "upper": 0.030687
-              },
-              {
-                "name": "SE",
-                "value": 0.014684
-              },
-              {
-                "name": "statistic",
-                "symbol": "z",
-                "value": 0.129909
-              },
-              {
-                "name": "p",
-                "value": 0.866667
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "package": {
-      "name": "metafor",
-      "version": "3.4-0"
-    }
-  },
-  "permutest_ls": {
-    "groups": [
-      {
-        "name": "Test of Location Coefficients",
+        "name": "Test of Excess Significance",
         "statistics": [
           {
             "name": "statistic",
-            "symbol": "QM",
-            "value": 7.826792
+            "symbol": "χ²",
+            "value": 7.065648
           },
           {
             "name": "df",
@@ -167,143 +45,19 @@
           },
           {
             "name": "p",
-            "value": 0.2
-          }
-        ]
-      },
-      {
-        "name": "Coefficients (Location)",
-        "groups": [
-          {
-            "name": "intrcpt",
-            "statistics": [
-              {
-                "name": "estimate",
-                "symbol": "b",
-                "value": 0.301681,
-                "interval": "CI",
-                "level": 0.95,
-                "lower": 0.172096,
-                "upper": 0.431267
-              },
-              {
-                "name": "SE",
-                "value": 0.066116
-              },
-              {
-                "name": "statistic",
-                "symbol": "z",
-                "value": 4.562899
-              },
-              {
-                "name": "p",
-                "value": 0.2
-              }
-            ]
+            "value": 0.003929
           },
-          {
-            "name": "ni100",
-            "statistics": [
-              {
-                "name": "estimate",
-                "symbol": "b",
-                "value": -0.055266,
-                "interval": "CI",
-                "level": 0.95,
-                "lower": -0.093985,
-                "upper": -0.016548
-              },
-              {
-                "name": "SE",
-                "value": 0.019755
-              },
-              {
-                "name": "statistic",
-                "symbol": "z",
-                "value": -2.79764
-              },
-              {
-                "name": "p",
-                "value": 0.2
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Test of Scale Coefficients",
-        "statistics": [
           {
             "name": "statistic",
-            "symbol": "QS",
-            "value": 3.184997
-          },
-          {
-            "name": "df",
-            "value": 1
+            "symbol": "θ",
+            "subscript": "1 limit",
+            "value": 0.406176
           },
           {
             "name": "p",
-            "value": 0.2
-          }
-        ]
-      },
-      {
-        "name": "Coefficients (Scale)",
-        "groups": [
-          {
-            "name": "intrcpt",
-            "statistics": [
-              {
-                "name": "estimate",
-                "symbol": "b",
-                "value": -1.920879,
-                "interval": "CI",
-                "level": 0.95,
-                "lower": -3.23206,
-                "upper": -0.609697
-              },
-              {
-                "name": "SE",
-                "value": 0.668982
-              },
-              {
-                "name": "statistic",
-                "symbol": "z",
-                "value": -2.871344
-              },
-              {
-                "name": "p",
-                "value": 1
-              }
-            ]
-          },
-          {
-            "name": "ni100",
-            "statistics": [
-              {
-                "name": "estimate",
-                "symbol": "b",
-                "value": -0.917429,
-                "interval": "CI",
-                "level": 0.95,
-                "lower": -1.924977,
-                "upper": 0.09012
-              },
-              {
-                "name": "SE",
-                "value": 0.514065
-              },
-              {
-                "name": "statistic",
-                "symbol": "z",
-                "value": -1.784656
-              },
-              {
-                "name": "p",
-                "value": 0.2
-              }
-            ]
+            "symbol": "p",
+            "subscript": "limit",
+            "value": 0.1
           }
         ]
       }

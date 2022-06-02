@@ -3233,5 +3233,73 @@
       "name": "metafor",
       "version": "3.4-0"
     }
+  },
+  "tes_result": {
+    "method": "Test of Excess Significance",
+    "groups": [
+      {
+        "name": "Descriptives",
+        "statistics": [
+          {
+            "name": "count",
+            "symbol": "n",
+            "subscript": "total",
+            "value": 19
+          },
+          {
+            "name": "count",
+            "symbol": "n",
+            "subscript": "significant",
+            "value": 10
+          },
+          {
+            "name": "statistic",
+            "symbol": "n",
+            "subscript": "expected sig.",
+            "value": 4.923333
+          },
+          {
+            "name": "statistic",
+            "symbol": "ratio",
+            "subscript": "sig./exp.",
+            "value": 2.031145
+          }
+        ]
+      },
+      {
+        "name": "Test of Excess Significance",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "χ²",
+            "value": 7.065648
+          },
+          {
+            "name": "df",
+            "value": 1
+          },
+          {
+            "name": "p",
+            "value": 0.003929
+          },
+          {
+            "name": "statistic",
+            "symbol": "θ",
+            "subscript": "limit",
+            "value": 0.406176
+          },
+          {
+            "name": "p",
+            "symbol": "p",
+            "subscript": "limit",
+            "value": 0.1
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
   }
 }

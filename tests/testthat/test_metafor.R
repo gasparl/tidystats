@@ -274,3 +274,13 @@ test_that("Permutation Test for 'rma.uni' Objects (for rma.ls list) works",
       permutest(rma_uni_ls_sample, iter = 5),
       test_results$permutest_ls)
   })
+
+# Test: tes ----------------------------------------------------------------
+
+test_that("Test of Excess Significance works",
+  {
+    dat <- escalc(measure="RR", ai=x.a, n1i=n.a, ci=x.p, n2i=n.p, data=dat.dorn2007)
+    models_equal(
+      tes(yi, vi, data=dat, test="chi2"),
+      test_results$tes_result)
+  })

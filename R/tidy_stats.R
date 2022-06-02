@@ -4338,8 +4338,6 @@ tidy_stats.anova.rma <- function(x, args = NULL) {
   return(analysis)
 }
 
-
-
 #' @describeIn tidy_stats tidy_stats method for class 'permutest.rma.uni'
 #' @export
 tidy_stats.permutest.rma.uni <- function(x, args = NULL) {
@@ -4474,6 +4472,85 @@ tidy_stats.permutest.rma.uni <- function(x, args = NULL) {
     analysis$groups <- append(analysis$groups, list(groups))
   }
 
+  # Add package information
+  analysis <- add_package_info(analysis, "metafor")
+
+  return(analysis)
+}
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'tes'
+#' @export
+tidy_stats.tes <- function(x, args = NULL) {
+  # Create the analysis list
+  analysis <- list(
+    method = "Test of Excess Significance"
+  )
+
+  group <- list(name = "Descriptives")
+  statistics <- list()
+  statistics <-
+    add_statistic(statistics, "count", x$k, 'n', 'total')
+  statistics <-
+    add_statistic(statistics, "count", x$O, 'n', 'significant')
+  statistics <-
+    add_statistic(statistics, "statistic", x$E, 'n', 'expected sig.')
+  statistics <-
+    add_statistic(statistics, "statistic", x$OEratio, 'ratio', 'sig./exp.')
+  
+  # Add statistics to the group
+  group$statistics <- statistics
+  # Add the model group to a groups element on the analysis
+  analysis$groups <- append(analysis$groups, list(group))
+  group_name = "Test of Excess Significance"
+  if (x$test == "binom") {
+    group <- list(name = "Test of Excess Significance ( test)")
+    paste(group_name, "(binomial)")
+  }
+  if (x$test == "exact") {
+    paste(group_name, "(exact)")
+  }
+  group <- list(name = group_name)
+  statistics <- list()
+  statistics <-
+    add_statistic(statistics, "statistic", x$X2, "χ²")
+  statistics <- add_statistic(statistics, "df", 1)
+  statistics <- add_statistic(statistics, "p", x$pval)
+  
+  if (!is.null(x$theta.lim)) {
+    if (!is.na(x$theta.lim[1])) {
+      if (length(x$theta.lim) == 2L) {
+        lim1 = "1 "
+      } else {
+        lim1 = ""
+      }
+      statistics <-
+        add_statistic(statistics,
+          "statistic",
+          x$theta.lim[1],
+          "θ",
+          paste0(lim1, "limit"))
+    }
+    if (length(x$theta.lim) == 2L && !is.na(x$theta.lim[2])) {
+      statistics <-
+        add_statistic(statistics, "statistic", x$theta.lim[2], "θ", "2 limit")
+    }
+    if (any(!is.na(x$theta.lim))) {
+      statistics <-
+        add_statistic(
+          statistics,
+          "p",
+          ifelse(x$tes.alternative == "two.sided", x$tes.alpha / 2, x$tes.alpha),
+          "p",
+          "limit"
+        )
+    }
+  }
+
+  # Add statistics to the group
+  group$statistics <- statistics
+  # Add the model group to a groups element on the analysis
+  analysis$groups <- append(analysis$groups, list(group))
   # Add package information
   analysis <- add_package_info(analysis, "metafor")
 
