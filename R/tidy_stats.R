@@ -4612,7 +4612,6 @@ tidy_stats.matreg <- function(x, args = NULL) {
 }
 
 
-
 #' @describeIn tidy_stats tidy_stats method for class 'ranktest'
 #' @export
 tidy_stats.ranktest <- function(x, args = NULL) {
@@ -4623,6 +4622,78 @@ tidy_stats.ranktest <- function(x, args = NULL) {
   statistics <- list()
   statistics <-
     add_statistic(statistics, "statistic", x$tau[[1]], 'τ')
+  statistics <-
+    add_statistic(statistics, "p", x$pval)
+  # Add statistics to the group
+  group$statistics <- statistics
+  # Add the model group to a groups element on the analysis
+  analysis$groups <- append(analysis$groups, list(group))
+
+  # Add package information
+  analysis <- add_package_info(analysis, "metafor")
+
+  return(analysis)
+}
+
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'regtest'
+#' @export
+tidy_stats.regtest <- function(x, args = NULL) {
+  # Create the analysis list
+  analysis <- list()
+
+  group <- list(name = "Regression Test for Funnel Plot Asymmetry")
+  
+  if (x$model == "lm") {
+    method <- "weighted regression with multiplicative dispersion"
+  } else {
+    method <-
+      paste(ifelse(is.element(x$method, c("FE", "EE", "CE")), "fixed-effects", "mixed-effects"), "meta-regression model")
+  }
+  if (x$predictor == "sei") {
+    method <- paste(method, ("(predictor: standard error)"))
+  } else if (x$predictor == "vi") {
+    method <- paste(method, ("(predictor: sampling variance)"))
+  } else if (x$predictor == "ni") {
+    method <- paste(method, ("(predictor: sample size)"))
+  } else if (x$predictor == "ninv") {
+    method <-
+      paste(method, ("(predictor: inverse of the sample size)"))
+  } else if (x$predictor == "sqrtni") {
+    method <-
+      paste(method, ("(predictor: square root sample size)"))
+  } else if (x$predictor == "sqrtninv") {
+    method <-
+      paste(method, ("(predictor: inverse of the square root sample size)"))
+  }
+  group$method <- method
+  
+  statistics <- list()
+  if (!is.null(x$est)) {
+    statistics <-
+      add_statistic(
+        statistics,
+        "estimate",
+        x$est[[1]],
+        "b",
+        interval = "CI",
+        level = .95,
+        lower = x$ci.lb,
+        upper = x$ci.ub
+      )
+  }
+  
+  if (is.na(x$ddf)) {
+    statistics <-
+      add_statistic(statistics, "statistic", x$zval, 'z')
+  } else {
+    statistics <-
+      add_statistic(statistics, "statistic", x$zval, 't')
+    statistics <-
+      add_statistic(statistics, "df", x$ddf)
+  }
+  
   statistics <-
     add_statistic(statistics, "p", x$pval)
   # Add statistics to the group

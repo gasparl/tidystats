@@ -3492,5 +3492,96 @@
       "name": "metafor",
       "version": "3.4-0"
     }
+  },
+  "regtest_egge": {
+    "groups": [
+      {
+        "name": "Regression Test for Funnel Plot Asymmetry",
+        "method": "weighted regression with multiplicative dispersion (predictor: standard error)",
+        "statistics": [
+          {
+            "name": "estimate",
+            "symbol": "b",
+            "value": -0.151226,
+            "interval": "CI",
+            "level": 0.95,
+            "lower": -0.513002,
+            "upper": 0.210551
+          },
+          {
+            "name": "statistic",
+            "symbol": "t",
+            "value": -3.178329
+          },
+          {
+            "name": "df",
+            "value": 13
+          },
+          {
+            "name": "p",
+            "value": 0.007264
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "regtest_mixed": {
+    "groups": [
+      {
+        "name": "Regression Test for Funnel Plot Asymmetry",
+        "method": "mixed-effects meta-regression model (predictor: standard error)",
+        "statistics": [
+          {
+            "name": "estimate",
+            "symbol": "b",
+            "value": -0.163911,
+            "interval": "CI",
+            "level": 0.95,
+            "lower": -0.568051,
+            "upper": 0.24023
+          },
+          {
+            "name": "statistic",
+            "symbol": "z",
+            "value": -2.80624
+          },
+          {
+            "name": "p",
+            "value": 0.005012
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "regtest_pred": {
+    "groups": [
+      {
+        "name": "Regression Test for Funnel Plot Asymmetry",
+        "method": "mixed-effects meta-regression model (predictor: sample size)",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "z",
+            "value": 1.793835
+          },
+          {
+            "name": "p",
+            "value": 0.07284
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
   }
 }

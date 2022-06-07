@@ -372,21 +372,29 @@ results <- results %>%
 # Inspect output
 rank_test
 
-
 # regtest() --------------------------------------------------------------------
 
-# Get data
-
-# Run analyses
-new_test <- 99
+### copy data into 'dat' and examine data
+dat <- dat.egger2001
+### calculate log odds ratios and corresponding sampling variances (but remove ISIS-4 trial)
+dat <- escalc(measure="OR", ai=ai, n1i=n1i, ci=ci, n2i=n2i, data=dat, subset=-16)
+### classical Egger test
+regtest_egge <- regtest(yi, vi, data=dat, model="lm")
+### mixed-effects meta-regression version of the Egger test
+regtest_mixed <- regtest(yi, vi, data=dat)
+### predictor specified
+regtest_pred <- regtest(yi, vi, data=dat, predictor="ni")
 
 # Add stats
 results <- results %>%
-  add_stats(new_test)
+  add_stats(regtest_egge) %>%
+  add_stats(regtest_mixed) %>%
+  add_stats(regtest_pred)
 
 # Inspect output
-
-
+regtest_egge
+regtest_mixed
+regtest_pred
 
 # trimfill() --------------------------------------------------------------------
 

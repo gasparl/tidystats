@@ -327,3 +327,25 @@ test_that("Rank Correlation Test for Funnel Plot Asymmetry works",
       test_results$rank_test)
   })
 
+# Test: regtest ----------------------------------------------------------------
+
+dat <- dat.egger2001
+dat <- escalc(measure="OR", ai=ai, n1i=n1i, ci=ci, n2i=n2i, data=dat, subset=-16)
+test_that("Regression Test for Funnel Plot Asymmetry (weighted regression with multiplicative dispersion) works",
+  {
+    models_equal(
+      regtest(yi, vi, data=dat, model="lm"),
+      test_results$regtest_egge)
+  })
+test_that("Regression Test for Funnel Plot Asymmetry (mixed-effects meta-regression model) works",
+  {
+    models_equal(
+      regtest(yi, vi, data=dat),
+      test_results$regtest_mixed)
+  })
+test_that("Regression Test for Funnel Plot Asymmetry (mixed-effects meta-regression model with predictor specified) works",
+  {
+    models_equal(
+      regtest(yi, vi, data=dat, predictor="ni"),
+      test_results$regtest_pred)
+  })
