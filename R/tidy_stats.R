@@ -4705,8 +4705,6 @@ tidy_stats.regtest <- function(x, args = NULL) {
   return(analysis)
 }
 
-
-
 #' @describeIn tidy_stats tidy_stats method for class 'fsn'
 #' @export
 tidy_stats.fsn <- function(x, args = NULL) {
@@ -4743,6 +4741,55 @@ tidy_stats.fsn <- function(x, args = NULL) {
     add_statistic(statistics, "count", x$fsnum, "n", subscript = "failsafe")
   
   analysis$statistics <- statistics
+  
+  # Add package information
+  analysis <- add_package_info(analysis, "metafor")
+  
+  return(analysis)
+}
+
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'hc.rma.uni'
+#' @export
+tidy_stats.hc.rma.uni <- function(x, args = NULL) {
+  # Create the analysis list
+  analysis <-
+    list(method = "Henmi and Copas Meta-Analysis")
+  
+  # Create a groups list for the coefficients
+  groups <- list(name = "Coefficients")
+  # Loop over the coefficients and add statistics to a group list
+  for (suffx in c(".rma", "")) {
+    # Create a new group list
+    group <- list()
+    # Add the name and type of the coefficient
+    group$name <- x[[paste0("method", suffx)]]
+    
+    # Create a new statistics list
+    statistics <- list()
+    statistics <-
+      add_statistic(
+        statistics,
+        "estimate",
+        x[[paste0("beta", suffx)]][[1]],
+        "b",
+        interval = "CI",
+        level = .95,
+        lower = x[[paste0("ci.lb", suffx)]],
+        upper = x[[paste0("ci.ub", suffx)]]
+      )
+    statistics <-
+      add_statistic(statistics, "SE", x[[paste0("se", suffx)]])
+    statistics <-
+      add_statistic(statistics, "estimate", x[[paste0("tau2", suffx)]], "τ²")
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the group to the groups of the coefficients groups list
+    groups$groups <- append(groups$groups, list(group))
+  }
+  # Add the coefficient groups to the statistics list
+  analysis$groups <- append(analysis$groups, list(groups))
   
   # Add package information
   analysis <- add_package_info(analysis, "metafor")

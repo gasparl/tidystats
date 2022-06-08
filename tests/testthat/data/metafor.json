@@ -3666,5 +3666,117 @@
       "name": "metafor",
       "version": "3.4-0"
     }
+  },
+  "hc_standard": {
+    "method": "Henmi and Copas Meta-Analysis",
+    "groups": [
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "REML",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.682016,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -1.0766,
+                "upper": -0.287433
+              },
+              {
+                "name": "SE",
+                "value": 0.201322
+              },
+              {
+                "name": "estimate",
+                "symbol": "τ²",
+                "value": 0.352603
+              }
+            ]
+          },
+          {
+            "name": "DL",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.51446,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.999383,
+                "upper": -0.029537
+              },
+              {
+                "name": "SE",
+                "value": 0.217794
+              },
+              {
+                "name": "estimate",
+                "symbol": "τ²",
+                "value": 0.332538
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "hc_tranformed": {
+    "method": "Henmi and Copas Meta-Analysis",
+    "groups": [
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "REML",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.505597,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0.340752,
+                "upper": 0.750187
+              },
+              {
+                "name": "estimate",
+                "symbol": "τ²",
+                "value": 0.352603
+              }
+            ]
+          },
+          {
+            "name": "DL",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.597823,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0.368106,
+                "upper": 0.970895
+              },
+              {
+                "name": "estimate",
+                "symbol": "τ²",
+                "value": 0.332538
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
   }
 }

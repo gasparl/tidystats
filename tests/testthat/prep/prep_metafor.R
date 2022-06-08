@@ -419,31 +419,23 @@ fsn_rosenberg
 
 # hc() --------------------------------------------------------------------
 
-# Get data
-
-# Run analyses
-new_test <- 99
-
-# Add stats
-results <- results %>%
-  add_stats(new_test)
-
-# Inspect output
-
-
-
-# Get data
-
-# Run analyses
-new_test <- 99
+### calculate log odds ratios and corresponding sampling variances
+dat <- escalc(measure="OR", ai=ai, n1i=n1i, ci=ci, n2i=n2i, data=dat.lee2004)
+### meta-analysis based on log odds ratios
+res <- rma(yi, vi, data=dat)
+### use method by Henmi and Copas (2010) as a sensitivity analysis
+hc_standard <- hc(res)
+### back-transform results to odds ratio scale
+hc_tranformed <- hc(res, transf=exp)
 
 # Add stats
 results <- results %>%
-  add_stats(new_test)
+  add_stats(hc_standard) %>%
+  add_stats(hc_tranformed)
 
 # Inspect output
-
-
+hc_standard
+hc_tranformed
 
 # robust() --------------------------------------------------------------------
 

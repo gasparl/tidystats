@@ -375,3 +375,22 @@ test_that("Fail-Safe N Analysis (Rosenberg approach) works",
       test_results$fsn_rosenberg)
   })
 
+
+# Test: hc ----------------------------------------------------------------
+
+dat <- escalc(measure="OR", ai=ai, n1i=n1i, ci=ci, n2i=n2i, data=dat.lee2004)
+res <- rma(yi, vi, data=dat)
+
+test_that("Henmi and Copas Meta-Analysis works",
+  {
+    models_equal(
+      hc(res),
+      test_results$hc_standard)
+  })
+test_that("Henmi and Copas Meta-Analysis (with transformation) works",
+  {
+    models_equal(
+      hc(res, transf=exp),
+      test_results$hc_tranformed)
+  })
+
