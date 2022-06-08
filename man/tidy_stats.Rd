@@ -40,6 +40,7 @@
 \alias{tidy_stats.matreg}
 \alias{tidy_stats.ranktest}
 \alias{tidy_stats.regtest}
+\alias{tidy_stats.fsn}
 \alias{tidy_stats.lavaan}
 \alias{tidy_stats.psychwip}
 \title{Tidy the output of a statistics object}
@@ -121,6 +122,8 @@ tidy_stats(x, args = NULL)
 \method{tidy_stats}{ranktest}(x, args = NULL)
 
 \method{tidy_stats}{regtest}(x, args = NULL)
+
+\method{tidy_stats}{fsn}(x, args = NULL)
 
 \method{tidy_stats}{lavaan}(x, args = list(fit.measures = TRUE))
 
@@ -221,6 +224,8 @@ Currently supported functions are listed in the description of
 \item \code{ranktest}: tidy_stats method for class 'ranktest'
 
 \item \code{regtest}: tidy_stats method for class 'regtest'
+
+\item \code{fsn}: tidy_stats method for class 'fsn'
 
 \item \code{lavaan}: tidy_stats method for class 'lavaan'
 

@@ -349,3 +349,29 @@ test_that("Regression Test for Funnel Plot Asymmetry (mixed-effects meta-regress
       regtest(yi, vi, data=dat, predictor="ni"),
       test_results$regtest_pred)
   })
+
+
+# Test: fsn ----------------------------------------------------------------
+
+dat <- escalc(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
+
+
+test_that("Fail-Safe N Analysis (Rosenthal approach) works",
+  {
+    models_equal(
+      fsn(yi, vi, data=dat),
+      test_results$fsn_rosenthal)
+  })
+test_that("Fail-Safe N Analysis (Orwin approach) works",
+  {
+    models_equal(
+      fsn(yi, data=dat, type="Orwin", target=log(0.95)),
+      test_results$fsn_orwin)
+  })
+test_that("Fail-Safe N Analysis (Rosenberg approach) works",
+  {
+    models_equal(
+      fsn(yi, vi, data=dat, type="Rosenberg"),
+      test_results$fsn_rosenberg)
+  })
+

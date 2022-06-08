@@ -396,50 +396,26 @@ regtest_egge
 regtest_mixed
 regtest_pred
 
-# trimfill() --------------------------------------------------------------------
-
-# Get data
-
-# Run analyses
-new_test <- 99
-
-# Add stats
-results <- results %>%
-  add_stats(new_test)
-
-# Inspect output
-
-
-
-# selmodel() --------------------------------------------------------------------
-
-# Get data
-
-# Run analyses
-new_test <- 99
-
-# Add stats
-results <- results %>%
-  add_stats(new_test)
-
-# Inspect output
-
-
 
 # fsn() --------------------------------------------------------------------
 
-# Get data
-
-# Run analyses
-new_test <- 99
+### calculate log risk ratios and corresponding sampling variances
+dat <- escalc(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
+### fail-safe N computations
+fsn_rosenthal <- fsn(yi, vi, data=dat)
+fsn_orwin <- fsn(yi, data=dat, type="Orwin", target=log(0.95)) # target corresponds to a 5% risk reduction
+fsn_rosenberg <- fsn(yi, vi, data=dat, type="Rosenberg")
 
 # Add stats
 results <- results %>%
-  add_stats(new_test)
+  add_stats(fsn_rosenthal) %>%
+  add_stats(fsn_orwin) %>%
+  add_stats(fsn_rosenberg)
 
 # Inspect output
-
-
+fsn_rosenthal
+fsn_orwin
+fsn_rosenberg
 
 # hc() --------------------------------------------------------------------
 

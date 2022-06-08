@@ -3583,5 +3583,88 @@
       "name": "metafor",
       "version": "3.4-0"
     }
+  },
+  "fsn_rosenthal": {
+    "method": "Fail-Safe N Analysis (Rosenthal approach)",
+    "statistics": [
+      {
+        "name": "p",
+        "subscript": "observed",
+        "value": 8.813957e-30
+      },
+      {
+        "name": "p",
+        "subscript": "target",
+        "value": 0.05
+      },
+      {
+        "name": "count",
+        "symbol": "n",
+        "subscript": "failsafe",
+        "value": 598
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "fsn_orwin": {
+    "method": "Fail-Safe N Analysis (Orwin approach)",
+    "statistics": [
+      {
+        "name": "estimate",
+        "symbol": "b",
+        "subscript": "average",
+        "value": -0.74065
+      },
+      {
+        "name": "estimate",
+        "symbol": "b",
+        "subscript": "target",
+        "value": -0.051293
+      },
+      {
+        "name": "count",
+        "symbol": "n",
+        "subscript": "failsafe",
+        "value": 175
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "fsn_rosenberg": {
+    "method": "Fail-Safe N Analysis (Rosenberg approach)",
+    "statistics": [
+      {
+        "name": "estimate",
+        "symbol": "b",
+        "subscript": "average",
+        "value": -0.430285
+      },
+      {
+        "name": "p",
+        "subscript": "observed",
+        "value": 2.288629e-26
+      },
+      {
+        "name": "p",
+        "subscript": "target",
+        "value": 0.05
+      },
+      {
+        "name": "count",
+        "symbol": "n",
+        "subscript": "failsafe",
+        "value": 370
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
   }
 }

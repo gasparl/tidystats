@@ -4635,8 +4635,6 @@ tidy_stats.ranktest <- function(x, args = NULL) {
   return(analysis)
 }
 
-
-
 #' @describeIn tidy_stats tidy_stats method for class 'regtest'
 #' @export
 tidy_stats.regtest <- function(x, args = NULL) {
@@ -4704,5 +4702,50 @@ tidy_stats.regtest <- function(x, args = NULL) {
   # Add package information
   analysis <- add_package_info(analysis, "metafor")
 
+  return(analysis)
+}
+
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'fsn'
+#' @export
+tidy_stats.fsn <- function(x, args = NULL) {
+  # Create the analysis list
+  analysis <-
+    list(method = paste0("Fail-Safe N Analysis (", x$type, " approach)"))
+  
+  statistics <- list()
+  
+  if (x$type == "Rosenthal") {
+    statistics <-
+      add_statistic(statistics, "p", x$pval, subscript = "observed")
+    statistics <-
+      add_statistic(statistics, "p", x$alpha, subscript = "target")
+  }
+  
+  if (x$type == "Orwin" || x$type == "REM") {
+    statistics <-
+      add_statistic(statistics, "estimate", x$meanes, "b", subscript = "average")
+    statistics <-
+      add_statistic(statistics, "estimate", x$target, "b", subscript = "target")
+  }
+  
+  if (x$type == "Rosenberg") {
+    statistics <-
+      add_statistic(statistics, "estimate", x$meanes, "b", subscript = "average")
+    statistics <-
+      add_statistic(statistics, "p", x$pval, subscript = "observed")
+    statistics <-
+      add_statistic(statistics, "p", x$alpha, subscript = "target")
+  }
+  
+  statistics <-
+    add_statistic(statistics, "count", x$fsnum, "n", subscript = "failsafe")
+  
+  analysis$statistics <- statistics
+  
+  # Add package information
+  analysis <- add_package_info(analysis, "metafor")
+  
   return(analysis)
 }
