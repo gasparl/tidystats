@@ -438,19 +438,38 @@ hc_standard
 hc_tranformed
 
 # robust() --------------------------------------------------------------------
+### copy data from Bangert-Drowns et al. (2004) into 'dat'
+dat <- dat.bangertdrowns2004
+### fit random-effects model
+res <- rma(yi, vi, data=dat)
+### obtain results based on the sandwich method
+robust_standard <- robust(res, cluster=id)
 
-# Get data
+### copy data from Konstantopoulos (2011) into 'dat'
+dat <- dat.konstantopoulos2011
+### fit multilevel random-effects model
+res <- rma.mv(yi, vi, random = ~ 1 | district/school, data=dat)
+### obtain results based on the sandwich method
+robust_multi_rem <- robust(res, cluster=district)
 
-# Run analyses
-new_test <- 99
+### copy data from Berkey et al. (1998) into 'dat'
+dat <- dat.berkey1998
+V <- vcalc(vi=1, cluster=author, rvars=c(v1i, v2i), data=dat)
+### fit multivariate model
+res <- rma.mv(yi, V, mods = ~ outcome - 1, random = ~ outcome | trial, struct="UN", data=dat)
+### obtain results based on sandwich method
+robust_mv <- robust(res, cluster=trial)
 
 # Add stats
 results <- results %>%
-  add_stats(new_test)
+  add_stats(robust_standard) %>%
+  add_stats(robust_multi_rem) %>%
+  add_stats(robust_mv)
 
 # Inspect output
-
-
+robust_standard
+robust_multi_rem
+robust_mv
 
 # cumul() --------------------------------------------------------------------
 

@@ -3778,5 +3778,380 @@
       "name": "metafor",
       "version": "3.4-0"
     }
+  },
+  "robust_standard": {
+    "name": "yi",
+    "method": "Random-Effects Model",
+    "groups": [
+      {
+        "name": "Model",
+        "statistics": [
+          {
+            "name": "I squared",
+            "symbol": "I²",
+            "value": 58.373983
+          },
+          {
+            "name": "H squared",
+            "symbol": "H²",
+            "value": 2.402344
+          },
+          {
+            "name": "Tau squared",
+            "symbol": "Τ²",
+            "value": 0.049941
+          },
+          {
+            "name": "Τau",
+            "symbol": "Τ",
+            "value": 0.223475
+          }
+        ]
+      },
+      {
+        "name": "Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "Q",
+            "value": 107.106071
+          },
+          {
+            "name": "df",
+            "value": 47
+          },
+          {
+            "name": "p",
+            "value": 1.374567e-06
+          }
+        ]
+      },
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.22193,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0.129461,
+                "upper": 0.314398
+              },
+              {
+                "name": "SE",
+                "value": 0.045965
+              },
+              {
+                "name": "statistic",
+                "symbol": "t",
+                "value": 4.828277
+              },
+              {
+                "name": "p",
+                "value": 0.000015
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "robust_multi_rem": {
+    "name": "yi",
+    "method": "Multivariate Meta-Analysis Model (REML)",
+    "groups": [
+      {
+        "name": "Table: Sigma",
+        "groups": [
+          {
+            "name": "σ²1",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.065062
+              },
+              {
+                "name": "square root",
+                "value": 0.255072
+              },
+              {
+                "name": "nlvls",
+                "value": 11
+              }
+            ]
+          },
+          {
+            "name": "σ²2",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.032737
+              },
+              {
+                "name": "square root",
+                "value": 0.180932
+              },
+              {
+                "name": "nlvls",
+                "value": 56
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "Q",
+            "value": 578.864018
+          },
+          {
+            "name": "df",
+            "value": 55
+          },
+          {
+            "name": "p",
+            "value": 1.79683e-88
+          }
+        ]
+      },
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.184713,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.00357,
+                "upper": 0.372996
+              },
+              {
+                "name": "SE",
+                "value": 0.084502
+              },
+              {
+                "name": "statistic",
+                "symbol": "t",
+                "value": 2.185897
+              },
+              {
+                "name": "p",
+                "value": 0.053707
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "robust_mv": {
+    "name": "yi",
+    "method": "Multivariate Meta-Analysis Model (REML)",
+    "groups": [
+      {
+        "name": "Table: Tau",
+        "groups": [
+          {
+            "name": "T²1 ",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.032651
+              },
+              {
+                "name": "square root",
+                "value": 0.180697
+              },
+              {
+                "name": "k.lvl",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "name": "T²2 ",
+            "statistics": [
+              {
+                "name": "estimate",
+                "value": 0.011733
+              },
+              {
+                "name": "square root",
+                "value": 0.10832
+              },
+              {
+                "name": "k.lvl",
+                "value": 5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: Rho",
+        "groups": [
+          {
+            "name": "AL",
+            "statistics": [
+              {
+                "name": "ρAL",
+                "value": 1
+              },
+              {
+                "name": "ρPD",
+                "value": "-"
+              },
+              {
+                "name": "PD",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "name": "PD",
+            "statistics": [
+              {
+                "name": "ρAL",
+                "value": 0.608796
+              },
+              {
+                "name": "ρPD",
+                "value": 1
+              },
+              {
+                "name": "PD",
+                "value": "-"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Residual Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "QE",
+            "value": 128.226716
+          },
+          {
+            "name": "df",
+            "value": 8
+          },
+          {
+            "name": "p",
+            "value": 6.593131e-24
+          }
+        ]
+      },
+      {
+        "name": "Test of Moderators",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "F",
+            "value": 41.61373
+          },
+          {
+            "name": "df numerator",
+            "symbol": "df",
+            "subscript": "num.",
+            "value": 2
+          },
+          {
+            "name": "df denominator",
+            "symbol": "df",
+            "subscript": "den.",
+            "value": 3
+          },
+          {
+            "name": "p",
+            "value": 6.593131e-24
+          }
+        ]
+      },
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "outcomeAL",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.339215,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.660533,
+                "upper": -0.017897
+              },
+              {
+                "name": "SE",
+                "value": 0.100966
+              },
+              {
+                "name": "statistic",
+                "symbol": "t",
+                "value": -3.359709
+              },
+              {
+                "name": "p",
+                "value": 0.043743
+              }
+            ]
+          },
+          {
+            "name": "outcomePD",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.353428,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0.138525,
+                "upper": 0.568332
+              },
+              {
+                "name": "SE",
+                "value": 0.067528
+              },
+              {
+                "name": "statistic",
+                "symbol": "t",
+                "value": 5.233824
+              },
+              {
+                "name": "p",
+                "value": 0.013573
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
   }
 }

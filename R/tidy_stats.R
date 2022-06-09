@@ -3990,9 +3990,9 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
       statistics <-
         add_statistic(statistics, "statistic", x$QM, "F")
       statistics <- add_statistic(statistics, "df numerator",
-                                  x$QSdf[[1]], "df", "num.")
+                                  x$QMdf[[1]], "df", "num.")
       statistics <- add_statistic(statistics, "df denominator",
-                                  x$QSdf[[2]], "df", "den.")
+                                  x$QMdf[[2]], "df", "den.")
     } else {
       statistics <-
         add_statistic(statistics, "statistic", x$QM, "QM")
