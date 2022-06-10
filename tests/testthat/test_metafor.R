@@ -350,6 +350,43 @@ test_that("Regression Test for Funnel Plot Asymmetry (mixed-effects meta-regress
       test_results$regtest_pred)
   })
 
+# Test: trimfill ----------------------------------------------------------------
+
+test_that("Trim and Fill Analysis works",
+  {
+    dat <- escalc(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
+    res <- rma(yi, vi, data=dat, method="EE")
+    models_equal(
+      trimfill(res),
+      test_results$trimfill_result)
+  })
+
+
+# Test: selmodel ----------------------------------------------------------------
+
+test_that("Selection Model (beta; Random-Effects) works",
+  {
+    res <- rma(smd, se^2, data=dat.baskerville2012, method="ML", digits=3)
+    models_equal(
+      selmodel(res, type="beta"),
+      test_results$selmodel_beta)
+  })
+test_that("Selection Model (half-normal; Equal-Effects) works",
+  {
+    dat <- escalc(measure="OR", ai=ai, n1i=n1i, ci=ci, n2i=n2i, data=dat.hahn2001, drop00=TRUE)
+    res <- suppressWarnings(rma(yi, vi, data=dat, method="EE"))
+    models_equal(
+      selmodel(res, type="halfnorm", alternative="less"),
+      test_results$selmodel_halfnorm)
+  })
+test_that("Selection Model (step function) works",
+  {
+    dat <- dat.hackshaw1998
+    res <- rma(yi, vi, data=dat, method="ML")
+    models_equal(
+      selmodel(res, type="stepfun", alternative="greater", steps=c(.025,.10,.50,1)),
+      test_results$selmodel_stepfun)
+  })
 
 # Test: fsn ----------------------------------------------------------------
 

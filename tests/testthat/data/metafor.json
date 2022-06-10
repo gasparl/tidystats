@@ -3584,6 +3584,551 @@
       "version": "3.4-0"
     }
   },
+  "trimfill_result": {
+    "name": "rma_uni_trimfill",
+    "method": "Equal-Effects Model",
+    "groups": [
+      {
+        "name": "Model",
+        "statistics": [
+          {
+            "name": "I squared",
+            "symbol": "I²",
+            "value": 93.910136
+          },
+          {
+            "name": "H squared",
+            "symbol": "H²",
+            "value": 16.420727
+          }
+        ]
+      },
+      {
+        "name": "Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "Q",
+            "value": 262.731635
+          },
+          {
+            "name": "df",
+            "value": 16
+          },
+          {
+            "name": "p",
+            "value": 1.256274e-46
+          }
+        ]
+      },
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.291026,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.366022,
+                "upper": -0.21603
+              },
+              {
+                "name": "SE",
+                "value": 0.038264
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -7.605712
+              },
+              {
+                "name": "p",
+                "value": 2.833402e-14
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "selmodel_beta": {
+    "name": "res",
+    "method": "Random-Effects Model",
+    "groups": [
+      {
+        "name": "Model",
+        "statistics": [
+          {
+            "name": "Tau squared",
+            "symbol": "Τ²",
+            "value": 2.444503e-06
+          },
+          {
+            "name": "Τau",
+            "symbol": "Τ",
+            "value": 0.001563
+          }
+        ]
+      },
+      {
+        "name": "Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "LRT",
+            "value": 0.008809
+          },
+          {
+            "name": "df",
+            "value": 1
+          },
+          {
+            "name": "p",
+            "value": 0.925223
+          }
+        ]
+      },
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.114749,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.211505,
+                "upper": 0.441003
+              },
+              {
+                "name": "SE",
+                "value": 0.166459
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": 0.689354
+              },
+              {
+                "name": "p",
+                "value": 0.490601
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Test for Selection Model Parameters",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "LRT",
+            "value": 7.846905
+          },
+          {
+            "name": "df",
+            "value": 2
+          },
+          {
+            "name": "p",
+            "value": 0.019773
+          }
+        ]
+      },
+      {
+        "name": "Coefficients (Selection)",
+        "groups": [
+          {
+            "name": "δ 1",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.473117,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0.01203,
+                "upper": 0.934205
+              },
+              {
+                "name": "SE",
+                "value": 0.235253
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -2.239644
+              },
+              {
+                "name": "p",
+                "value": 0.025114
+              }
+            ]
+          },
+          {
+            "name": "δ 2",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 4.46135,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0.179509,
+                "upper": 8.743191
+              },
+              {
+                "name": "SE",
+                "value": 2.184653
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": 1.584394
+              },
+              {
+                "name": "p",
+                "value": 0.113104
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "selmodel_halfnorm": {
+    "name": "res",
+    "method": "Equal-Effects Model",
+    "groups": [
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": -0.33771,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.717934,
+                "upper": 0.042514
+              },
+              {
+                "name": "SE",
+                "value": 0.193995
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -1.740817
+              },
+              {
+                "name": "p",
+                "value": 0.081716
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Test for Selection Model Parameters",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "LRT",
+            "value": 1.577012
+          },
+          {
+            "name": "df",
+            "value": 1
+          },
+          {
+            "name": "p",
+            "value": 0.209192
+          }
+        ]
+      },
+      {
+        "name": "Coefficients (Selection)",
+        "groups": [
+          {
+            "name": "δ 1",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 3.162948,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0,
+                "upper": 9.021128
+              },
+              {
+                "name": "SE",
+                "value": 2.988922
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": 1.058224
+              },
+              {
+                "name": "p",
+                "value": 0.289953
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
+  "selmodel_stepfun": {
+    "name": "res",
+    "method": "Random-Effects Model",
+    "groups": [
+      {
+        "name": "Model",
+        "statistics": [
+          {
+            "name": "Tau squared",
+            "symbol": "Τ²",
+            "value": 0.009623
+          },
+          {
+            "name": "Τau",
+            "symbol": "Τ",
+            "value": 0.098095
+          }
+        ]
+      },
+      {
+        "name": "Heterogeneity",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "LRT",
+            "value": 1.1374
+          },
+          {
+            "name": "df",
+            "value": 1
+          },
+          {
+            "name": "p",
+            "value": 0.286202
+          }
+        ]
+      },
+      {
+        "name": "Coefficients",
+        "groups": [
+          {
+            "name": "intrcpt",
+            "statistics": [
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.001997,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.172289,
+                "upper": 0.176282
+              },
+              {
+                "name": "SE",
+                "value": 0.088923
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": 0.022454
+              },
+              {
+                "name": "p",
+                "value": 0.982086
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Test for Selection Model Parameters",
+        "statistics": [
+          {
+            "name": "statistic",
+            "symbol": "LRT",
+            "value": 6.401982
+          },
+          {
+            "name": "df",
+            "value": 3
+          },
+          {
+            "name": "p",
+            "value": 0.093609
+          }
+        ]
+      },
+      {
+        "name": "Coefficients (Selection)",
+        "groups": [
+          {
+            "name": "0     < p <= 0.025",
+            "statistics": [
+              {
+                "name": "count",
+                "symbol": "k",
+                "value": 7
+              },
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 1,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "-",
+                "upper": "-"
+              },
+              {
+                "name": "SE",
+                "value": "-"
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": "-"
+              },
+              {
+                "name": "p",
+                "value": "-"
+              }
+            ]
+          },
+          {
+            "name": "0.025 < p <= 0.1",
+            "statistics": [
+              {
+                "name": "count",
+                "symbol": "k",
+                "value": 8
+              },
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.494642,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0,
+                "upper": 1.11246
+              },
+              {
+                "name": "SE",
+                "value": 0.315219
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -1.603195
+              },
+              {
+                "name": "p",
+                "value": 0.108892
+              }
+            ]
+          },
+          {
+            "name": "0.1   < p <= 0.5",
+            "statistics": [
+              {
+                "name": "count",
+                "symbol": "k",
+                "value": 16
+              },
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.213628,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0,
+                "upper": 0.54428
+              },
+              {
+                "name": "SE",
+                "value": 0.168703
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -4.661282
+              },
+              {
+                "name": "p",
+                "value": 3.142465e-06
+              }
+            ]
+          },
+          {
+            "name": "0.5   < p <= 1",
+            "statistics": [
+              {
+                "name": "count",
+                "symbol": "k",
+                "value": 6
+              },
+              {
+                "name": "estimate",
+                "symbol": "b",
+                "value": 0.061844,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0,
+                "upper": 0.196871
+              },
+              {
+                "name": "SE",
+                "value": 0.068893
+              },
+              {
+                "name": "statistic",
+                "symbol": "z",
+                "value": -13.61767
+              },
+              {
+                "name": "p",
+                "value": 3.144425e-42
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "metafor",
+      "version": "3.4-0"
+    }
+  },
   "fsn_rosenthal": {
     "method": "Fail-Safe N Analysis (Rosenthal approach)",
     "statistics": [

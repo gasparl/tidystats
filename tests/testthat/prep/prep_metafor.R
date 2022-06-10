@@ -397,6 +397,58 @@ regtest_mixed
 regtest_pred
 
 
+# trimfill() --------------------------------------------------------------------
+
+### calculate log risk ratios and corresponding sampling variances
+dat <- escalc(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
+### meta-analysis of the log risk ratios using an equal-effects model
+res <- rma(yi, vi, data=dat, method="EE")
+trimfill_result <- trimfill(res)
+
+# Add stats
+results <- results %>%
+  add_stats(trimfill_result)
+
+# Inspect output
+trimfill_result
+
+# selmodel() --------------------------------------------------------------------
+
+### example from Citkowicz and Vevea (2017) for beta selection model
+# copy data into 'dat' and examine data
+dat <- dat.baskerville2012
+# fit random-effects model
+res <- rma(smd, se^2, data=dat, method="ML", digits=3)
+# fit beta selection model
+selmodel_beta <- selmodel(res, type="beta")
+
+### example from Preston et al. (2004)
+# calculate log odds ratios and corresponding sampling variances
+dat <- escalc(measure="OR", ai=ai, n1i=n1i, ci=ci, n2i=n2i, data=dat.hahn2001, drop00=TRUE)
+# fit equal-effects model
+res <- rma(yi, vi, data=dat, method="EE")
+# fit half-normal selection models
+selmodel_halfnorm <- selmodel(res, type="halfnorm", alternative="less")
+
+### meta-analysis on the effect of environmental tobacco smoke on lung cancer risk
+# copy data into 'dat' and examine data
+dat <- dat.hackshaw1998
+# fit random-effects model
+res <- rma(yi, vi, data=dat, method="ML")
+# step function selection model
+selmodel_stepfun <- selmodel(res, type="stepfun", alternative="greater", steps=c(.025,.10,.50,1))
+
+# Add stats
+results <- results %>%
+  add_stats(selmodel_beta) %>%
+  add_stats(selmodel_halfnorm) %>%
+  add_stats(selmodel_stepfun)
+
+# Inspect output
+selmodel_beta
+selmodel_halfnorm
+selmodel_stepfun
+
 # fsn() --------------------------------------------------------------------
 
 ### calculate log risk ratios and corresponding sampling variances

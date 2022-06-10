@@ -2927,9 +2927,14 @@ tidy_stats.rma.uni <- function(x, args = NULL) {
       }
     }
   }
-  
-  analysis <- list(name = deparse(x$call[[2]]),
-                   method = method)
+
+  if (inherits(x, "rma.uni.trimfill")) {
+    analysis <- list(name = "rma_uni_trimfill",
+      method = method)
+  } else {
+    analysis <- list(name = deparse(x$call[[2]]),
+      method = method)
+  }
   
   # Model fit
   if (x$model == "rma.uni" || x$model == "rma.uni.selmodel") {
@@ -2950,8 +2955,10 @@ tidy_stats.rma.uni <- function(x, args = NULL) {
     # Add statistics to the group
     group$statistics <- statistics
     
-    # Add the model group to a groups element on the analysis
-    analysis$groups <- append(analysis$groups, list(group))
+    # Add the model group (if any) to a groups element on the analysis
+    if (length(group$statistics) > 1) {
+      analysis$groups <- append(analysis$groups, list(group))
+    }
   }
   
   # Heterogeneity
@@ -2974,7 +2981,24 @@ tidy_stats.rma.uni <- function(x, args = NULL) {
     # Add the model group to a groups element on the analysis
     analysis$groups <- append(analysis$groups, list(group))
   }
-  
+
+  if (x$model == "rma.uni.selmodel" && !is.na(x$LRT.tau2)) {
+    statistics <- list()
+    if (x$int.only) {
+      group <- list(name = "Heterogeneity")
+    } else {
+      group <- list(name = "Residual Heterogeneity")
+    }
+    statistics <-
+      add_statistic(statistics, "statistic", x$LRT.tau2, "LRT")
+    statistics <- add_statistic(statistics, "df", 1)
+    statistics <- add_statistic(statistics, "p", x$LRTp.tau2)
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the model group to a groups element on the analysis
+    analysis$groups <- append(analysis$groups, list(group))
+  }
+
   # Moderators
   # Create a group and statistics list for the Test of Moderators (if any)
   if (x$p > 1L && !is.na(x$QM)) {
@@ -3135,30 +3159,42 @@ tidy_stats.rma.uni <- function(x, args = NULL) {
     }
     
     groups <- list(name = "Coefficients (Selection)")
+    if (x$type == "stepfun") {
+       rnames <- rownames(x$ptable)
+    } else {
+       rnames <- paste0("δ ", seq_along(x$delta))
+    }
     # Loop over the coefficients and add statistics to a group list
-    for (i in 1:length(coefs_v)) {
+    for (i in 1:length(x$delta)) {
       # Create a new group list
       group <- list()
       # Add the name and type of the coefficient
-      group$name <- names(coefs_v)[i]
+      group$name <- rnames[i]
       # Create a new statistics list
       statistics <- list()
+      if (x$type == "stepfun") {
+        statistics <-
+          add_statistic(statistics, "count", x$ptable$k[i][[1]], 'k')
+      }
       statistics <-
         add_statistic(
           statistics,
           "estimate",
-          x$delta[i],
+          x$delta[i][[1]],
           "b",
           interval = "CI",
           level = .95,
-          lower = x$ci.lb.delta[i],
-          upper = x$ci.ub.delta[i]
+          lower = ifelse(is.na(x$ci.lb.delta[i][[1]]), "-", x$ci.lb.delta[i][[1]]),
+          upper = ifelse(is.na(x$ci.ub.delta[i][[1]]), "-", x$ci.ub.delta[i][[1]])
         )
       statistics <-
-        add_statistic(statistics, "SE", x$se.delta[i])
+        add_statistic(statistics, "SE", 
+          ifelse(is.na(x$se.delta[i][[1]]), "-", x$se.delta[i][[1]]))
       statistics <-
-        add_statistic(statistics, "statistic", x$zval.delta[i], "z")
-      statistics <- add_statistic(statistics, "p", x$pval.delta[i])
+        add_statistic(statistics, "statistic", 
+          ifelse(is.na(x$zval.delta[i][[1]]), "-", x$zval.delta[i][[1]]), "z")
+      statistics <- add_statistic(statistics, "p", 
+        ifelse(is.na(x$pval.delta[i][[1]]), "-", x$pval.delta[i][[1]]))
       # Add statistics to the group
       group$statistics <- statistics
       # Add the group to the groups of the coefficients groups list
