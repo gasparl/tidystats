@@ -4652,18 +4652,16 @@ tidy_stats.matreg <- function(x, args = NULL) {
 #' @export
 tidy_stats.ranktest <- function(x, args = NULL) {
   # Create the analysis list
-  analysis <- list()
+  analysis <-
+    list(method = "Rank Correlation Test for Funnel Plot Asymmetry")
 
-  group <- list(name = "Rank Correlation Test for Funnel Plot Asymmetry")
   statistics <- list()
   statistics <-
     add_statistic(statistics, "statistic", x$tau[[1]], 'τ')
   statistics <-
     add_statistic(statistics, "p", x$pval)
-  # Add statistics to the group
-  group$statistics <- statistics
-  # Add the model group to a groups element on the analysis
-  analysis$groups <- append(analysis$groups, list(group))
+  
+  analysis$statistics <- statistics
 
   # Add package information
   analysis <- add_package_info(analysis, "metafor")
@@ -4675,33 +4673,8 @@ tidy_stats.ranktest <- function(x, args = NULL) {
 #' @export
 tidy_stats.regtest <- function(x, args = NULL) {
   # Create the analysis list
-  analysis <- list()
-
-  group <- list(name = "Regression Test for Funnel Plot Asymmetry")
-  
-  if (x$model == "lm") {
-    method <- "weighted regression with multiplicative dispersion"
-  } else {
-    method <-
-      paste(ifelse(is.element(x$method, c("FE", "EE", "CE")), "fixed-effects", "mixed-effects"), "meta-regression model")
-  }
-  if (x$predictor == "sei") {
-    method <- paste(method, ("(predictor: standard error)"))
-  } else if (x$predictor == "vi") {
-    method <- paste(method, ("(predictor: sampling variance)"))
-  } else if (x$predictor == "ni") {
-    method <- paste(method, ("(predictor: sample size)"))
-  } else if (x$predictor == "ninv") {
-    method <-
-      paste(method, ("(predictor: inverse of the sample size)"))
-  } else if (x$predictor == "sqrtni") {
-    method <-
-      paste(method, ("(predictor: square root sample size)"))
-  } else if (x$predictor == "sqrtninv") {
-    method <-
-      paste(method, ("(predictor: inverse of the square root sample size)"))
-  }
-  group$method <- method
+  analysis <-
+    list(method = "Regression Test for Funnel Plot Asymmetry")
   
   statistics <- list()
   if (!is.null(x$est)) {
@@ -4730,10 +4703,32 @@ tidy_stats.regtest <- function(x, args = NULL) {
   
   statistics <-
     add_statistic(statistics, "p", x$pval)
-  # Add statistics to the group
-  group$statistics <- statistics
-  # Add the model group to a groups element on the analysis
-  analysis$groups <- append(analysis$groups, list(group))
+  
+  analysis$statistics <- statistics
+
+  if (x$model == "lm") {
+    method <- "weighted regression with multiplicative dispersion"
+  } else {
+    method <-
+      paste(ifelse(is.element(x$method, c("FE", "EE", "CE")), "fixed-effects", "mixed-effects"), "meta-regression model")
+  }
+  if (x$predictor == "sei") {
+    method <- paste(method, ("(predictor: standard error)"))
+  } else if (x$predictor == "vi") {
+    method <- paste(method, ("(predictor: sampling variance)"))
+  } else if (x$predictor == "ni") {
+    method <- paste(method, ("(predictor: sample size)"))
+  } else if (x$predictor == "ninv") {
+    method <-
+      paste(method, ("(predictor: inverse of the sample size)"))
+  } else if (x$predictor == "sqrtni") {
+    method <-
+      paste(method, ("(predictor: square root sample size)"))
+  } else if (x$predictor == "sqrtninv") {
+    method <-
+      paste(method, ("(predictor: inverse of the square root sample size)"))
+  }
+  analysis$type <- method
 
   # Add package information
   analysis <- add_package_info(analysis, "metafor")
