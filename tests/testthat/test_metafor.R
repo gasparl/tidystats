@@ -425,3 +425,20 @@ test_that("Cluster-Robust Tests for Multivariate Meta-Analysis Model (multi-leve
       test_results$robust_mv)
   })
 
+# Test: cumul ----------------------------------------------------------------
+
+dat <- escalc(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
+test_that("Cumulative Meta-Analysis (for Linear Models) works",
+  {
+    res <- rma(yi, vi, data=dat)
+    models_equal(
+      cumul(res, transf=exp, order=year),
+      test_results$cumul_uni)
+  })
+test_that("Cumulative Meta-Analysis (for Multivariate Models) works",
+  {
+    res <- rma.mh(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
+    models_equal(
+      cumul(res, order=year),
+      test_results$cumul_mh)
+  })

@@ -42,6 +42,7 @@
 \alias{tidy_stats.regtest}
 \alias{tidy_stats.fsn}
 \alias{tidy_stats.hc.rma.uni}
+\alias{tidy_stats.list.rma}
 \alias{tidy_stats.lavaan}
 \alias{tidy_stats.psychwip}
 \title{Tidy the output of a statistics object}
@@ -127,6 +128,8 @@ tidy_stats(x, args = NULL)
 \method{tidy_stats}{fsn}(x, args = NULL)
 
 \method{tidy_stats}{hc.rma.uni}(x, args = NULL)
+
+\method{tidy_stats}{list.rma}(x, args = NULL)
 
 \method{tidy_stats}{lavaan}(x, args = list(fit.measures = TRUE))
 
@@ -231,6 +234,8 @@ Currently supported functions are listed in the description of
 \item \code{fsn}: tidy_stats method for class 'fsn'
 
 \item \code{hc.rma.uni}: tidy_stats method for class 'hc.rma.uni'
+
+\item \code{list.rma}: tidy_stats method for class 'list.rma'
 
 \item \code{lavaan}: tidy_stats method for class 'lavaan'
 

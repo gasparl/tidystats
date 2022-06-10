@@ -473,18 +473,26 @@ robust_mv
 
 # cumul() --------------------------------------------------------------------
 
-# Get data
+### calculate log risk ratios and corresponding sampling variances
+dat <- escalc(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
+### fit random-effects model
+res <- rma(yi, vi, data=dat)
+### cumulative meta-analysis (in the order of publication year)
+cumul_uni = cumul(res, transf=exp, order=year)
 
-# Run analyses
-new_test <- 99
+### meta-analysis of the (log) risk ratios using the Mantel-Haenszel method
+res <- rma.mh(measure="RR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
+### cumulative meta-analysis
+cumul_mh <- cumul(res, order=year)
 
 # Add stats
 results <- results %>%
-  add_stats(new_test)
+  add_stats(cumul_uni) %>%
+  add_stats(cumul_mh)
 
 # Inspect output
-
-
+cumul_uni
+cumul_mh
 
 # tidy_stats_to_data_frame() ----------------------------------------------
 

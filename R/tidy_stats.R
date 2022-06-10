@@ -4796,3 +4796,89 @@ tidy_stats.hc.rma.uni <- function(x, args = NULL) {
   
   return(analysis)
 }
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'list.rma'
+#' @export
+tidy_stats.list.rma <- function(x, args = NULL) {
+  # Create the analysis list
+  analysis <-
+    list(name = "Cumulative Meta-Analysis")
+  class(x) <- NULL
+  x$cr.lb <- NULL
+  x$cr.ub <- NULL
+  slab.pos <- which(names(x) == "slab")
+  out <- head(x, slab.pos - 1)
+  out_df <- data.frame(out,
+    row.names = x$slab,
+    stringsAsFactors = FALSE)
+  
+  out_df[] <- sapply(out_df, function(x)
+    suppressWarnings(as.numeric(as.character(x))))
+  out_df = Filter(function(x)
+    ! all(is.na(x)), out_df)
+  if (ncol(out_df) == 0 || nrow(out_df) < 1) {
+    return(NULL)
+  }
+  
+  replacers2 = list(
+    "tau" = "T",
+    "^2" = "²",
+    "sigma" = "σ",
+    "rho" = "ρ",
+    "pval" = "p",
+    "zval" = "z",
+    "tval" = "ρ",
+    "se" = "SE",
+    "2" = "²"
+  )
+  
+  for (replacer in names(replacers2)) {
+    colnames(out_df) = gsub(replacer, replacers2[[replacer]], colnames(out_df), fixed = TRUE)
+  }
+  if (any(rownames(out_df) == "")) {
+    rownames(out_df)[rownames(out_df) == ""] = 1:nrow(out_df)[rownames(out_df) == ""]
+  }
+  groups <- list(name = "Table: Cumulative Meta-Analysis")
+  # Loop over the coefficients and add statistics to a group list
+  for (i in 1:nrow(out_df)) {
+    # Create a new group list
+    group <- list()
+    # Add the name and type of the coefficient
+    group$name <- rownames(out_df)[i]
+    # Create a new statistics list
+    statistics <- list()
+    for (j in 1:ncol(out_df)) {
+      #print(colnames(out_df)[j])
+      #print(out_df[i, j])
+      if (colnames(out_df)[j] == "estimate") {
+        statistics <-
+          add_statistic(
+            statistics,
+            "estimate",
+            out_df$estimate[i],
+            interval = "CI",
+            level = 1 - x$level,
+            lower = out_df$ci.lb[i],
+            upper = out_df$ci.ub[i]
+          )
+      } else if (!colnames(out_df)[j] %in% c("ci.lb", "ci.ub")) {
+        statistics <-
+          add_statistic(statistics,
+            colnames(out_df)[j],
+            ifelse(is.na(out_df[i, j]), "-", out_df[i, j]))
+      }
+    }
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the group to the groups of the coefficients groups list
+    groups$groups <- append(groups$groups, list(group))
+  }
+  # Add the coefficient groups to the statistics list
+  analysis$groups <- append(analysis$groups, list(groups))
+  
+  # Add package information
+  analysis <- add_package_info(analysis, "metafor")
+  
+  return(analysis)
+}

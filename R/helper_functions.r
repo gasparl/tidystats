@@ -117,7 +117,10 @@ df_to_group <- function(name, df) {
 replacers = list("tau" = "T",
                  "^2" = "²",
                  "sigma" = "σ",
-                 "rho" = "ρ")
+                 "rho" = "ρ",
+                 "pval" = "p",
+                 "zval" = "z",
+                 "tval" = "ρ")
 
 ci_df_to_group <- function(name, df, level) {
   df = as.data.frame(df)
