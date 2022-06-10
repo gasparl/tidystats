@@ -4826,7 +4826,7 @@ tidy_stats.list.rma <- function(x, args = NULL) {
     "^2" = "²",
     "sigma" = "σ",
     "rho" = "ρ",
-    "pval" = "p",
+    "pvals" = "p",
     "zval" = "z",
     "tval" = "ρ",
     "se" = "SE",
@@ -4834,7 +4834,8 @@ tidy_stats.list.rma <- function(x, args = NULL) {
   )
   
   for (replacer in names(replacers2)) {
-    colnames(out_df) = gsub(replacer, replacers2[[replacer]], colnames(out_df), fixed = TRUE)
+    colnames(out_df) = gsub(replacer, 
+      replacers2[[replacer]], colnames(out_df), fixed = TRUE)
   }
   if (any(rownames(out_df) == "")) {
     rownames(out_df)[rownames(out_df) == ""] = 1:nrow(out_df)[rownames(out_df) == ""]
