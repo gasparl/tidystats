@@ -114,7 +114,7 @@ df_to_group <- function(name, df) {
   return(list(groups))
 }
 
-replacers = list("tau" = "T",
+replacers = list("tau" = "τ",
                  "^2" = "²",
                  "sigma" = "σ",
                  "rho" = "ρ",

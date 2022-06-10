@@ -18,12 +18,12 @@
           },
           {
             "name": "Tau squared",
-            "symbol": "Τ²",
+            "symbol": "τ²",
             "value": 0.313243
           },
           {
             "name": "Τau",
-            "symbol": "Τ",
+            "symbol": "τ",
             "value": 0.559681
           }
         ]
@@ -108,12 +108,12 @@
           },
           {
             "name": "Tau squared",
-            "symbol": "Τ²",
+            "symbol": "τ²",
             "value": 0.110787
           },
           {
             "name": "Τau",
-            "symbol": "Τ",
+            "symbol": "τ",
             "value": 0.332847
           }
         ]
@@ -265,12 +265,12 @@
           },
           {
             "name": "Tau squared",
-            "symbol": "Τ²",
+            "symbol": "τ²",
             "value": 0.361503
           },
           {
             "name": "Τau",
-            "symbol": "Τ",
+            "symbol": "τ",
             "value": 0.601251
           }
         ]
@@ -1477,12 +1477,12 @@
           },
           {
             "name": "Tau squared",
-            "symbol": "Τ²",
+            "symbol": "τ²",
             "value": 0.294894
           },
           {
             "name": "Τau",
-            "symbol": "Τ",
+            "symbol": "τ",
             "value": 0.543041
           }
         ]
@@ -1580,12 +1580,12 @@
           },
           {
             "name": "Tau squared",
-            "symbol": "Τ²",
+            "symbol": "τ²",
             "value": 0.319836
           },
           {
             "name": "Τau",
-            "symbol": "Τ",
+            "symbol": "τ",
             "value": 0.56554
           },
           {
@@ -1693,12 +1693,12 @@
           },
           {
             "name": "Tau squared",
-            "symbol": "Τ²",
+            "symbol": "τ²",
             "value": 0.28871
           },
           {
             "name": "Τau",
-            "symbol": "Τ",
+            "symbol": "τ",
             "value": 0.537318
           }
         ]
@@ -2147,7 +2147,7 @@
         "name": "Table: RMA estimates with CIs (random)",
         "groups": [
           {
-            "name": "T²",
+            "name": "τ²",
             "statistics": [
               {
                 "name": "estimate",
@@ -2168,7 +2168,7 @@
             ]
           },
           {
-            "name": "T",
+            "name": "τ",
             "statistics": [
               {
                 "name": "estimate",
@@ -2346,7 +2346,7 @@
         "name": "Table: RMA estimates with CIs (random)",
         "groups": [
           {
-            "name": "T²",
+            "name": "τ²",
             "statistics": [
               {
                 "name": "estimate",
@@ -2367,7 +2367,7 @@
             ]
           },
           {
-            "name": "T",
+            "name": "τ",
             "statistics": [
               {
                 "name": "estimate",
@@ -2427,7 +2427,7 @@
         "name": "Table: RMA estimates with CIs (random)",
         "groups": [
           {
-            "name": "T²",
+            "name": "τ²",
             "statistics": [
               {
                 "name": "estimate",
@@ -2448,7 +2448,7 @@
             ]
           },
           {
-            "name": "T",
+            "name": "τ",
             "statistics": [
               {
                 "name": "estimate",
@@ -2482,7 +2482,7 @@
         "name": "Table: RMA estimates with CIs (random)",
         "groups": [
           {
-            "name": "T²",
+            "name": "τ²",
             "statistics": [
               {
                 "name": "estimate",
@@ -2495,7 +2495,7 @@
             ]
           },
           {
-            "name": "T",
+            "name": "τ",
             "statistics": [
               {
                 "name": "estimate",
@@ -3668,12 +3668,12 @@
         "statistics": [
           {
             "name": "Tau squared",
-            "symbol": "Τ²",
+            "symbol": "τ²",
             "value": 2.444503e-06
           },
           {
             "name": "Τau",
-            "symbol": "Τ",
+            "symbol": "τ",
             "value": 0.001563
           }
         ]
@@ -3912,12 +3912,12 @@
         "statistics": [
           {
             "name": "Tau squared",
-            "symbol": "Τ²",
+            "symbol": "τ²",
             "value": 0.009623
           },
           {
             "name": "Τau",
-            "symbol": "Τ",
+            "symbol": "τ",
             "value": 0.098095
           }
         ]
@@ -4343,12 +4343,12 @@
           },
           {
             "name": "Tau squared",
-            "symbol": "Τ²",
+            "symbol": "τ²",
             "value": 0.049941
           },
           {
             "name": "Τau",
-            "symbol": "Τ",
+            "symbol": "τ",
             "value": 0.223475
           }
         ]
@@ -4733,7 +4733,7 @@
                 "value": 1
               },
               {
-                "name": "T²",
+                "name": "τ²",
                 "value": 0
               },
               {
@@ -4774,7 +4774,7 @@
                 "value": 0.334479
               },
               {
-                "name": "T²",
+                "name": "τ²",
                 "value": 0
               },
               {
@@ -4815,7 +4815,7 @@
                 "value": 0.203121
               },
               {
-                "name": "T²",
+                "name": "τ²",
                 "value": 0.087206
               },
               {
@@ -4856,7 +4856,7 @@
                 "value": 0.276828
               },
               {
-                "name": "T²",
+                "name": "τ²",
                 "value": 0.07626
               },
               {
@@ -4897,7 +4897,7 @@
                 "value": 0.105628
               },
               {
-                "name": "T²",
+                "name": "τ²",
                 "value": 0.085752
               },
               {
@@ -4938,7 +4938,7 @@
                 "value": 0.07015
               },
               {
-                "name": "T²",
+                "name": "τ²",
                 "value": 0.104604
               },
               {
@@ -4979,7 +4979,7 @@
                 "value": 0.039796
               },
               {
-                "name": "T²",
+                "name": "τ²",
                 "value": 0.120463
               },
               {
@@ -5020,7 +5020,7 @@
                 "value": 0.006565
               },
               {
-                "name": "T²",
+                "name": "τ²",
                 "value": 0.178028
               },
               {
@@ -5061,7 +5061,7 @@
                 "value": 0.003602
               },
               {
-                "name": "T²",
+                "name": "τ²",
                 "value": 0.202335
               },
               {
@@ -5102,7 +5102,7 @@
                 "value": 0.000085
               },
               {
-                "name": "T²",
+                "name": "τ²",
                 "value": 0.200547
               },
               {
@@ -5143,7 +5143,7 @@
                 "value": 0.00002
               },
               {
-                "name": "T²",
+                "name": "τ²",
                 "value": 0.228094
               },
               {
@@ -5184,7 +5184,7 @@
                 "value": 2.944724e-10
               },
               {
-                "name": "T²",
+                "name": "τ²",
                 "value": 0.273183
               },
               {
@@ -5225,7 +5225,7 @@
                 "value": 1.996765e-26
               },
               {
-                "name": "T²",
+                "name": "τ²",
                 "value": 0.313243
               },
               {

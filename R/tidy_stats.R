@@ -2948,9 +2948,9 @@ tidy_stats.rma.uni <- function(x, args = NULL) {
     statistics <- add_statistic(statistics, "R squared", x$R2, "R²")
     if (!is.element(x$method, c("FE", "EE", "CE"))) {
       statistics <-
-        add_statistic(statistics, "Tau squared", x$tau2, "Τ²")
+        add_statistic(statistics, "Tau squared", x$tau2, "τ²")
       statistics <-
-        add_statistic(statistics, "Τau", x$tau2 ** 0.5, "Τ")
+        add_statistic(statistics, "Τau", x$tau2 ** 0.5, "τ")
     }
     # Add statistics to the group
     group$statistics <- statistics
@@ -3537,9 +3537,9 @@ tidy_stats.rma.glmm <- function(x, args = NULL) {
     statistics <-
       add_statistic(statistics, "H squared", x$H2, "H²")
     statistics <-
-      add_statistic(statistics, "Tau squared", x$tau2, "Τ²")
+      add_statistic(statistics, "Tau squared", x$tau2, "τ²")
     statistics <-
-      add_statistic(statistics, "Τau", x$tau2 ** 0.5, "Τ")
+      add_statistic(statistics, "Τau", x$tau2 ** 0.5, "τ")
   }
   
   if (!is.na(x$sigma2)) {
@@ -3734,9 +3734,9 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
         colnames(vc) <-
           c("estimate", "square root", "k.lvl", "fixed", "level")
         if (length(x$tau2) == 1L) {
-          rownames(vc) <- c("T²", "ρ")
+          rownames(vc) <- c("τ²", "ρ")
         } else {
-          rownames(vc) <- c(paste("T²", seq_along(x$tau2), " ", sep = ""), "ρ")
+          rownames(vc) <- c(paste("τ²", seq_along(x$tau2), " ", sep = ""), "ρ")
         }
         if (x$struct[1] == "DIAG")
           vc <- vc[seq_along(tau2), , drop = FALSE]
@@ -4858,7 +4858,7 @@ tidy_stats.list.rma <- function(x, args = NULL) {
   }
   
   replacers2 = list(
-    "tau" = "T",
+    "tau" = "τ",
     "^2" = "²",
     "sigma" = "σ",
     "rho" = "ρ",
