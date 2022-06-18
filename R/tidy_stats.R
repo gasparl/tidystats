@@ -40,7 +40,7 @@
 #' str(list_sleep_test)
 #'
 #' @export
-tidy_stats <- function(x, args = NULL) UseMethod("tidy_stats")
+tidy_stats <- function(x, args = NULL, ...) UseMethod("tidy_stats")
 
 #' @describeIn tidy_stats tidy_stats method for class 'htest'
 #' @export
@@ -4911,6 +4911,88 @@ tidy_stats.list.rma <- function(x, args = NULL) {
   
   # Add package information
   analysis <- add_package_info(analysis, "metafor")
+  
+  return(analysis)
+}
+
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'data.frame'
+#' @export
+tidy_stats.data.frame <- function(x, args = NULL,
+      symbols =
+        list(
+          "tau" = "τ",
+          "^2" = "²",
+          "sigma" = "σ",
+          "rho" = "ρ",
+          "pval" = "p",
+          "p.value" = "p",
+          "zval" = "z",
+          "tval" = "ρ",
+          "std.error" = "SE",
+          "conf.low" = "CIlower",
+          "conf.high" = "CIupper"
+        ),
+      subscripts =
+        c(
+          "lower",
+          "upper"
+        ),
+      method_name = "Table from data frame",
+      table_name = "data.frame",
+      package_name = "base") {
+  out_df <- x
+  indices <- sapply(out_df, is.factor)
+  out_df[indices] <- lapply(out_df[indices], as.character)
+
+  # Create the analysis list
+  analysis <- list(method = method_name)
+  if (ncol(out_df) == 0 || nrow(out_df) < 1 ) {
+     return(NULL)
+  }
+  for (replacer in names(symbols)) {
+    colnames(out_df) = gsub(replacer, 
+      symbols[[replacer]], colnames(out_df), fixed = TRUE)
+    rownames(out_df) = gsub(replacer, 
+      symbols[[replacer]], rownames(out_df), fixed = TRUE)
+  }
+  if (any(rownames(out_df) == "")) {
+    rownames(out_df)[rownames(out_df) == ""] = 1:nrow(out_df)[rownames(out_df) == ""]
+  }
+  groups <- list(name = paste("Table:", table_name))
+  # Loop over the coefficients and add statistics to a group list
+  for (i in 1:nrow(out_df)) {
+    # Create a new group list
+    group <- list()
+    # Add the name and type of the coefficient
+    group$name <- rownames(out_df)[i]
+    # Create a new statistics list
+    statistics <- list()
+    for (j in 1:ncol(out_df)) {
+      subscript_found = endsWith(colnames(out_df)[j], subscripts)
+      if (any(subscript_found)) {
+        subscript = subscripts[subscript_found][1]
+        statistics <-
+          add_statistic(statistics,
+            gsub(paste0(subscript, "$"), "", colnames(out_df)[j]),
+            ifelse(is.na(out_df[i, j]), "-", out_df[i, j]),
+            subscript = subscript)
+      } else {
+        statistics <-
+          add_statistic(statistics, colnames(out_df)[j], 
+            ifelse(is.na(out_df[i, j]), "-", out_df[i, j]))
+      }
+    }
+    # Add statistics to the group
+    group$statistics <- statistics
+    # Add the group to the groups of the coefficients groups list
+    groups$groups <- append(groups$groups, list(group))
+  }
+  analysis$groups <- append(analysis$groups, list(groups))
+  
+  # Add package information
+  analysis <- add_package_info(analysis, package_name)
   
   return(analysis)
 }

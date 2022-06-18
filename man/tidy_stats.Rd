@@ -43,11 +43,12 @@
 \alias{tidy_stats.fsn}
 \alias{tidy_stats.hc.rma.uni}
 \alias{tidy_stats.list.rma}
+\alias{tidy_stats.data.frame}
 \alias{tidy_stats.lavaan}
 \alias{tidy_stats.psychwip}
 \title{Tidy the output of a statistics object}
 \usage{
-tidy_stats(x, args = NULL)
+tidy_stats(x, args = NULL, ...)
 
 \method{tidy_stats}{htest}(x, args = NULL)
 
@@ -130,6 +131,18 @@ tidy_stats(x, args = NULL)
 \method{tidy_stats}{hc.rma.uni}(x, args = NULL)
 
 \method{tidy_stats}{list.rma}(x, args = NULL)
+
+\method{tidy_stats}{data.frame}(
+  x,
+  args = NULL,
+  symbols = list(tau = "τ", `^2` = "²", sigma = "σ", rho = "ρ", pval = "p", p.value
+    = "p", zval = "z", tval = "ρ", std.error = "SE", conf.low = "CIlower", conf.high =
+    "CIupper"),
+  subscripts = c("lower", "upper"),
+  method_name = "Table from data frame",
+  table_name = "data.frame",
+  package_name = "base"
+)
 
 \method{tidy_stats}{lavaan}(x, args = list(fit.measures = TRUE))
 
@@ -236,6 +249,8 @@ Currently supported functions are listed in the description of
 \item \code{hc.rma.uni}: tidy_stats method for class 'hc.rma.uni'
 
 \item \code{list.rma}: tidy_stats method for class 'list.rma'
+
+\item \code{data.frame}: tidy_stats method for class 'data.frame'
 
 \item \code{lavaan}: tidy_stats method for class 'lavaan'
 

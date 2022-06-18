@@ -82,6 +82,7 @@ add_package_info <- function(list, package) {
   return(list)
 }
 
+
 df_to_group <- function(name, df) {
   df = as.data.frame(df)
   df[] <- sapply(df, function(x)

@@ -146,12 +146,12 @@
 #'
 #' @export
 add_stats <- function(list, output, identifier = NULL, type = NULL,
-  preregistered = NULL, notes = NULL, args = NULL, class = NULL)
+  preregistered = NULL, notes = NULL, args = NULL, class = NULL, ...)
     UseMethod("add_stats", output)
 
 #' @export
 add_stats.default <- function(list, output, identifier = NULL, type = NULL,
-  preregistered = NULL, notes = NULL, args = NULL, class = NULL) {
+  preregistered = NULL, notes = NULL, args = NULL, class = NULL, ...) {
 
   # Create an identifier if it is not specified, else check whether it already
   # exists
@@ -176,7 +176,7 @@ add_stats.default <- function(list, output, identifier = NULL, type = NULL,
   }
 
   # Tidy the output
-  analysis <- tidy_stats(output, args = args)
+  analysis <- tidy_stats(output, args = args, ...)
 
   # Add type: primary, secondary, or exploratory
   if (!missing(type)) {

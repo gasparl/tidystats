@@ -12,7 +12,8 @@ add_stats(
   preregistered = NULL,
   notes = NULL,
   args = NULL,
-  class = NULL
+  class = NULL,
+  ...
 )
 }
 \arguments{
