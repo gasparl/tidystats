@@ -1,0 +1,3430 @@
+{
+  "data_frame_mtcars": {
+    "method": "Table from data frame",
+    "groups": [
+      {
+        "name": "Table: data.frame",
+        "groups": [
+          {
+            "name": "Mazda RX4",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 21
+              },
+              {
+                "name": "cyl",
+                "value": 6
+              },
+              {
+                "name": "disp",
+                "value": 160
+              },
+              {
+                "name": "hp",
+                "value": 110
+              },
+              {
+                "name": "drat",
+                "value": 3.9
+              },
+              {
+                "name": "wt",
+                "value": 2.62
+              },
+              {
+                "name": "qsec",
+                "value": 16.46
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 1
+              },
+              {
+                "name": "gear",
+                "value": 4
+              },
+              {
+                "name": "carb",
+                "value": 4
+              }
+            ]
+          },
+          {
+            "name": "Mazda RX4 Wag",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 21
+              },
+              {
+                "name": "cyl",
+                "value": 6
+              },
+              {
+                "name": "disp",
+                "value": 160
+              },
+              {
+                "name": "hp",
+                "value": 110
+              },
+              {
+                "name": "drat",
+                "value": 3.9
+              },
+              {
+                "name": "wt",
+                "value": 2.875
+              },
+              {
+                "name": "qsec",
+                "value": 17.02
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 1
+              },
+              {
+                "name": "gear",
+                "value": 4
+              },
+              {
+                "name": "carb",
+                "value": 4
+              }
+            ]
+          },
+          {
+            "name": "Datsun 710",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 22.8
+              },
+              {
+                "name": "cyl",
+                "value": 4
+              },
+              {
+                "name": "disp",
+                "value": 108
+              },
+              {
+                "name": "hp",
+                "value": 93
+              },
+              {
+                "name": "drat",
+                "value": 3.85
+              },
+              {
+                "name": "wt",
+                "value": 2.32
+              },
+              {
+                "name": "qsec",
+                "value": 18.61
+              },
+              {
+                "name": "vs",
+                "value": 1
+              },
+              {
+                "name": "am",
+                "value": 1
+              },
+              {
+                "name": "gear",
+                "value": 4
+              },
+              {
+                "name": "carb",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "Hornet 4 Drive",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 21.4
+              },
+              {
+                "name": "cyl",
+                "value": 6
+              },
+              {
+                "name": "disp",
+                "value": 258
+              },
+              {
+                "name": "hp",
+                "value": 110
+              },
+              {
+                "name": "drat",
+                "value": 3.08
+              },
+              {
+                "name": "wt",
+                "value": 3.215
+              },
+              {
+                "name": "qsec",
+                "value": 19.44
+              },
+              {
+                "name": "vs",
+                "value": 1
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 3
+              },
+              {
+                "name": "carb",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "Hornet Sportabout",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 18.7
+              },
+              {
+                "name": "cyl",
+                "value": 8
+              },
+              {
+                "name": "disp",
+                "value": 360
+              },
+              {
+                "name": "hp",
+                "value": 175
+              },
+              {
+                "name": "drat",
+                "value": 3.15
+              },
+              {
+                "name": "wt",
+                "value": 3.44
+              },
+              {
+                "name": "qsec",
+                "value": 17.02
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 3
+              },
+              {
+                "name": "carb",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "Valiant",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 18.1
+              },
+              {
+                "name": "cyl",
+                "value": 6
+              },
+              {
+                "name": "disp",
+                "value": 225
+              },
+              {
+                "name": "hp",
+                "value": 105
+              },
+              {
+                "name": "drat",
+                "value": 2.76
+              },
+              {
+                "name": "wt",
+                "value": 3.46
+              },
+              {
+                "name": "qsec",
+                "value": 20.22
+              },
+              {
+                "name": "vs",
+                "value": 1
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 3
+              },
+              {
+                "name": "carb",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "Duster 360",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 14.3
+              },
+              {
+                "name": "cyl",
+                "value": 8
+              },
+              {
+                "name": "disp",
+                "value": 360
+              },
+              {
+                "name": "hp",
+                "value": 245
+              },
+              {
+                "name": "drat",
+                "value": 3.21
+              },
+              {
+                "name": "wt",
+                "value": 3.57
+              },
+              {
+                "name": "qsec",
+                "value": 15.84
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 3
+              },
+              {
+                "name": "carb",
+                "value": 4
+              }
+            ]
+          },
+          {
+            "name": "Merc 240D",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 24.4
+              },
+              {
+                "name": "cyl",
+                "value": 4
+              },
+              {
+                "name": "disp",
+                "value": 146.7
+              },
+              {
+                "name": "hp",
+                "value": 62
+              },
+              {
+                "name": "drat",
+                "value": 3.69
+              },
+              {
+                "name": "wt",
+                "value": 3.19
+              },
+              {
+                "name": "qsec",
+                "value": 20
+              },
+              {
+                "name": "vs",
+                "value": 1
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 4
+              },
+              {
+                "name": "carb",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "Merc 230",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 22.8
+              },
+              {
+                "name": "cyl",
+                "value": 4
+              },
+              {
+                "name": "disp",
+                "value": 140.8
+              },
+              {
+                "name": "hp",
+                "value": 95
+              },
+              {
+                "name": "drat",
+                "value": 3.92
+              },
+              {
+                "name": "wt",
+                "value": 3.15
+              },
+              {
+                "name": "qsec",
+                "value": 22.9
+              },
+              {
+                "name": "vs",
+                "value": 1
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 4
+              },
+              {
+                "name": "carb",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "Merc 280",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 19.2
+              },
+              {
+                "name": "cyl",
+                "value": 6
+              },
+              {
+                "name": "disp",
+                "value": 167.6
+              },
+              {
+                "name": "hp",
+                "value": 123
+              },
+              {
+                "name": "drat",
+                "value": 3.92
+              },
+              {
+                "name": "wt",
+                "value": 3.44
+              },
+              {
+                "name": "qsec",
+                "value": 18.3
+              },
+              {
+                "name": "vs",
+                "value": 1
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 4
+              },
+              {
+                "name": "carb",
+                "value": 4
+              }
+            ]
+          },
+          {
+            "name": "Merc 280C",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 17.8
+              },
+              {
+                "name": "cyl",
+                "value": 6
+              },
+              {
+                "name": "disp",
+                "value": 167.6
+              },
+              {
+                "name": "hp",
+                "value": 123
+              },
+              {
+                "name": "drat",
+                "value": 3.92
+              },
+              {
+                "name": "wt",
+                "value": 3.44
+              },
+              {
+                "name": "qsec",
+                "value": 18.9
+              },
+              {
+                "name": "vs",
+                "value": 1
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 4
+              },
+              {
+                "name": "carb",
+                "value": 4
+              }
+            ]
+          },
+          {
+            "name": "Merc 450SE",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 16.4
+              },
+              {
+                "name": "cyl",
+                "value": 8
+              },
+              {
+                "name": "disp",
+                "value": 275.8
+              },
+              {
+                "name": "hp",
+                "value": 180
+              },
+              {
+                "name": "drat",
+                "value": 3.07
+              },
+              {
+                "name": "wt",
+                "value": 4.07
+              },
+              {
+                "name": "qsec",
+                "value": 17.4
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 3
+              },
+              {
+                "name": "carb",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "name": "Merc 450SL",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 17.3
+              },
+              {
+                "name": "cyl",
+                "value": 8
+              },
+              {
+                "name": "disp",
+                "value": 275.8
+              },
+              {
+                "name": "hp",
+                "value": 180
+              },
+              {
+                "name": "drat",
+                "value": 3.07
+              },
+              {
+                "name": "wt",
+                "value": 3.73
+              },
+              {
+                "name": "qsec",
+                "value": 17.6
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 3
+              },
+              {
+                "name": "carb",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "name": "Merc 450SLC",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 15.2
+              },
+              {
+                "name": "cyl",
+                "value": 8
+              },
+              {
+                "name": "disp",
+                "value": 275.8
+              },
+              {
+                "name": "hp",
+                "value": 180
+              },
+              {
+                "name": "drat",
+                "value": 3.07
+              },
+              {
+                "name": "wt",
+                "value": 3.78
+              },
+              {
+                "name": "qsec",
+                "value": 18
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 3
+              },
+              {
+                "name": "carb",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "name": "Cadillac Fleetwood",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 10.4
+              },
+              {
+                "name": "cyl",
+                "value": 8
+              },
+              {
+                "name": "disp",
+                "value": 472
+              },
+              {
+                "name": "hp",
+                "value": 205
+              },
+              {
+                "name": "drat",
+                "value": 2.93
+              },
+              {
+                "name": "wt",
+                "value": 5.25
+              },
+              {
+                "name": "qsec",
+                "value": 17.98
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 3
+              },
+              {
+                "name": "carb",
+                "value": 4
+              }
+            ]
+          },
+          {
+            "name": "Lincoln Continental",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 10.4
+              },
+              {
+                "name": "cyl",
+                "value": 8
+              },
+              {
+                "name": "disp",
+                "value": 460
+              },
+              {
+                "name": "hp",
+                "value": 215
+              },
+              {
+                "name": "drat",
+                "value": 3
+              },
+              {
+                "name": "wt",
+                "value": 5.424
+              },
+              {
+                "name": "qsec",
+                "value": 17.82
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 3
+              },
+              {
+                "name": "carb",
+                "value": 4
+              }
+            ]
+          },
+          {
+            "name": "Chrysler Imperial",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 14.7
+              },
+              {
+                "name": "cyl",
+                "value": 8
+              },
+              {
+                "name": "disp",
+                "value": 440
+              },
+              {
+                "name": "hp",
+                "value": 230
+              },
+              {
+                "name": "drat",
+                "value": 3.23
+              },
+              {
+                "name": "wt",
+                "value": 5.345
+              },
+              {
+                "name": "qsec",
+                "value": 17.42
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 3
+              },
+              {
+                "name": "carb",
+                "value": 4
+              }
+            ]
+          },
+          {
+            "name": "Fiat 128",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 32.4
+              },
+              {
+                "name": "cyl",
+                "value": 4
+              },
+              {
+                "name": "disp",
+                "value": 78.7
+              },
+              {
+                "name": "hp",
+                "value": 66
+              },
+              {
+                "name": "drat",
+                "value": 4.08
+              },
+              {
+                "name": "wt",
+                "value": 2.2
+              },
+              {
+                "name": "qsec",
+                "value": 19.47
+              },
+              {
+                "name": "vs",
+                "value": 1
+              },
+              {
+                "name": "am",
+                "value": 1
+              },
+              {
+                "name": "gear",
+                "value": 4
+              },
+              {
+                "name": "carb",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "Honda Civic",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 30.4
+              },
+              {
+                "name": "cyl",
+                "value": 4
+              },
+              {
+                "name": "disp",
+                "value": 75.7
+              },
+              {
+                "name": "hp",
+                "value": 52
+              },
+              {
+                "name": "drat",
+                "value": 4.93
+              },
+              {
+                "name": "wt",
+                "value": 1.615
+              },
+              {
+                "name": "qsec",
+                "value": 18.52
+              },
+              {
+                "name": "vs",
+                "value": 1
+              },
+              {
+                "name": "am",
+                "value": 1
+              },
+              {
+                "name": "gear",
+                "value": 4
+              },
+              {
+                "name": "carb",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "Toyota Corolla",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 33.9
+              },
+              {
+                "name": "cyl",
+                "value": 4
+              },
+              {
+                "name": "disp",
+                "value": 71.1
+              },
+              {
+                "name": "hp",
+                "value": 65
+              },
+              {
+                "name": "drat",
+                "value": 4.22
+              },
+              {
+                "name": "wt",
+                "value": 1.835
+              },
+              {
+                "name": "qsec",
+                "value": 19.9
+              },
+              {
+                "name": "vs",
+                "value": 1
+              },
+              {
+                "name": "am",
+                "value": 1
+              },
+              {
+                "name": "gear",
+                "value": 4
+              },
+              {
+                "name": "carb",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "Toyota Corona",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 21.5
+              },
+              {
+                "name": "cyl",
+                "value": 4
+              },
+              {
+                "name": "disp",
+                "value": 120.1
+              },
+              {
+                "name": "hp",
+                "value": 97
+              },
+              {
+                "name": "drat",
+                "value": 3.7
+              },
+              {
+                "name": "wt",
+                "value": 2.465
+              },
+              {
+                "name": "qsec",
+                "value": 20.01
+              },
+              {
+                "name": "vs",
+                "value": 1
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 3
+              },
+              {
+                "name": "carb",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "Dodge Challenger",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 15.5
+              },
+              {
+                "name": "cyl",
+                "value": 8
+              },
+              {
+                "name": "disp",
+                "value": 318
+              },
+              {
+                "name": "hp",
+                "value": 150
+              },
+              {
+                "name": "drat",
+                "value": 2.76
+              },
+              {
+                "name": "wt",
+                "value": 3.52
+              },
+              {
+                "name": "qsec",
+                "value": 16.87
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 3
+              },
+              {
+                "name": "carb",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "AMC Javelin",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 15.2
+              },
+              {
+                "name": "cyl",
+                "value": 8
+              },
+              {
+                "name": "disp",
+                "value": 304
+              },
+              {
+                "name": "hp",
+                "value": 150
+              },
+              {
+                "name": "drat",
+                "value": 3.15
+              },
+              {
+                "name": "wt",
+                "value": 3.435
+              },
+              {
+                "name": "qsec",
+                "value": 17.3
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 3
+              },
+              {
+                "name": "carb",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "Camaro Z28",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 13.3
+              },
+              {
+                "name": "cyl",
+                "value": 8
+              },
+              {
+                "name": "disp",
+                "value": 350
+              },
+              {
+                "name": "hp",
+                "value": 245
+              },
+              {
+                "name": "drat",
+                "value": 3.73
+              },
+              {
+                "name": "wt",
+                "value": 3.84
+              },
+              {
+                "name": "qsec",
+                "value": 15.41
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 3
+              },
+              {
+                "name": "carb",
+                "value": 4
+              }
+            ]
+          },
+          {
+            "name": "Pontiac Firebird",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 19.2
+              },
+              {
+                "name": "cyl",
+                "value": 8
+              },
+              {
+                "name": "disp",
+                "value": 400
+              },
+              {
+                "name": "hp",
+                "value": 175
+              },
+              {
+                "name": "drat",
+                "value": 3.08
+              },
+              {
+                "name": "wt",
+                "value": 3.845
+              },
+              {
+                "name": "qsec",
+                "value": 17.05
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 0
+              },
+              {
+                "name": "gear",
+                "value": 3
+              },
+              {
+                "name": "carb",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "Fiat X1-9",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 27.3
+              },
+              {
+                "name": "cyl",
+                "value": 4
+              },
+              {
+                "name": "disp",
+                "value": 79
+              },
+              {
+                "name": "hp",
+                "value": 66
+              },
+              {
+                "name": "drat",
+                "value": 4.08
+              },
+              {
+                "name": "wt",
+                "value": 1.935
+              },
+              {
+                "name": "qsec",
+                "value": 18.9
+              },
+              {
+                "name": "vs",
+                "value": 1
+              },
+              {
+                "name": "am",
+                "value": 1
+              },
+              {
+                "name": "gear",
+                "value": 4
+              },
+              {
+                "name": "carb",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "Porsche 914-2",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 26
+              },
+              {
+                "name": "cyl",
+                "value": 4
+              },
+              {
+                "name": "disp",
+                "value": 120.3
+              },
+              {
+                "name": "hp",
+                "value": 91
+              },
+              {
+                "name": "drat",
+                "value": 4.43
+              },
+              {
+                "name": "wt",
+                "value": 2.14
+              },
+              {
+                "name": "qsec",
+                "value": 16.7
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 1
+              },
+              {
+                "name": "gear",
+                "value": 5
+              },
+              {
+                "name": "carb",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "Lotus Europa",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 30.4
+              },
+              {
+                "name": "cyl",
+                "value": 4
+              },
+              {
+                "name": "disp",
+                "value": 95.1
+              },
+              {
+                "name": "hp",
+                "value": 113
+              },
+              {
+                "name": "drat",
+                "value": 3.77
+              },
+              {
+                "name": "wt",
+                "value": 1.513
+              },
+              {
+                "name": "qsec",
+                "value": 16.9
+              },
+              {
+                "name": "vs",
+                "value": 1
+              },
+              {
+                "name": "am",
+                "value": 1
+              },
+              {
+                "name": "gear",
+                "value": 5
+              },
+              {
+                "name": "carb",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "Ford Pantera L",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 15.8
+              },
+              {
+                "name": "cyl",
+                "value": 8
+              },
+              {
+                "name": "disp",
+                "value": 351
+              },
+              {
+                "name": "hp",
+                "value": 264
+              },
+              {
+                "name": "drat",
+                "value": 4.22
+              },
+              {
+                "name": "wt",
+                "value": 3.17
+              },
+              {
+                "name": "qsec",
+                "value": 14.5
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 1
+              },
+              {
+                "name": "gear",
+                "value": 5
+              },
+              {
+                "name": "carb",
+                "value": 4
+              }
+            ]
+          },
+          {
+            "name": "Ferrari Dino",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 19.7
+              },
+              {
+                "name": "cyl",
+                "value": 6
+              },
+              {
+                "name": "disp",
+                "value": 145
+              },
+              {
+                "name": "hp",
+                "value": 175
+              },
+              {
+                "name": "drat",
+                "value": 3.62
+              },
+              {
+                "name": "wt",
+                "value": 2.77
+              },
+              {
+                "name": "qsec",
+                "value": 15.5
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 1
+              },
+              {
+                "name": "gear",
+                "value": 5
+              },
+              {
+                "name": "carb",
+                "value": 6
+              }
+            ]
+          },
+          {
+            "name": "Maserati Bora",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 15
+              },
+              {
+                "name": "cyl",
+                "value": 8
+              },
+              {
+                "name": "disp",
+                "value": 301
+              },
+              {
+                "name": "hp",
+                "value": 335
+              },
+              {
+                "name": "drat",
+                "value": 3.54
+              },
+              {
+                "name": "wt",
+                "value": 3.57
+              },
+              {
+                "name": "qsec",
+                "value": 14.6
+              },
+              {
+                "name": "vs",
+                "value": 0
+              },
+              {
+                "name": "am",
+                "value": 1
+              },
+              {
+                "name": "gear",
+                "value": 5
+              },
+              {
+                "name": "carb",
+                "value": 8
+              }
+            ]
+          },
+          {
+            "name": "Volvo 142E",
+            "statistics": [
+              {
+                "name": "mpg",
+                "value": 21.4
+              },
+              {
+                "name": "cyl",
+                "value": 4
+              },
+              {
+                "name": "disp",
+                "value": 121
+              },
+              {
+                "name": "hp",
+                "value": 109
+              },
+              {
+                "name": "drat",
+                "value": 4.11
+              },
+              {
+                "name": "wt",
+                "value": 2.78
+              },
+              {
+                "name": "qsec",
+                "value": 18.6
+              },
+              {
+                "name": "vs",
+                "value": 1
+              },
+              {
+                "name": "am",
+                "value": 1
+              },
+              {
+                "name": "gear",
+                "value": 4
+              },
+              {
+                "name": "carb",
+                "value": 2
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "base",
+      "version": "4.2.0"
+    }
+  },
+  "data_frame_toothgrowth": {
+    "method": "Table from data frame",
+    "groups": [
+      {
+        "name": "Table: data.frame",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 4.2
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 11.5
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 7.3
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "4",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 5.8
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "5",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 6.4
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "6",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 10
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "7",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 11.2
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "8",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 11.2
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "9",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 5.2
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "10",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 7
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "11",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 16.5
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "12",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 16.5
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "13",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 15.2
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "14",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 17.3
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "15",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 22.5
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "16",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 17.3
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "17",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 13.6
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "18",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 14.5
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "19",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 18.8
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "20",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 15.5
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "21",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 23.6
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "22",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 18.5
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "23",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 33.9
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "24",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 25.5
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "25",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 26.4
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "26",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 32.5
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "27",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 26.7
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "28",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 21.5
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "29",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 23.3
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "30",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 29.5
+              },
+              {
+                "name": "supp",
+                "value": "VC"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "31",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 15.2
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "32",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 21.5
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "33",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 17.6
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "34",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 9.7
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "35",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 14.5
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "36",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 10
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "37",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 8.2
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "38",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 9.4
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "39",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 16.5
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "40",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 9.7
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 0.5
+              }
+            ]
+          },
+          {
+            "name": "41",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 19.7
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "42",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 23.3
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "43",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 23.6
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "44",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 26.4
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "45",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 20
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "46",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 25.2
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "47",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 25.8
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "48",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 21.2
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "49",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 14.5
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "50",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 27.3
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "name": "51",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 25.5
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "52",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 26.4
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "53",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 22.4
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "54",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 24.5
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "55",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 24.8
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "56",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 30.9
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "57",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 26.4
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "58",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 27.3
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "59",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 29.4
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "name": "60",
+            "statistics": [
+              {
+                "name": "len",
+                "value": 23
+              },
+              {
+                "name": "supp",
+                "value": "OJ"
+              },
+              {
+                "name": "dose",
+                "value": 2
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "base",
+      "version": "4.2.0"
+    }
+  },
+  "data_frame_mix": {
+    "method": "Table from data frame",
+    "groups": [
+      {
+        "name": "Table: data.frame",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 1
+              },
+              {
+                "name": "strings",
+                "value": "K"
+              },
+              {
+                "name": "facts",
+                "value": "K1"
+              },
+              {
+                "name": "nums1",
+                "value": 2
+              },
+              {
+                "name": "nums2",
+                "value": 6
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 2
+              },
+              {
+                "name": "strings",
+                "value": "L"
+              },
+              {
+                "name": "facts",
+                "value": "L1"
+              },
+              {
+                "name": "nums1",
+                "value": 2
+              },
+              {
+                "name": "nums2",
+                "value": 7
+              }
+            ]
+          },
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 3
+              },
+              {
+                "name": "strings",
+                "value": "K"
+              },
+              {
+                "name": "facts",
+                "value": "K1"
+              },
+              {
+                "name": "nums1",
+                "value": "-"
+              },
+              {
+                "name": "nums2",
+                "value": 8.5
+              }
+            ]
+          },
+          {
+            "name": "4",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 4
+              },
+              {
+                "name": "strings",
+                "value": "L"
+              },
+              {
+                "name": "facts",
+                "value": "L2"
+              },
+              {
+                "name": "nums1",
+                "value": "-"
+              },
+              {
+                "name": "nums2",
+                "value": "-"
+              }
+            ]
+          },
+          {
+            "name": "5",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 5
+              },
+              {
+                "name": "strings",
+                "value": "L"
+              },
+              {
+                "name": "facts",
+                "value": "L2"
+              },
+              {
+                "name": "nums1",
+                "value": 1
+              },
+              {
+                "name": "nums2",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "name": "6",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 6
+              },
+              {
+                "name": "strings",
+                "value": "K"
+              },
+              {
+                "name": "facts",
+                "value": "K2"
+              },
+              {
+                "name": "nums1",
+                "value": 1
+              },
+              {
+                "name": "nums2",
+                "value": 16
+              }
+            ]
+          },
+          {
+            "name": "7",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 7
+              },
+              {
+                "name": "strings",
+                "value": "K"
+              },
+              {
+                "name": "facts",
+                "value": "K2"
+              },
+              {
+                "name": "nums1",
+                "value": 1
+              },
+              {
+                "name": "nums2",
+                "value": "-"
+              }
+            ]
+          },
+          {
+            "name": "8",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 8
+              },
+              {
+                "name": "strings",
+                "value": "K"
+              },
+              {
+                "name": "facts",
+                "value": "K1"
+              },
+              {
+                "name": "nums1",
+                "value": 2
+              },
+              {
+                "name": "nums2",
+                "value": 16
+              }
+            ]
+          },
+          {
+            "name": "9",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 9
+              },
+              {
+                "name": "strings",
+                "value": "L"
+              },
+              {
+                "name": "facts",
+                "value": "L1"
+              },
+              {
+                "name": "nums1",
+                "value": "-"
+              },
+              {
+                "name": "nums2",
+                "value": 45
+              }
+            ]
+          },
+          {
+            "name": "10",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 10
+              },
+              {
+                "name": "strings",
+                "value": "K"
+              },
+              {
+                "name": "facts",
+                "value": "K2"
+              },
+              {
+                "name": "nums1",
+                "value": "-"
+              },
+              {
+                "name": "nums2",
+                "value": 77
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "base",
+      "version": "4.2.0"
+    }
+  },
+  "data frame with custom symbol": {
+    "method": "Table from data frame",
+    "groups": [
+      {
+        "name": "Table: data.frame",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 1
+              },
+              {
+                "name": "strings",
+                "value": "K"
+              },
+              {
+                "name": "my_factors",
+                "value": "K1"
+              },
+              {
+                "name": "nums1",
+                "value": 2
+              },
+              {
+                "name": "numbers 2",
+                "value": 6
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 2
+              },
+              {
+                "name": "strings",
+                "value": "L"
+              },
+              {
+                "name": "my_factors",
+                "value": "L1"
+              },
+              {
+                "name": "nums1",
+                "value": 2
+              },
+              {
+                "name": "numbers 2",
+                "value": 7
+              }
+            ]
+          },
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 3
+              },
+              {
+                "name": "strings",
+                "value": "K"
+              },
+              {
+                "name": "my_factors",
+                "value": "K1"
+              },
+              {
+                "name": "nums1",
+                "value": "-"
+              },
+              {
+                "name": "numbers 2",
+                "value": 8.5
+              }
+            ]
+          },
+          {
+            "name": "4",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 4
+              },
+              {
+                "name": "strings",
+                "value": "L"
+              },
+              {
+                "name": "my_factors",
+                "value": "L2"
+              },
+              {
+                "name": "nums1",
+                "value": "-"
+              },
+              {
+                "name": "numbers 2",
+                "value": "-"
+              }
+            ]
+          },
+          {
+            "name": "5",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 5
+              },
+              {
+                "name": "strings",
+                "value": "L"
+              },
+              {
+                "name": "my_factors",
+                "value": "L2"
+              },
+              {
+                "name": "nums1",
+                "value": 1
+              },
+              {
+                "name": "numbers 2",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "name": "6",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 6
+              },
+              {
+                "name": "strings",
+                "value": "K"
+              },
+              {
+                "name": "my_factors",
+                "value": "K2"
+              },
+              {
+                "name": "nums1",
+                "value": 1
+              },
+              {
+                "name": "numbers 2",
+                "value": 16
+              }
+            ]
+          },
+          {
+            "name": "7",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 7
+              },
+              {
+                "name": "strings",
+                "value": "K"
+              },
+              {
+                "name": "my_factors",
+                "value": "K2"
+              },
+              {
+                "name": "nums1",
+                "value": 1
+              },
+              {
+                "name": "numbers 2",
+                "value": "-"
+              }
+            ]
+          },
+          {
+            "name": "8",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 8
+              },
+              {
+                "name": "strings",
+                "value": "K"
+              },
+              {
+                "name": "my_factors",
+                "value": "K1"
+              },
+              {
+                "name": "nums1",
+                "value": 2
+              },
+              {
+                "name": "numbers 2",
+                "value": 16
+              }
+            ]
+          },
+          {
+            "name": "9",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 9
+              },
+              {
+                "name": "strings",
+                "value": "L"
+              },
+              {
+                "name": "my_factors",
+                "value": "L1"
+              },
+              {
+                "name": "nums1",
+                "value": "-"
+              },
+              {
+                "name": "numbers 2",
+                "value": 45
+              }
+            ]
+          },
+          {
+            "name": "10",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 10
+              },
+              {
+                "name": "strings",
+                "value": "K"
+              },
+              {
+                "name": "my_factors",
+                "value": "K2"
+              },
+              {
+                "name": "nums1",
+                "value": "-"
+              },
+              {
+                "name": "numbers 2",
+                "value": 77
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "base",
+      "version": "4.2.0"
+    }
+  },
+  "data frame with subscripts": {
+    "method": "Table from df with subscripts",
+    "groups": [
+      {
+        "name": "Table: Headers with subscripts",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 1
+              },
+              {
+                "name": "st",
+                "subscript": "rings",
+                "value": "K"
+              },
+              {
+                "name": "facts",
+                "value": "K1"
+              },
+              {
+                "name": "nums1",
+                "value": 2
+              },
+              {
+                "name": "nums",
+                "subscript": "2",
+                "value": 6
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 2
+              },
+              {
+                "name": "st",
+                "subscript": "rings",
+                "value": "L"
+              },
+              {
+                "name": "facts",
+                "value": "L1"
+              },
+              {
+                "name": "nums1",
+                "value": 2
+              },
+              {
+                "name": "nums",
+                "subscript": "2",
+                "value": 7
+              }
+            ]
+          },
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 3
+              },
+              {
+                "name": "st",
+                "subscript": "rings",
+                "value": "K"
+              },
+              {
+                "name": "facts",
+                "value": "K1"
+              },
+              {
+                "name": "nums1",
+                "value": "-"
+              },
+              {
+                "name": "nums",
+                "subscript": "2",
+                "value": 8.5
+              }
+            ]
+          },
+          {
+            "name": "4",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 4
+              },
+              {
+                "name": "st",
+                "subscript": "rings",
+                "value": "L"
+              },
+              {
+                "name": "facts",
+                "value": "L2"
+              },
+              {
+                "name": "nums1",
+                "value": "-"
+              },
+              {
+                "name": "nums",
+                "subscript": "2",
+                "value": "-"
+              }
+            ]
+          },
+          {
+            "name": "5",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 5
+              },
+              {
+                "name": "st",
+                "subscript": "rings",
+                "value": "L"
+              },
+              {
+                "name": "facts",
+                "value": "L2"
+              },
+              {
+                "name": "nums1",
+                "value": 1
+              },
+              {
+                "name": "nums",
+                "subscript": "2",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "name": "6",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 6
+              },
+              {
+                "name": "st",
+                "subscript": "rings",
+                "value": "K"
+              },
+              {
+                "name": "facts",
+                "value": "K2"
+              },
+              {
+                "name": "nums1",
+                "value": 1
+              },
+              {
+                "name": "nums",
+                "subscript": "2",
+                "value": 16
+              }
+            ]
+          },
+          {
+            "name": "7",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 7
+              },
+              {
+                "name": "st",
+                "subscript": "rings",
+                "value": "K"
+              },
+              {
+                "name": "facts",
+                "value": "K2"
+              },
+              {
+                "name": "nums1",
+                "value": 1
+              },
+              {
+                "name": "nums",
+                "subscript": "2",
+                "value": "-"
+              }
+            ]
+          },
+          {
+            "name": "8",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 8
+              },
+              {
+                "name": "st",
+                "subscript": "rings",
+                "value": "K"
+              },
+              {
+                "name": "facts",
+                "value": "K1"
+              },
+              {
+                "name": "nums1",
+                "value": 2
+              },
+              {
+                "name": "nums",
+                "subscript": "2",
+                "value": 16
+              }
+            ]
+          },
+          {
+            "name": "9",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 9
+              },
+              {
+                "name": "st",
+                "subscript": "rings",
+                "value": "L"
+              },
+              {
+                "name": "facts",
+                "value": "L1"
+              },
+              {
+                "name": "nums1",
+                "value": "-"
+              },
+              {
+                "name": "nums",
+                "subscript": "2",
+                "value": 45
+              }
+            ]
+          },
+          {
+            "name": "10",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 10
+              },
+              {
+                "name": "st",
+                "subscript": "rings",
+                "value": "K"
+              },
+              {
+                "name": "facts",
+                "value": "K2"
+              },
+              {
+                "name": "nums1",
+                "value": "-"
+              },
+              {
+                "name": "nums",
+                "subscript": "2",
+                "value": 77
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "base",
+      "version": "4.2.0"
+    }
+  }
+}
