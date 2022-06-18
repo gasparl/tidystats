@@ -50,6 +50,11 @@ for a list of supported statistical tests.
 \details{
 Supported functions:
 
+\code{base}:
+\itemize{
+  \item \code{data.frame()}
+}
+
 \code{stats}:
 \itemize{
   \item \code{anova()}

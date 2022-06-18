@@ -1789,15 +1789,23 @@
             "statistics": [
               {
                 "name": "estimate",
-                "value": 0.337772
+                "value": "0.337772331394545"
               },
               {
                 "name": "square root",
-                "value": 0.581182
+                "value": "0.581181840214011"
               },
               {
                 "name": "nlvls",
-                "value": 13
+                "value": "13"
+              },
+              {
+                "name": "fixed",
+                "value": "no"
+              },
+              {
+                "name": "factor",
+                "value": "trial"
               }
             ]
           }
@@ -1871,15 +1879,23 @@
             "statistics": [
               {
                 "name": "estimate",
-                "value": 0.065062
+                "value": "0.0650619442753117"
               },
               {
                 "name": "square root",
-                "value": 0.255072
+                "value": "0.255072429469184"
               },
               {
                 "name": "nlvls",
-                "value": 11
+                "value": "11"
+              },
+              {
+                "name": "fixed",
+                "value": "no"
+              },
+              {
+                "name": "factor",
+                "value": "district"
               }
             ]
           },
@@ -1888,15 +1904,23 @@
             "statistics": [
               {
                 "name": "estimate",
-                "value": 0.032737
+                "value": "0.0327365170279351"
               },
               {
                 "name": "square root",
-                "value": 0.180932
+                "value": "0.180932354839965"
               },
               {
                 "name": "nlvls",
-                "value": 56
+                "value": "56"
+              },
+              {
+                "name": "fixed",
+                "value": "no"
+              },
+              {
+                "name": "factor",
+                "value": "district/school"
               }
             ]
           }
@@ -1970,15 +1994,23 @@
             "statistics": [
               {
                 "name": "estimate",
-                "value": 1.548603
+                "value": "1.54860323321532"
               },
               {
                 "name": "square root",
-                "value": 1.244429
+                "value": "1.24442887832745"
               },
               {
                 "name": "k.lvl",
-                "value": 13
+                "value": "13"
+              },
+              {
+                "name": "fixed",
+                "value": "no"
+              },
+              {
+                "name": "level",
+                "value": "con"
               }
             ]
           },
@@ -1987,15 +2019,23 @@
             "statistics": [
               {
                 "name": "estimate",
-                "value": 2.6173
+                "value": "2.61730010000761"
               },
               {
                 "name": "square root",
-                "value": 1.617807
+                "value": "1.61780718876126"
               },
               {
                 "name": "k.lvl",
-                "value": 13
+                "value": "13"
+              },
+              {
+                "name": "fixed",
+                "value": "no"
+              },
+              {
+                "name": "level",
+                "value": "exp"
               }
             ]
           }
@@ -2009,15 +2049,19 @@
             "statistics": [
               {
                 "name": "ρcon",
-                "value": 1
+                "value": "1"
               },
               {
                 "name": "ρexp",
+                "value": ""
+              },
+              {
+                "name": "con",
                 "value": "-"
               },
               {
                 "name": "exp",
-                "value": 13
+                "value": "13"
               }
             ]
           },
@@ -2026,11 +2070,15 @@
             "statistics": [
               {
                 "name": "ρcon",
-                "value": 0.945046
+                "value": "0.945046231947727"
               },
               {
                 "name": "ρexp",
-                "value": 1
+                "value": "1"
+              },
+              {
+                "name": "con",
+                "value": "no"
               },
               {
                 "name": "exp",
@@ -4405,15 +4453,23 @@
             "statistics": [
               {
                 "name": "estimate",
-                "value": 0.065062
+                "value": "0.0650619442753117"
               },
               {
                 "name": "square root",
-                "value": 0.255072
+                "value": "0.255072429469184"
               },
               {
                 "name": "nlvls",
-                "value": 11
+                "value": "11"
+              },
+              {
+                "name": "fixed",
+                "value": "no"
+              },
+              {
+                "name": "factor",
+                "value": "district"
               }
             ]
           },
@@ -4422,15 +4478,23 @@
             "statistics": [
               {
                 "name": "estimate",
-                "value": 0.032737
+                "value": "0.0327365170279351"
               },
               {
                 "name": "square root",
-                "value": 0.180932
+                "value": "0.180932354839965"
               },
               {
                 "name": "nlvls",
-                "value": 56
+                "value": "56"
+              },
+              {
+                "name": "fixed",
+                "value": "no"
+              },
+              {
+                "name": "factor",
+                "value": "district/school"
               }
             ]
           }
@@ -4504,15 +4568,23 @@
             "statistics": [
               {
                 "name": "estimate",
-                "value": 0.032651
+                "value": "0.0326514471080326"
               },
               {
                 "name": "square root",
-                "value": 0.180697
+                "value": "0.180697114276993"
               },
               {
                 "name": "k.lvl",
-                "value": 5
+                "value": "5"
+              },
+              {
+                "name": "fixed",
+                "value": "no"
+              },
+              {
+                "name": "level",
+                "value": "AL"
               }
             ]
           },
@@ -4521,15 +4593,23 @@
             "statistics": [
               {
                 "name": "estimate",
-                "value": 0.011733
+                "value": "0.0117331476771433"
               },
               {
                 "name": "square root",
-                "value": 0.10832
+                "value": "0.108319655082276"
               },
               {
                 "name": "k.lvl",
-                "value": 5
+                "value": "5"
+              },
+              {
+                "name": "fixed",
+                "value": "no"
+              },
+              {
+                "name": "level",
+                "value": "PD"
               }
             ]
           }
@@ -4543,15 +4623,19 @@
             "statistics": [
               {
                 "name": "ρAL",
-                "value": 1
+                "value": "1"
               },
               {
                 "name": "ρPD",
+                "value": ""
+              },
+              {
+                "name": "AL",
                 "value": "-"
               },
               {
                 "name": "PD",
-                "value": 5
+                "value": "5"
               }
             ]
           },
@@ -4560,11 +4644,15 @@
             "statistics": [
               {
                 "name": "ρAL",
-                "value": 0.608796
+                "value": "0.608796084734688"
               },
               {
                 "name": "ρPD",
-                "value": 1
+                "value": "1"
+              },
+              {
+                "name": "AL",
+                "value": "no"
               },
               {
                 "name": "PD",

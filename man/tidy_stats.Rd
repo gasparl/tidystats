@@ -135,9 +135,7 @@ tidy_stats(x, args = NULL, ...)
 \method{tidy_stats}{data.frame}(
   x,
   args = NULL,
-  symbols = list(tau = "τ", `^2` = "²", sigma = "σ", rho = "ρ", pval = "p", p.value
-    = "p", zval = "z", tval = "ρ", std.error = "SE", conf.low = "CIlower", conf.high =
-    "CIupper"),
+  symbols = NULL,
   subscripts = c("lower", "upper"),
   method_name = "Table from data frame",
   table_name = "data.frame",
