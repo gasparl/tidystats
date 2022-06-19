@@ -3426,5 +3426,617 @@
       "name": "base",
       "version": "4.2.0"
     }
+  },
+  "data frame with custom CI": {
+    "method": "Table from data frame",
+    "groups": [
+      {
+        "name": "Table: data.frame",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 1
+              },
+              {
+                "name": "strings",
+                "value": "K",
+                "interval": "myCI",
+                "level": 0.88,
+                "lower": 2,
+                "upper": 6
+              },
+              {
+                "name": "facts",
+                "value": "K1"
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 2
+              },
+              {
+                "name": "strings",
+                "value": "L",
+                "interval": "myCI",
+                "level": 0.88,
+                "lower": 2,
+                "upper": 7
+              },
+              {
+                "name": "facts",
+                "value": "L1"
+              }
+            ]
+          },
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 3
+              },
+              {
+                "name": "strings",
+                "value": "K",
+                "interval": "myCI",
+                "level": 0.88,
+                "lower": "NA",
+                "upper": 8.5
+              },
+              {
+                "name": "facts",
+                "value": "K1"
+              }
+            ]
+          },
+          {
+            "name": "4",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 4
+              },
+              {
+                "name": "strings",
+                "value": "L",
+                "interval": "myCI",
+                "level": 0.88,
+                "lower": "NA",
+                "upper": "NA"
+              },
+              {
+                "name": "facts",
+                "value": "L2"
+              }
+            ]
+          },
+          {
+            "name": "5",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 5
+              },
+              {
+                "name": "strings",
+                "value": "L",
+                "interval": "myCI",
+                "level": 0.88,
+                "lower": 1,
+                "upper": 5
+              },
+              {
+                "name": "facts",
+                "value": "L2"
+              }
+            ]
+          },
+          {
+            "name": "6",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 6
+              },
+              {
+                "name": "strings",
+                "value": "K",
+                "interval": "myCI",
+                "level": 0.88,
+                "lower": 1,
+                "upper": 16
+              },
+              {
+                "name": "facts",
+                "value": "K2"
+              }
+            ]
+          },
+          {
+            "name": "7",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 7
+              },
+              {
+                "name": "strings",
+                "value": "K",
+                "interval": "myCI",
+                "level": 0.88,
+                "lower": 1,
+                "upper": "NA"
+              },
+              {
+                "name": "facts",
+                "value": "K2"
+              }
+            ]
+          },
+          {
+            "name": "8",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 8
+              },
+              {
+                "name": "strings",
+                "value": "K",
+                "interval": "myCI",
+                "level": 0.88,
+                "lower": 2,
+                "upper": 16
+              },
+              {
+                "name": "facts",
+                "value": "K1"
+              }
+            ]
+          },
+          {
+            "name": "9",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 9
+              },
+              {
+                "name": "strings",
+                "value": "L",
+                "interval": "myCI",
+                "level": 0.88,
+                "lower": "NA",
+                "upper": 45
+              },
+              {
+                "name": "facts",
+                "value": "L1"
+              }
+            ]
+          },
+          {
+            "name": "10",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": 10
+              },
+              {
+                "name": "strings",
+                "value": "K",
+                "interval": "myCI",
+                "level": 0.88,
+                "lower": "NA",
+                "upper": 77
+              },
+              {
+                "name": "facts",
+                "value": "K2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "base",
+      "version": "4.2.0"
+    }
+  },
+  "data frame with empty columns removed": {
+    "method": "Table from data frame",
+    "groups": [
+      {
+        "name": "Table: data.frame",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": "a"
+              },
+              {
+                "name": "estim",
+                "value": 4.5
+              },
+              {
+                "name": "facts",
+                "value": "K1"
+              },
+              {
+                "name": "CI",
+                "subscript": "lower",
+                "value": 2
+              },
+              {
+                "name": "CI",
+                "subscript": "upper",
+                "value": 6
+              },
+              {
+                "name": "some_strings",
+                "value": "One"
+              },
+              {
+                "name": "strings_empty_na",
+                "value": "One"
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": "b"
+              },
+              {
+                "name": "estim",
+                "value": "-"
+              },
+              {
+                "name": "facts",
+                "value": "L1"
+              },
+              {
+                "name": "CI",
+                "subscript": "lower",
+                "value": -2
+              },
+              {
+                "name": "CI",
+                "subscript": "upper",
+                "value": 17
+              },
+              {
+                "name": "some_strings",
+                "value": "Two"
+              },
+              {
+                "name": "strings_empty_na",
+                "value": "-"
+              }
+            ]
+          },
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": "c"
+              },
+              {
+                "name": "estim",
+                "value": 6
+              },
+              {
+                "name": "facts",
+                "value": "K1"
+              },
+              {
+                "name": "CI",
+                "subscript": "lower",
+                "value": "-"
+              },
+              {
+                "name": "CI",
+                "subscript": "upper",
+                "value": 8.5
+              },
+              {
+                "name": "some_strings",
+                "value": "Three"
+              },
+              {
+                "name": "strings_empty_na",
+                "value": ""
+              }
+            ]
+          },
+          {
+            "name": "4",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": "d"
+              },
+              {
+                "name": "estim",
+                "value": 45
+              },
+              {
+                "name": "facts",
+                "value": "L2"
+              },
+              {
+                "name": "CI",
+                "subscript": "lower",
+                "value": "-"
+              },
+              {
+                "name": "CI",
+                "subscript": "upper",
+                "value": "-"
+              },
+              {
+                "name": "some_strings",
+                "value": "-"
+              },
+              {
+                "name": "strings_empty_na",
+                "value": "Four"
+              }
+            ]
+          },
+          {
+            "name": "5",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": "e"
+              },
+              {
+                "name": "estim",
+                "value": "-"
+              },
+              {
+                "name": "facts",
+                "value": "L2"
+              },
+              {
+                "name": "CI",
+                "subscript": "lower",
+                "value": 0.015
+              },
+              {
+                "name": "CI",
+                "subscript": "upper",
+                "value": 5
+              },
+              {
+                "name": "some_strings",
+                "value": "Five"
+              },
+              {
+                "name": "strings_empty_na",
+                "value": "Five"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "base",
+      "version": "4.2.0"
+    }
+  },
+  "data frame with default CIs": {
+    "method": "Table from data frame",
+    "groups": [
+      {
+        "name": "Table: data.frame",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": "a"
+              },
+              {
+                "name": "estim",
+                "value": 4.5,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 2,
+                "upper": 6
+              },
+              {
+                "name": "facts",
+                "value": "K1"
+              },
+              {
+                "name": "na_only",
+                "value": "-"
+              },
+              {
+                "name": "na_or_empty",
+                "value": ""
+              },
+              {
+                "name": "some_strings",
+                "value": "One"
+              },
+              {
+                "name": "strings_empty_na",
+                "value": "One"
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": "b"
+              },
+              {
+                "name": "estim",
+                "value": "-",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -2,
+                "upper": 17
+              },
+              {
+                "name": "facts",
+                "value": "L1"
+              },
+              {
+                "name": "na_only",
+                "value": "-"
+              },
+              {
+                "name": "na_or_empty",
+                "value": "-"
+              },
+              {
+                "name": "some_strings",
+                "value": "Two"
+              },
+              {
+                "name": "strings_empty_na",
+                "value": "-"
+              }
+            ]
+          },
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": "c"
+              },
+              {
+                "name": "estim",
+                "value": 6,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "NA",
+                "upper": 8.5
+              },
+              {
+                "name": "facts",
+                "value": "K1"
+              },
+              {
+                "name": "na_only",
+                "value": "-"
+              },
+              {
+                "name": "na_or_empty",
+                "value": ""
+              },
+              {
+                "name": "some_strings",
+                "value": "Three"
+              },
+              {
+                "name": "strings_empty_na",
+                "value": ""
+              }
+            ]
+          },
+          {
+            "name": "4",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": "d"
+              },
+              {
+                "name": "estim",
+                "value": 45,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "NA",
+                "upper": "NA"
+              },
+              {
+                "name": "facts",
+                "value": "L2"
+              },
+              {
+                "name": "na_only",
+                "value": "-"
+              },
+              {
+                "name": "na_or_empty",
+                "value": ""
+              },
+              {
+                "name": "some_strings",
+                "value": "-"
+              },
+              {
+                "name": "strings_empty_na",
+                "value": "Four"
+              }
+            ]
+          },
+          {
+            "name": "5",
+            "statistics": [
+              {
+                "name": "subject",
+                "value": "e"
+              },
+              {
+                "name": "estim",
+                "value": "-",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0.015,
+                "upper": 5
+              },
+              {
+                "name": "facts",
+                "value": "L2"
+              },
+              {
+                "name": "na_only",
+                "value": "-"
+              },
+              {
+                "name": "na_or_empty",
+                "value": "-"
+              },
+              {
+                "name": "some_strings",
+                "value": "Five"
+              },
+              {
+                "name": "strings_empty_na",
+                "value": "Five"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "base",
+      "version": "4.2.0"
+    }
   }
 }

@@ -84,7 +84,9 @@ add_package_info <- function(list, package) {
 
 
 df_to_group <- function(table_name, x, symbols = NULL, 
-                 subscripts = NULL, na_rm = FALSE) {
+                 subscripts = NULL, na_rm = FALSE, ci_title = "CI", 
+                 ci_est_name = NULL, ci_lim_names = c("CIlower", "CIupper"),
+                 ci_level = 0.95) {
   if (is.null(symbols)) {
     symbols = list(
       "tau" = "τ",
@@ -97,7 +99,11 @@ df_to_group <- function(table_name, x, symbols = NULL,
       "tval" = "ρ",
       "std.error" = "SE",
       "conf.low" = "CIlower",
-      "conf.high" = "CIupper"
+      "conf.high" = "CIupper",
+      "ci.lb" = "CIlower",
+      "ci.ub" = "CIupper",
+      "lower.ci" = "CIlower",
+      "upper.ci" = "CIupper"
     )
   }
   out_df <- as.data.frame(x)
@@ -125,6 +131,16 @@ df_to_group <- function(table_name, x, symbols = NULL,
   if (any(rownames(out_df) == "")) {
     rownames(out_df)[rownames(out_df) == ""] = 1:nrow(out_df)[rownames(out_df) == ""]
   }
+
+  ci_names = c(ci_est_name, ci_lim_names)
+  if (!(
+    is.character(ci_est_name) &&
+    is.character(ci_lim_names) && length(ci_lim_names) == 2 &&
+    all(ci_names %in% colnames(out_df))
+  )) {
+    ci_est_name = FALSE
+  }
+  
   groups <- list(name = paste("Table:", table_name))
   # Loop over the coefficients and add statistics to a group list
   for (i in 1:nrow(out_df)) {
@@ -140,17 +156,24 @@ df_to_group <- function(table_name, x, symbols = NULL,
       }
       if (any(subscript_found)) {
         subscript = subscripts[subscript_found][1]
-        statistics <-
-          add_statistic(statistics,
-            gsub(paste0(subscript, "$"), "", colnames(out_df)[j]),
-            ifelse(is.na(out_df[i, j]), "-", out_df[i, j]),
-            subscript = subscript)
+        col_name = gsub(paste0(subscript, "$"), "", colnames(out_df)[j])
+        cell_val = ifelse(is.na(out_df[i, j]), "-", out_df[i, j])
       } else {
+        col_name = colnames(out_df)[j]
+        cell_val = ifelse(is.na(out_df[i, j]), "-", out_df[i, j])
+        subscript = NULL
+      }
+      if (isFALSE(ci_est_name) || (!colnames(out_df)[j] %in% ci_names)) {
         statistics <-
-          add_statistic(statistics, colnames(out_df)[j], 
-            ifelse(is.na(out_df[i, j]), "-", out_df[i, j]))
+          add_statistic(statistics, col_name, cell_val, subscript = subscript)
+      } else if (ci_est_name == colnames(out_df)[j]) {
+        statistics <-
+          add_statistic(statistics, col_name, cell_val, subscript = subscript, 
+            interval = ci_title, level = ci_level, lower = out_df[[ci_lim_names[1]]][i], 
+            upper = out_df[[ci_lim_names[2]]][i])
       }
     }
+
     # Add statistics to the group
     group$statistics <- statistics
     # Add the group to the groups of the coefficients groups list

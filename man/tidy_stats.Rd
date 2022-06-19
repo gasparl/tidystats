@@ -44,6 +44,7 @@
 \alias{tidy_stats.hc.rma.uni}
 \alias{tidy_stats.list.rma}
 \alias{tidy_stats.data.frame}
+\alias{tidy_stats.marginaleffects}
 \alias{tidy_stats.lavaan}
 \alias{tidy_stats.psychwip}
 \title{Tidy the output of a statistics object}
@@ -139,8 +140,15 @@ tidy_stats(x, args = NULL, ...)
   subscripts = c("lower", "upper"),
   method_name = "Table from data frame",
   table_name = "data.frame",
-  package_name = "base"
+  package_name = "base",
+  na_rm = FALSE,
+  ci_title = "CI",
+  ci_est_name = NULL,
+  ci_lim_names = c("CIlower", "CIupper"),
+  ci_level = 0.95
 )
+
+\method{tidy_stats}{marginaleffects}(x, args = NULL)
 
 \method{tidy_stats}{lavaan}(x, args = list(fit.measures = TRUE))
 
@@ -249,6 +257,8 @@ Currently supported functions are listed in the description of
 \item \code{list.rma}: tidy_stats method for class 'list.rma'
 
 \item \code{data.frame}: tidy_stats method for class 'data.frame'
+
+\item \code{marginaleffects}: tidy_stats method for class 'marginaleffects'
 
 \item \code{lavaan}: tidy_stats method for class 'lavaan'
 

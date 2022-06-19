@@ -4916,20 +4916,50 @@ tidy_stats.list.rma <- function(x, args = NULL) {
 }
 
 
-
 #' @describeIn tidy_stats tidy_stats method for class 'data.frame'
 #' @export
-tidy_stats.data.frame <- function(x, args = NULL,
-      symbols = NULL,
-      subscripts =
-        c(
-          "lower",
-          "upper"
-        ),
-      method_name = "Table from data frame",
-      table_name = "data.frame",
-      package_name = "base") {
+tidy_stats.data.frame <- function(x,
+                                  args = NULL,
+                                  symbols = NULL,
+                                  subscripts =
+                                    c("lower",
+                                      "upper"),
+                                  method_name = "Table from data frame",
+                                  table_name = "data.frame",
+                                  package_name = "base",
+                                  na_rm = FALSE,
+                                  ci_title = "CI",
+                                  ci_est_name = NULL,
+                                  ci_lim_names = c("CIlower", "CIupper"),
+                                  ci_level = 0.95) {
+  # Create the analysis list
+  analysis <- list(method = method_name)
   
+  analysis$groups <- append(
+    analysis$groups,
+    df_to_group(
+      table_name,
+      x,
+      symbols,
+      subscripts,
+      na_rm = na_rm,
+      ci_title = ci_title,
+      ci_est_name = ci_est_name,
+      ci_lim_names = ci_lim_names,
+      ci_level = ci_level
+    )
+  )
+  
+  # Add package information
+  analysis <- add_package_info(analysis, package_name)
+  
+  return(analysis)
+}
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'marginaleffects'
+#' @export
+tidy_stats.marginaleffects <- function(x, args = NULL) {
   
   # Create the analysis list
   analysis <- list(method = method_name)
