@@ -4957,18 +4957,172 @@ tidy_stats.data.frame <- function(x,
 }
 
 
-#' @describeIn tidy_stats tidy_stats method for class 'marginaleffects'
+#' @describeIn tidy_stats tidy_stats method for class 'marginaleffects.summary'
 #' @export
-tidy_stats.marginaleffects <- function(x, args = NULL) {
+tidy_stats.marginaleffects.summary <- function(x, args = NULL) {
+  
+  out <- x
   
   # Create the analysis list
-  analysis <- list(method = method_name)
+  analysis <- list(method = paste0(attr(x, "model_type"), 
+                " (Prediction type: ", attr(x, "type"), ")"))
   
+  if ("group" %in% colnames(out) &&
+      all(out$group == "main_marginaleffects")) {
+      out$group <- NULL
+  }
+  if (is.null(attr(x, "conf_level"))) {
+      ci_level <- NULL
+  } else {
+      ci_level <- attr(x, "conf_level")
+  }
+  if ("contrast" %in% colnames(out) && all(out$contrast == "")) {
+      out$contrast <- NULL
+  }
+  if ("type" %in% colnames(out) && length(unique(out$type)) == 1) {
+      out$type <- NULL
+  }
+  # rename
+  dict <- c("group" = "Group",
+            "term" = "Term",
+            "contrast" = "Contrast",
+            "estimate" = "Effect",
+            "statistic" = "z")
+  for (i in seq_along(dict)) {
+    colnames(out)[colnames(out) == names(dict)[i]] <- dict[i]
+  }
   analysis$groups <- append(analysis$groups, 
-    df_to_group(table_name, x, symbols, subscripts))
+    df_to_group("Average marginal effects", as.data.frame(out), 
+      ci_est_name = "Effect", ci_level = ci_level))
   
   # Add package information
-  analysis <- add_package_info(analysis, package_name)
+  analysis <- add_package_info(analysis, "marginaleffects")
+  
+  return(analysis)
+}
+
+#' @describeIn tidy_stats tidy_stats method for class 'marginalmeans.summary'
+#' @export
+tidy_stats.marginalmeans.summary <- function(x, args = NULL) {
+  out <- x
+  # Create the analysis list
+  analysis <- list(method = paste0(attr(x, "model_type"), 
+                " (Prediction type: ", attr(x, "type"), ")"))
+  
+  if ("group" %in% colnames(out) &&
+      all(out$group == "main_marginaleffects")) {
+      out$group <- NULL
+  }
+  if (is.null(attr(x, "conf_level"))) {
+      ci_level <- NULL
+  } else {
+      ci_level <- attr(x, "conf_level")
+  }
+  # rename
+  dict <- c("group" = "Group",
+            "term" = "Term",
+            "contrast" = "Contrast",
+            "value" = "Value",
+            "estimate" = "Mean",
+            "statistic" = "z")
+  for (i in seq_along(dict)) {
+    colnames(out)[colnames(out) == names(dict)[i]] <- dict[i]
+  }
+  analysis$groups <- append(analysis$groups, 
+    df_to_group("Estimated marginal means", as.data.frame(out), 
+      ci_est_name = "Mean", ci_level = ci_level))
+  
+  # Add package information
+  analysis <- add_package_info(analysis, "marginaleffects")
+  
+  return(analysis)
+}
+
+#' @export
+tidy_stats.predictions.summaryDISABLED <- function(x, args = NULL) {
+  out <- x
+  # Create the analysis list
+  analysis <- list(method = paste0(attr(x, "model_type"),
+                " (Prediction type: ", attr(x, "type"), ")"))
+
+  if ("group" %in% colnames(out) &&
+      all(out$group == "main_marginaleffects")) {
+      out$group <- NULL
+  }
+  if (is.null(attr(x, "conf_level"))) {
+      ci_level <- NULL
+  } else {
+      ci_level <- attr(x, "conf_level")
+  }
+  if ("contrast" %in% colnames(out) && all(out$contrast == "")) {
+      out$contrast <- NULL
+  }
+  if ("type" %in% colnames(out) && length(unique(out$type)) == 1) {
+      out$type <- NULL
+  }
+  # rename
+  dict <- c("group" = "Group",
+            "term" = "Term",
+            "contrast" = "Contrast",
+            "estimate" = "Predicted",
+            "statistic" = "z")
+  for (i in seq_along(dict)) {
+    colnames(out)[colnames(out) == names(dict)[i]] <- dict[i]
+  }
+  analysis$groups <- append(analysis$groups,
+    df_to_group("Average Adjusted Predictions", as.data.frame(out),
+      ci_est_name = "Predicted", ci_level = ci_level))
+
+  # Add package information
+  analysis <- add_package_info(analysis, "marginaleffects")
+
+  return(analysis)
+}
+
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'comparisons.summary'
+#' @export
+tidy_stats.comparisons.summary <- function(x, args = NULL) {
+  out <- x
+  # Create the analysis list
+  analysis <- list(method = paste0(attr(x, "model_type"), 
+                " (Prediction type: ", attr(x, "type"), ")"))
+  
+  if ("group" %in% colnames(out) &&
+      all(out$group == "main_marginaleffects")) {
+      out$group <- NULL
+  }
+  if (is.null(attr(x, "conf_level"))) {
+      ci_level <- NULL
+  } else {
+      ci_level <- attr(x, "conf_level")
+  }
+  if ("contrast" %in% colnames(out) && all(out$contrast == "")) {
+      out$contrast <- NULL
+  }
+  if ("type" %in% colnames(out) && length(unique(out$type)) == 1) {
+      out$type <- NULL
+  }
+  # rename
+  dict <- c("group" = "Group",
+            "term" = "Term",
+            "contrast" = "Contrast",
+            "estimate" = "Effect",
+            "statistic" = "z")
+  if (all(out$term == "interaction")) {
+    out[["term"]] <- NULL
+    colnames(out) <- gsub("^contrast_", "", colnames(out))
+  }
+  for (i in seq_along(dict)) {
+    colnames(out)[colnames(out) == names(dict)[i]] <- dict[i]
+  }
+  analysis$groups <- append(analysis$groups, 
+    df_to_group("Average contrasts", as.data.frame(out), 
+      ci_est_name = "Effect", ci_level = ci_level))
+  
+  # Add package information
+  analysis <- add_package_info(analysis, "marginaleffects")
   
   return(analysis)
 }

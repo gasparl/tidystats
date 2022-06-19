@@ -118,6 +118,13 @@ Supported functions:
   item code{trimfill()}
 }
 
+\code{marginaleffects}:
+\itemize{
+  \item \code{summary(marginaleffects())}
+  \item \code{summary(marginalmeans())}
+  \item \code{summary(comparisons())}
+}
+
 \code{BayesFactor}:
 \itemize{
   \item \code{generalTestBF()}

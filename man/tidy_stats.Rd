@@ -44,7 +44,9 @@
 \alias{tidy_stats.hc.rma.uni}
 \alias{tidy_stats.list.rma}
 \alias{tidy_stats.data.frame}
-\alias{tidy_stats.marginaleffects}
+\alias{tidy_stats.marginaleffects.summary}
+\alias{tidy_stats.marginalmeans.summary}
+\alias{tidy_stats.comparisons.summary}
 \alias{tidy_stats.lavaan}
 \alias{tidy_stats.psychwip}
 \title{Tidy the output of a statistics object}
@@ -148,7 +150,11 @@ tidy_stats(x, args = NULL, ...)
   ci_level = 0.95
 )
 
-\method{tidy_stats}{marginaleffects}(x, args = NULL)
+\method{tidy_stats}{marginaleffects.summary}(x, args = NULL)
+
+\method{tidy_stats}{marginalmeans.summary}(x, args = NULL)
+
+\method{tidy_stats}{comparisons.summary}(x, args = NULL)
 
 \method{tidy_stats}{lavaan}(x, args = list(fit.measures = TRUE))
 
@@ -258,7 +264,11 @@ Currently supported functions are listed in the description of
 
 \item \code{data.frame}: tidy_stats method for class 'data.frame'
 
-\item \code{marginaleffects}: tidy_stats method for class 'marginaleffects'
+\item \code{marginaleffects.summary}: tidy_stats method for class 'marginaleffects.summary'
+
+\item \code{marginalmeans.summary}: tidy_stats method for class 'marginalmeans.summary'
+
+\item \code{comparisons.summary}: tidy_stats method for class 'comparisons.summary'
 
 \item \code{lavaan}: tidy_stats method for class 'lavaan'
 

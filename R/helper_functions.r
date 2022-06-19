@@ -88,15 +88,18 @@ df_to_group <- function(table_name, x, symbols = NULL,
                  ci_est_name = NULL, ci_lim_names = c("CIlower", "CIupper"),
                  ci_level = 0.95) {
   if (is.null(symbols)) {
-    symbols = list(
+    symbols = c(
       "tau" = "τ",
       "^2" = "²",
       "sigma" = "σ",
       "rho" = "ρ",
       "pval" = "p",
       "p.value" = "p",
+      "p value" = "p",
       "zval" = "z",
-      "tval" = "ρ",
+      "z value" = "z",
+      "tval" = "t",
+      "p value" = "p",
       "std.error" = "SE",
       "conf.low" = "CIlower",
       "conf.high" = "CIupper",
@@ -115,12 +118,13 @@ df_to_group <- function(table_name, x, symbols = NULL,
   if (ncol(out_df) == 0 || nrow(out_df) < 1 ) {
      return(NULL)
   }
-  if (is.list(symbols)) {
+  if (is.vector(symbols) && !is.null(names(symbols)) &&
+      !any(is.na(names(symbols)))) {
     for (replacer in names(symbols)) {
       colnames(out_df) = gsub(replacer,
-        symbols[[replacer]], colnames(out_df), fixed = TRUE)
+        symbols[replacer], colnames(out_df), fixed = TRUE)
       rownames(out_df) = gsub(replacer,
-        symbols[[replacer]], rownames(out_df), fixed = TRUE)
+        symbols[replacer], rownames(out_df), fixed = TRUE)
     }
   }
   if (!is.character(subscripts)) {

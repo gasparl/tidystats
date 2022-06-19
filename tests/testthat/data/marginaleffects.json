@@ -1,0 +1,405 @@
+{
+  "marginaleffects_summary": {
+    "method": "glm (Prediction type: response)",
+    "groups": [
+      {
+        "name": "Table: Average marginal effects",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "Term",
+                "value": "hp"
+              },
+              {
+                "name": "Effect",
+                "value": 0.002654,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.001151,
+                "upper": 0.006458
+              },
+              {
+                "name": "SE",
+                "value": 0.001941
+              },
+              {
+                "name": "z",
+                "value": 1.367153
+              },
+              {
+                "name": "p",
+                "value": 0.171577
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "Term",
+                "value": "wt"
+              },
+              {
+                "name": "Effect",
+                "value": -0.435727,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -0.63569,
+                "upper": -0.235764
+              },
+              {
+                "name": "SE",
+                "value": 0.102024
+              },
+              {
+                "name": "z",
+                "value": -4.270835
+              },
+              {
+                "name": "p",
+                "value": 0.000019
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "marginaleffects",
+      "version": "0.5.0"
+    }
+  },
+  "marginalmeans_summary": {
+    "method": "lm (Prediction type: response)",
+    "groups": [
+      {
+        "name": "Table: Estimated marginal means",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "Term",
+                "value": "am"
+              },
+              {
+                "name": "Value",
+                "value": "FALSE"
+              },
+              {
+                "name": "Mean",
+                "value": 18.319868,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 16.780527,
+                "upper": 19.859209
+              },
+              {
+                "name": "SE",
+                "value": 0.785392
+              },
+              {
+                "name": "z",
+                "value": 23.32575
+              },
+              {
+                "name": "p",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "Term",
+                "value": "am"
+              },
+              {
+                "name": "Value",
+                "value": "TRUE"
+              },
+              {
+                "name": "Mean",
+                "value": 22.477725,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 20.842459,
+                "upper": 24.112991
+              },
+              {
+                "name": "SE",
+                "value": 0.834335
+              },
+              {
+                "name": "z",
+                "value": 26.9409
+              },
+              {
+                "name": "p",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "Term",
+                "value": "cyl"
+              },
+              {
+                "name": "Value",
+                "value": "4"
+              },
+              {
+                "name": "Mean",
+                "value": 22.884794,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 20.225813,
+                "upper": 25.543775
+              },
+              {
+                "name": "SE",
+                "value": 1.356648
+              },
+              {
+                "name": "z",
+                "value": 16.868633
+              },
+              {
+                "name": "p",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "name": "4",
+            "statistics": [
+              {
+                "name": "Term",
+                "value": "cyl"
+              },
+              {
+                "name": "Value",
+                "value": "6"
+              },
+              {
+                "name": "Mean",
+                "value": 18.960216,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 16.8573,
+                "upper": 21.063132
+              },
+              {
+                "name": "SE",
+                "value": 1.072936
+              },
+              {
+                "name": "z",
+                "value": 17.671339
+              },
+              {
+                "name": "p",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "name": "5",
+            "statistics": [
+              {
+                "name": "Term",
+                "value": "cyl"
+              },
+              {
+                "name": "Value",
+                "value": "8"
+              },
+              {
+                "name": "Mean",
+                "value": 19.35138,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 16.65235,
+                "upper": 22.050411
+              },
+              {
+                "name": "SE",
+                "value": 1.377082
+              },
+              {
+                "name": "z",
+                "value": 14.052456
+              },
+              {
+                "name": "p",
+                "value": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "marginaleffects",
+      "version": "0.5.0"
+    }
+  },
+  "marginaleffects_comparisons_summary": {
+    "method": "lm (Prediction type: response)",
+    "groups": [
+      {
+        "name": "Table: Average contrasts",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "Term",
+                "value": "am"
+              },
+              {
+                "name": "Contrast",
+                "value": "TRUE - FALSE"
+              },
+              {
+                "name": "Effect",
+                "value": 2.559954,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 0.016746,
+                "upper": 5.103162
+              },
+              {
+                "name": "SE",
+                "value": 1.297579
+              },
+              {
+                "name": "z",
+                "value": 1.972869
+              },
+              {
+                "name": "p",
+                "value": 0.04851
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "Term",
+                "value": "cyl"
+              },
+              {
+                "name": "Contrast",
+                "value": "6 - 4"
+              },
+              {
+                "name": "Effect",
+                "value": -6.156118,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -9.166079,
+                "upper": -3.146156
+              },
+              {
+                "name": "SE",
+                "value": 1.535723
+              },
+              {
+                "name": "z",
+                "value": -4.008612
+              },
+              {
+                "name": "p",
+                "value": 0.000061
+              }
+            ]
+          },
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "Term",
+                "value": "cyl"
+              },
+              {
+                "name": "Contrast",
+                "value": "8 - 4"
+              },
+              {
+                "name": "Effect",
+                "value": -10.06756,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": -12.913589,
+                "upper": -7.22153
+              },
+              {
+                "name": "SE",
+                "value": 1.452082
+              },
+              {
+                "name": "z",
+                "value": -6.933187
+              },
+              {
+                "name": "p",
+                "value": 4.114709e-12
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "marginaleffects",
+      "version": "0.5.0"
+    }
+  },
+  "marginaleffects_comparisons_summary_arr": {
+    "method": "glm (Prediction type: response)",
+    "groups": [
+      {
+        "name": "Table: Average contrasts",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "Term",
+                "value": "mpg"
+              },
+              {
+                "name": "Contrast",
+                "value": "ln(mean(x + 1) / mean(x))"
+              },
+              {
+                "name": "Effect",
+                "value": 1.135065,
+                "interval": "CI",
+                "level": 0.95,
+                "lower": 1.091432,
+                "upper": 1.180442
+              },
+              {
+                "name": "p",
+                "value": 2.380804e-10
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "marginaleffects",
+      "version": "0.5.0"
+    }
+  }
+}
