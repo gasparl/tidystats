@@ -81,3 +81,4 @@ test_that("Average contrasts of marginal comparisons (GLM) works", {
 
   expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
 })
+

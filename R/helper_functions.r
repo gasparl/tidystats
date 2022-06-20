@@ -106,7 +106,9 @@ df_to_group <- function(table_name, x, symbols = NULL,
       "ci.lb" = "CIlower",
       "ci.ub" = "CIupper",
       "lower.ci" = "CIlower",
-      "upper.ci" = "CIupper"
+      "upper.ci" = "CIupper",
+      "lower.CL" = "CIlower",
+      "upper.CL" = "CIupper"
     )
   }
   out_df <- as.data.frame(x)
@@ -120,11 +122,15 @@ df_to_group <- function(table_name, x, symbols = NULL,
   }
   if (is.vector(symbols) && !is.null(names(symbols)) &&
       !any(is.na(names(symbols)))) {
-    for (replacer in names(symbols)) {
-      colnames(out_df) = gsub(replacer,
-        symbols[replacer], colnames(out_df), fixed = TRUE)
-      rownames(out_df) = gsub(replacer,
-        symbols[replacer], rownames(out_df), fixed = TRUE)
+    for (to_replace in names(symbols)) {
+      if (!symbols[to_replace] %in% colnames(out_df)) {
+        colnames(out_df) = sub(to_replace,
+          symbols[to_replace], colnames(out_df), fixed = TRUE)
+      }
+      if (!symbols[to_replace] %in% rownames(out_df)) {
+        rownames(out_df) = sub(to_replace,
+          symbols[to_replace], rownames(out_df), fixed = TRUE)
+      }
     }
   }
   if (!is.character(subscripts)) {
