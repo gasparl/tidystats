@@ -15,13 +15,8 @@ library(tidyverse)
 library(tidystats)
 library(testthat)
 tolerance <- 0.001
-models_equal = function(model, tidy_model_test) {
-  tidy_model <- tidy_stats(model)
-  tidy_model$package <- NULL
-  tidy_model_test$package <- NULL
-  expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
-}
-test_results <- read_stats("tests/testthat/data/metafor.json")
+
+test_results <- read_stats("tests/testthat/data/emmeans.json")
 
 # Set path (in RStudio)
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))

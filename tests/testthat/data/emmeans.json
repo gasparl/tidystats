@@ -1,0 +1,544 @@
+{
+  "emmeans_summary_single": {
+    "method": "Estimated marginal means",
+    "groups": [
+      {
+        "name": "Table: EMMs Summary",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "wool",
+                "value": "A"
+              },
+              {
+                "name": "emmean",
+                "value": "31.03704",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "26.01838",
+                "upper": "36.05570"
+              },
+              {
+                "name": "SE",
+                "value": "2.501018"
+              },
+              {
+                "name": "df",
+                "value": "52"
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "wool",
+                "value": "B"
+              },
+              {
+                "name": "emmean",
+                "value": "25.25926",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "20.24060",
+                "upper": "30.27792"
+              },
+              {
+                "name": "SE",
+                "value": "2.501018"
+              },
+              {
+                "name": "df",
+                "value": "52"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "emmeans",
+      "version": "1.7.4-1"
+    }
+  },
+  "emmeans_summary_multi": {
+    "method": "Estimated marginal means",
+    "groups": [
+      {
+        "name": "Table: tension: L",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "wool",
+                "value": "A"
+              },
+              {
+                "name": "emmean",
+                "value": "44.55556",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "37.22325",
+                "upper": "51.88786"
+              },
+              {
+                "name": "SE",
+                "value": "3.646761"
+              },
+              {
+                "name": "df",
+                "value": "48"
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "wool",
+                "value": "B"
+              },
+              {
+                "name": "emmean",
+                "value": "28.22222",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "20.88992",
+                "upper": "35.55453"
+              },
+              {
+                "name": "SE",
+                "value": "3.646761"
+              },
+              {
+                "name": "df",
+                "value": "48"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: tension: M",
+        "groups": [
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "wool",
+                "value": "A"
+              },
+              {
+                "name": "emmean",
+                "value": "24.00000",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "16.66769",
+                "upper": "31.33231"
+              },
+              {
+                "name": "SE",
+                "value": "3.646761"
+              },
+              {
+                "name": "df",
+                "value": "48"
+              }
+            ]
+          },
+          {
+            "name": "4",
+            "statistics": [
+              {
+                "name": "wool",
+                "value": "B"
+              },
+              {
+                "name": "emmean",
+                "value": "28.77778",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "21.44547",
+                "upper": "36.11008"
+              },
+              {
+                "name": "SE",
+                "value": "3.646761"
+              },
+              {
+                "name": "df",
+                "value": "48"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: tension: H",
+        "groups": [
+          {
+            "name": "5",
+            "statistics": [
+              {
+                "name": "wool",
+                "value": "A"
+              },
+              {
+                "name": "emmean",
+                "value": "24.55556",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "17.22325",
+                "upper": "31.88786"
+              },
+              {
+                "name": "SE",
+                "value": "3.646761"
+              },
+              {
+                "name": "df",
+                "value": "48"
+              }
+            ]
+          },
+          {
+            "name": "6",
+            "statistics": [
+              {
+                "name": "wool",
+                "value": "B"
+              },
+              {
+                "name": "emmean",
+                "value": "18.77778",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "11.44547",
+                "upper": "26.11008"
+              },
+              {
+                "name": "SE",
+                "value": "3.646761"
+              },
+              {
+                "name": "df",
+                "value": "48"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "emmeans",
+      "version": "1.7.4-1"
+    }
+  },
+  "emmeans_summary_adjust$emmeans": {
+    "method": "Estimated marginal means",
+    "groups": [
+      {
+        "name": "Table: wool: A",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "tension",
+                "value": "L"
+              },
+              {
+                "name": "emmean",
+                "value": "44.55556",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "37.22325",
+                "upper": "51.88786"
+              },
+              {
+                "name": "SE",
+                "value": "3.646761"
+              },
+              {
+                "name": "df",
+                "value": "48"
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "tension",
+                "value": "M"
+              },
+              {
+                "name": "emmean",
+                "value": "24.00000",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "16.66769",
+                "upper": "31.33231"
+              },
+              {
+                "name": "SE",
+                "value": "3.646761"
+              },
+              {
+                "name": "df",
+                "value": "48"
+              }
+            ]
+          },
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "tension",
+                "value": "H"
+              },
+              {
+                "name": "emmean",
+                "value": "24.55556",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "17.22325",
+                "upper": "31.88786"
+              },
+              {
+                "name": "SE",
+                "value": "3.646761"
+              },
+              {
+                "name": "df",
+                "value": "48"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: wool: B",
+        "groups": [
+          {
+            "name": "4",
+            "statistics": [
+              {
+                "name": "tension",
+                "value": "L"
+              },
+              {
+                "name": "emmean",
+                "value": "28.22222",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "20.88992",
+                "upper": "35.55453"
+              },
+              {
+                "name": "SE",
+                "value": "3.646761"
+              },
+              {
+                "name": "df",
+                "value": "48"
+              }
+            ]
+          },
+          {
+            "name": "5",
+            "statistics": [
+              {
+                "name": "tension",
+                "value": "M"
+              },
+              {
+                "name": "emmean",
+                "value": "28.77778",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "21.44547",
+                "upper": "36.11008"
+              },
+              {
+                "name": "SE",
+                "value": "3.646761"
+              },
+              {
+                "name": "df",
+                "value": "48"
+              }
+            ]
+          },
+          {
+            "name": "6",
+            "statistics": [
+              {
+                "name": "tension",
+                "value": "H"
+              },
+              {
+                "name": "emmean",
+                "value": "18.77778",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "11.44547",
+                "upper": "26.11008"
+              },
+              {
+                "name": "SE",
+                "value": "3.646761"
+              },
+              {
+                "name": "df",
+                "value": "48"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "emmeans",
+      "version": "1.7.4-1"
+    }
+  },
+  "emmeans_summary_adjust$contrasts": {
+    "method": "Estimated marginal means",
+    "groups": [
+      {
+        "name": "Table: wool: A",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "contrast",
+                "value": "linear"
+              },
+              {
+                "name": "estimate",
+                "value": "-20.000000"
+              },
+              {
+                "name": "SE",
+                "value": "5.157299"
+              },
+              {
+                "name": "df",
+                "value": "48"
+              },
+              {
+                "name": "t.ratio",
+                "value": "-3.877999"
+              },
+              {
+                "name": "p",
+                "value": "0.0006397541"
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "contrast",
+                "value": "quadratic"
+              },
+              {
+                "name": "estimate",
+                "value": " 21.111111"
+              },
+              {
+                "name": "SE",
+                "value": "8.932705"
+              },
+              {
+                "name": "df",
+                "value": "48"
+              },
+              {
+                "name": "t.ratio",
+                "value": " 2.363350"
+              },
+              {
+                "name": "p",
+                "value": "0.0439229509"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: wool: B",
+        "groups": [
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "contrast",
+                "value": "linear"
+              },
+              {
+                "name": "estimate",
+                "value": " -9.444444"
+              },
+              {
+                "name": "SE",
+                "value": "5.157299"
+              },
+              {
+                "name": "df",
+                "value": "48"
+              },
+              {
+                "name": "t.ratio",
+                "value": "-1.831277"
+              },
+              {
+                "name": "p",
+                "value": "0.1411706107"
+              }
+            ]
+          },
+          {
+            "name": "4",
+            "statistics": [
+              {
+                "name": "contrast",
+                "value": "quadratic"
+              },
+              {
+                "name": "estimate",
+                "value": "-10.555556"
+              },
+              {
+                "name": "SE",
+                "value": "8.932705"
+              },
+              {
+                "name": "df",
+                "value": "48"
+              },
+              {
+                "name": "t.ratio",
+                "value": "-1.181675"
+              },
+              {
+                "name": "p",
+                "value": "0.4271871882"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "emmeans",
+      "version": "1.7.4-1"
+    }
+  }
+}

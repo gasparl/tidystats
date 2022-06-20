@@ -227,7 +227,7 @@ add_stats.default <- function(list, output, identifier = NULL, type = NULL,
 
 #' @export
 add_stats.list <- function(list, output, identifier = NULL, type = NULL,
-  preregistered = NULL, notes = NULL) {
+  preregistered = NULL, notes = NULL, args = NULL, class = NULL, ...) {
 
   # Create an identifier if it is not specified, else check whether it already
   # exists
@@ -244,6 +244,19 @@ add_stats.list <- function(list, output, identifier = NULL, type = NULL,
         stop("Identifier already exists.")
       }
     }
+  }
+
+  # Check if all list elements have tidystats methods.
+  # If yes, simply add them each separately.
+  tidy_stats_methods = sub("tidy_stats.", "", 
+    as.character(methods(tidy_stats)), fixed = TRUE)
+  if (all(sapply(output, function(x) {class(x) %in% tidy_stats_methods}))) {
+    output_names = names(output)
+    for (i in 1:length(output)) {
+      list = add_stats(list, output[[i]], identifier = paste(identifier, ifelse(output_names[i] == "",
+        toString(i), output_names[i]), sep = "$"), notes = notes, args = args, class = NULL, ...)
+    }
+    return(list)
   }
 
   # Simply set analysis to output; we don't need to tidy the output because

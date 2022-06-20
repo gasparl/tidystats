@@ -64,8 +64,8 @@ results = results %>%
   add_stats(marginaleffects_comparisons_summary_arr)
 
 # Inspect output
-comparisons_summary
-comparisons_summary_arr
+marginaleffects_comparisons_summary
+marginaleffects_comparisons_summary_arr
 
 
 # tidy_stats_to_data_frame() ----------------------------------------------

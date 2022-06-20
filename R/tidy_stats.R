@@ -5080,7 +5080,6 @@ tidy_stats.predictions.summaryDISABLED <- function(x, args = NULL) {
 }
 
 
-
 #' @describeIn tidy_stats tidy_stats method for class 'comparisons.summary'
 #' @export
 tidy_stats.comparisons.summary <- function(x, args = NULL) {
@@ -5123,6 +5122,59 @@ tidy_stats.comparisons.summary <- function(x, args = NULL) {
   
   # Add package information
   analysis <- add_package_info(analysis, "marginaleffects")
+  
+  return(analysis)
+}
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'summary_emm'
+#' @export
+tidy_stats.summary_emm <- function(x, args = NULL) {
+  # Create the analysis list
+  analysis <- list(method = "Estimated marginal means")
+
+  ci_level = NULL
+  msg = unique(attr(x, "mesg"))
+  if (!is.null(msg)) {
+    prefix = "Confidence level used: "
+    for (j in seq_len(length(msg))) {
+      if (startsWith(msg[j], prefix)) {
+        ci_level = as.numeric(sub(prefix, "", msg[j]))
+        if (!length(ci_level) == 1) {
+          ci_level = NULL
+        }
+      }
+    }
+  }
+  
+  for (i in which(sapply(x, is.matrix)))
+    x[[i]] = NULL   # hide matrices
+  
+  xc = as.matrix(format.data.frame(x, na.encode = FALSE))
+  if (!is.matrix(xc))
+    xc = t(as.matrix(xc))
+  by.vars = attr(x, "by.vars")
+  if (is.null(by.vars)) {
+    analysis$groups <- append(analysis$groups, 
+      df_to_group("EMMs Summary", as.data.frame(xc), 
+        ci_est_name = attr(x, "estName"), ci_level = ci_level))
+  } else {
+    # separate listing for each by variable
+    m = xc[, setdiff(names(x), by.vars), drop = FALSE]
+    pargs = unname(as.list(x[, by.vars, drop = FALSE]))
+    pargs$sep = ", "
+    lbls = do.call(paste, pargs)
+    for (lb in unique(lbls)) {
+      rows = which(lbls == lb)
+      levs = paste(paste0(by.vars, ": ", xc[rows[1], by.vars]), collapse = "; ")
+      analysis$groups <- append(analysis$groups, 
+        df_to_group(levs, as.data.frame(m[rows, , drop = FALSE]), 
+          ci_est_name = attr(x, "estName"), ci_level = ci_level))
+    }
+  }
+
+  # Add package information
+  analysis <- add_package_info(analysis, "emmeans")
   
   return(analysis)
 }
