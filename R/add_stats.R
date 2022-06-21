@@ -250,7 +250,12 @@ add_stats.list <- function(list, output, identifier = NULL, type = NULL,
   # If yes, simply add them each separately.
   tidy_stats_methods = sub("tidy_stats.", "", 
     as.character(methods(tidy_stats)), fixed = TRUE)
-  if (all(sapply(output, function(x) {class(x) %in% tidy_stats_methods}))) {
+  class_matches <- c()
+  for (i in 1:length(output)) {
+    class_matches <-
+      c(class_matches, any(as.character(class(output[[i]])) %in% tidy_stats_methods))
+  }
+  if (all(class_matches)) {
     output_names = names(output)
     for (i in 1:length(output)) {
       list = add_stats(list, output[[i]], identifier = paste(identifier, ifelse(output_names[i] == "",

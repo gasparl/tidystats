@@ -5178,3 +5178,14 @@ tidy_stats.summary_emm <- function(x, args = NULL) {
   
   return(analysis)
 }
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'emmGrid'
+#' @export
+tidy_stats.emmGrid <- function(x, args = NULL) {
+  if (require("emmeans")) {
+    return(tidy_stats.summary_emm(summary(x)))
+  } else {
+    stop("The 'emmeans' package needs to be loaded to add 'emmGrid' objects to in tidystats.") 
+  }
+}

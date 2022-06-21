@@ -158,6 +158,8 @@ tidy_stats(x, args = NULL, ...)
 
 \method{tidy_stats}{summary_emm}(x, args = NULL)
 
+\method{tidy_stats}{emmGrid}(x, args = NULL)
+
 \method{tidy_stats}{lavaan}(x, args = list(fit.measures = TRUE))
 
 \method{tidy_stats}{psychwip}(x, args = NULL)
@@ -273,6 +275,8 @@ Currently supported functions are listed in the description of
 \item \code{comparisons.summary}: tidy_stats method for class 'comparisons.summary'
 
 \item \code{summary_emm}: tidy_stats method for class 'summary_emm'
+
+\item \code{emmGrid}: tidy_stats method for class 'emmGrid'
 
 \item \code{lavaan}: tidy_stats method for class 'lavaan'
 
