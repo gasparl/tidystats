@@ -95,7 +95,7 @@ results = results %>%
 emmeans_test
 emmeans_test_joint
 
-# contrast(emmeans()) --------------------------------------------------------------------
+# contrast() --------------------------------------------------------------------
 # Get data
 set.seed(1234)
 pigs.lm <- lm(log(conc) ~ source + factor(percent), data = pigs)
@@ -112,14 +112,14 @@ results = results %>%
 emmeans_contrast
 
 
-# mvcontrast(emmeans()) --------------------------------------------------------------------
+# mvcontrast() --------------------------------------------------------------------
 
 # Get data
 MOats.lm <- lm(yield ~ Variety + Block, data = MOats)
 MOats.emm <- emmeans(MOats.lm, ~ Variety | rep.meas)
 
 # Run analysis
-emmeans_mvcontrast <- mvcontrast(MOats.emm, "consec", show.ests = TRUE)  
+emmeans_mvcontrast <- mvcontrast(MOats.emm, "consec", show.ests = TRUE)
 
 # Test each mean against a specified null vector
 emmeans_mvcontrast_named <- mvcontrast(MOats.emm, "identity", name = "Variety", null = c(80, 100, 120, 140))
@@ -136,55 +136,76 @@ emmeans_mvcontrast_named
 # eff_size() --------------------------------------------------------------------
 
 # Run analysis
-ffffffffff
+fiber.lm <- lm(strength ~ diameter + machine, data = fiber)
+emm <- emmeans(fiber.lm, "machine")
+emmeans_eff_size <- eff_size(emm, sigma = sigma(fiber.lm), edf = df.residual(fiber.lm))
 
 # Add stats
 results = results %>%
-  add_stats(ffffffffffffff)
+  add_stats(emmeans_eff_size)
 
 # Inspect output
-ffffffffff
+emmeans_eff_size
 
 
 # emtrends() --------------------------------------------------------------------
 
-
 # Run analysis
-ffffffffff
+fiber.lm <- lm(strength ~ diameter*machine, data=fiber)
+# Suppose we want trends relative to sqrt(diameter)...
+emtrends_basic = emtrends(fiber.lm, ~ machine | diameter, var = "sqrt(diameter)", at = list(diameter = c(20, 30)))
+
+# Obtaining a reference grid
+mtcars.lm <- lm(mpg ~ poly(disp, degree = 2) * (factor(cyl) + factor(am)), data = mtcars)
+
+# Center trends at mean disp for each no. of cylinders
+emtrends_cov_reduce <- emtrends(mtcars.lm, var = "disp", 
+                          cov.reduce = disp ~ factor(cyl))
 
 # Add stats
 results = results %>%
-  add_stats(ffffffffffffff)
+  add_stats(emtrends_basic) %>%
+  add_stats(emtrends_cov_reduce)
 
 # Inspect output
-ffffffffff
+emtrends_basic
+emtrends_cov_reduce
 
 # joint_tests() --------------------------------------------------------------------
 
+# Get data
+pigs.lm <- lm(log(conc) ~ source * factor(percent), data = pigs)
 
 # Run analysis
-ffffffffff
+joint_tests_single <- joint_tests(pigs.lm)
+## separate joint tests of 'percent'
+joint_tests_multi <- joint_tests(pigs.lm, by = "source")
 
 # Add stats
 results = results %>%
-  add_stats(ffffffffffffff)
+  add_stats(joint_tests_single) %>%
+  add_stats(joint_tests_multi)
 
 # Inspect output
-ffffffffff
+joint_tests_single
+joint_tests_multi
 
-# summary(ref_grid()) --------------------------------------------------------------------
+
+# ref_grid() --------------------------------------------------------------------
+
+# Get data
+fiber.lm <- lm(strength ~ machine*diameter, data = fiber)
 
 # Run analysis
-ffffffffff
+ref_grid_results = ref_grid(fiber.lm)
 
 # Add stats
 results = results %>%
-  add_stats(ffffffffffffff)
+  add_stats(ref_grid_results)
 
 # Inspect output
-ffffffffff
-
-
+ref_grid_results
+summary(ref_grid_results)
 
 # tidy_stats_to_data_frame() ----------------------------------------------
 

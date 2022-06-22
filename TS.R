@@ -25,6 +25,8 @@ results = list()
 
 devtools::load_all()
 devtools::test()
+# Test a specific test
+testthat::test_file("tests/testthat/test_marginaleffects.R")
 
 write_stats(results, "tests/testthat/data/0temp.json")
 
@@ -46,8 +48,6 @@ devtools::document()
 # Add a test
 # usethis::use_test("add_stats")
 
-# Test a specific test
-testthat::test_file("tests/testthat/test_marginaleffects.R")
 
 # Test all tests
 devtools::test()

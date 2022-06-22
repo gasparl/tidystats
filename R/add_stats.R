@@ -93,6 +93,20 @@
 #'   item code{trimfill()}
 #' }
 #'
+#' \code{emmeans}:
+#' \itemize{
+#'   \item \code{confint()}
+#'   \item \code{contrast()}
+#'   \item \code{eff_size()}
+#'   \item \code{emmeans()}
+#'   \item \code{emtrends()}
+#'   \item \code{joint_tests()}
+#'   \item \code{mvcontrast()}
+#'   \item \code{ref_grid()}
+#'   \item \code{summary()}
+#'   \item \code{test()}
+#' }
+#'
 #' \code{marginaleffects}:
 #' \itemize{
 #'   \item \code{summary(marginaleffects())}
@@ -248,7 +262,7 @@ add_stats.list <- function(list, output, identifier = NULL, type = NULL,
 
   # Check if all list elements have tidystats methods.
   # If yes, simply add them each separately.
-  tidy_stats_methods = sub("tidy_stats.", "", 
+  tidy_stats_methods = sub("tidy_stats.", "",
     as.character(methods(tidy_stats)), fixed = TRUE)
   class_matches <- c()
   for (i in 1:length(output)) {

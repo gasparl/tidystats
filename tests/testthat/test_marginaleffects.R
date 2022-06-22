@@ -53,9 +53,9 @@ test_that("Estimated marginal means works", {
 
 test_that("Average contrasts of marginal comparisons (LM) works", {
   tmp <- mtcars
-  mtcars$cyl <- as.factor(mtcars$cyl)
+  tmp$cyl <- as.factor(tmp$cyl)
   tmp$am <- as.logical(tmp$am)
-  mod <- lm(mpg ~ am + factor(cyl), tmp)
+  mod <- lm(mpg ~ am + cyl, tmp)
   model <- summary(comparisons(mod, 
     contrast_factor = "reference", type = "response"))
 

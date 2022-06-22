@@ -2157,5 +2157,728 @@
       "name": "emmeans",
       "version": "1.7.4-1"
     }
+  },
+  "emmeans_eff_size": {
+    "method": "Estimated marginal means",
+    "groups": [
+      {
+        "name": "Table: EMMs Summary",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "contrast",
+                "value": "A - B"
+              },
+              {
+                "name": "effect.size",
+                "value": "-0.6500188",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "-2.0806212",
+                "upper": "0.7805837"
+              },
+              {
+                "name": "SE",
+                "value": "0.6499828"
+              },
+              {
+                "name": "df",
+                "value": "11"
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "contrast",
+                "value": "A - C"
+              },
+              {
+                "name": "effect.size",
+                "value": " 0.9931056",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "-0.6041327",
+                "upper": "2.5903439"
+              },
+              {
+                "name": "SE",
+                "value": "0.7256924"
+              },
+              {
+                "name": "df",
+                "value": "11"
+              }
+            ]
+          },
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "contrast",
+                "value": "B - C"
+              },
+              {
+                "name": "effect.size",
+                "value": " 1.6431243",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "-0.1183683",
+                "upper": "3.4046169"
+              },
+              {
+                "name": "SE",
+                "value": "0.8003201"
+              },
+              {
+                "name": "df",
+                "value": "11"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "emmeans",
+      "version": "1.7.4-1"
+    }
+  },
+  "emtrends_basic": {
+    "method": "Estimated marginal means",
+    "groups": [
+      {
+        "name": "Table: diameter: 20",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "machine",
+                "value": "A"
+              },
+              {
+                "name": "sqrt(diameter).trend",
+                "value": " 9.879062",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "5.959770",
+                "upper": "13.79835"
+              },
+              {
+                "name": "SE",
+                "value": "1.732546"
+              },
+              {
+                "name": "df",
+                "value": "9"
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "machine",
+                "value": "B"
+              },
+              {
+                "name": "sqrt(diameter).trend",
+                "value": " 7.668148",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "3.138500",
+                "upper": "12.19779"
+              },
+              {
+                "name": "SE",
+                "value": "2.002357"
+              },
+              {
+                "name": "df",
+                "value": "9"
+              }
+            ]
+          },
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "machine",
+                "value": "C"
+              },
+              {
+                "name": "sqrt(diameter).trend",
+                "value": " 7.731260",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "3.520399",
+                "upper": "11.94212"
+              },
+              {
+                "name": "SE",
+                "value": "1.861436"
+              },
+              {
+                "name": "df",
+                "value": "9"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: diameter: 30",
+        "groups": [
+          {
+            "name": "4",
+            "statistics": [
+              {
+                "name": "machine",
+                "value": "A"
+              },
+              {
+                "name": "sqrt(diameter).trend",
+                "value": "12.098474",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "7.298681",
+                "upper": "16.89827"
+              },
+              {
+                "name": "SE",
+                "value": "2.121777"
+              },
+              {
+                "name": "df",
+                "value": "9"
+              }
+            ]
+          },
+          {
+            "name": "5",
+            "statistics": [
+              {
+                "name": "machine",
+                "value": "B"
+              },
+              {
+                "name": "sqrt(diameter).trend",
+                "value": " 9.390860",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "3.843590",
+                "upper": "14.93813"
+              },
+              {
+                "name": "SE",
+                "value": "2.452203"
+              },
+              {
+                "name": "df",
+                "value": "9"
+              }
+            ]
+          },
+          {
+            "name": "6",
+            "statistics": [
+              {
+                "name": "machine",
+                "value": "C"
+              },
+              {
+                "name": "sqrt(diameter).trend",
+                "value": " 9.468151",
+                "interval": "CI",
+                "level": 0.95,
+                "lower": "4.311286",
+                "upper": "14.62502"
+              },
+              {
+                "name": "SE",
+                "value": "2.279623"
+              },
+              {
+                "name": "df",
+                "value": "9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "emmeans",
+      "version": "1.7.4-1"
+    }
+  },
+  "emtrends_cov_reduce": {
+    "method": "Estimated marginal means",
+    "groups": [
+      {
+        "name": "Table: EMMs Summary",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "disp",
+                "value": "105.1364"
+              },
+              {
+                "name": "cyl",
+                "value": "4"
+              },
+              {
+                "name": "am",
+                "value": "0"
+              },
+              {
+                "name": "disp.trend",
+                "value": "-0.094852448"
+              },
+              {
+                "name": "SE",
+                "value": "0.08285743"
+              },
+              {
+                "name": "df",
+                "value": "20"
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "disp",
+                "value": "183.3143"
+              },
+              {
+                "name": "cyl",
+                "value": "6"
+              },
+              {
+                "name": "am",
+                "value": "0"
+              },
+              {
+                "name": "disp.trend",
+                "value": "-0.002400143"
+              },
+              {
+                "name": "SE",
+                "value": "0.04961855"
+              },
+              {
+                "name": "df",
+                "value": "20"
+              }
+            ]
+          },
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "disp",
+                "value": "353.1000"
+              },
+              {
+                "name": "cyl",
+                "value": "8"
+              },
+              {
+                "name": "am",
+                "value": "0"
+              },
+              {
+                "name": "disp.trend",
+                "value": "-0.010608927"
+              },
+              {
+                "name": "SE",
+                "value": "0.01052465"
+              },
+              {
+                "name": "df",
+                "value": "20"
+              }
+            ]
+          },
+          {
+            "name": "4",
+            "statistics": [
+              {
+                "name": "disp",
+                "value": "105.1364"
+              },
+              {
+                "name": "cyl",
+                "value": "4"
+              },
+              {
+                "name": "am",
+                "value": "1"
+              },
+              {
+                "name": "disp.trend",
+                "value": "-0.121207953"
+              },
+              {
+                "name": "SE",
+                "value": "0.03380845"
+              },
+              {
+                "name": "df",
+                "value": "20"
+              }
+            ]
+          },
+          {
+            "name": "5",
+            "statistics": [
+              {
+                "name": "disp",
+                "value": "183.3143"
+              },
+              {
+                "name": "cyl",
+                "value": "6"
+              },
+              {
+                "name": "am",
+                "value": "1"
+              },
+              {
+                "name": "disp.trend",
+                "value": "-0.021736804"
+              },
+              {
+                "name": "SE",
+                "value": "0.05732650"
+              },
+              {
+                "name": "df",
+                "value": "20"
+              }
+            ]
+          },
+          {
+            "name": "6",
+            "statistics": [
+              {
+                "name": "disp",
+                "value": "353.1000"
+              },
+              {
+                "name": "cyl",
+                "value": "8"
+              },
+              {
+                "name": "am",
+                "value": "1"
+              },
+              {
+                "name": "disp.trend",
+                "value": "-0.014702164"
+              },
+              {
+                "name": "SE",
+                "value": "0.06454282"
+              },
+              {
+                "name": "df",
+                "value": "20"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "emmeans",
+      "version": "1.7.4-1"
+    }
+  },
+  "joint_tests_single": {
+    "method": "Estimated marginal means",
+    "groups": [
+      {
+        "name": "Table: EMMs Summary",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "model term",
+                "value": "source"
+              },
+              {
+                "name": "df1",
+                "value": "2"
+              },
+              {
+                "name": "df2",
+                "value": "17"
+              },
+              {
+                "name": "F.ratio",
+                "value": "30.256"
+              },
+              {
+                "name": "p",
+                "value": "2.506905e-06"
+              }
+            ]
+          },
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "model term",
+                "value": "percent"
+              },
+              {
+                "name": "df1",
+                "value": "3"
+              },
+              {
+                "name": "df2",
+                "value": "17"
+              },
+              {
+                "name": "F.ratio",
+                "value": " 8.214"
+              },
+              {
+                "name": "p",
+                "value": "1.347677e-03"
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "model term",
+                "value": "source:percent"
+              },
+              {
+                "name": "df1",
+                "value": "6"
+              },
+              {
+                "name": "df2",
+                "value": "17"
+              },
+              {
+                "name": "F.ratio",
+                "value": " 0.926"
+              },
+              {
+                "name": "p",
+                "value": "5.010985e-01"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "emmeans",
+      "version": "1.7.4-1"
+    }
+  },
+  "joint_tests_multi": {
+    "method": "Estimated marginal means",
+    "groups": [
+      {
+        "name": "Table: source: fish",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "model term",
+                "value": "percent"
+              },
+              {
+                "name": "df1",
+                "value": "3"
+              },
+              {
+                "name": "df2",
+                "value": "17"
+              },
+              {
+                "name": "F.ratio",
+                "value": "1.712"
+              },
+              {
+                "name": "p",
+                "value": "0.202261723"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: source: soy",
+        "groups": [
+          {
+            "name": "4",
+            "statistics": [
+              {
+                "name": "model term",
+                "value": "percent"
+              },
+              {
+                "name": "df1",
+                "value": "3"
+              },
+              {
+                "name": "df2",
+                "value": "17"
+              },
+              {
+                "name": "F.ratio",
+                "value": "1.290"
+              },
+              {
+                "name": "p",
+                "value": "0.309740435"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: source: skim",
+        "groups": [
+          {
+            "name": "7",
+            "statistics": [
+              {
+                "name": "model term",
+                "value": "percent"
+              },
+              {
+                "name": "df1",
+                "value": "3"
+              },
+              {
+                "name": "df2",
+                "value": "17"
+              },
+              {
+                "name": "F.ratio",
+                "value": "6.676"
+              },
+              {
+                "name": "p",
+                "value": "0.003522589"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "emmeans",
+      "version": "1.7.4-1"
+    }
+  },
+  "ref_grid_results": {
+    "method": "Estimated marginal means",
+    "groups": [
+      {
+        "name": "Table: EMMs Summary",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "machine",
+                "value": "A"
+              },
+              {
+                "name": "diameter",
+                "value": "24.13333"
+              },
+              {
+                "name": "prediction",
+                "value": "40.22210"
+              },
+              {
+                "name": "SE",
+                "value": "0.7770170"
+              },
+              {
+                "name": "df",
+                "value": "9"
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "machine",
+                "value": "B"
+              },
+              {
+                "name": "diameter",
+                "value": "24.13333"
+              },
+              {
+                "name": "prediction",
+                "value": "41.60000"
+              },
+              {
+                "name": "SE",
+                "value": "0.8576955"
+              },
+              {
+                "name": "df",
+                "value": "9"
+              }
+            ]
+          },
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "machine",
+                "value": "C"
+              },
+              {
+                "name": "diameter",
+                "value": "24.13333"
+              },
+              {
+                "name": "prediction",
+                "value": "38.53498"
+              },
+              {
+                "name": "SE",
+                "value": "0.9662288"
+              },
+              {
+                "name": "df",
+                "value": "9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "emmeans",
+      "version": "1.7.4-1"
+    }
   }
 }

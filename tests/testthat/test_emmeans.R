@@ -181,7 +181,7 @@ test_that("Test (joint) for estimated marginal means works", {
 })
 
 
-# Test: contrast(emmeans()) ----------------------------------------------------------
+# Test: contrast() ----------------------------------------------------------
 
 test_that("Contrast for estimated marginal means works", {
   set.seed(1234)
@@ -198,7 +198,7 @@ test_that("Contrast for estimated marginal means works", {
   expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
 })
 
-# Test: mvcontrast(emmeans()) ----------------------------------------------------------
+# Test: mvcontrast() ----------------------------------------------------------
 
 MOats.lm <- lm(yield ~ Variety + Block, data = MOats)
 MOats.emm <- emmeans(MOats.lm, ~ Variety | rep.meas)
@@ -233,6 +233,99 @@ test_that("Multivariate contrasts for estimated marginal means (named) works", {
 
   tidy_model <- tidy_stats(model)
   tidy_model_test <- test_results$emmeans_mvcontrast_named
+
+  tidy_model$package <- NULL
+  tidy_model_test$package <- NULL
+
+  expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
+})
+
+
+# Test: eff_size() ----------------------------------------------------------
+
+test_that("Effect size calculation for estimated marginal means works", {
+  fiber.lm <- lm(strength ~ diameter + machine, data = fiber)
+  emm <- emmeans(fiber.lm, "machine")
+  model <- eff_size(emm, sigma = sigma(fiber.lm), edf = df.residual(fiber.lm))
+
+  tidy_model <- tidy_stats(model)
+  tidy_model_test <- test_results$emmeans_eff_size
+
+  tidy_model$package <- NULL
+  tidy_model_test$package <- NULL
+
+  expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
+})
+
+
+
+# Test: emtrends() ----------------------------------------------------------
+
+test_that("Estimated marginal means of linear trends works", {
+  fiber.lm <- lm(strength ~ diameter*machine, data=fiber)
+  model <- emtrends(fiber.lm, ~ machine | diameter, var = "sqrt(diameter)", at = list(diameter = c(20, 30)))
+
+  tidy_model <- tidy_stats(model)
+  tidy_model_test <- test_results$emtrends_basic
+
+  tidy_model$package <- NULL
+  tidy_model_test$package <- NULL
+
+  expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
+})
+
+test_that("Estimated marginal means of linear trends (with covariates) works", {
+  mtcars.lm <- lm(mpg ~ poly(disp, degree = 2) * (factor(cyl) + factor(am)), data = mtcars)
+  model <- emtrends(mtcars.lm, var = "disp", cov.reduce = disp ~ factor(cyl))
+
+  tidy_model <- tidy_stats(model)
+  tidy_model_test <- test_results$emtrends_cov_reduce
+
+  tidy_model$package <- NULL
+  tidy_model_test$package <- NULL
+
+  expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
+})
+
+
+# Test: joint_tests() ----------------------------------------------------------
+
+pigs.lm <- lm(log(conc) ~ source * factor(percent), data = pigs)
+
+test_that("Computing joint tests of the terms in a model works", {
+  model <- joint_tests(pigs.lm)
+
+  tidy_model <- tidy_stats(model)
+  tidy_model_test <- test_results$joint_tests_single
+
+  tidy_model$package <- NULL
+  tidy_model_test$package <- NULL
+
+  expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
+})
+
+
+test_that("Computing joint tests of the terms in a model (with separated sets) works", {
+  model <- joint_tests(pigs.lm, by = "source")
+
+  tidy_model <- tidy_stats(model)
+  tidy_model_test <- test_results$joint_tests_multi
+
+  tidy_model$package <- NULL
+  tidy_model_test$package <- NULL
+
+  expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
+})
+
+
+# Test: ref_grid() ----------------------------------------------------------
+
+test_that("Computing joint tests of the terms in a model works", {
+  fiber.lm <- lm(strength ~ machine*diameter, data = fiber)
+  model <- ref_grid(fiber.lm)
+
+  tidy_model <- tidy_stats(model)
+  tidy_model_test <- test_results$ref_grid_results
 
   tidy_model$package <- NULL
   tidy_model_test$package <- NULL
