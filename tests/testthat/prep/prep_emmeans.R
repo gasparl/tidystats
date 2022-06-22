@@ -114,25 +114,24 @@ emmeans_contrast
 
 # mvcontrast(emmeans()) --------------------------------------------------------------------
 
-
+# Get data
+MOats.lm <- lm(yield ~ Variety + Block, data = MOats)
+MOats.emm <- emmeans(MOats.lm, ~ Variety | rep.meas)
 
 # Run analysis
-ffffffffff
+emmeans_mvcontrast <- mvcontrast(MOats.emm, "consec", show.ests = TRUE)  
+
+# Test each mean against a specified null vector
+emmeans_mvcontrast_named <- mvcontrast(MOats.emm, "identity", name = "Variety", null = c(80, 100, 120, 140))
 
 # Add stats
 results = results %>%
-  add_stats(ffffffffffffff)
+  add_stats(emmeans_mvcontrast) %>%
+  add_stats(emmeans_mvcontrast_named)
 
 # Inspect output
-ffffffffff
-
-MOats.lm <- lm(yield ~ Variety + Block, data = MOats)
-MOats.emm <- emmeans(MOats.lm, ~ Variety | rep.meas)
-mvcontrast(MOats.emm, "consec", show.ests = TRUE)  # mult.name defaults to rep.meas
-
-# Test each mean against a specified null vector
-mvcontrast(MOats.emm, "identity", name = "Variety", 
-           null = c(80, 100, 120, 140))
+emmeans_mvcontrast
+emmeans_mvcontrast_named
 
 # eff_size() --------------------------------------------------------------------
 

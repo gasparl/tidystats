@@ -5186,6 +5186,6 @@ tidy_stats.emmGrid <- function(x, args = NULL) {
   if (require("emmeans")) {
     return(tidy_stats.summary_emm(summary(x)))
   } else {
-    stop("The 'emmeans' package needs to be loaded to add 'emmGrid' objects to in tidystats.") 
+    stop("The 'emmeans' package needs to be loaded to add 'emmGrid' objects via add_stats in tidystats.") 
   }
 }

@@ -1733,5 +1733,429 @@
       "name": "emmeans",
       "version": "1.7.4-1"
     }
+  },
+  "emmeans_mvcontrast$estimates": {
+    "method": "Estimated marginal means",
+    "groups": [
+      {
+        "name": "Table: contrast: Marvellous - Golden Rain",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "rep.meas",
+                "value": "rep.meas0"
+              },
+              {
+                "name": "estimate",
+                "value": "  6.666667"
+              },
+              {
+                "name": "SE",
+                "value": " 7.835579"
+              },
+              {
+                "name": "df",
+                "value": "10"
+              },
+              {
+                "name": "t.ratio",
+                "value": " 0.8508199"
+              },
+              {
+                "name": "p",
+                "value": "0.41477757"
+              }
+            ]
+          },
+          {
+            "name": "2",
+            "statistics": [
+              {
+                "name": "rep.meas",
+                "value": "rep.meas0.2"
+              },
+              {
+                "name": "estimate",
+                "value": " 10.000000"
+              },
+              {
+                "name": "SE",
+                "value": " 9.336706"
+              },
+              {
+                "name": "df",
+                "value": "10"
+              },
+              {
+                "name": "t.ratio",
+                "value": " 1.0710416"
+              },
+              {
+                "name": "p",
+                "value": "0.30931927"
+              }
+            ]
+          },
+          {
+            "name": "3",
+            "statistics": [
+              {
+                "name": "rep.meas",
+                "value": "rep.meas0.4"
+              },
+              {
+                "name": "estimate",
+                "value": "  2.500000"
+              },
+              {
+                "name": "SE",
+                "value": "12.297094"
+              },
+              {
+                "name": "df",
+                "value": "10"
+              },
+              {
+                "name": "t.ratio",
+                "value": " 0.2033001"
+              },
+              {
+                "name": "p",
+                "value": "0.84297771"
+              }
+            ]
+          },
+          {
+            "name": "4",
+            "statistics": [
+              {
+                "name": "rep.meas",
+                "value": "rep.meas0.6"
+              },
+              {
+                "name": "estimate",
+                "value": "  2.000000"
+              },
+              {
+                "name": "SE",
+                "value": "10.328314"
+              },
+              {
+                "name": "df",
+                "value": "10"
+              },
+              {
+                "name": "t.ratio",
+                "value": " 0.1936424"
+              },
+              {
+                "name": "p",
+                "value": "0.85033264"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: contrast: Victory - Marvellous",
+        "groups": [
+          {
+            "name": "5",
+            "statistics": [
+              {
+                "name": "rep.meas",
+                "value": "rep.meas0"
+              },
+              {
+                "name": "estimate",
+                "value": "-15.166667"
+              },
+              {
+                "name": "SE",
+                "value": " 7.835579"
+              },
+              {
+                "name": "df",
+                "value": "10"
+              },
+              {
+                "name": "t.ratio",
+                "value": "-1.9356153"
+              },
+              {
+                "name": "p",
+                "value": "0.08167181"
+              }
+            ]
+          },
+          {
+            "name": "6",
+            "statistics": [
+              {
+                "name": "rep.meas",
+                "value": "rep.meas0.2"
+              },
+              {
+                "name": "estimate",
+                "value": "-18.833333"
+              },
+              {
+                "name": "SE",
+                "value": " 9.336706"
+              },
+              {
+                "name": "df",
+                "value": "10"
+              },
+              {
+                "name": "t.ratio",
+                "value": "-2.0171283"
+              },
+              {
+                "name": "p",
+                "value": "0.07132136"
+              }
+            ]
+          },
+          {
+            "name": "7",
+            "statistics": [
+              {
+                "name": "rep.meas",
+                "value": "rep.meas0.4"
+              },
+              {
+                "name": "estimate",
+                "value": " -6.333333"
+              },
+              {
+                "name": "SE",
+                "value": "12.297094"
+              },
+              {
+                "name": "df",
+                "value": "10"
+              },
+              {
+                "name": "t.ratio",
+                "value": "-0.5150268"
+              },
+              {
+                "name": "p",
+                "value": "0.61772596"
+              }
+            ]
+          },
+          {
+            "name": "8",
+            "statistics": [
+              {
+                "name": "rep.meas",
+                "value": "rep.meas0.6"
+              },
+              {
+                "name": "estimate",
+                "value": " -8.333333"
+              },
+              {
+                "name": "SE",
+                "value": "10.328314"
+              },
+              {
+                "name": "df",
+                "value": "10"
+              },
+              {
+                "name": "t.ratio",
+                "value": "-0.8068435"
+              },
+              {
+                "name": "p",
+                "value": "0.43852496"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "emmeans",
+      "version": "1.7.4-1"
+    }
+  },
+  "emmeans_mvcontrast$tests": {
+    "method": "Estimated marginal means",
+    "groups": [
+      {
+        "name": "Table: EMMs Summary",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "contrast",
+                "value": "Marvellous - Golden Rain"
+              },
+              {
+                "name": "T.square",
+                "value": "3.081872"
+              },
+              {
+                "name": "df1",
+                "value": "4"
+              },
+              {
+                "name": "df2",
+                "value": "7"
+              },
+              {
+                "name": "F.ratio",
+                "value": "0.5393277"
+              },
+              {
+                "name": "p",
+                "value": "0.9173667"
+              }
+            ]
+          },
+          {
+            "name": "5",
+            "statistics": [
+              {
+                "name": "contrast",
+                "value": "Victory - Marvellous"
+              },
+              {
+                "name": "T.square",
+                "value": "9.180642"
+              },
+              {
+                "name": "df1",
+                "value": "4"
+              },
+              {
+                "name": "df2",
+                "value": "7"
+              },
+              {
+                "name": "F.ratio",
+                "value": "1.6066123"
+              },
+              {
+                "name": "p",
+                "value": "0.4725502"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "emmeans",
+      "version": "1.7.4-1"
+    }
+  },
+  "emmeans_mvcontrast_named": {
+    "method": "Estimated marginal means",
+    "groups": [
+      {
+        "name": "Table: EMMs Summary",
+        "groups": [
+          {
+            "name": "1",
+            "statistics": [
+              {
+                "name": "Variety",
+                "value": "Golden Rain"
+              },
+              {
+                "name": "T.square",
+                "value": "10.00055"
+              },
+              {
+                "name": "df1",
+                "value": "4"
+              },
+              {
+                "name": "df2",
+                "value": "7"
+              },
+              {
+                "name": "F.ratio",
+                "value": "1.750096"
+              },
+              {
+                "name": "p",
+                "value": "0.5662859"
+              }
+            ]
+          },
+          {
+            "name": "5",
+            "statistics": [
+              {
+                "name": "Variety",
+                "value": "Marvellous"
+              },
+              {
+                "name": "T.square",
+                "value": "26.62754"
+              },
+              {
+                "name": "df1",
+                "value": "4"
+              },
+              {
+                "name": "df2",
+                "value": "7"
+              },
+              {
+                "name": "F.ratio",
+                "value": "4.659820"
+              },
+              {
+                "name": "p",
+                "value": "0.1088604"
+              }
+            ]
+          },
+          {
+            "name": "9",
+            "statistics": [
+              {
+                "name": "Variety",
+                "value": "Victory"
+              },
+              {
+                "name": "T.square",
+                "value": "10.23211"
+              },
+              {
+                "name": "df1",
+                "value": "4"
+              },
+              {
+                "name": "df2",
+                "value": "7"
+              },
+              {
+                "name": "F.ratio",
+                "value": "1.790619"
+              },
+              {
+                "name": "p",
+                "value": "0.5525689"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "emmeans",
+      "version": "1.7.4-1"
+    }
   }
 }

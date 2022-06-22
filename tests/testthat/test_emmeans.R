@@ -197,3 +197,45 @@ test_that("Contrast for estimated marginal means works", {
 
   expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
 })
+
+# Test: mvcontrast(emmeans()) ----------------------------------------------------------
+
+MOats.lm <- lm(yield ~ Variety + Block, data = MOats)
+MOats.emm <- emmeans(MOats.lm, ~ Variety | rep.meas)
+emmeans_mvcontrast <- mvcontrast(MOats.emm, "consec", show.ests = TRUE) 
+
+test_that("Multivariate contrasts (estimates) for estimated marginal means works", {
+  model <- emmeans_mvcontrast
+
+  tidy_model <- add_stats(list(), model)$`model$estimates`
+  tidy_model_test <- test_results$`emmeans_mvcontrast$estimates`
+  
+  tidy_model$package <- NULL
+  tidy_model_test$package <- NULL
+
+  expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
+})
+
+test_that("Multivariate contrasts (estimates) for estimated marginal means works", {
+  model <- emmeans_mvcontrast
+
+  tidy_model <- add_stats(list(), model)$`model$tests`
+  tidy_model_test <- test_results$`emmeans_mvcontrast$tests`
+  
+  tidy_model$package <- NULL
+  tidy_model_test$package <- NULL
+
+  expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
+})
+
+test_that("Multivariate contrasts for estimated marginal means (named) works", {
+  model <- mvcontrast(MOats.emm, "identity", name = "Variety", null = c(80, 100, 120, 140))
+
+  tidy_model <- tidy_stats(model)
+  tidy_model_test <- test_results$emmeans_mvcontrast_named
+
+  tidy_model$package <- NULL
+  tidy_model_test$package <- NULL
+
+  expect_equal(tidy_model, tidy_model_test, tolerance = tolerance)
+})
