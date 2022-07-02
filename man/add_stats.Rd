@@ -118,6 +118,20 @@ Supported functions:
   item code{trimfill()}
 }
 
+\code{emmeans}:
+\itemize{
+  \item \code{confint()}
+  \item \code{contrast()}
+  \item \code{eff_size()}
+  \item \code{emmeans()}
+  \item \code{emtrends()}
+  \item \code{joint_tests()}
+  \item \code{mvcontrast()}
+  \item \code{ref_grid()}
+  \item \code{summary()}
+  \item \code{test()}
+}
+
 \code{marginaleffects}:
 \itemize{
   \item \code{summary(marginaleffects())}

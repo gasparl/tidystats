@@ -47,6 +47,7 @@
 \alias{tidy_stats.marginaleffects.summary}
 \alias{tidy_stats.marginalmeans.summary}
 \alias{tidy_stats.comparisons.summary}
+\alias{tidy_stats.anova_neat}
 \alias{tidy_stats.lavaan}
 \alias{tidy_stats.psychwip}
 \title{Tidy the output of a statistics object}
@@ -159,6 +160,8 @@ tidy_stats(x, args = NULL, ...)
 \method{tidy_stats}{summary_emm}(x, args = NULL)
 
 \method{tidy_stats}{emmGrid}(x, args = NULL)
+
+\method{tidy_stats}{anova_neat}(x, args = NULL)
 
 \method{tidy_stats}{lavaan}(x, args = list(fit.measures = TRUE))
 
@@ -277,6 +280,8 @@ Currently supported functions are listed in the description of
 \item \code{summary_emm}: tidy_stats method for class 'summary_emm'
 
 \item \code{emmGrid}: tidy_stats method for class 'emmGrid'
+
+\item \code{anova_neat}: tidy_stats method for class 'anova_neat'
 
 \item \code{lavaan}: tidy_stats method for class 'lavaan'
 

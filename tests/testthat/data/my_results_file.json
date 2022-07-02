@@ -1,0 +1,369 @@
+{
+  "t_test_output": {
+    "name": "iris$Sepal.Length and iris$Sepal.Width",
+    "method": "Paired t-test",
+    "statistics": [
+      {
+        "name": "estimate",
+        "symbol": "M",
+        "subscript": "diff.",
+        "value": 2.786,
+        "interval": "CI",
+        "level": 0.95,
+        "lower": 2.627874,
+        "upper": 2.944126
+      },
+      {
+        "name": "SE",
+        "value": 0.080023
+      },
+      {
+        "name": "statistic",
+        "symbol": "t",
+        "value": 34.815193
+      },
+      {
+        "name": "df",
+        "value": 149
+      },
+      {
+        "name": "p",
+        "value": 1.849554e-73
+      }
+    ],
+    "alternative": {
+      "direction": "two.sided",
+      "null_value": 0
+    },
+    "package": {
+      "name": "stats",
+      "version": "4.2.1"
+    }
+  },
+  "anova_output$effects": {
+    "method": "Table from data frame",
+    "groups": [
+      {
+        "name": "Table: data.frame",
+        "groups": [
+          {
+            "name": "(Intercept)",
+            "statistics": [
+              {
+                "name": "Fval",
+                "value": 19650.122164
+              },
+              {
+                "name": "df_1",
+                "value": 1
+              },
+              {
+                "name": "df_2",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 2.073537e-158
+              },
+              {
+                "name": "petas",
+                "value": 0.992575
+              },
+              {
+                "name": "ci_",
+                "subscript": "lower",
+                "value": 0.99078
+              },
+              {
+                "name": "ci_",
+                "subscript": "upper",
+                "value": 0.993725
+              },
+              {
+                "name": "getas",
+                "value": 0.987752
+              }
+            ]
+          },
+          {
+            "name": "Species",
+            "statistics": [
+              {
+                "name": "Fval",
+                "value": 422.389611
+              },
+              {
+                "name": "df_1",
+                "value": 2
+              },
+              {
+                "name": "df_2",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 1.151652e-61
+              },
+              {
+                "name": "petas",
+                "value": 0.851782
+              },
+              {
+                "name": "ci_",
+                "subscript": "lower",
+                "value": 0.815891
+              },
+              {
+                "name": "ci_",
+                "subscript": "upper",
+                "value": 0.873997
+              },
+              {
+                "name": "getas",
+                "value": 0.776143
+              }
+            ]
+          },
+          {
+            "name": "Organ",
+            "statistics": [
+              {
+                "name": "Fval",
+                "value": 8029.215589
+              },
+              {
+                "name": "df_1",
+                "value": 1
+              },
+              {
+                "name": "df_2",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 3.520924e-130
+              },
+              {
+                "name": "petas",
+                "value": 0.982021
+              },
+              {
+                "name": "ci_",
+                "subscript": "lower",
+                "value": 0.977683
+              },
+              {
+                "name": "ci_",
+                "subscript": "upper",
+                "value": 0.984809
+              },
+              {
+                "name": "getas",
+                "value": 0.8672
+              }
+            ]
+          },
+          {
+            "name": "Dimension",
+            "statistics": [
+              {
+                "name": "Fval",
+                "value": 7792.681666
+              },
+              {
+                "name": "df_1",
+                "value": 1
+              },
+              {
+                "name": "df_2",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 3.046793e-129
+              },
+              {
+                "name": "petas",
+                "value": 0.981485
+              },
+              {
+                "name": "ci_",
+                "subscript": "lower",
+                "value": 0.977019
+              },
+              {
+                "name": "ci_",
+                "subscript": "upper",
+                "value": 0.984356
+              },
+              {
+                "name": "getas",
+                "value": 0.923053
+              }
+            ]
+          },
+          {
+            "name": "Organ_x_Species",
+            "statistics": [
+              {
+                "name": "Fval",
+                "value": 1055.088415
+              },
+              {
+                "name": "df_1",
+                "value": 2
+              },
+              {
+                "name": "df_2",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 6.467757e-88
+              },
+              {
+                "name": "petas",
+                "value": 0.934874
+              },
+              {
+                "name": "ci_",
+                "subscript": "lower",
+                "value": 0.918755
+              },
+              {
+                "name": "ci_",
+                "subscript": "upper",
+                "value": 0.944632
+              },
+              {
+                "name": "getas",
+                "value": 0.631837
+              }
+            ]
+          },
+          {
+            "name": "Dimension_x_Species",
+            "statistics": [
+              {
+                "name": "Fval",
+                "value": 468.292207
+              },
+              {
+                "name": "df_1",
+                "value": 2
+              },
+              {
+                "name": "df_2",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 1.719539e-64
+              },
+              {
+                "name": "petas",
+                "value": 0.864339
+              },
+              {
+                "name": "ci_",
+                "subscript": "lower",
+                "value": 0.83136
+              },
+              {
+                "name": "ci_",
+                "subscript": "upper",
+                "value": 0.884679
+              },
+              {
+                "name": "getas",
+                "value": 0.59046
+              }
+            ]
+          },
+          {
+            "name": "Dimension_x_Organ",
+            "statistics": [
+              {
+                "name": "Fval",
+                "value": 62.752833
+              },
+              {
+                "name": "df_1",
+                "value": 1
+              },
+              {
+                "name": "df_2",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 5.31247e-13
+              },
+              {
+                "name": "petas",
+                "value": 0.299175
+              },
+              {
+                "name": "ci_",
+                "subscript": "lower",
+                "value": 0.199719
+              },
+              {
+                "name": "ci_",
+                "subscript": "upper",
+                "value": 0.388095
+              },
+              {
+                "name": "getas",
+                "value": 0.021242
+              }
+            ]
+          },
+          {
+            "name": "Dimension_x_Organ_x_Species",
+            "statistics": [
+              {
+                "name": "Fval",
+                "value": 7.603346
+              },
+              {
+                "name": "df_1",
+                "value": 2
+              },
+              {
+                "name": "df_2",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 0.000721
+              },
+              {
+                "name": "petas",
+                "value": 0.093749
+              },
+              {
+                "name": "ci_",
+                "subscript": "lower",
+                "value": 0.026618
+              },
+              {
+                "name": "ci_",
+                "subscript": "upper",
+                "value": 0.166413
+              },
+              {
+                "name": "getas",
+                "value": 0.005232
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "base",
+      "version": "4.2.1"
+    }
+  }
+}

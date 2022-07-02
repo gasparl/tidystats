@@ -26,7 +26,7 @@ results = list()
 devtools::load_all()
 devtools::test()
 # Test a specific test
-testthat::test_file("tests/testthat/test_marginaleffects.R")
+testthat::test_file("tests/testthat/test_neatStats.R")
 
 write_stats(results, "tests/testthat/data/0temp.json")
 

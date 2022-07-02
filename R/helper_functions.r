@@ -83,8 +83,8 @@ add_package_info <- function(list, package) {
 }
 
 
-df_to_group <- function(table_name, x, symbols = NULL, 
-                 subscripts = NULL, na_rm = FALSE, ci_title = "CI", 
+df_to_group <- function(table_name, x, symbols = NULL,
+                 subscripts = NULL, na_rm = FALSE, ci_title = "CI",
                  ci_est_name = NULL, ci_lim_names = c("CIlower", "CIupper"),
                  ci_level = 0.95) {
   if (is.null(symbols)) {
@@ -93,6 +93,8 @@ df_to_group <- function(table_name, x, symbols = NULL,
       "^2" = "²",
       "sigma" = "σ",
       "rho" = "ρ",
+      "Fval" = "F",
+      "Wval" = "W",
       "pval" = "p",
       "p.value" = "p",
       "p value" = "p",
@@ -105,10 +107,14 @@ df_to_group <- function(table_name, x, symbols = NULL,
       "conf.high" = "CIupper",
       "ci.lb" = "CIlower",
       "ci.ub" = "CIupper",
+      "ci_lower" = "CIlower",
+      "ci_upper" = "CIupper",
       "lower.ci" = "CIlower",
       "upper.ci" = "CIupper",
       "lower.CL" = "CIlower",
-      "upper.CL" = "CIupper"
+      "upper.CL" = "CIupper",
+      "petas" = "ηₚ²",
+      "getas" = "ηG²"
     )
   }
   out_df <- as.data.frame(x)
@@ -131,6 +137,10 @@ df_to_group <- function(table_name, x, symbols = NULL,
         rownames(out_df) = sub(to_replace,
           symbols[to_replace], rownames(out_df), fixed = TRUE)
       }
+      if (!is.null(ci_est_name)) {
+        ci_est_name = sub(to_replace,
+          symbols[to_replace], ci_est_name, fixed = TRUE)
+      }
     }
   }
   if (!is.character(subscripts)) {
@@ -150,7 +160,7 @@ df_to_group <- function(table_name, x, symbols = NULL,
   )) {
     ci_est_name = FALSE
   }
-  
+
   groups <- list(name = paste("Table:", table_name))
   # Loop over the coefficients and add statistics to a group list
   for (i in 1:nrow(out_df)) {
@@ -167,19 +177,30 @@ df_to_group <- function(table_name, x, symbols = NULL,
       if (any(subscript_found)) {
         subscript = subscripts[subscript_found][1]
         col_name = gsub(paste0(subscript, "$"), "", colnames(out_df)[j])
-        cell_val = ifelse(is.na(out_df[i, j]), "-", out_df[i, j])
+        cell_val = ifelse(is.na(out_df[i, j]), "-", out_df[i, j])[[1]]
       } else {
         col_name = colnames(out_df)[j]
-        cell_val = ifelse(is.na(out_df[i, j]), "-", out_df[i, j])
+        cell_val = ifelse(is.na(out_df[i, j]), "-", out_df[i, j])[[1]]
         subscript = NULL
       }
       if (isFALSE(ci_est_name) || (!colnames(out_df)[j] %in% ci_names)) {
-        statistics <-
-          add_statistic(statistics, col_name, cell_val, subscript = subscript)
+          if (col_name == "df numerator") {
+              statistics <-
+                  add_statistic(statistics, col_name, cell_val, "df", "num.")
+          } else if (col_name == "df denominator") {
+              statistics <-
+                  add_statistic(statistics, col_name, cell_val, "df", "den.")
+          } else if (col_name %in% c("t", "χ²", "F")) {
+              statistics <-
+                  add_statistic(statistics, "statistic", cell_val, col_name, subscript = subscript)
+          } else {
+              statistics <-
+                  add_statistic(statistics, col_name, cell_val, subscript = subscript)
+          }
       } else if (ci_est_name == colnames(out_df)[j]) {
         statistics <-
-          add_statistic(statistics, col_name, cell_val, subscript = subscript, 
-            interval = ci_title, level = ci_level, lower = out_df[[ci_lim_names[1]]][i], 
+          add_statistic(statistics, col_name, cell_val, subscript = subscript,
+            interval = ci_title, level = ci_level, lower = out_df[[ci_lim_names[1]]][i],
             upper = out_df[[ci_lim_names[2]]][i])
       }
     }
@@ -220,7 +241,7 @@ ci_df_to_group <- function(name, df, level) {
     statistics <- list()
     if (!is.null(level)) {
       statistics <-
-        add_statistic(statistics, "estimate", df$estimate[i], interval = "CI", 
+        add_statistic(statistics, "estimate", df$estimate[i], interval = "CI",
           level = level, lower = df$ci.lb[i], upper = df$ci.ub[i])
     } else {
       statistics <-

@@ -159,7 +159,7 @@ emtrends_basic = emtrends(fiber.lm, ~ machine | diameter, var = "sqrt(diameter)"
 mtcars.lm <- lm(mpg ~ poly(disp, degree = 2) * (factor(cyl) + factor(am)), data = mtcars)
 
 # Center trends at mean disp for each no. of cylinders
-emtrends_cov_reduce <- emtrends(mtcars.lm, var = "disp", 
+emtrends_cov_reduce <- emtrends(mtcars.lm, var = "disp",
                           cov.reduce = disp ~ factor(cyl))
 
 # Add stats

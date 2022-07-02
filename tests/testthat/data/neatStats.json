@@ -1,0 +1,1863 @@
+{
+  "anova_neat_between": {
+    "method": "Analysis of Variance",
+    "groups": [
+      {
+        "name": "Normality of the Residuals",
+        "groups": [
+          {
+            "name": "Shapiro-Wilk test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "W",
+                "value": 0.987897
+              },
+              {
+                "name": "p",
+                "value": 0.218864
+              }
+            ]
+          },
+          {
+            "name": "D'Agostino test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "K²",
+                "value": 1.187528
+              },
+              {
+                "name": "p",
+                "value": 0.552245
+              }
+            ]
+          },
+          {
+            "name": "Anderson-Darling test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "A²",
+                "value": 0.597941
+              },
+              {
+                "name": "p",
+                "value": 0.118761
+              }
+            ]
+          },
+          {
+            "name": "Jarque-Bera test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "JB",
+                "value": 0.785353
+              },
+              {
+                "name": "p",
+                "value": 0.675247
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Equality of Variances",
+        "groups": [
+          {
+            "name": "Brown-Forsythe test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 6.35272
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 2
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 0.002259
+              }
+            ]
+          },
+          {
+            "name": "Fligner-Killeen test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "χ²",
+                "value": 11.617981
+              },
+              {
+                "name": "df",
+                "symbol": "df",
+                "value": 2
+              },
+              {
+                "name": "p",
+                "value": 0.003
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: ANOVA",
+        "groups": [
+          {
+            "name": "Species",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 138.908285
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 2
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 92.211145
+              },
+              {
+                "name": "p",
+                "value": 1.505059e-28
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.618706,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.536463,
+                "upper": 0.67395
+              },
+              {
+                "name": "ηG²",
+                "value": 0.618706
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "neatStats",
+      "version": "1.13.2"
+    }
+  },
+  "anova_neat_between_interaction": {
+    "method": "Analysis of Variance",
+    "groups": [
+      {
+        "name": "Normality of the Residuals",
+        "groups": [
+          {
+            "name": "Shapiro-Wilk test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "W",
+                "value": 0.984988
+              },
+              {
+                "name": "p",
+                "value": 0.669424
+              }
+            ]
+          },
+          {
+            "name": "D'Agostino test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "K²",
+                "value": 0.335555
+              },
+              {
+                "name": "p",
+                "value": 0.845542
+              }
+            ]
+          },
+          {
+            "name": "Anderson-Darling test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "A²",
+                "value": 0.341986
+              },
+              {
+                "name": "p",
+                "value": 0.481656
+              }
+            ]
+          },
+          {
+            "name": "Jarque-Bera test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "JB",
+                "value": 0.323974
+              },
+              {
+                "name": "p",
+                "value": 0.850452
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Equality of Variances",
+        "groups": [
+          {
+            "name": "Brown-Forsythe test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 1.708578
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 5
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 54
+              },
+              {
+                "name": "p",
+                "value": 0.148361
+              }
+            ]
+          },
+          {
+            "name": "Fligner-Killeen test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "χ²",
+                "value": 7.748784
+              },
+              {
+                "name": "df",
+                "symbol": "df",
+                "value": 5
+              },
+              {
+                "name": "p",
+                "value": 0.170635
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: ANOVA",
+        "groups": [
+          {
+            "name": "supp",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 15.571979
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 1
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 54
+              },
+              {
+                "name": "p",
+                "value": 0.000231
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.223825,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.077585,
+                "upper": 0.366194
+              },
+              {
+                "name": "ηG²",
+                "value": 0.223825
+              }
+            ]
+          },
+          {
+            "name": "dose",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 91.999965
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 2
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 54
+              },
+              {
+                "name": "p",
+                "value": 4.046291e-18
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.773109,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.670909,
+                "upper": 0.821443
+              },
+              {
+                "name": "ηG²",
+                "value": 0.773109
+              }
+            ]
+          },
+          {
+            "name": "dose_x_supp",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 4.106991
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 2
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 54
+              },
+              {
+                "name": "p",
+                "value": 0.02186
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.132028,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.011092,
+                "upper": 0.255259
+              },
+              {
+                "name": "ηG²",
+                "value": 0.132028
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "neatStats",
+      "version": "1.13.2"
+    }
+  },
+  "anova_neat_within": {
+    "method": "Analysis of Variance",
+    "groups": [
+      {
+        "name": "Normality of the Residuals",
+        "groups": [
+          {
+            "name": "Shapiro-Wilk test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "W",
+                "value": 0.981292
+              },
+              {
+                "name": "p",
+                "value": 5.96671e-07
+              }
+            ]
+          },
+          {
+            "name": "D'Agostino test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "K²",
+                "value": 0.16216
+              },
+              {
+                "name": "p",
+                "value": 0.92212
+              }
+            ]
+          },
+          {
+            "name": "Anderson-Darling test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "A²",
+                "value": 4.490495
+              },
+              {
+                "name": "p",
+                "value": 3.779905e-11
+              }
+            ]
+          },
+          {
+            "name": "Jarque-Bera test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "JB",
+                "value": 0.159776
+              },
+              {
+                "name": "p",
+                "value": 0.92322
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: Mauchly's Test for Sphericity",
+        "groups": [
+          {
+            "name": "within_factor",
+            "statistics": [
+              {
+                "name": "W",
+                "value": 0.018766
+              },
+              {
+                "name": "p",
+                "value": 1.358871e-124
+              },
+              {
+                "name": "correction method",
+                "value": "Greenhouse-Geisser"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: ANOVA",
+        "groups": [
+          {
+            "name": "(Intercept)",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 2952.137067
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 1
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 149
+              },
+              {
+                "name": "p",
+                "value": 4.066593e-100
+              },
+              {
+                "name": "epsilon",
+                "value": "-"
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.951953,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.940516,
+                "upper": 0.959378
+              },
+              {
+                "name": "ηG²",
+                "value": 0.913565
+              }
+            ]
+          },
+          {
+            "name": "within_factor",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 776.318244
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 3
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 447
+              },
+              {
+                "name": "p",
+                "value": 1.324548e-69
+              },
+              {
+                "name": "epsilon",
+                "value": 0.383037
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.838974,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.818505,
+                "upper": 0.853924
+              },
+              {
+                "name": "ηG²",
+                "value": 0.708521
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "neatStats",
+      "version": "1.13.2"
+    }
+  },
+  "anova_neat_within_interaction": {
+    "method": "Analysis of Variance",
+    "groups": [
+      {
+        "name": "Normality of the Residuals",
+        "groups": [
+          {
+            "name": "Shapiro-Wilk test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "W",
+                "value": 0.995913
+              },
+              {
+                "name": "p",
+                "value": 0.12091
+              }
+            ]
+          },
+          {
+            "name": "D'Agostino test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "K²",
+                "value": 2.550061
+              },
+              {
+                "name": "p",
+                "value": 0.279422
+              }
+            ]
+          },
+          {
+            "name": "Anderson-Darling test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "A²",
+                "value": 0.710186
+              },
+              {
+                "name": "p",
+                "value": 0.063517
+              }
+            ]
+          },
+          {
+            "name": "Jarque-Bera test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "JB",
+                "value": 2.149946
+              },
+              {
+                "name": "p",
+                "value": 0.341307
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: ANOVA",
+        "groups": [
+          {
+            "name": "(Intercept)",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 2952.137067
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 1
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 149
+              },
+              {
+                "name": "p",
+                "value": 4.066593e-100
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.951953,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.940516,
+                "upper": 0.959378
+              },
+              {
+                "name": "ηG²",
+                "value": 0.913565
+              }
+            ]
+          },
+          {
+            "name": "Organ",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 530.021887
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 1
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 149
+              },
+              {
+                "name": "p",
+                "value": 6.232241e-51
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.780567,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.731011,
+                "upper": 0.81437
+              },
+              {
+                "name": "ηG²",
+                "value": 0.46115
+              }
+            ]
+          },
+          {
+            "name": "Dimension",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 1071.545098
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 1
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 149
+              },
+              {
+                "name": "p",
+                "value": 6.260478e-70
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.877923,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.849375,
+                "upper": 0.89682
+              },
+              {
+                "name": "ηG²",
+                "value": 0.611218
+              }
+            ]
+          },
+          {
+            "name": "Dimension_x_Organ",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 57.643566
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 1
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 149
+              },
+              {
+                "name": "p",
+                "value": 3.184607e-12
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.278952,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.181377,
+                "upper": 0.368033
+              },
+              {
+                "name": "ηG²",
+                "value": 0.002836
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "neatStats",
+      "version": "1.13.2"
+    }
+  },
+  "anova_neat_between_within": {
+    "method": "Analysis of Variance",
+    "groups": [
+      {
+        "name": "Normality of the Residuals",
+        "groups": [
+          {
+            "name": "Shapiro-Wilk test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "W",
+                "value": 0.993115
+              },
+              {
+                "name": "p",
+                "value": 0.007463
+              }
+            ]
+          },
+          {
+            "name": "D'Agostino test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "K²",
+                "value": 10.831234
+              },
+              {
+                "name": "p",
+                "value": 0.004447
+              }
+            ]
+          },
+          {
+            "name": "Anderson-Darling test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "A²",
+                "value": 1.190824
+              },
+              {
+                "name": "p",
+                "value": 0.004141
+              }
+            ]
+          },
+          {
+            "name": "Jarque-Bera test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "JB",
+                "value": 14.39118
+              },
+              {
+                "name": "p",
+                "value": 0.00075
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Equality of Variances",
+        "groups": [
+          {
+            "name": "Brown-Forsythe test",
+            "groups": [
+              {
+                "name": "sepal.length",
+                "statistics": [
+                  {
+                    "name": "statistic",
+                    "symbol": "F",
+                    "value": 6.35272
+                  },
+                  {
+                    "name": "df numerator",
+                    "symbol": "df",
+                    "subscript": "num.",
+                    "value": 2
+                  },
+                  {
+                    "name": "df denominator",
+                    "symbol": "df",
+                    "subscript": "den.",
+                    "value": 147
+                  },
+                  {
+                    "name": "p",
+                    "value": 0.002259
+                  }
+                ]
+              },
+              {
+                "name": "sepal.width",
+                "statistics": [
+                  {
+                    "name": "statistic",
+                    "symbol": "F",
+                    "value": 0.590212
+                  },
+                  {
+                    "name": "df numerator",
+                    "symbol": "df",
+                    "subscript": "num.",
+                    "value": 2
+                  },
+                  {
+                    "name": "df denominator",
+                    "symbol": "df",
+                    "subscript": "den.",
+                    "value": 147
+                  },
+                  {
+                    "name": "p",
+                    "value": 0.555518
+                  }
+                ]
+              },
+              {
+                "name": "petal.length",
+                "statistics": [
+                  {
+                    "name": "statistic",
+                    "symbol": "F",
+                    "value": 19.480339
+                  },
+                  {
+                    "name": "df numerator",
+                    "symbol": "df",
+                    "subscript": "num.",
+                    "value": 2
+                  },
+                  {
+                    "name": "df denominator",
+                    "symbol": "df",
+                    "subscript": "den.",
+                    "value": 147
+                  },
+                  {
+                    "name": "p",
+                    "value": 3.128757e-08
+                  }
+                ]
+              },
+              {
+                "name": "petal.width",
+                "statistics": [
+                  {
+                    "name": "statistic",
+                    "symbol": "F",
+                    "value": 19.892439
+                  },
+                  {
+                    "name": "df numerator",
+                    "symbol": "df",
+                    "subscript": "num.",
+                    "value": 2
+                  },
+                  {
+                    "name": "df denominator",
+                    "symbol": "df",
+                    "subscript": "den.",
+                    "value": 147
+                  },
+                  {
+                    "name": "p",
+                    "value": 2.26052e-08
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Fligner-Killeen test",
+            "groups": [
+              {
+                "name": "sepal.length",
+                "statistics": [
+                  {
+                    "name": "statistic",
+                    "symbol": "χ²",
+                    "value": 11.617981
+                  },
+                  {
+                    "name": "df",
+                    "symbol": "df",
+                    "value": 2
+                  },
+                  {
+                    "name": "p",
+                    "value": 0.003
+                  }
+                ]
+              },
+              {
+                "name": "sepal.width",
+                "statistics": [
+                  {
+                    "name": "statistic",
+                    "symbol": "χ²",
+                    "value": 0.912199
+                  },
+                  {
+                    "name": "df",
+                    "symbol": "df",
+                    "value": 2
+                  },
+                  {
+                    "name": "p",
+                    "value": 0.633751
+                  }
+                ]
+              },
+              {
+                "name": "petal.length",
+                "statistics": [
+                  {
+                    "name": "statistic",
+                    "symbol": "χ²",
+                    "value": 34.70802
+                  },
+                  {
+                    "name": "df",
+                    "symbol": "df",
+                    "value": 2
+                  },
+                  {
+                    "name": "p",
+                    "value": 2.90569e-08
+                  }
+                ]
+              },
+              {
+                "name": "petal.width",
+                "statistics": [
+                  {
+                    "name": "statistic",
+                    "symbol": "χ²",
+                    "value": 29.3867
+                  },
+                  {
+                    "name": "df",
+                    "symbol": "df",
+                    "value": 2
+                  },
+                  {
+                    "name": "p",
+                    "value": 4.1568e-07
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: Mauchly's Test for Sphericity",
+        "groups": [
+          {
+            "name": "within_factor",
+            "statistics": [
+              {
+                "name": "W",
+                "value": 0.558144
+              },
+              {
+                "name": "p",
+                "value": 7.651275e-17
+              },
+              {
+                "name": "correction method",
+                "value": "Huynh-Feldt"
+              }
+            ]
+          },
+          {
+            "name": "Species_x_within_factor",
+            "statistics": [
+              {
+                "name": "W",
+                "value": 0.558144
+              },
+              {
+                "name": "p",
+                "value": 7.651275e-17
+              },
+              {
+                "name": "correction method",
+                "value": "Huynh-Feldt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: ANOVA",
+        "groups": [
+          {
+            "name": "(Intercept)",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 19650.122164
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 1
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 2.073537e-158
+              },
+              {
+                "name": "epsilon",
+                "value": "-"
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.992575,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.99078,
+                "upper": 0.993725
+              },
+              {
+                "name": "ηG²",
+                "value": 0.987752
+              }
+            ]
+          },
+          {
+            "name": "Species",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 422.389611
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 2
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 1.151652e-61
+              },
+              {
+                "name": "epsilon",
+                "value": "-"
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.851782,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.815891,
+                "upper": 0.873997
+              },
+              {
+                "name": "ηG²",
+                "value": 0.776143
+              }
+            ]
+          },
+          {
+            "name": "within_factor",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 6873.286172
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 3
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 441
+              },
+              {
+                "name": "p",
+                "value": 2.921299e-283
+              },
+              {
+                "name": "epsilon",
+                "value": 0.764092
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.979061,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.976313,
+                "upper": 0.981023
+              },
+              {
+                "name": "ηG²",
+                "value": 0.948843
+              }
+            ]
+          },
+          {
+            "name": "Species_x_within_factor",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 586.100395
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 6
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 441
+              },
+              {
+                "name": "p",
+                "value": 1.540564e-158
+              },
+              {
+                "name": "epsilon",
+                "value": 0.764092
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.888569,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.873286,
+                "upper": 0.898328
+              },
+              {
+                "name": "ηG²",
+                "value": 0.759801
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "neatStats",
+      "version": "1.13.2"
+    }
+  },
+  "anova_neat_between_within_interacts": {
+    "method": "Analysis of Variance",
+    "groups": [
+      {
+        "name": "Normality of the Residuals",
+        "groups": [
+          {
+            "name": "Shapiro-Wilk test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "W",
+                "value": 0.996349
+              },
+              {
+                "name": "p",
+                "value": 0.18495
+              }
+            ]
+          },
+          {
+            "name": "D'Agostino test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "K²",
+                "value": 1.162594
+              },
+              {
+                "name": "p",
+                "value": 0.559173
+              }
+            ]
+          },
+          {
+            "name": "Anderson-Darling test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "A²",
+                "value": 0.534251
+              },
+              {
+                "name": "p",
+                "value": 0.170997
+              }
+            ]
+          },
+          {
+            "name": "Jarque-Bera test",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "JB",
+                "value": 1.159984
+              },
+              {
+                "name": "p",
+                "value": 0.559903
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Equality of Variances",
+        "groups": [
+          {
+            "name": "Brown-Forsythe test",
+            "groups": [
+              {
+                "name": "Sepal.Length",
+                "statistics": [
+                  {
+                    "name": "statistic",
+                    "symbol": "F",
+                    "value": 6.35272
+                  },
+                  {
+                    "name": "df numerator",
+                    "symbol": "df",
+                    "subscript": "num.",
+                    "value": 2
+                  },
+                  {
+                    "name": "df denominator",
+                    "symbol": "df",
+                    "subscript": "den.",
+                    "value": 147
+                  },
+                  {
+                    "name": "p",
+                    "value": 0.002259
+                  }
+                ]
+              },
+              {
+                "name": "Sepal.Width",
+                "statistics": [
+                  {
+                    "name": "statistic",
+                    "symbol": "F",
+                    "value": 0.590212
+                  },
+                  {
+                    "name": "df numerator",
+                    "symbol": "df",
+                    "subscript": "num.",
+                    "value": 2
+                  },
+                  {
+                    "name": "df denominator",
+                    "symbol": "df",
+                    "subscript": "den.",
+                    "value": 147
+                  },
+                  {
+                    "name": "p",
+                    "value": 0.555518
+                  }
+                ]
+              },
+              {
+                "name": "Petal.Length",
+                "statistics": [
+                  {
+                    "name": "statistic",
+                    "symbol": "F",
+                    "value": 19.480339
+                  },
+                  {
+                    "name": "df numerator",
+                    "symbol": "df",
+                    "subscript": "num.",
+                    "value": 2
+                  },
+                  {
+                    "name": "df denominator",
+                    "symbol": "df",
+                    "subscript": "den.",
+                    "value": 147
+                  },
+                  {
+                    "name": "p",
+                    "value": 3.128757e-08
+                  }
+                ]
+              },
+              {
+                "name": "Petal.Width",
+                "statistics": [
+                  {
+                    "name": "statistic",
+                    "symbol": "F",
+                    "value": 19.892439
+                  },
+                  {
+                    "name": "df numerator",
+                    "symbol": "df",
+                    "subscript": "num.",
+                    "value": 2
+                  },
+                  {
+                    "name": "df denominator",
+                    "symbol": "df",
+                    "subscript": "den.",
+                    "value": 147
+                  },
+                  {
+                    "name": "p",
+                    "value": 2.26052e-08
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Fligner-Killeen test",
+            "groups": [
+              {
+                "name": "Sepal.Length",
+                "statistics": [
+                  {
+                    "name": "statistic",
+                    "symbol": "χ²",
+                    "value": 11.617981
+                  },
+                  {
+                    "name": "df",
+                    "symbol": "df",
+                    "value": 2
+                  },
+                  {
+                    "name": "p",
+                    "value": 0.003
+                  }
+                ]
+              },
+              {
+                "name": "Sepal.Width",
+                "statistics": [
+                  {
+                    "name": "statistic",
+                    "symbol": "χ²",
+                    "value": 0.912199
+                  },
+                  {
+                    "name": "df",
+                    "symbol": "df",
+                    "value": 2
+                  },
+                  {
+                    "name": "p",
+                    "value": 0.633751
+                  }
+                ]
+              },
+              {
+                "name": "Petal.Length",
+                "statistics": [
+                  {
+                    "name": "statistic",
+                    "symbol": "χ²",
+                    "value": 34.70802
+                  },
+                  {
+                    "name": "df",
+                    "symbol": "df",
+                    "value": 2
+                  },
+                  {
+                    "name": "p",
+                    "value": 2.90569e-08
+                  }
+                ]
+              },
+              {
+                "name": "Petal.Width",
+                "statistics": [
+                  {
+                    "name": "statistic",
+                    "symbol": "χ²",
+                    "value": 29.3867
+                  },
+                  {
+                    "name": "df",
+                    "symbol": "df",
+                    "value": 2
+                  },
+                  {
+                    "name": "p",
+                    "value": 4.1568e-07
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Table: ANOVA",
+        "groups": [
+          {
+            "name": "(Intercept)",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 19650.122164
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 1
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 2.073537e-158
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.992575,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.99078,
+                "upper": 0.993725
+              },
+              {
+                "name": "ηG²",
+                "value": 0.987752
+              }
+            ]
+          },
+          {
+            "name": "Species",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 422.389611
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 2
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 1.151652e-61
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.851782,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.815891,
+                "upper": 0.873997
+              },
+              {
+                "name": "ηG²",
+                "value": 0.776143
+              }
+            ]
+          },
+          {
+            "name": "Organ",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 8029.215589
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 1
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 3.520924e-130
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.982021,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.977683,
+                "upper": 0.984809
+              },
+              {
+                "name": "ηG²",
+                "value": 0.8672
+              }
+            ]
+          },
+          {
+            "name": "Dimension",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 7792.681666
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 1
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 3.046793e-129
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.981485,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.977019,
+                "upper": 0.984356
+              },
+              {
+                "name": "ηG²",
+                "value": 0.923053
+              }
+            ]
+          },
+          {
+            "name": "Organ_x_Species",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 1055.088415
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 2
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 6.467757e-88
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.934874,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.918755,
+                "upper": 0.944632
+              },
+              {
+                "name": "ηG²",
+                "value": 0.631837
+              }
+            ]
+          },
+          {
+            "name": "Dimension_x_Species",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 468.292207
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 2
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 1.719539e-64
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.864339,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.83136,
+                "upper": 0.884679
+              },
+              {
+                "name": "ηG²",
+                "value": 0.59046
+              }
+            ]
+          },
+          {
+            "name": "Dimension_x_Organ",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 62.752833
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 1
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 5.31247e-13
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.299175,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.199719,
+                "upper": 0.388095
+              },
+              {
+                "name": "ηG²",
+                "value": 0.021242
+              }
+            ]
+          },
+          {
+            "name": "Dimension_x_Organ_x_Species",
+            "statistics": [
+              {
+                "name": "statistic",
+                "symbol": "F",
+                "value": 7.603346
+              },
+              {
+                "name": "df numerator",
+                "symbol": "df",
+                "subscript": "num.",
+                "value": 2
+              },
+              {
+                "name": "df denominator",
+                "symbol": "df",
+                "subscript": "den.",
+                "value": 147
+              },
+              {
+                "name": "p",
+                "value": 0.000721
+              },
+              {
+                "name": "ηₚ²",
+                "value": 0.093749,
+                "interval": "CI",
+                "level": 0.9,
+                "lower": 0.026618,
+                "upper": 0.166413
+              },
+              {
+                "name": "ηG²",
+                "value": 0.005232
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "package": {
+      "name": "neatStats",
+      "version": "1.13.2"
+    }
+  }
+}

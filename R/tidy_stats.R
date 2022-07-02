@@ -2935,13 +2935,13 @@ tidy_stats.rma.uni <- function(x, args = NULL) {
     analysis <- list(name = deparse(x$call[[2]]),
       method = method)
   }
-  
+
   # Model fit
   if (x$model == "rma.uni" || x$model == "rma.uni.selmodel") {
     # Create a group and statistics list for the model fit statistics
     group <- list(name = "Model")
     statistics <- list()
-    
+
     # Extract and add statistics to the statistics list
     statistics <- add_statistic(statistics, "I squared", x$I2, "I²")
     statistics <- add_statistic(statistics, "H squared", x$H2, "H²")
@@ -2954,13 +2954,13 @@ tidy_stats.rma.uni <- function(x, args = NULL) {
     }
     # Add statistics to the group
     group$statistics <- statistics
-    
+
     # Add the model group (if any) to a groups element on the analysis
     if (length(group$statistics) > 1) {
       analysis$groups <- append(analysis$groups, list(group))
     }
   }
-  
+
   # Heterogeneity
   # Create a group and statistics list for the Test for (Residual) Heterogeneity
   if (!is.na(x$QE)) {
@@ -3045,10 +3045,10 @@ tidy_stats.rma.uni <- function(x, args = NULL) {
   for (i in 1:length(coefs_v)) {
     # Create a new group list
     group <- list()
-    
+
     # Add the name and type of the coefficient
     group$name <- names(coefs_v)[i]
-    
+
     # Create a new statistics list
     statistics <- list()
     statistics <-
@@ -3067,16 +3067,16 @@ tidy_stats.rma.uni <- function(x, args = NULL) {
     statistics <-
       add_statistic(statistics, "statistic", x$zval[i], stat_type)
     statistics <- add_statistic(statistics, "p", x$pval[i])
-    
+
     # Add statistics to the group
     group$statistics <- statistics
-    
+
     # Add the group to the groups of the coefficients groups list
     groups$groups <- append(groups$groups, list(group))
   }
   # Add the coefficient groups to the statistics list
   analysis$groups <- append(analysis$groups, list(groups))
-  
+
   # Create a groups list for the second group of coefficients (if any)
   if (x$model == "rma.ls") {
     if (x$q > 1L && !is.na(x$QS)) {
@@ -3092,7 +3092,7 @@ tidy_stats.rma.uni <- function(x, args = NULL) {
         statistics <- add_statistic(statistics, "statistic", x$QS, "QS")
         statistics <- add_statistic(statistics, "df", x$QSdf[1])
       }
-      
+
       statistics <- add_statistic(statistics, "p", x$QSp)
       # Add statistics to the group
       group$statistics <- statistics
@@ -3143,7 +3143,7 @@ tidy_stats.rma.uni <- function(x, args = NULL) {
     # Add the coefficient groups to the statistics list
     analysis$groups <- append(analysis$groups, list(groups))
   }
-  
+
   if (x$model == "rma.uni.selmodel") {
     if (!is.na(x$LRT)) {
       statistics <- list()
@@ -3157,7 +3157,7 @@ tidy_stats.rma.uni <- function(x, args = NULL) {
       # Add the model group to a groups element on the analysis
       analysis$groups <- append(analysis$groups, list(group))
     }
-    
+
     groups <- list(name = "Coefficients (Selection)")
     if (x$type == "stepfun") {
        rnames <- rownames(x$ptable)
@@ -3188,12 +3188,12 @@ tidy_stats.rma.uni <- function(x, args = NULL) {
           upper = ifelse(is.na(x$ci.ub.delta[i][[1]]), "-", x$ci.ub.delta[i][[1]])
         )
       statistics <-
-        add_statistic(statistics, "SE", 
+        add_statistic(statistics, "SE",
           ifelse(is.na(x$se.delta[i][[1]]), "-", x$se.delta[i][[1]]))
       statistics <-
-        add_statistic(statistics, "statistic", 
+        add_statistic(statistics, "statistic",
           ifelse(is.na(x$zval.delta[i][[1]]), "-", x$zval.delta[i][[1]]), "z")
-      statistics <- add_statistic(statistics, "p", 
+      statistics <- add_statistic(statistics, "p",
         ifelse(is.na(x$pval.delta[i][[1]]), "-", x$pval.delta[i][[1]]))
       # Add statistics to the group
       group$statistics <- statistics
@@ -3203,10 +3203,10 @@ tidy_stats.rma.uni <- function(x, args = NULL) {
     # Add the coefficient groups to the statistics list
     analysis$groups <- append(analysis$groups, list(groups))
   }
-  
+
   # Add package information
   analysis <- add_package_info(analysis, "metafor")
-  
+
   return(analysis)
 }
 
@@ -3228,7 +3228,7 @@ tidy_stats.rma.mh <- function(x, args = NULL) {
   group$statistics <- statistics
   # Add the model group to a groups element on the analysis
   analysis$groups <- append(analysis$groups, list(group))
-  
+
   # Heterogeneity
   # Create a group and statistics list for the Test for (Residual) Heterogeneity
   if (!is.na(x$QE)) {
@@ -3318,7 +3318,7 @@ tidy_stats.rma.mh <- function(x, args = NULL) {
         # Add the model group to a groups element on the analysis
         analysis$groups <- append(analysis$groups, list(group))
       }
-      
+
       if (!is.na(x$TA)) {
         statistics <- list()
         group <- list(name = "Tarone's Test for Heterogeneity")
@@ -3346,7 +3346,7 @@ tidy_stats.rma.mh <- function(x, args = NULL) {
         analysis$groups <- append(analysis$groups, list(group))
       }
     }
-    
+
   } else {
     groups <- list(name = "Coefficients")
     for (i in 1:length(x$beta)) {
@@ -3380,10 +3380,10 @@ tidy_stats.rma.mh <- function(x, args = NULL) {
     # Add the coefficient groups to the statistics list
     analysis$groups <- append(analysis$groups, list(groups))
   }
-  
+
   # Add package information
   analysis <- add_package_info(analysis, "metafor")
-  
+
   return(analysis)
 }
 
@@ -3421,7 +3421,7 @@ tidy_stats.rma.peto <- function(x, args = NULL) {
     # Add the model group to a groups element on the analysis
     analysis$groups <- append(analysis$groups, list(group))
   }
-  
+
   # Loop over the coefficients and add statistics to a group list
   groups <- list(name = "Coefficients (log scale)")
   for (i in 1:length(x$beta)) {
@@ -3454,7 +3454,7 @@ tidy_stats.rma.peto <- function(x, args = NULL) {
   }
   # Add the coefficient groups to the statistics list
   analysis$groups <- append(analysis$groups, list(groups))
-  
+
   groups <- list(name = "Coefficients (OR scale)")
   for (i in 1:length(x$beta)) {
     # Create a new group list
@@ -3481,10 +3481,10 @@ tidy_stats.rma.peto <- function(x, args = NULL) {
   }
   # Add the coefficient groups to the statistics list
   analysis$groups <- append(analysis$groups, list(groups))
-  
+
   # Add package information
   analysis <- add_package_info(analysis, "metafor")
-  
+
   return(analysis)
 }
 
@@ -3514,7 +3514,7 @@ tidy_stats.rma.glmm <- function(x, args = NULL) {
     }
   }
   if (is.element(x$measure, c("OR", "IRR"))) {
-    
+
     if (x$model == "UM.FS")
       model_type = "Unconditional Model with Fixed Study Effects"
     if (x$model == "UM.RS")
@@ -3526,7 +3526,7 @@ tidy_stats.rma.glmm <- function(x, args = NULL) {
   }
   analysis <- list(name = deparse(x$call[[2]]),
                    method = paste0(method, " (", model_type, ")"))
-  
+
   statistics <- list()
   if (!is.element(x$method, c("FE", "EE", "CE"))) {
     # Model fit
@@ -3541,14 +3541,14 @@ tidy_stats.rma.glmm <- function(x, args = NULL) {
     statistics <-
       add_statistic(statistics, "Τau", x$tau2 ** 0.5, "τ")
   }
-  
+
   if (!is.na(x$sigma2)) {
     statistics <-
       add_statistic(statistics, "sigma squared", x$sigma2, "σ²")
     statistics <-
       add_statistic(statistics, "sigma", sqrt(x$sigma2), "σ")
   }
-  
+
   if (length(statistics) > 0) {
     group <- list(name = "Model")
     # Add statistics to the group
@@ -3561,7 +3561,7 @@ tidy_stats.rma.glmm <- function(x, args = NULL) {
   } else {
     h_type = "Residual Heterogeneity"
   }
-  
+
   # Heterogeneity
   # Create a group and statistics list for the Test for (Residual) Heterogeneity
   if (!is.na(x$QE.Wld)) {
@@ -3588,7 +3588,7 @@ tidy_stats.rma.glmm <- function(x, args = NULL) {
     # Add the model group to a groups element on the analysis
     analysis$groups <- append(analysis$groups, list(group))
   }
-  
+
   if (x$p > 1L && !is.na(x$QM)) {
     statistics <- list()
     group <- list(name = "Test of Moderators")
@@ -3610,7 +3610,7 @@ tidy_stats.rma.glmm <- function(x, args = NULL) {
     # Add the model group to a groups element on the analysis
     analysis$groups <- append(analysis$groups, list(group))
   }
-  
+
   # Create a groups list for the coefficients
   groups <- list(name = "Coefficients")
   if (is.element(x$test, c("knha", "adhoc", "t"))) {
@@ -3649,10 +3649,10 @@ tidy_stats.rma.glmm <- function(x, args = NULL) {
   }
   # Add the coefficient groups to the statistics list
   analysis$groups <- append(analysis$groups, list(groups))
-  
+
   # Add package information
   analysis <- add_package_info(analysis, "metafor")
-  
+
   return(analysis)
 }
 
@@ -3667,7 +3667,7 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
   # Model fit
   # Create a group and statistics list for the model fit statistics
   group <- list(name = "Model")
-  
+
   if (x$withS || x$withG || x$withH) {
     tau2 <- x$tau2
     tau <- sqrt(x$tau2)
@@ -3692,7 +3692,7 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
       analysis$groups <-
         append(analysis$groups, df_to_group("Sigma", vc, na_rm = TRUE))
     }
-    
+
     if (x$withG) {
       if (is.element(
         x$struct[1],
@@ -3721,7 +3721,7 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
         analysis$groups <-
           append(analysis$groups, df_to_group("Tau", vc, na_rm = TRUE))
       }
-      
+
       if (is.element(x$struct[1], c("HCS", "HAR", "DIAG"))) {
         vc <-
           cbind(tau2,
@@ -3743,7 +3743,7 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
         analysis$groups <-
           append(analysis$groups, df_to_group("Tau", vc, na_rm = TRUE))
       }
-      
+
       if (is.element(x$struct[1], c("UN", "UNR"))) {
         if (x$struct[1] == "UN") {
           vc <-
@@ -3771,11 +3771,11 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
         } else {
           rownames(vc) <- paste("T²", seq_along(x$g.levels.k), " ", sep = "")
         }
-        
+
         analysis$groups <-
           append(analysis$groups, df_to_group("Tau", vc, na_rm = TRUE))
-        
-        
+
+
         if (length(x$rho) == 1L) {
           G <- matrix(NA_real_, nrow = 2, ncol = 2)
         } else {
@@ -3801,7 +3801,7 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
         G.info[lower.tri(G.info)] <-
           ifelse(x$vc.fix$rho, "yes", "no")
         diag(G.info) <- "-"
-        
+
         vc <- cbind(G, "", G.info)
         colnames(vc) <-
           c(paste("ρ", abbreviate(x$g.levels.f[[1]]), sep = ""),
@@ -3811,13 +3811,13 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
         analysis$groups <-
           append(analysis$groups, df_to_group("Rho", vc, na_rm = TRUE))
       }
-      
+
       if (is.element(x$struct[1], c("GEN"))) {
         vc <- cbind(tau2, tau, ifelse(x$vc.fix$tau2, "yes", "no"), "")
         colnames(vc) <-
           c("estimate", "square root", "fixed", "rho")
         rownames(vc) <- x$g.names[-length(x$g.names)]
-        
+
         G.info <- cov2cor(x$G)
         diag(G.info) <- "-"
         G.info[lower.tri(G.info)] <-
@@ -3827,23 +3827,23 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
         vc <- cbind(vc, G.info)
         analysis$groups <-
           append(analysis$groups, df_to_group("Tau", vc, na_rm = TRUE))
-        
+
       }
-      
+
       if (is.element(x$struct[1], c("GDIAG"))) {
         vc <- cbind(tau2, tau, ifelse(x$vc.fix$tau2, "yes", "no"))
         colnames(vc) <- c("estimate", "square root", "fixed")
         rownames(vc) <- x$g.names[-length(x$g.names)]
         analysis$groups <-
           append(analysis$groups, df_to_group("Tau", vc, na_rm = TRUE))
-        
+
       }
     }
-    
+
     if (x$withH) {
       gamma2 <- x$gamma2
       gamma  <- sqrt(x$gamma2)
-      
+
       if (is.element(
         x$struct[2],
         c(
@@ -3870,9 +3870,9 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
           vc <- vc[1, , drop = FALSE]
         analysis$groups <-
           append(analysis$groups, df_to_group("Gamma", vc, na_rm = TRUE))
-        
+
       }
-      
+
       if (is.element(x$struct[2], c("HCS", "HAR", "DIAG"))) {
         vc <-
           cbind(
@@ -3896,9 +3896,9 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
           vc <- vc[seq_along(gamma2), , drop = FALSE]
         analysis$groups <-
           append(analysis$groups, df_to_group("Gamma", vc, na_rm = TRUE))
-        
+
       }
-      
+
       if (is.element(x$struct[2], c("UN", "UNR"))) {
         if (x$struct[2] == "UN") {
           vc <-
@@ -3930,8 +3930,8 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
         }
         analysis$groups <-
           append(analysis$groups, df_to_group("Gamma", vc, na_rm = TRUE))
-        
-        
+
+
         if (length(x$phi) == 1L) {
           H <- matrix(NA_real_, nrow = 2, ncol = 2)
         } else {
@@ -3943,7 +3943,7 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
         H[upper.tri(H)] <- t(H)[upper.tri(H)]
         diag(H) <- 1
         #H[upper.tri(H)] <- ""
-        
+
         if (length(x$phi) == 1L) {
           H.info <- matrix(NA_real_, nrow = 2, ncol = 2)
         } else {
@@ -3958,7 +3958,7 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
         H.info[lower.tri(H.info)] <-
           ifelse(x$vc.fix$phi, "yes", "no")
         diag(H.info) <- "-"
-        
+
         vc <- cbind(H, "", H.info)
         colnames(vc) <-
           c(paste("φ", abbreviate(x$h.levels.f[[1]]), sep = ""),
@@ -3968,13 +3968,13 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
         analysis$groups <-
           append(analysis$groups, df_to_group("Phi", vc, na_rm = TRUE))
       }
-      
+
       if (is.element(x$struct[2], c("GEN"))) {
         vc <- cbind(gamma2, gamma, ifelse(x$vc.fix$gamma2, "yes", "no"), "")
         colnames(vc) <-
           c("estimate", "square root", "fixed", "φ")
         rownames(vc) <- x$h.names[-length(x$h.names)]
-        
+
         H.info <- cov2cor(x$H)
         diag(H.info) <- "-"
         H.info[lower.tri(H.info)] <-
@@ -3984,16 +3984,16 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
         vc <- cbind(vc, H.info)
         analysis$groups <-
           append(analysis$groups, df_to_group("Gamma", vc, na_rm = TRUE))
-        
+
       }
-      
+
       if (is.element(x$struct[2], c("GDIAG"))) {
         vc <- cbind(gamma2, gamma, ifelse(x$vc.fix$gamma2, "yes", "no"))
         colnames(vc) <- c("estimate", "square root", "fixed")
         rownames(vc) <- x$h.names[-length(x$h.names)]
         analysis$groups <-
           append(analysis$groups, df_to_group("Gamma", vc, na_rm = TRUE))
-        
+
       }
     }
   }
@@ -4080,10 +4080,10 @@ tidy_stats.rma.mv <- function(x, args = NULL) {
   # Add the coefficient groups to the statistics list
   analysis$groups <- append(analysis$groups, list(groups))
 
-  
+
   # Add package information
   analysis <- add_package_info(analysis, "metafor")
-  
+
   return(analysis)
 }
 
@@ -4162,7 +4162,7 @@ tidy_stats.anova.rma <- function(x, args = NULL) {
   } else {
     method = "Wald-Type Tests for 'rma' Objects"
   }
-  
+
   analysis <- list(method = method)
 
   # Moderators
@@ -4190,7 +4190,7 @@ tidy_stats.anova.rma <- function(x, args = NULL) {
     # Add the model group to a groups element on the analysis
     analysis$groups <- append(analysis$groups, list(group))
   }
-  
+
   if (x$type == "Wald.att") {
     statistics <- list()
     group <- list(name = "Test of Scale Coefficients")
@@ -4248,7 +4248,7 @@ tidy_stats.anova.rma <- function(x, args = NULL) {
     }
     # Add the coefficient groups to the statistics list
     analysis$groups <- append(analysis$groups, list(groups))
-    
+
     if (!is.na(x$QM)) {
       statistics <- list()
       if (x$m == 1) {
@@ -4311,7 +4311,7 @@ tidy_stats.anova.rma <- function(x, args = NULL) {
     }
     # Add the coefficient groups to the statistics list
     analysis$groups <- append(analysis$groups, list(groups))
-    
+
     if (!is.na(x$QS)) {
       statistics <- list()
       if (x$m == 1) {
@@ -4329,7 +4329,7 @@ tidy_stats.anova.rma <- function(x, args = NULL) {
         statistics <- add_statistic(statistics, "statistic", x$QS, "QS")
         statistics <- add_statistic(statistics, "df", x$QSdf[1])
       }
-      
+
       statistics <- add_statistic(statistics, "p", x$QSp)
       # Add statistics to the group
       group$statistics <- statistics
@@ -4337,7 +4337,7 @@ tidy_stats.anova.rma <- function(x, args = NULL) {
       analysis$groups <- append(analysis$groups, list(group))
     }
   }
-  
+
   if (x$type == "LRT") {
     res.table <- data.frame(c(x$parms.f, x$parms.r),
       c(x$fit.stats.f["AIC"], x$fit.stats.r["AIC"]),
@@ -4349,7 +4349,7 @@ tidy_stats.anova.rma <- function(x, args = NULL) {
       c(x$QE.f,  x$QE.r),
       c(x$tau2.f, x$tau2.r),
       c(NA, NA), stringsAsFactors=FALSE)
-  
+
     colnames(res.table) <- c("df", "AIC", "BIC", "AICc", "Log-Likelihood", "LRT", "p", "QE", "T²", "R²")
     rownames(res.table) <- c("Full", "Reduced")
     res.table["Full", c("LRT", "p")] <- NA
@@ -4387,7 +4387,7 @@ tidy_stats.permutest.rma.uni <- function(x, args = NULL) {
     } else {
       group <- list(name = "Test of Moderators")
     }
-    
+
     if (is.element(x$test, c("knha", "adhoc", "t"))) {
       statistics <- add_statistic(statistics, "statistic", x$QM, "F")
       statistics <- add_statistic(statistics, "df numerator",
@@ -4468,7 +4468,7 @@ tidy_stats.permutest.rma.uni <- function(x, args = NULL) {
       # Add the model group to a groups element on the analysis
       analysis$groups <- append(analysis$groups, list(group))
     }
-    
+
     groups <- list(name = "Coefficients (Scale)")
     # Loop over the coefficients and add statistics to a group list
     for (i in 1:length(x$alpha)) {
@@ -4552,7 +4552,7 @@ tidy_stats.tes <- function(x, args = NULL) {
     add_statistic(statistics, "statistic", x$X2, "χ²")
   statistics <- add_statistic(statistics, "df", 1)
   statistics <- add_statistic(statistics, "p", x$pval)
-  
+
   if (!is.null(x$theta.lim)) {
     if (!is.na(x$theta.lim[1])) {
       if (length(x$theta.lim) == 2L) {
@@ -4640,7 +4640,7 @@ tidy_stats.matreg <- function(x, args = NULL) {
   }
   # Add the coefficient groups to the statistics list
   analysis$groups <- append(analysis$groups, list(groups))
-  
+
   # Add package information
   analysis <- add_package_info(analysis, "metafor")
 
@@ -4660,7 +4660,7 @@ tidy_stats.ranktest <- function(x, args = NULL) {
     add_statistic(statistics, "statistic", x$tau[[1]], 'τ')
   statistics <-
     add_statistic(statistics, "p", x$pval)
-  
+
   analysis$statistics <- statistics
 
   # Add package information
@@ -4675,7 +4675,7 @@ tidy_stats.regtest <- function(x, args = NULL) {
   # Create the analysis list
   analysis <-
     list(method = "Regression Test for Funnel Plot Asymmetry")
-  
+
   statistics <- list()
   if (!is.null(x$est)) {
     statistics <-
@@ -4690,7 +4690,7 @@ tidy_stats.regtest <- function(x, args = NULL) {
         upper = x$ci.ub
       )
   }
-  
+
   if (is.na(x$ddf)) {
     statistics <-
       add_statistic(statistics, "statistic", x$zval, 'z')
@@ -4700,10 +4700,10 @@ tidy_stats.regtest <- function(x, args = NULL) {
     statistics <-
       add_statistic(statistics, "df", x$ddf)
   }
-  
+
   statistics <-
     add_statistic(statistics, "p", x$pval)
-  
+
   analysis$statistics <- statistics
 
   if (x$model == "lm") {
@@ -4742,23 +4742,23 @@ tidy_stats.fsn <- function(x, args = NULL) {
   # Create the analysis list
   analysis <-
     list(method = paste0("Fail-Safe N Analysis (", x$type, " approach)"))
-  
+
   statistics <- list()
-  
+
   if (x$type == "Rosenthal") {
     statistics <-
       add_statistic(statistics, "p", x$pval, subscript = "observed")
     statistics <-
       add_statistic(statistics, "p", x$alpha, subscript = "target")
   }
-  
+
   if (x$type == "Orwin" || x$type == "REM") {
     statistics <-
       add_statistic(statistics, "estimate", x$meanes, "b", subscript = "average")
     statistics <-
       add_statistic(statistics, "estimate", x$target, "b", subscript = "target")
   }
-  
+
   if (x$type == "Rosenberg") {
     statistics <-
       add_statistic(statistics, "estimate", x$meanes, "b", subscript = "average")
@@ -4767,15 +4767,15 @@ tidy_stats.fsn <- function(x, args = NULL) {
     statistics <-
       add_statistic(statistics, "p", x$alpha, subscript = "target")
   }
-  
+
   statistics <-
     add_statistic(statistics, "count", x$fsnum, "n", subscript = "failsafe")
-  
+
   analysis$statistics <- statistics
-  
+
   # Add package information
   analysis <- add_package_info(analysis, "metafor")
-  
+
   return(analysis)
 }
 
@@ -4787,7 +4787,7 @@ tidy_stats.hc.rma.uni <- function(x, args = NULL) {
   # Create the analysis list
   analysis <-
     list(method = "Henmi and Copas Meta-Analysis")
-  
+
   # Create a groups list for the coefficients
   groups <- list(name = "Coefficients")
   # Loop over the coefficients and add statistics to a group list
@@ -4796,7 +4796,7 @@ tidy_stats.hc.rma.uni <- function(x, args = NULL) {
     group <- list()
     # Add the name and type of the coefficient
     group$name <- x[[paste0("method", suffx)]]
-    
+
     # Create a new statistics list
     statistics <- list()
     statistics <-
@@ -4821,10 +4821,10 @@ tidy_stats.hc.rma.uni <- function(x, args = NULL) {
   }
   # Add the coefficient groups to the statistics list
   analysis$groups <- append(analysis$groups, list(groups))
-  
+
   # Add package information
   analysis <- add_package_info(analysis, "metafor")
-  
+
   return(analysis)
 }
 
@@ -4843,7 +4843,7 @@ tidy_stats.list.rma <- function(x, args = NULL) {
   out_df <- data.frame(out,
     row.names = x$slab,
     stringsAsFactors = FALSE)
-  
+
   out_df[] <- sapply(out_df, function(x)
     suppressWarnings(as.numeric(as.character(x))))
   out_df = Filter(function(x)
@@ -4851,7 +4851,7 @@ tidy_stats.list.rma <- function(x, args = NULL) {
   if (ncol(out_df) == 0 || nrow(out_df) < 1) {
     return(NULL)
   }
-  
+
   replacers2 = list(
     "tau" = "τ",
     "^2" = "²",
@@ -4863,9 +4863,9 @@ tidy_stats.list.rma <- function(x, args = NULL) {
     "se" = "SE",
     "2" = "²"
   )
-  
+
   for (replacer in names(replacers2)) {
-    colnames(out_df) = gsub(replacer, 
+    colnames(out_df) = gsub(replacer,
       replacers2[[replacer]], colnames(out_df), fixed = TRUE)
   }
   if (any(rownames(out_df) == "")) {
@@ -4908,10 +4908,10 @@ tidy_stats.list.rma <- function(x, args = NULL) {
   }
   # Add the coefficient groups to the statistics list
   analysis$groups <- append(analysis$groups, list(groups))
-  
+
   # Add package information
   analysis <- add_package_info(analysis, "metafor")
-  
+
   return(analysis)
 }
 
@@ -4934,7 +4934,7 @@ tidy_stats.data.frame <- function(x,
                                   ci_level = 0.95) {
   # Create the analysis list
   analysis <- list(method = method_name)
-  
+
   analysis$groups <- append(
     analysis$groups,
     df_to_group(
@@ -4949,10 +4949,10 @@ tidy_stats.data.frame <- function(x,
       ci_level = ci_level
     )
   )
-  
+
   # Add package information
   analysis <- add_package_info(analysis, package_name)
-  
+
   return(analysis)
 }
 
@@ -4960,13 +4960,13 @@ tidy_stats.data.frame <- function(x,
 #' @describeIn tidy_stats tidy_stats method for class 'marginaleffects.summary'
 #' @export
 tidy_stats.marginaleffects.summary <- function(x, args = NULL) {
-  
+
   out <- x
-  
+
   # Create the analysis list
-  analysis <- list(method = paste0(attr(x, "model_type"), 
+  analysis <- list(method = paste0(attr(x, "model_type"),
                 " (Prediction type: ", attr(x, "type"), ")"))
-  
+
   if ("group" %in% colnames(out) &&
       all(out$group == "main_marginaleffects")) {
       out$group <- NULL
@@ -4991,13 +4991,13 @@ tidy_stats.marginaleffects.summary <- function(x, args = NULL) {
   for (i in seq_along(dict)) {
     colnames(out)[colnames(out) == names(dict)[i]] <- dict[i]
   }
-  analysis$groups <- append(analysis$groups, 
-    df_to_group("Average marginal effects", as.data.frame(out), 
+  analysis$groups <- append(analysis$groups,
+    df_to_group("Average marginal effects", as.data.frame(out),
       ci_est_name = "Effect", ci_level = ci_level))
-  
+
   # Add package information
   analysis <- add_package_info(analysis, "marginaleffects")
-  
+
   return(analysis)
 }
 
@@ -5006,9 +5006,9 @@ tidy_stats.marginaleffects.summary <- function(x, args = NULL) {
 tidy_stats.marginalmeans.summary <- function(x, args = NULL) {
   out <- x
   # Create the analysis list
-  analysis <- list(method = paste0(attr(x, "model_type"), 
+  analysis <- list(method = paste0(attr(x, "model_type"),
                 " (Prediction type: ", attr(x, "type"), ")"))
-  
+
   if ("group" %in% colnames(out) &&
       all(out$group == "main_marginaleffects")) {
       out$group <- NULL
@@ -5028,13 +5028,13 @@ tidy_stats.marginalmeans.summary <- function(x, args = NULL) {
   for (i in seq_along(dict)) {
     colnames(out)[colnames(out) == names(dict)[i]] <- dict[i]
   }
-  analysis$groups <- append(analysis$groups, 
-    df_to_group("Estimated marginal means", as.data.frame(out), 
+  analysis$groups <- append(analysis$groups,
+    df_to_group("Estimated marginal means", as.data.frame(out),
       ci_est_name = "Mean", ci_level = ci_level))
-  
+
   # Add package information
   analysis <- add_package_info(analysis, "marginaleffects")
-  
+
   return(analysis)
 }
 
@@ -5085,9 +5085,9 @@ tidy_stats.predictions.summaryDISABLED <- function(x, args = NULL) {
 tidy_stats.comparisons.summary <- function(x, args = NULL) {
   out <- x
   # Create the analysis list
-  analysis <- list(method = paste0(attr(x, "model_type"), 
+  analysis <- list(method = paste0(attr(x, "model_type"),
                 " (Prediction type: ", attr(x, "type"), ")"))
-  
+
   if ("group" %in% colnames(out) &&
       all(out$group == "main_marginaleffects")) {
       out$group <- NULL
@@ -5116,13 +5116,13 @@ tidy_stats.comparisons.summary <- function(x, args = NULL) {
   for (i in seq_along(dict)) {
     colnames(out)[colnames(out) == names(dict)[i]] <- dict[i]
   }
-  analysis$groups <- append(analysis$groups, 
-    df_to_group("Average contrasts", as.data.frame(out), 
+  analysis$groups <- append(analysis$groups,
+    df_to_group("Average contrasts", as.data.frame(out),
       ci_est_name = "Effect", ci_level = ci_level))
-  
+
   # Add package information
   analysis <- add_package_info(analysis, "marginaleffects")
-  
+
   return(analysis)
 }
 
@@ -5146,17 +5146,17 @@ tidy_stats.summary_emm <- function(x, args = NULL) {
       }
     }
   }
-  
+
   for (i in which(sapply(x, is.matrix)))
     x[[i]] = NULL   # hide matrices
-  
+
   xc = as.matrix(format.data.frame(x, na.encode = FALSE))
   if (!is.matrix(xc))
     xc = t(as.matrix(xc))
   by.vars = attr(x, "by.vars")
   if (is.null(by.vars)) {
-    analysis$groups <- append(analysis$groups, 
-      df_to_group("EMMs Summary", as.data.frame(xc), 
+    analysis$groups <- append(analysis$groups,
+      df_to_group("EMMs Summary", as.data.frame(xc),
         ci_est_name = attr(x, "estName"), ci_level = ci_level))
   } else {
     # separate listing for each by variable
@@ -5167,15 +5167,15 @@ tidy_stats.summary_emm <- function(x, args = NULL) {
     for (lb in unique(lbls)) {
       rows = which(lbls == lb)
       levs = paste(paste0(by.vars, ": ", xc[rows[1], by.vars]), collapse = "; ")
-      analysis$groups <- append(analysis$groups, 
-        df_to_group(levs, as.data.frame(m[rows, , drop = FALSE]), 
+      analysis$groups <- append(analysis$groups,
+        df_to_group(levs, as.data.frame(m[rows, , drop = FALSE]),
           ci_est_name = attr(x, "estName"), ci_level = ci_level))
     }
   }
 
   # Add package information
   analysis <- add_package_info(analysis, "emmeans")
-  
+
   return(analysis)
 }
 
@@ -5186,6 +5186,138 @@ tidy_stats.emmGrid <- function(x, args = NULL) {
   if (require("emmeans")) {
     return(tidy_stats.summary_emm(summary(x)))
   } else {
-    stop("The 'emmeans' package needs to be loaded to add 'emmGrid' objects via add_stats in tidystats.") 
+    stop("The 'emmeans' package needs to be loaded to add 'emmGrid' objects via add_stats in tidystats.")
   }
+}
+
+
+#' @describeIn tidy_stats tidy_stats method for class 'anova_neat'
+#' @export
+tidy_stats.anova_neat <- function(x, args = NULL) {
+    # Create the analysis list
+    analysis <- list(method = "Analysis of Variance")
+
+    if (!is.null(x$normality_tests)) {
+        group <- list(name = "Normality of the Residuals")
+        for (norm_name in names(x$normality_tests)) {
+            subgroup <- list(name = x$normality_tests[[norm_name]]$title)
+            statistics <- list()
+            statistics <-
+                add_statistic(
+                    statistics,
+                    "statistic",
+                    x$normality_tests[[norm_name]]$statistic,
+                    sub("2", "²", norm_name)
+                )
+            statistics <-
+                add_statistic(statistics, "p", x$normality_tests[[norm_name]]$pval)
+            subgroup$statistics = statistics
+            group$groups <- append(group$groups, list(subgroup))
+        }
+        # Add the model group to a groups element on the analysis
+        analysis$groups <- append(analysis$groups, list(group))
+    }
+
+    if (!is.null(x$variance_tests)) {
+        group <- list(name = "Equality of Variances")
+        if (class(x$variance_tests[[1]]) == "data.frame") {
+            group$groups <-
+                append(group$groups,
+                       get_Brown(x$variance_tests, "Brown-Forsythe test"))
+            group$groups <-
+                append(group$groups,
+                       get_Fligner(x$variance_tests, "Fligner-Killeen test"))
+        } else {
+            subgroup <- list(name = "Brown-Forsythe test")
+            for (var_name in names(x$variance_tests)) {
+                subgroup$groups <-
+                    append(subgroup$groups,
+                           get_Brown(x$variance_tests[[var_name]], var_name))
+            }
+            group$groups <- append(group$groups, list(subgroup))
+            subgroup <- list(name = "Fligner-Killeen test")
+            for (var_name in names(x$variance_tests)) {
+                subgroup$groups <-
+                    append(subgroup$groups,
+                           get_Fligner(x$variance_tests[[var_name]], var_name))
+            }
+            group$groups <- append(group$groups, list(subgroup))
+        }
+        # Add the model group to a groups element on the analysis
+        analysis$groups <- append(analysis$groups, list(group))
+    }
+
+    if (!is.null(x$mauchly)) {
+        names(x$mauchly)[names(x$mauchly) == "correction_type"] = "correction method"
+        analysis$groups <- append(
+            analysis$groups,
+            df_to_group(
+                "Mauchly's Test for Sphericity",
+                x$mauchly
+            )
+        )
+    }
+
+    names(x$effects)[names(x$effects) == "df1"] = "df numerator"
+    names(x$effects)[names(x$effects) == "df2"] = "df denominator"
+    analysis$groups <- append(
+        analysis$groups,
+        df_to_group(
+            "ANOVA",
+            x$effects,
+            ci_est_name = "petas",
+            ci_level = x$ci_level
+        )
+    )
+
+    # Add package information
+    analysis <- add_package_info(analysis, "neatStats")
+
+    return(analysis)
+}
+
+get_Brown <- function(var_data, name) {
+    subgroupBrown <- list(name = name)
+    statistics <- list()
+    statistics <-
+        add_statistic(statistics,
+                      "statistic",
+                      var_data$Brown$Fval,
+                      "F")
+    statistics <- add_statistic(statistics,
+                                "df numerator",
+                                var_data$Brown$df1,
+                                "df",
+                                "num.")
+    statistics <- add_statistic(statistics,
+                                "df denominator",
+                                var_data$Brown$df2,
+                                "df",
+                                "den.")
+    statistics <-
+        add_statistic(statistics,
+                      "p",
+                      var_data$Brown$pval)
+    subgroupBrown$statistics = statistics
+    return(list(subgroupBrown))
+}
+
+get_Fligner <- function(var_data, name) {
+    subgroupFligner <- list(name = name)
+    statistics <- list()
+    statistics <-
+        add_statistic(statistics,
+                      "statistic",
+                      var_data$Fligner$X2,
+                      "χ²")
+    statistics <- add_statistic(statistics,
+                                "df",
+                                var_data$Fligner$df,
+                                "df")
+    statistics <-
+        add_statistic(statistics,
+                      "p",
+                      var_data$Fligner$pval)
+    subgroupFligner$statistics = statistics
+    return(list(subgroupFligner))
 }
