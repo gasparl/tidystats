@@ -71,6 +71,11 @@
 #'   \item \code{lmer()}
 #' }
 #'
+#' \code{neatStats}:
+#' \itemize{
+#'   \item \code{anova_neat()}
+#' }
+#'
 #' \code{metafor}:
 #' \itemize{
 #'   item code{anova.rma()}
