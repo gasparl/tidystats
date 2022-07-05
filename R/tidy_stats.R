@@ -46,7 +46,7 @@ tidy_stats <- function(x, args = NULL, ...) UseMethod("tidy_stats")
 #' @export
 tidy_stats.htest <- function(x, args = NULL) {
   # Create the analysis list and set the name
-  if (str_detect(x$data.name, ",\n using scores:")) {
+  if (stringr::str_detect(x$data.name, ",\n using scores:")) {
     x$data.name = paste0(gsub(" ,\n using scores:", " (scores:", x$data.name), ')')
   }
   analysis <- list(name = x$data.name)
@@ -1519,7 +1519,7 @@ tidy_stats.lme <- function(x, args = NULL) {
 
     if (x$dims$Q == 1) {
       group <- attr(varcor, "title")
-    } else if (str_detect(rowname, " =")) {
+    } else if (stringr::str_detect(rowname, " =")) {
       group <- paste(rowname, varcor[i, "Variance"])
       group_row <- i
     }
@@ -1771,7 +1771,7 @@ tidy_stats.nlme <- function(x, args = NULL) {
 
     if (x$dims$Q == 1) {
       group <- attr(varcor, "title")
-    } else if (str_detect(rowname, " =")) {
+    } else if (stringr::str_detect(rowname, " =")) {
       group <- paste(rowname, varcor[i, "Variance"])
       group_row <- i
     }
